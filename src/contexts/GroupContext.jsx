@@ -4,8 +4,9 @@ import React, { createContext, useContext, useState } from 'react';
  * @typedef {object} Group
  * @property {number} id
  * @property {string} name
+ * @property {string} description
  * @property {number} members
- * @property {string} type
+ * @property {string} category
  * @property {string} image
  */
 
@@ -29,19 +30,76 @@ const GroupContext = createContext(undefined);
  */
 export function GroupProvider({ children }) {
   const [groups, setGroups] = useState([
+    // Learner-Focused Groups
     { 
-      id: 2, 
-      name: 'Customer Service Excellence', 
-      members: 313, 
-      type: 'Study group', 
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop&auto=format'
+      id: 1, 
+      name: 'Skill Builders', 
+      description: 'Learners collaborating to build skills.',
+      members: 1250, 
+      category: 'Learner-Focused', 
+      image: '/assets/grp1.PNG'
     },
     { 
+      id: 2, 
+      name: 'Rights & Awareness Circle', 
+      description: 'Discussions on labour rights and reforms.',
+      members: 845, 
+      category: 'Learner-Focused', 
+      image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=400&fit=crop&auto=format'
+    },
+    
+    // Trainer-Focused Groups
+    { 
+      id: 3, 
+      name: 'Trainer Connect', 
+      description: 'Space for trainers to exchange methods and best practices.',
+      members: 320, 
+      category: 'Trainer-Focused', 
+      image: '/assets/grp2.PNG'
+    },
+    { 
+      id: 4, 
+      name: 'Content Innovators', 
+      description: 'Collaboration for lesson planning and creating courses.',
+      members: 275, 
+      category: 'Trainer-Focused', 
+      image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=400&fit=crop&auto=format'
+    },
+    
+    // Employer-Focused Groups
+    { 
       id: 5, 
-      name: 'IT Management & Strategy', 
-      members: 156, 
-      type: 'Interest group', 
-      image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300&fit=crop&auto=format'
+      name: 'Workplace Champions', 
+      description: 'Employers focused on workforce development.',
+      members: 485, 
+      category: 'Employer-Focused', 
+      image: '/assets/grp3.PNG'
+    },
+    { 
+      id: 6, 
+      name: 'Compliance Circle', 
+      description: 'Discussing labour reform policies and compliance strategies.',
+      members: 392, 
+      category: 'Employer-Focused', 
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop&auto=format'
+    },
+    
+    // Mixed / Initiative-Wide Groups
+    { 
+      id: 7, 
+      name: 'Campaign Catalysts', 
+      description: 'Discussions on GIZ-led campaigns and awareness drives.',
+      members: 1580, 
+      category: 'Initiative-Wide', 
+      image: '/assets/grp4.PNG'
+    },
+    { 
+      id: 8, 
+      name: 'Event Spotlight', 
+      description: 'Announcements, discussions, and feedback on workshops or webinars.',
+      members: 1245, 
+      category: 'Initiative-Wide', 
+      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=400&fit=crop&auto=format'
     },
   ]);
 

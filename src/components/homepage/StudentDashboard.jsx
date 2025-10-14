@@ -1,34 +1,56 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { BookOpen, Calendar, Clock, MessageSquare, Users, BarChart, Bell, ChevronRight, Plus } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import {WelcomeSection} from './WelcomeSection';
-import TeachingCoursesSection from './TeachingCoursesSection';
+import { GIZBranding } from './GIZBranding';
+import { WelcomeStatsSection } from './WelcomeStatsSection';
+import { CalendarEventsSection } from './CalendarEventsSection';
+import { AwarenessUpdatesSection } from './AwarenessUpdatesSection';
+import { LearningPathwaysSection } from './LearningPathwaysSection';
+import { GroupsCommunitySection } from './GroupsCommunitySection';
+import { QuickActionsSection } from './QuickActionsSection';
 import ZoomClassesSection from './ZoomClassesSection';
-import WidgetsSection from './WidgetsSection';
-import TaskListSection from './TaskListSection';
-import {AnnouncementSection} from './AnnouncementSection';
-import {CalendarSection} from './CalendarSection';
 
 export function StudentDashboard() {
   const navigate = useNavigate();
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 max-w-7xl mx-auto">
-      {/* Main Content - Takes 2/3 of the space on large screens */}
-      <div className="space-y-6 min-w-0 lg:col-span-2">
-        <WelcomeSection />
-        <TeachingCoursesSection />
-        <ZoomClassesSection />
-        <WidgetsSection />
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+      {/* GIZ Branding Header */}
+      <GIZBranding />
       
-      {/* Right Column - Optimized width and spacing */}
-      <div className="space-y-4 lg:sticky lg:top-20 w-full lg:col-span-1">
-        <TaskListSection />
-        <AnnouncementSection />
-        <CalendarSection />
+      {/* Top Section - Two Column Layout */}
+      <div className="max-w-7xl mx-auto px-6 pb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          {/* Left Side - Welcome & Stats */}
+          <div className="space-y-6">
+            <WelcomeStatsSection />
+          </div>
+          
+          {/* Right Side - Calendar & Events */}
+          <div className="space-y-4 lg:sticky lg:top-6 lg:self-start">
+            <CalendarEventsSection />
+          </div>
+        </div>
+
+        {/* Awareness & Updates Timeline Section */}
+        <div className="mb-8">
+          <AwarenessUpdatesSection />
+        </div>
+
+        {/* My Courses Section */}
+        <div className="mb-8">
+          <LearningPathwaysSection />
+        </div>
+
+        {/* Additional Sections Below */}
+        <div className="space-y-8">
+          <ZoomClassesSection />
+          
+          {/* Groups & Community Section */}
+          <GroupsCommunitySection />
+
+          {/* Quick Actions & Next Steps - Final Section */}
+          <QuickActionsSection />
+        </div>
       </div>
     </div>
   );

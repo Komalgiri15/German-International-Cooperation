@@ -1,3 +1,5 @@
+/* GIZ Dashboard - Import Inter and Nunito fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -5,6 +7,11 @@
  
 @layer base {
   :root {
+    /* GIZ Color Palette */
+    --giz-blue: #004E9A;
+    --giz-blue-dark: #003d7a;
+    --giz-yellow: #F5C518;
+    --giz-light-grey: #F5F5F5;
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
  
@@ -407,4 +414,75 @@
 
 .section-spacing-sm {
   @apply py-4 md:py-6 lg:py-8;
+}
+
+/* GIZ Dashboard Specific Styles */
+.giz-dashboard {
+  font-family: 'Inter', 'Nunito', sans-serif;
+}
+
+.giz-title {
+  font-family: 'Inter', 'Nunito', sans-serif;
+  font-weight: 700;
+}
+
+.giz-accent {
+  color: var(--giz-blue);
+}
+
+.giz-bg {
+  background-color: var(--giz-blue);
+}
+
+.giz-bg-hover:hover {
+  background-color: var(--giz-blue-dark);
+}
+
+/* GIZ Calendar today highlight */
+.calendar-today {
+  background-color: var(--giz-blue);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 78, 154, 0.3);
+}
+
+/* Animated counter effect */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-count-up {
+  animation: countUp 0.5s ease-out;
+}
+
+/* GIZ Event card hover effect */
+.event-card {
+  transition: all 0.2s ease-in-out;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Bilingual support - ensure proper spacing for longer text */
+.bilingual-ready {
+  min-height: fit-content;
+  word-wrap: break-word;
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

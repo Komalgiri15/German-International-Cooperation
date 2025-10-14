@@ -26,52 +26,59 @@ const Courses = () => {
   const [activeTab, setActiveTab] = useState('courses');
   const navigate = useNavigate();
 
-  // Basic banking courses (3 only)
+  // GIZ-Aligned Labour Reform Initiative Courses
   const mockCourses = [
     {
       id: 1,
-      title: "Banking Basics",
-      description: "Core concepts of banking, accounts, deposits, and lending",
-      students: 120,
-      duration: "6 weeks",
-      level: "Beginner",
+      title: "Strategic Communication",
+      description: "Master effective communication strategies for labour reform advocacy and stakeholder collaboration in organizational and policy contexts.",
+      students: 342,
+      duration: "8 weeks",
+      fullDuration: "8 Weeks (adaptable for 6-week intensive program)",
+      format: "Hybrid (workshops, online labs, project consultancy)",
+      output: "Strategic Communication Plan (Capstone)",
+      level: "Intermediate",
       status: "Active",
-      image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1200&h=800&fit=crop&auto=format",
+      image: "/assets/communication.PNG",
       archived: false,
       deleted: false,
-      catalog: "Insurance"
+      catalog: "Labour Reform"
     },
     {
       id: 2,
-      title: "Protecting Dreams: A Learning Journey with Rakshak Smart",
-      description: "Products, services, KYC, and branch operations in retail banking",
-      students: 95,
-      duration: "5 weeks",
+      title: "Digital Learning Pathways",
+      description: "Explore digital tools, e-learning platforms, and innovative pathways for skill development and workforce empowerment in the digital age.",
+      students: 456,
+      duration: "10 weeks",
+      fullDuration: "10 Weeks (adaptable for 8-week intensive program)",
+      format: "Hybrid (workshops, e-learning modules, hands-on projects)",
+      output: "Digital Learning Rollout Plan (Capstone)",
       level: "Beginner",
       status: "Active",
-      image: "/assets/Course2.PNG",
+      image: "/assets/digital.PNG",
       archived: false,
       deleted: false,
-      catalog: "Insurance"
+      catalog: "Digital Skills"
     },
     {
       id: 3,
-      title: "Introduction to Financial Markets",
-      description: "Overview of money markets, capital markets, and risk basics",
-      students: 110,
-      duration: "7 weeks",
-      level: "Beginner",
+      title: "Stakeholder Engagement for Labour Reform Initiatives",
+      description: "Build expertise in engaging diverse stakeholders—employers, workers, policymakers—to drive meaningful labour law reforms and compliance.",
+      students: 289,
+      duration: "12 weeks",
+      fullDuration: "12 Weeks (adaptable for 8-10-week intensive program)",
+      format: "Hybrid (workshops, online labs, project consultancy)",
+      output: "Stakeholder Engagement & Policy Implementation Plan (Capstone)",
+      level: "Advanced",
       status: "Active",
-      image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=1200&h=800&fit=crop&auto=format",
+      image: "/assets/LAw.PNG",
       archived: false,
       deleted: false,
-      catalog: "Insurance"
+      catalog: "Policy & Reform"
     }
   ];
 
   const [courses, setCourses] = useState(mockCourses);
-
-  // Only show the predefined banking courses
 
   const filteredCourses = courses.filter(course => {
     const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -311,7 +318,7 @@ const Courses = () => {
                 </p>
               </CardHeader>
               <CardContent onClick={() => handleCourseClick(course.id)}>
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-between mb-4">
                   <Badge variant="outline" className={getLevelColor(course.level)}>
                     {course.level}
                   </Badge>
@@ -319,15 +326,31 @@ const Courses = () => {
                     {course.catalog}
                   </Badge>
                 </div>
-                <div className="flex items-center justify-between text-sm text-muted-foreground">
-                  <div className="flex items-center gap-1">
+                
+                {/* Course Details - Clean Layout */}
+                <div className="space-y-2.5 mb-4 text-sm">
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Clock className="h-4 w-4 text-blue-600 flex-shrink-0" />
+                    <span className="line-clamp-1">{course.fullDuration}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <BookOpen className="h-4 w-4 text-blue-600 flex-shrink-0" />
+                    <span className="line-clamp-1">{course.format}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <FileText className="h-4 w-4 text-blue-600 flex-shrink-0" />
+                    <span className="line-clamp-1">{course.output}</span>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-sm">
+                  <div className="flex items-center gap-1.5 text-gray-600">
                     <Users className="h-4 w-4" />
-                    <span>{course.students} students</span>
+                    <span>{course.students} enrolled</span>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="h-4 w-4" />
-                    <span>{course.duration}</span>
-                  </div>
+                  <Badge variant="secondary" className="text-xs bg-green-100 text-green-700 border-green-200">
+                    Enrolling
+                  </Badge>
                 </div>
               </CardContent>
             </Card>

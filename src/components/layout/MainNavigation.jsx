@@ -1,13 +1,10 @@
 import React from 'react';
 import { 
-  Home, Book, Users, Folder, FileText, BarChart2,
-  Grid, Settings, FileBox, MessageCircle, HelpCircle, Gamepad2, Bot
+  Home, Book, Users, Folder, FileText, MessageCircle, HelpCircle
 } from 'lucide-react';
 import { NavItem } from './NavItem';
 import { useSidebar } from '@/contexts/SidebarContext';
-import { useUserFilter } from '@/contexts/UserFilterContext';
-import { useCourseSidebar } from '@/contexts/CourseSidebarContext';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   DropdownMenu,
@@ -15,24 +12,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 export const MainNavigation = ({ pathname, onItemClick }) => {
   const { isMainCollapsed } = useSidebar();
-  const { isFilterMenuOpen, setIsFilterMenuOpen } = useUserFilter();
-  const { openCourseSidebar, setCourseTitle } = useCourseSidebar();
-  const location = useLocation();
   const navigate = useNavigate();
-  
-  const handleUserClick = () => {
-    if (location.pathname === '/users') {
-      setIsFilterMenuOpen(!isFilterMenuOpen);
-    } else {
-      navigate('/users');
-      if (onItemClick) onItemClick();
-    }
-  };
 
   const handleCourseClick = () => {
     // Always navigate to courses page when clicked
@@ -42,34 +26,6 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
 
   const handleGroupsClick = () => {
     navigate('/groups');
-    if (onItemClick) onItemClick();
-  };
-
-  const handleResourcesClick = () => {
-    navigate('/resources');
-    if (onItemClick) onItemClick();
-  };
-
-  const handleGamesClick = () => {
-    // Open the games URL in a new tab
-    window.open('https://game-open-scene.vercel.app/', '_blank');
-    if (onItemClick) onItemClick();
-  };
-
-  const handleScenarioAssessmentClick = () => {
-    // Open Scenario Assessment in a new tab
-    window.open('https://preview--rakshak-coach-62.lovable.app/', '_blank');
-    if (onItemClick) onItemClick();
-  };
-
-  const handlePreliminaryProfileClick = () => {
-    // Open Preliminary Profile in a new tab
-    window.open('https://prudential-ai.vercel.app/', '_blank');
-    if (onItemClick) onItemClick();
-  };
-
-  const handleChatbotClick = () => {
-    navigate('/chatbot');
     if (onItemClick) onItemClick();
   };
 
@@ -158,58 +114,6 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
           />
         </motion.div>
         
-        {/* Games */}
-        <motion.div variants={itemVariants}>
-          <NavItem 
-            icon={Gamepad2}
-            label="Games"
-            to="#"
-            active={false}
-            onClick={handleGamesClick}
-            collapsed={isMainCollapsed}
-            className="hover-lift"
-          />
-        </motion.div>
-        
-        {/* Scenario Assessment */}
-        <motion.div variants={itemVariants}>
-          <NavItem 
-            icon={FileText}
-            label="Scenario Assessment"
-            to="#"
-            active={false}
-            onClick={handleScenarioAssessmentClick}
-            collapsed={isMainCollapsed}
-            className="hover-lift"
-          />
-        </motion.div>
-        
-        {/* Preliminary Profile */}
-        <motion.div variants={itemVariants}>
-          <NavItem 
-            icon={FileText}
-            label="Preliminary Profile"
-            to="#"
-            active={false}
-            onClick={handlePreliminaryProfileClick}
-            collapsed={isMainCollapsed}
-            className="hover-lift"
-          />
-        </motion.div>
-
-        {/* Chatbot */}
-        <motion.div variants={itemVariants}>
-          <NavItem 
-            icon={Bot}
-            label="Chatbot"
-            to="/chatbot"
-            active={pathname.startsWith('/chatbot')}
-            onClick={handleChatbotClick}
-            collapsed={isMainCollapsed}
-            className="hover-lift"
-          />
-        </motion.div>
-        
         {/* Messages */}
         <motion.div variants={itemVariants}>
           <NavItem 
@@ -218,45 +122,6 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
             to="/messages"
             active={pathname.startsWith('/messages')}
             onClick={() => handleNavItemClick('/messages')}
-            collapsed={isMainCollapsed}
-            className="hover-lift"
-          />
-        </motion.div>
-        
-        {/* Users */}
-        <motion.div variants={itemVariants} className="relative">
-          <NavItem 
-            icon={FileText} 
-            label="Users" 
-            to="/users" 
-            active={pathname.startsWith('/users')} 
-            onClick={handleUserClick}
-            collapsed={isMainCollapsed}
-            className="hover-lift"
-          />
-        </motion.div>
-        
-        {/* Resources */}
-        <motion.div variants={itemVariants}>
-          <NavItem
-            icon={FileBox}
-            label="Resources"
-            to="/resources"
-            active={pathname.startsWith('/resources')}
-            onClick={handleResourcesClick}
-            collapsed={isMainCollapsed}
-            className="hover-lift"
-          />
-        </motion.div>
-        
-        {/* Reports */}
-        <motion.div variants={itemVariants}>
-          <NavItem 
-            icon={BarChart2}
-            label="Reports"
-            to="/reports"
-            active={pathname === '/reports'}
-            onClick={() => handleNavItemClick('/reports')}
             collapsed={isMainCollapsed}
             className="hover-lift"
           />

@@ -35,15 +35,9 @@ const CourseModules = () => {
         
         if (publishedCourse.modules && publishedCourse.modules.length > 0) {
           const imageMap = {
-            'Module 1: Understanding Your Dreams': 'https://feedingonjesus.com/wp-content/uploads/2020/02/dream-journal.jpg',
-            'Module 2: Foundations of Life Insurance': 'https://img-c.udemycdn.com/course/750x422/3001538_f89d_9.jpg',
-            'Module 3: Building Your Protection Plan': 'https://img.etimg.com/thumb/height-360,width-480,imgsize-444020,msid-64589551/buying-insurance-with-a-home-loan-is-not-compulsory-should-you-still-get-it.jpg',
-            'Module 1: Path to Financial Independence': 'https://wealthnation.io/wp-content/uploads/2023/09/financial-independence.webp',
-            'Module 2: Investment Strategies': 'https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw/financialcharts-investing-chalkboard-laptop_SOIN19142_1180273_st_1560x880.jpg',
-            'Module 3: Retirement Planning': 'https://smartasset.com/wp-content/uploads/sites/2/2024/06/iStock-1887469204-modified-273b351e-da1d-4cc8-954d-3fbe9dfea2f6.jpg',
-            'Module 1: Family Protection Basics': 'https://static.vecteezy.com/system/resources/previews/007/117/153/non_2x/happy-prosperous-family-in-flowers-mother-father-daughter-son-cuddling-together-near-family-protection-family-conflict-flat-modern-design-illustration-vector.jpg',
-            'Module 2: Health Insurance Essentials': 'https://media.assettype.com/outlookmoney/2025-08-30/dky5i6oy/Health-Insurance-Essentials.png?w=640',
-            'Module 3: Estate Planning': 'https://agamalaw.in/wp-content/uploads/2024/02/09df9b4c-33d0-47c3-a817-bede2f3bb96d.gif'
+            'Module 1: Foundations of Strategic Communication': '/assets/communication.PNG',
+            'Module 2: Digital and Media Strategies': '/assets/digital.PNG',
+            'Module 3: Implementation, Feedback & Crisis Communication': '/assets/LAw.PNG'
           };
           const courseModules = publishedCourse.modules.map((module, index) => ({
             id: module.id,
@@ -65,120 +59,114 @@ const CourseModules = () => {
         // Course-specific modules based on courseId
         const getCourseModules = (courseId) => {
           const courseModules = {
-            '1': [ // Protecting Dreams Course
+            '1': [ // Strategic Communication Course
               {
                 id: 1,
-                title: "Module 1: Understanding Your Dreams",
-                description: "Discover what financial security means for your family's future",
-                units: 5,
-                assessments: 1,
-                duration: "2 hours",
+                title: "Module 1: Foundations of Strategic Communication",
+                description: "Master communication fundamentals, messaging frameworks, and stakeholder analysis for effective advocacy",
+                units: 6,
+                assessments: 2,
+                duration: "3 weeks",
                 completed: false,
                 locked: false,
               },
               {
                 id: 2,
-                title: "Module 2: Foundations of Life Insurance",
-                description: "Understanding the basics and why protection matters",
+                title: "Module 2: Digital and Media Strategies",
+                description: "Learn digital tools, social media engagement, and content creation for modern communication campaigns",
                 units: 8,
                 assessments: 2,
-                duration: "4 hours",
+                duration: "4 weeks",
                 completed: false,
                 locked: courseType === 'sequential',
               },
               {
                 id: 3,
-                title: "Module 3: Building Your Protection Plan",
-                description: "Creating a comprehensive strategy for your family's security",
-                units: 6,
-                assessments: 2,
-                duration: "3 hours",
+                title: "Module 3: Implementation, Feedback & Crisis Communication",
+                description: "Apply strategic planning, monitor campaign effectiveness, and manage crisis communication scenarios",
+                units: 7,
+                assessments: 3,
+                duration: "3 weeks",
                 completed: false,
                 locked: courseType === 'sequential',
               }
             ],
-            '2': [ // Financial Freedom Course
+            '2': [ // Digital Learning Pathways Course
               {
                 id: 1,
-                title: "Module 1: Path to Financial Independence",
-                description: "Understanding wealth building and financial planning",
+                title: "Module 1: Foundations of Strategic Communication",
+                description: "Master communication fundamentals, messaging frameworks, and stakeholder analysis for effective advocacy",
                 units: 7,
                 assessments: 2,
-                duration: "3 hours",
+                duration: "3.5 weeks",
                 completed: false,
                 locked: false,
               },
               {
                 id: 2,
-                title: "Module 2: Investment Strategies",
-                description: "Smart investment choices for long-term growth",
+                title: "Module 2: Digital and Media Strategies",
+                description: "Learn digital tools, social media engagement, and content creation for modern communication campaigns",
                 units: 9,
                 assessments: 3,
-                duration: "5 hours",
+                duration: "4 weeks",
                 completed: false,
                 locked: courseType === 'sequential',
               },
               {
                 id: 3,
-                title: "Module 3: Retirement Planning",
-                description: "Securing your golden years with proper planning",
-                units: 6,
+                title: "Module 3: Implementation, Feedback & Crisis Communication",
+                description: "Apply strategic planning, monitor campaign effectiveness, and manage crisis communication scenarios",
+                units: 8,
                 assessments: 2,
-                duration: "4 hours",
+                duration: "3.5 weeks",
                 completed: false,
                 locked: courseType === 'sequential',
               }
             ],
-            '3': [ // Family Security Course
+            '3': [ // Stakeholder Engagement Course
               {
                 id: 1,
-                title: "Module 1: Family Protection Basics",
-                description: "Essential concepts for protecting your loved ones",
-                units: 6,
-                assessments: 1,
-                duration: "2.5 hours",
+                title: "Module 1: Foundations of Strategic Communication",
+                description: "Master communication fundamentals, messaging frameworks, and stakeholder analysis for effective advocacy",
+                units: 8,
+                assessments: 2,
+                duration: "4 weeks",
                 completed: false,
                 locked: false,
               },
               {
                 id: 2,
-                title: "Module 2: Health Insurance Essentials",
-                description: "Understanding health coverage and medical protection",
-                units: 8,
-                assessments: 2,
-                duration: "4 hours",
+                title: "Module 2: Digital and Media Strategies",
+                description: "Learn digital tools, social media engagement, and content creation for modern communication campaigns",
+                units: 10,
+                assessments: 3,
+                duration: "5 weeks",
                 completed: false,
                 locked: courseType === 'sequential',
               },
               {
                 id: 3,
-                title: "Module 3: Estate Planning",
-                description: "Planning for the future and legacy protection",
-                units: 7,
-                assessments: 2,
-                duration: "3.5 hours",
+                title: "Module 3: Implementation, Feedback & Crisis Communication",
+                description: "Apply strategic planning, monitor campaign effectiveness, and manage crisis communication scenarios",
+                units: 9,
+                assessments: 3,
+                duration: "4 weeks",
                 completed: false,
                 locked: courseType === 'sequential',
               }
             ]
           };
           
-          return courseModules[courseId] || courseModules['1']; // Default to Protecting Dreams
+          return courseModules[courseId] || courseModules['1']; // Default to Strategic Communication
         };
         
         const defaultModules = getCourseModules(courseId).map((m) => {
           const titleToImage = {
-            'Module 1: Understanding Your Dreams': 'https://feedingonjesus.com/wp-content/uploads/2020/02/dream-journal.jpg',
-            'Module 2: Foundations of Life Insurance': 'https://img-c.udemycdn.com/course/750x422/3001538_f89d_9.jpg',
-            'Module 3: Building Your Protection Plan': 'https://img.etimg.com/thumb/height-360,width-480,imgsize-444020,msid-64589551/buying-insurance-with-a-home-loan-is-not-compulsory-should-you-still-get-it.jpg',
-            'Module 1: Path to Financial Independence': 'https://wealthnation.io/wp-content/uploads/2023/09/financial-independence.webp',
-            'Module 2: Investment Strategies': 'https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw/financialcharts-investing-chalkboard-laptop_SOIN19142_1180273_st_1560x880.jpg',
-            'Module 3: Retirement Planning': 'https://smartasset.com/wp-content/uploads/sites/2/2024/06/iStock-1887469204-modified-273b351e-da1d-4cc8-954d-3fbe9dfea2f6.jpg',
-            'Module 1: Family Protection Basics': 'https://static.vecteezy.com/system/resources/previews/007/117/153/non_2x/happy-prosperous-family-in-flowers-mother-father-daughter-son-cuddling-together-near-family-protection-family-conflict-flat-modern-design-illustration-vector.jpg',
-            'Module 2: Health Insurance Essentials': 'https://media.assettype.com/outlookmoney/2025-08-30/dky5i6oy/Health-Insurance-Essentials.png?w=640',
-            'Module 3: Estate Planning': 'https://agamalaw.in/wp-content/uploads/2024/02/09df9b4c-33d0-47c3-a817-bede2f3bb96d.gif'
+            'Module 1: Foundations of Strategic Communication': '/assets/communication.PNG',
+            'Module 2: Digital and Media Strategies': '/assets/digital.PNG',
+            'Module 3: Implementation, Feedback & Crisis Communication': '/assets/LAw.PNG'
           };
-          return { ...m, image: titleToImage[m.title] };
+          return { ...m, image: titleToImage[m.title] || 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=400&fit=crop&auto=format' };
         });
         setModules(defaultModules);
       }

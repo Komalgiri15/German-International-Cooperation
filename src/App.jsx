@@ -7,6 +7,7 @@ import { AdminLayout } from "./components/layout/AdminLayout";
 import { SidebarProvider } from "./contexts/SidebarContext";
 import { UserFilterProvider } from "./contexts/UserFilterContext";
 import { CourseSidebarProvider } from "./contexts/CourseSidebarContext";
+import { GroupProvider } from "./contexts/GroupContext";
 // Import all assessment components
 import MultipleChoiceQuiz from "./components/assessments/MultipleChoiceQuiz";
 import TrueFalseQuiz from "./components/assessments/TrueFalseQuiz";
@@ -55,17 +56,8 @@ import UnitsBuilder from "./pages/UnitsBuilder";
 import UnitCreator from "./pages/UnitCreator";
 import AssessmentsBuilder from "./pages/AssessmentsBuilder";
 
-// Import group pages
-import GroupOverviewPage from "./pages/groups/GroupOverviewPage";
-import GroupNewsPage from "./pages/groups/GroupNewsPage";
-import GroupCalendarPage from "./pages/groups/GroupCalendarPage";
-import GroupMembersPage from "./pages/groups/GroupMembersPage";
-import GroupAdminsPage from "./pages/groups/GroupAdminsPage";
-import GroupResourcesPage from "./pages/groups/GroupResourcesPage";
-import GroupForumsPage from "./pages/groups/GroupForumsPage";
-import GroupAboutPage from "./pages/groups/GroupAboutPage";
-import GroupChatPage from "./pages/groups/GroupChatPage";
-import GroupRssFeeds from "./pages/groups/GroupRssFeeds";
+// Import group pages - tabs are now handled internally in GroupDetail
+// No need to import individual group pages here
 
 import AssessmentCreator from "./pages/AssessmentCreator";
 
@@ -95,8 +87,9 @@ const App = () => (
         <SidebarProvider>
           <UserFilterProvider>
             <CourseSidebarProvider>
-              <Routes>
-                <Route path="/" element={<AdminLayout />}>
+              <GroupProvider>
+                <Routes>
+                  <Route path="/" element={<AdminLayout />}>
                   {/* Main pages */}
                   <Route index element={<Dashboard />} />
                   <Route path="courses" element={<Courses />} />
@@ -130,19 +123,9 @@ const App = () => (
                   <Route path="groups" element={<Groups />} />
                   <Route path="groups/catalog" element={<GroupCatalog />} />
                   
-                  {/* Group Detail Routes */}
-                  <Route path="groups/view/:groupId" element={<GroupDetail />}>
-                    <Route path="overview" element={<GroupOverviewPage />} />
-                    <Route path="about" element={<GroupAboutPage />} />
-                    <Route path="news" element={<GroupNewsPage />} />
-                    <Route path="calendar" element={<GroupCalendarPage />} />
-                    <Route path="members" element={<GroupMembersPage />} />
-                    <Route path="admins" element={<GroupAdminsPage />} />
-                    <Route path="resources" element={<GroupResourcesPage />} />
-                    <Route path="forums" element={<GroupForumsPage />} />
-                    <Route path="chat" element={<GroupChatPage />} />
-                    <Route path="rss" element={<GroupRssFeeds />} />
-                  </Route>
+                  {/* Group Detail Routes - Tabs handled internally */}
+                  <Route path="groups/view/:groupId" element={<GroupDetail />} />
+                  <Route path="groups/view/:groupId/:tab" element={<GroupDetail />} />
                   
                   <Route path="users" element={<Users />} />
                   <Route path="reports" element={<Reports />} />
@@ -175,6 +158,7 @@ const App = () => (
                   <Route path="assessment/proctored" element={<ProcturedExamination />} />
                 </Route>
               </Routes>
+              </GroupProvider>
             </CourseSidebarProvider>
           </UserFilterProvider>
         </SidebarProvider>
