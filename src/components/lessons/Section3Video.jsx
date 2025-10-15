@@ -171,7 +171,7 @@ const Section3Video = () => {
             size="sm" 
             variant="outline" 
             className="bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100" 
-            onClick={() => handleSpeakToggle('main-content', 'Guaranteed Benefits, Zero Surprises. With Rakshak Smart, your family\'s future is always secure.')}
+            onClick={() => handleSpeakToggle('main-content', 'Content Strategy — Message plus Medium plus Moment. Digital communication is not just about where you post — it\'s about what you say and when you say it. Aligning your message with the right moment makes it memorable and effective. The 3M Framework: Message - What do you want to convey? Medium - Which platform best fits it? Moment - When is your audience most receptive?')}
           >
             {speakingBlocks['main-content'] ? <Pause className="h-4 w-4 mr-2" /> : <Play className="h-4 w-4 mr-2" />}
             {speakingBlocks['main-content'] ? uiText.stop : uiText.listen}
@@ -180,7 +180,7 @@ const Section3Video = () => {
       </div>
 
       {/* Video Section */}
-      <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden rounded-b-2xl">
+      <section className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-b-2xl">
         {/* Background Video */}
         <video
           autoPlay
@@ -189,7 +189,7 @@ const Section3Video = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/assets/Creditor_video.mp4" type="video/mp4" />
+          <source src="/assets/Section3.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
@@ -200,22 +200,14 @@ const Section3Video = () => {
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 py-8">
           {/* Main Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 animate-fade-in">
-            Guaranteed Benefits, Zero Surprises
+            Content Strategy — Message + Medium + Moment
           </h2>
           
           {/* Sub-heading */}
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl leading-relaxed animate-fade-in animation-delay-200">
-            With Rakshak Smart, your family's future is always secure.
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 max-w-4xl leading-relaxed animate-fade-in animation-delay-200">
+            Digital communication is not just about where you post — it's about what you say and when you say it. 
+            Aligning your message with the right moment makes it memorable and effective.
           </p>
-          
-          {/* Call-to-Action Button */}
-          <Button
-            onClick={handleExploreMore}
-            className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-fade-in animation-delay-400"
-          >
-            Explore More
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
         </div>
         
         {/* Additional Visual Elements */}
@@ -225,6 +217,113 @@ const Section3Video = () => {
         
         <div className="absolute top-6 right-6 opacity-20">
           <div className="w-12 h-12 border-2 border-white rounded-full"></div>
+        </div>
+      </section>
+
+      {/* 3M Framework Section - Below Video */}
+      <section className="max-w-6xl mx-auto mt-8 px-6">
+        <div className="bg-white rounded-2xl shadow-lg p-8">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">📋 The 3M Framework</h3>
+            <p className="text-gray-600">A strategic approach to effective digital communication</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Message - Flip Card */}
+            <div className="group h-72 [perspective:1000px]">
+              <div className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                {/* Front */}
+                <div className="absolute inset-0 h-full w-full [backface-visibility:hidden]">
+                  <div className="h-full bg-white rounded-xl p-6 border border-gray-200 shadow-lg flex flex-col items-center justify-center text-center">
+                    <div className="text-5xl mb-4">💬</div>
+                    <h4 className="text-2xl font-bold text-gray-900 mb-3">Message</h4>
+                    <p className="text-gray-600 leading-relaxed">What do you want to convey?</p>
+                    <p className="text-xs text-gray-400 mt-4 italic">Hover to learn more</p>
+                  </div>
+                </div>
+                {/* Back */}
+                <div className="absolute inset-0 h-full w-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <div className="h-full bg-white rounded-xl p-6 border border-gray-200 shadow-lg flex flex-col justify-center text-gray-900">
+                    <h5 className="text-xl font-bold mb-4">Key Questions:</h5>
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ What's your core objective?</li>
+                      <li>✓ Who is your target audience?</li>
+                      <li>✓ What action do you want them to take?</li>
+                      <li>✓ How does it align with reform goals?</li>
+                    </ul>
+                    <p className="mt-4 text-xs italic text-gray-600">Clarity in message equals impact in communication</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Medium - Flip Card */}
+            <div className="group h-72 [perspective:1000px]">
+              <div className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                {/* Front */}
+                <div className="absolute inset-0 h-full w-full [backface-visibility:hidden]">
+                  <div className="h-full bg-white rounded-xl p-6 border border-gray-200 shadow-lg flex flex-col items-center justify-center text-center">
+                    <div className="text-5xl mb-4">📱</div>
+                    <h4 className="text-2xl font-bold text-gray-900 mb-3">Medium</h4>
+                    <p className="text-gray-600 leading-relaxed">Which platform best fits it?</p>
+                    <p className="text-xs text-gray-400 mt-4 italic">Hover to learn more</p>
+                  </div>
+                </div>
+                {/* Back */}
+                <div className="absolute inset-0 h-full w-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <div className="h-full bg-white rounded-xl p-6 border border-gray-200 shadow-lg flex flex-col justify-center text-gray-900">
+                    <h5 className="text-xl font-bold mb-4">Platform Selection:</h5>
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ Social media for quick updates</li>
+                      <li>✓ Blogs for detailed content</li>
+                      <li>✓ Video for demonstrations</li>
+                      <li>✓ Messaging for direct outreach</li>
+                    </ul>
+                    <p className="mt-4 text-xs italic text-gray-600">Match your medium to your message and audience</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Moment - Flip Card */}
+            <div className="group h-72 [perspective:1000px]">
+              <div className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                {/* Front */}
+                <div className="absolute inset-0 h-full w-full [backface-visibility:hidden]">
+                  <div className="h-full bg-white rounded-xl p-6 border border-gray-200 shadow-lg flex flex-col items-center justify-center text-center">
+                    <div className="text-5xl mb-4">⏰</div>
+                    <h4 className="text-2xl font-bold text-gray-900 mb-3">Moment</h4>
+                    <p className="text-gray-600 leading-relaxed">When is your audience most receptive?</p>
+                    <p className="text-xs text-gray-400 mt-4 italic">Hover to learn more</p>
+                  </div>
+                </div>
+                {/* Back */}
+                <div className="absolute inset-0 h-full w-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <div className="h-full bg-white rounded-xl p-6 border border-gray-200 shadow-lg flex flex-col justify-center text-gray-900">
+                    <h5 className="text-xl font-bold mb-4">Timing Matters:</h5>
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ Align with policy announcements</li>
+                      <li>✓ Consider cultural events</li>
+                      <li>✓ Monitor audience activity peaks</li>
+                      <li>✓ Respond to current trends</li>
+                    </ul>
+                    <p className="mt-4 text-xs italic text-gray-600">Right timing amplifies your message exponentially</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Call-to-Action */}
+          <div className="text-center mt-10">
+            <Button
+              onClick={handleExploreMore}
+              className="bg-gray-900 text-white hover:bg-gray-800 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            >
+              Explore More
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
         </div>
       </section>
 
