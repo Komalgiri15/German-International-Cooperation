@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Volume2, Maximize2, Play, Pause, X, Heart, ExternalLink, FileDown } from 'lucide-react';
+import { ArrowLeft, Volume2, Maximize2, Play, Pause, X, Heart, ExternalLink, FileDown, Languages } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { toast } from 'sonner';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -509,22 +509,88 @@ const LessonMod1Dreams = () => {
     if (baseLang === 'mr') {
       return [
         {
-          title: 'তुमची स्वপ्ने काय आहेत?',
-          front: ['महत्त्वाची जीवनध्येये ओळखा', 'लघु/दीर्घकालीन आकांक्षा यादी करा', 'परिणाम व कालरेषेनुसार प्राधान्य'],
-          back: 'स्वतःसाठी व कुटुंबासाठी सर्वात महत्त्वाची ध्येये स्पष्ट करा.',
-          color: 'from-pink-50 to-rose-50 border-pink-100',
-        },
-        {
-          title: 'स्वप्नांना सुरक्षा का आवश्यक',
-          front: ['जोखीम समजून घ्या: उत्पन्न घट, वैद्यकीय खर्च', 'विमा अनिश्चितता कशी कमी करतो', 'सक्रिय नियोजनाने लवचिकता'],
-          back: 'अनपेक्षित घटनांपासून स्वप्ने वाचवण्यासाठी संरक्षण गरजेचे आहे.',
+          title: 'श्रम सुधार म्हणजे काय?',
+          front: ['डिजिटल युगातील श्रम कायद्यांचे आधुनिकीकरण', 'कार्यस्थळ सुरक्षा आणि हक्कांचे संरक्षण', 'आंतरराष्ट्रीय मानकांशी संरेखन'],
+          back: 'श्रम सुधारामध्ये कार्यस्थळ अधिक न्याय्य आणि सुरक्षित बनवण्यासाठी कायदे आणि धोरणे अपडेट करणे समाविष्ट आहे.',
           color: 'from-blue-50 to-indigo-50 border-blue-100',
         },
         {
-          title: 'मजबूत पाया तयार करा',
-          front: ['स्पष्ट आर्थिक मैलाचे दगड', 'आणीबाणी बचत व मूलभूत संरक्षण', 'नियमित पुनरावलोकन व सुधारणा'],
-          back: 'सोपी, टिकाऊ पायाभरणी स्वप्ने मार्गावर ठेवते.',
+          title: 'डिजिटल परिवर्तनाची भूमिका',
+          front: ['कार्यस्थळात तंत्रज्ञानाचे एकत्रीकरण', 'दूरस्थ कार्य आणि लवचिकतेचे समर्थन', 'डिजिटल कौशल्य विकासाची गरज'],
+          back: 'डिजिटल परिवर्तन श्रम बाजारपेठा बदलत आहे आणि नवीन कौशल्ये व दृष्टिकोन मागत आहे.',
           color: 'from-green-50 to-emerald-50 border-green-100',
+        },
+        {
+          title: 'संप्रेषणाची महत्त्वाची भूमिका',
+          front: ['स्टेकहोल्डर्स दरम्यान स्पष्ट संप्रेषण', 'धोरण बदलाचे स्पष्टीकरण आणि समज', 'सहकार्य आणि समर्थन निर्माण करणे'],
+          back: 'प्रभावी संप्रेषण सार्वजनिक धोरण परिवर्तनाच्या यशासाठी महत्त्वाचे आहे.',
+          color: 'from-purple-50 to-violet-50 border-purple-100',
+        },
+      ];
+    }
+    if (baseLang === 'de') {
+      return [
+        {
+          title: 'Was ist Arbeitsreform?',
+          front: ['Modernisierung der Arbeitsgesetze im digitalen Zeitalter', 'Schutz von Arbeitssicherheit und -rechten', 'Ausrichtung an internationalen Standards'],
+          back: 'Arbeitsreform bedeutet, Gesetze und Richtlinien zu aktualisieren, um Arbeitsplätze gerechter und sicherer zu machen.',
+          color: 'from-blue-50 to-indigo-50 border-blue-100',
+        },
+        {
+          title: 'Rolle der digitalen Transformation',
+          front: ['Technologieintegration am Arbeitsplatz', 'Unterstützung von Remote-Arbeit und Flexibilität', 'Bedarf an digitalen Kompetenzen'],
+          back: 'Die digitale Transformation verändert den Arbeitsmarkt und verlangt neue Fähigkeiten und Herangehensweisen.',
+          color: 'from-green-50 to-emerald-50 border-green-100',
+        },
+        {
+          title: 'Kritische Rolle der Kommunikation',
+          front: ['Klares Stakeholder-Management', 'Politikänderungen erklären und verstehen', 'Zusammenarbeit und Unterstützung aufbauen'],
+          back: 'Effektive Kommunikation ist entscheidend für den Erfolg der Transformation der öffentlichen Politik.',
+          color: 'from-purple-50 to-violet-50 border-purple-100',
+        },
+      ];
+    }
+    if (baseLang === 'es') {
+      return [
+        {
+          title: '¿Qué es la reforma laboral?',
+          front: ['Modernizar las leyes laborales en la era digital', 'Proteger la seguridad y los derechos en el trabajo', 'Alineación con estándares internacionales'],
+          back: 'La reforma laboral implica actualizar leyes y políticas para que los lugares de trabajo sean más justos y seguros.',
+          color: 'from-blue-50 to-indigo-50 border-blue-100',
+        },
+        {
+          title: 'Rol de la transformación digital',
+          front: ['Integración tecnológica en los lugares de trabajo', 'Apoyo al trabajo remoto y la flexibilidad', 'Necesidad de desarrollar habilidades digitales'],
+          back: 'La transformación digital está cambiando el mercado laboral y exige nuevas habilidades y enfoques.',
+          color: 'from-green-50 to-emerald-50 border-green-100',
+        },
+        {
+          title: 'Rol crítico de la comunicación',
+          front: ['Comunicación clara entre partes interesadas', 'Explicar y comprender cambios de política', 'Construir colaboración y apoyo'],
+          back: 'La comunicación efectiva es crucial para el éxito de la transformación de la política pública.',
+          color: 'from-purple-50 to-violet-50 border-purple-100',
+        },
+      ];
+    }
+    if (baseLang === 'fr') {
+      return [
+        {
+          title: 'Qu’est-ce que la réforme du travail ?',
+          front: ['Moderniser les lois du travail à l’ère numérique', 'Protéger la sécurité et les droits au travail', 'Alignement sur les normes internationales'],
+          back: 'La réforme du travail consiste à mettre à jour les lois et politiques pour rendre les lieux de travail plus équitables et sûrs.',
+          color: 'from-blue-50 to-indigo-50 border-blue-100',
+        },
+        {
+          title: 'Rôle de la transformation numérique',
+          front: ['Intégration des technologies au travail', 'Soutien du télétravail et de la flexibilité', 'Besoin de développer les compétences numériques'],
+          back: 'La transformation numérique change le marché du travail et exige de nouvelles compétences et approches.',
+          color: 'from-green-50 to-emerald-50 border-green-100',
+        },
+        {
+          title: 'Rôle critique de la communication',
+          front: ['Communication claire entre parties prenantes', 'Expliquer et comprendre les changements de politique', 'Construire la collaboration et le soutien'],
+          back: 'Une communication efficace est cruciale pour la réussite de la transformation des politiques publiques.',
+          color: 'from-purple-50 to-violet-50 border-purple-100',
         },
       ];
     }
@@ -553,6 +619,9 @@ const LessonMod1Dreams = () => {
   const pdfUi = React.useMemo(() => {
     if (baseLang === 'hi') return { title: 'श्रम सुधार पीडीएफ दस्तावेज', open: 'खोलें', download: 'डाउनलोड' };
     if (baseLang === 'mr') return { title: 'श्रम सुधार PDF दस्तऐवज', open: 'उघडा', download: 'डाउनलोड' };
+    if (baseLang === 'de') return { title: 'PDF-Dokument zur Arbeitsreform', open: 'Öffnen', download: 'Herunterladen' };
+    if (baseLang === 'es') return { title: 'Documento PDF de Reforma Laboral', open: 'Abrir', download: 'Descargar' };
+    if (baseLang === 'fr') return { title: 'Document PDF sur la réforme du travail', open: 'Ouvrir', download: 'Télécharger' };
     return { title: 'Labour Reform PDF Document', open: 'Open', download: 'Download' };
   }, [baseLang]);
   const pdfUrl = '/assets/Lesson1LabourReform_DigitalTransformation.pdf';
@@ -561,7 +630,7 @@ const LessonMod1Dreams = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Navigation Header */}
       <div className="bg-white shadow-sm border-b">
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between gap-3">
           <Button 
             onClick={handleBackToModules} 
             variant="outline"
@@ -570,6 +639,55 @@ const LessonMod1Dreams = () => {
             <ArrowLeft className="h-4 w-4" />
             {uiText.backToModules}
           </Button>
+
+          {/* Quick language switcher */}
+          <div className="relative">
+            <Button
+              type="button"
+              variant="outline"
+              size="icon"
+              className="h-9 w-9"
+              onClick={() => {
+                const el = document.getElementById('quick-lang-menu');
+                if (!el) return;
+                el.classList.toggle('hidden');
+              }}
+            >
+              <Languages className="h-4 w-4" />
+            </Button>
+            <div
+              id="quick-lang-menu"
+              className="hidden absolute right-0 mt-2 w-44 rounded-md border bg-white shadow-lg z-20"
+            >
+              <ul className="py-1 text-sm text-gray-700">
+                {[
+                  { code: 'en-US', label: 'English' },
+                  { code: 'hi-IN', label: 'हिन्दी' },
+                  { code: 'mr-IN', label: 'मराठी' },
+                  { code: 'de-DE', label: 'Deutsch' },
+                  { code: 'es-ES', label: 'Español' },
+                  { code: 'fr-FR', label: 'Français' },
+                ].map((opt) => (
+                  <li key={opt.code}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const synth = window.speechSynthesis;
+                        if (synth) synth.cancel();
+                        setSpeakingBlocks({});
+                        setSelectedLang(opt.code);
+                        const el = document.getElementById('quick-lang-menu');
+                        if (el) el.classList.add('hidden');
+                      }}
+                      className={`w-full text-left px-3 py-2 hover:bg-gray-50 ${selectedLang === opt.code ? 'bg-gray-100 font-medium' : ''}`}
+                    >
+                      {opt.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -604,7 +722,7 @@ const LessonMod1Dreams = () => {
                                 ))}
                               </ul>
                             </div>
-                            <p className="text-xs text-gray-500 mt-4">{baseLang === 'hi' ? 'फ्लिप करने हेतु होवर करें' : baseLang === 'mr' ? 'फ्लिपसाठी होवर करा' : 'Hover to flip'}</p>
+                            <p className="text-xs text-gray-500 mt-4">{t.hoverToFlip}</p>
                           </div>
                           {/* Back */}
                           <div className={`absolute inset-0 bg-white border rounded-xl p-6 shadow-sm [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between`}>
@@ -622,7 +740,7 @@ const LessonMod1Dreams = () => {
                 <CarouselNext className="-right-4" />
               </Carousel>
             </div>
-            <p className="text-sm text-gray-500 text-center mt-4">{baseLang === 'hi' ? 'मुख्य विचारों का अध्ययन करें' : baseLang === 'mr' ? 'महत्त्वाच्या कल्पना अभ्यासा' : 'Study key ideas'}</p>
+            <p className="text-sm text-gray-500 text-center mt-4">{t.studyKeyIdeas}</p>
           </div>
 
           {/* Section Description with TTS and Controls */}
@@ -1548,7 +1666,7 @@ const LessonMod1Dreams = () => {
                                   ))}
                                 </ul>
                               </div>
-                              <p className="text-xs text-gray-500 mt-4">{baseLang === 'hi' ? 'फ्लिप करने हेतु होवर करें' : baseLang === 'mr' ? 'फ्लिपसाठी होवर करा' : 'Hover to flip'}</p>
+                              <p className="text-xs text-gray-500 mt-4">{t.hoverToFlip}</p>
                             </div>
                             <div className={`absolute inset-0 bg-white border rounded-xl p-6 shadow-sm [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between`}>
                               <div>
