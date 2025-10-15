@@ -277,7 +277,7 @@ const Catalog = () => {
                     <h3 className="text-white font-bold text-xl mb-1 line-clamp-2 drop-shadow-2xl tracking-tight">
                       {catalog.name}
                     </h3>
-                  </div>
+              </div>
             </div>
             
             <CardContent className="p-6" onClick={() => handleCatalogClick(catalog)}>

@@ -36,6 +36,9 @@ import Resources from "./pages/Resources.jsx";
 import Messages from "./pages/Messages.jsx";
 import Help from "./pages/Help.jsx";
 import ModuleAssessments from "./pages/ModuleAssessments.jsx";
+import AssessmentView from "./pages/AssessmentView.jsx";
+import QuizPage from "./pages/QuizPage.jsx";
+import ScenarioPage from "./pages/ScenarioPage.jsx";
 import DebateInstructorPage from "./pages/DebateInstructorPage";
 import Catalog from "./pages/Catalog.jsx";
 import CategoryDetail from "./pages/CategoryDetail.jsx";
@@ -106,7 +109,10 @@ const App = () => (
                   <Route path="courses/view/:courseId/*" element={<CourseDetail />} />
                   <Route path="courses/view/:courseId/news" element={<CourseNewsPage />} />
                   <Route path="courses/view/:courseId/attendance" element={<CourseAttendance />} />
-                  <Route path="courses/modules/:moduleId/assessments" element={<ModuleAssessments />} />
+                  <Route path="courses/modules/:moduleId/assessments" element={<AssessmentView />} />
+                  <Route path="courses/modules/:moduleId/assessments/manage" element={<ModuleAssessments />} />
+                  <Route path="courses/modules/:moduleId/quiz" element={<QuizPage />} />
+                  <Route path="courses/modules/:moduleId/scenario" element={<ScenarioPage />} />
                   <Route path="courses/modules/:moduleId/assignments/:assignmentId" element={<AssignmentInstructorPage />} />
                   <Route path="courses/modules/:moduleId/debates/:debateId" element={<DebateInstructorPage />} />
                   <Route path="courses/modules/:moduleId/quizzes/:quizId" element={<QuizInstructorPage />} />
