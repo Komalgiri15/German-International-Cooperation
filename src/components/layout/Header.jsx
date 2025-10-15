@@ -14,6 +14,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ThemeToggle } from "../theme/ThemeToggle";
 import { useToast } from '@/hooks/use-toast';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import NotificationModal from "../notifications/NotificationModal";
+import { Badge } from "@/components/ui/badge";
 
 export const Header = ({ onMenuClick }) => {
   const location = useLocation();
@@ -26,6 +28,7 @@ export const Header = ({ onMenuClick }) => {
   const [inboxDialogOpen, setInboxDialogOpen] = useState(false);
   const [recycleBinDialogOpen, setRecycleBinDialogOpen] = useState(false);
   const [notificationDialogOpen, setNotificationDialogOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(3); // Track unread notifications
 
   useEffect(() => {
     const handleAvatarUpdate = (event) => {
@@ -91,6 +94,19 @@ export const Header = ({ onMenuClick }) => {
 
   const handleNotificationsClick = () => {
     setNotificationDialogOpen(true);
+  };
+
+  const handleNotificationAction = (notification) => {
+    // Navigate to the notification link
+    if (notification.link) {
+      navigate(notification.link);
+    }
+    // Optionally show a toast
+    toast({
+      title: "Opening Content",
+      description: "Navigating to content...",
+      duration: 2000,
+    });
   };
 
   const handleJoinMeeting = (eventTitle) => {
@@ -177,7 +193,11 @@ export const Header = ({ onMenuClick }) => {
             aria-label="Notifications"
           >
             <Bell className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+            {unreadCount > 0 && (
+              <Badge className="absolute -top-2 -right-2 bg-red-600 text-white px-1.5 py-0.5 text-xs min-w-[20px] h-5 flex items-center justify-center">
+                {unreadCount}
+              </Badge>
+            )}
           </Button>
           
           <DropdownMenu>
@@ -372,47 +392,12 @@ export const Header = ({ onMenuClick }) => {
         </DialogContent>
       </Dialog>
 
-      <Dialog open={notificationDialogOpen} onOpenChange={setNotificationDialogOpen}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-2">
-              <Bell className="h-5 w-5" />
-              Notifications
-            </DialogTitle>
-          </DialogHeader>
-          <div className="space-y-3">
-            <div className="flex items-start gap-3 p-3 bg-blue-50 rounded">
-              <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-              <div className="flex-1">
-                <p className="font-medium text-sm">New course available</p>
-                <p className="text-xs text-gray-600">Advanced Risk Assessment is now open for enrollment</p>
-                <span className="text-xs text-blue-600">5 minutes ago</span>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 p-3 bg-green-50 rounded">
-              <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-              <div className="flex-1">
-                <p className="font-medium text-sm">Assignment graded</p>
-                <p className="text-xs text-gray-600">Your Module 4 assignment received a score of 95%</p>
-                <span className="text-xs text-green-600">1 hour ago</span>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 p-3 bg-yellow-50 rounded">
-              <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
-              <div className="flex-1">
-                <p className="font-medium text-sm">Reminder</p>
-                <p className="text-xs text-gray-600">Live session starts in 30 minutes</p>
-                <span className="text-xs text-yellow-600">30 minutes ago</span>
-              </div>
-            </div>
-            <div className="mt-4 pt-3 border-t">
-              <Button variant="outline" size="sm" className="w-full">
-                Mark All as Read
-              </Button>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
+      {/* Multilingual Notification Modal */}
+      <NotificationModal
+        isOpen={notificationDialogOpen}
+        onClose={() => setNotificationDialogOpen(false)}
+        onNotificationAction={handleNotificationAction}
+      />
     </>
   );
 };

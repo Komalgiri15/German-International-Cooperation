@@ -39,6 +39,7 @@ import ModuleAssessments from "./pages/ModuleAssessments.jsx";
 import AssessmentView from "./pages/AssessmentView.jsx";
 import QuizPage from "./pages/QuizPage.jsx";
 import ScenarioPage from "./pages/ScenarioPage.jsx";
+import NotificationsDemo from "./pages/NotificationsDemo.jsx";
 import DebateInstructorPage from "./pages/DebateInstructorPage";
 import Catalog from "./pages/Catalog.jsx";
 import CategoryDetail from "./pages/CategoryDetail.jsx";
@@ -145,6 +146,9 @@ const App = () => (
                   <Route path="tasks" element={<TaskManagement />} />
                   <Route path="announcements" element={<AnnouncementManagement />} />
                   <Route path="calendar" element={<CalendarManagement />} />
+                  
+                  {/* Notifications Demo */}
+                  <Route path="notifications-demo" element={<NotificationsDemo />} />
                   
                   {/* Assessment Routes */}
                   <Route path="assessment/multiple-choice" element={<MultipleChoiceQuiz />} />
