@@ -33,13 +33,13 @@ const Courses = () => {
       title: "Strategic Communication",
       description: "Master effective communication strategies for labour reform advocacy and stakeholder collaboration in organizational and policy contexts.",
       students: 342,
-      duration: "8 weeks",
+      duration: "12 weeks",
       fullDuration: "8 Weeks (adaptable for 6-week intensive program)",
       format: "Hybrid (workshops, online labs, project consultancy)",
       output: "Strategic Communication Plan (Capstone)",
       level: "Intermediate",
       status: "Active",
-      image: "/assets/communication.PNG",
+      image: "/assets/c1.webp",
       archived: false,
       deleted: false,
       catalog: "Labour Reform"
@@ -55,7 +55,7 @@ const Courses = () => {
       output: "Digital Learning Rollout Plan (Capstone)",
       level: "Beginner",
       status: "Active",
-      image: "/assets/digital.PNG",
+      image: "/assets/c2.webp",
       archived: false,
       deleted: false,
       catalog: "Digital Skills"
@@ -71,7 +71,7 @@ const Courses = () => {
       output: "Stakeholder Engagement & Policy Implementation Plan (Capstone)",
       level: "Advanced",
       status: "Active",
-      image: "/assets/LAw.PNG",
+      image: "/assets/c3.webp",
       archived: false,
       deleted: false,
       catalog: "Policy & Reform"

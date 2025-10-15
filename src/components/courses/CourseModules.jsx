@@ -62,7 +62,7 @@ const CourseModules = () => {
             '1': [ // Strategic Communication Course
               {
                 id: 1,
-                title: "Module 1: Foundations of Strategic Communication",
+                title: "Module 1: Understanding Labour Reform, Digital Transformation & Communication Context",
                 description: "Master communication fundamentals, messaging frameworks, and stakeholder analysis for effective advocacy",
                 units: 6,
                 assessments: 2,
@@ -94,11 +94,11 @@ const CourseModules = () => {
             '2': [ // Digital Learning Pathways Course
               {
                 id: 1,
-                title: "Module 1: Foundations of Strategic Communication",
+                title: "Module 1: Understanding Labour Reform, Digital Transformation & Communication Context",
                 description: "Master communication fundamentals, messaging frameworks, and stakeholder analysis for effective advocacy",
                 units: 7,
                 assessments: 2,
-                duration: "3.5 weeks",
+                duration: "2 weeks",
                 completed: false,
                 locked: false,
               },

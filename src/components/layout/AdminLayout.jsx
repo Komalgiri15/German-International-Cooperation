@@ -70,7 +70,7 @@ export const AdminLayout = ({ title = 'Dashboard' }) => {
       }
     }
 
-    document.title = `${newTitle} | PRAMERICA`;
+    document.title = `${newTitle} | GIC`;
   }, [location.pathname, title, courseId, setCourseTitle]);
 
   return (

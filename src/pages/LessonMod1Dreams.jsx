@@ -18,7 +18,7 @@ const LessonMod1Dreams = () => {
   const [quizAnswers, setQuizAnswers] = useState({}); // State for quiz answers
   const textRef = useRef(null);
 
-  // Language options - Only languages with commonly available voices
+  // Language options - All available languages
   const languageOptions = React.useMemo(() => ([
     { code: 'en-US', label: '🇺🇸 English (US)' },
     { code: 'en-GB', label: '🇬🇧 English (UK)' },
@@ -83,24 +83,45 @@ const LessonMod1Dreams = () => {
     const map = {
       'en': { 
         backToModules: 'Back to Modules',
-        module1: 'Module 1: Understanding Your Dreams',
-        courseTitle: 'Protecting Dreams',
-        description: 'Discover what financial security means for your family\'s future',
+        module1: 'Module 1: Understanding Labour Reform, Digital Transformation & Communication Context',
+        courseTitle: 'Labour Reform & Digital Transformation',
+        description: 'Understand labour reform priorities, digital transformation drivers, and communication needs',
         complete: 'Complete Module'
       },
       'hi': { 
         backToModules: 'मॉड्यूल्स पर वापस जाएं',
-        module1: 'मॉड्यूल 1: अपने सपनों को समझना',
-        courseTitle: 'सपनों की रक्षा',
-        description: 'जानें कि आपके परिवार के भविष्य के लिए वित्तीय सुरक्षा का क्या मतलब है',
+        module1: 'मॉड्यूल 1: श्रम सुधार, डिजिटल परिवर्तन और संचार संदर्भ को समझना',
+        courseTitle: 'श्रम सुधार और डिजिटल परिवर्तन',
+        description: 'श्रम सुधार प्राथमिकताओं, डिजिटल परिवर्तन ड्राइवरों और संचार आवश्यकताओं को समझें',
         complete: 'मॉड्यूल पूरा करें'
       },
       'mr': { 
         backToModules: 'मॉड्यूल्सकडे परत जा',
-        module1: 'मॉड्यूल 1: तुमचे स्वप्ने समजून घेणे',
-        courseTitle: 'स्वप्नांचे संरक्षण',
-        description: 'तुमच्या कुटुंबाच्या भविष्यासाठी आर्थिक सुरक्षा म्हणजे काय हे जाणून घ्याल. आम्ही व्यावहारिक पावले सांगू ज्यामुळे तुम्ही एक मजबूत आर्थिक पाया तयार करू शकता जो अनिश्चिततेतही स्वप्ने मार्गावर ठेवतो.',
+        module1: 'मॉड्यूल 1: श्रम सुधार, डिजिटल परिवर्तन आणि संप्रेषण संदर्भ समजून घेणे',
+        courseTitle: 'श्रम सुधार आणि डिजिटल परिवर्तन',
+        description: 'श्रम सुधार प्राधान्ये, डिजिटल परिवर्तन ड्राइव्हर्स आणि संप्रेषण गरजा समजून घ्या',
         complete: 'मॉड्यूल पूर्ण करा'
+      },
+      'de': { 
+        backToModules: 'Zurück zu den Modulen',
+        module1: 'Modul 1: Arbeitsreform, digitale Transformation und Kommunikationskontext verstehen',
+        courseTitle: 'Arbeitsreform und digitale Transformation',
+        description: 'Verstehen Sie Arbeitsreform-Prioritäten, digitale Transformationsantriebe und Kommunikationsbedürfnisse',
+        complete: 'Modul abschließen'
+      },
+      'fr': { 
+        backToModules: 'Retour aux modules',
+        module1: 'Module 1: Comprendre la réforme du travail, la transformation numérique et le contexte de communication',
+        courseTitle: 'Réforme du travail et transformation numérique',
+        description: 'Comprendre les priorités de réforme du travail, les moteurs de transformation numérique et les besoins de communication',
+        complete: 'Module complet'
+      },
+      'es': { 
+        backToModules: 'Volver a los módulos',
+        module1: 'Módulo 1: Entender la reforma laboral, transformación digital y contexto de comunicación',
+        courseTitle: 'Reforma laboral y transformación digital',
+        description: 'Entender las prioridades de reforma laboral, impulsores de transformación digital y necesidades de comunicación',
+        complete: 'Módulo completo'
       }
     };
     const key = (selectedLang || 'en-US').split('-')[0];
@@ -308,17 +329,17 @@ const LessonMod1Dreams = () => {
   const t = React.useMemo(() => {
     if (baseLang === 'hi') {
       return {
-        introTitle: 'पाठ 1: अपने सपनों को समझना',
-        introSubtitle: 'जानें कि आपके परिवार के भविष्य के लिए वित्तीय सुरक्षा का क्या मतलब है',
+        introTitle: 'पाठ 1: श्रम सुधार और डिजिटल परिवर्तन',
+        introSubtitle: 'श्रम सुधार प्राथमिकताओं, डिजिटल परिवर्तन ड्राइवरों और संचार आवश्यकताओं को समझें',
         learnTitle: 'इस पाठ में आप क्या सीखेंगे',
         listen: 'सुनें',
         stop: 'रोकें',
         outcomesTitle: 'परिणाम',
         toolsTitle: 'आप जिन उपकरणों का उपयोग करेंगे',
         paragraph:
-          'इस पाठ में, आप अपने सबसे महत्वपूर्ण सपनों को स्पष्ट करेंगे और जानेंगे कि उन्हें शुरुआती चरण में सुरक्षित करना क्यों आवश्यक है। हम व्यावहारिक कदम बताएंगे जिससे आप एक मजबूत वित्तीय नींव बना सकें जो अनिश्चित परिस्थितियों में भी आपके सपनों को ट्रैक पर रखे।',
-        outcomes: ['• अपने लक्ष्यों को परिभाषित और प्राथमिकता दें', '• प्रमुख जोखिम और सुरक्षा को समझें', '• एक सरल कार्ययोजना बनाएँ', '• तिमाही समीक्षा क्या करें जानें'],
-        tools: ['• ड्रीम बिल्डर चेकलिस्ट', '• जोखिम मूल्यांकन पॉइंटर्स', '• स्टार्टर प्रोटेक्शन मिक्स', '• समीक्षा आवृत्ति टेम्पलेट'],
+          'इस पाठ में, आप श्रम सुधार की प्राथमिकताओं, डिजिटल परिवर्तन के ड्राइवरों और संचार की आवश्यकताओं को समझेंगे। आप अमेरिकी और अंतर्राष्ट्रीय ढांचे (ILO, GIZ, OECD) की पहचान करेंगे और सार्वजनिक नीति परिवर्तन में संचार की भूमिका को समझेंगे।',
+        outcomes: ['• श्रम सुधार प्राथमिकताओं को समझें', '• डिजिटल परिवर्तन ड्राइवरों की पहचान करें', '• संचार आवश्यकताओं का विश्लेषण करें', '• हितधारक मैपिंग और प्रभाव विश्लेषण करें'],
+        tools: ['• हितधारक प्रभाव मैप', '• संचार आवश्यकता विश्लेषण', '• डिजिटल परिवर्तन ढांचा', '• GIZ दृष्टिकोण टेम्प्लेट'],
         audioSection: 'सेक्शन 2: ऑडियो विवरण',
         chooseNarration: 'वर्णन भाषा चुनें',
         listenToLesson: 'पाठ सुनें',
@@ -329,17 +350,17 @@ const LessonMod1Dreams = () => {
     }
     if (baseLang === 'mr') {
       return {
-        introTitle: 'पाठ 1: तुमचे स्वप्ने समजून घेणे',
-        introSubtitle: 'तुमच्या कुटुंबाच्या भविष्यासाठी आर्थिक सुरक्षा म्हणजे काय हे जाणून घ्याल. आम्ही व्यावहारिक पावले सांगू ज्यामुळे तुम्ही एक मजबूत आर्थिक पाया तयार करू शकता जो अनिश्चिततेतही स्वप्ने मार्गावर ठेवतो.',
+        introTitle: 'पाठ 1: श्रम सुधार आणि डिजिटल परिवर्तन',
+        introSubtitle: 'श्रम सुधार प्राधान्ये, डिजिटल परिवर्तन ड्राइव्हर्स आणि संप्रेषण गरजा समजून घ्या',
         learnTitle: 'या धड्यात तुम्ही काय शिकाल',
         listen: 'ऐका',
         stop: 'थांबवा',
         outcomesTitle: 'परिणाम',
         toolsTitle: 'तुम्ही वापरणारी साधने',
         paragraph:
-          'या धड्यात, तुम्ही तुमची सर्वात महत्त्वाची स्वप्ने स्पष्ट कराल आणि त्यांना लवकर संरक्षित करणे का आवश्यक आहे हे जाणून घ्याल. आम्ही व्यावहारिक पावले सांगू ज्यामुळे तुम्ही एक मजबूत आर्थिक पाया तयार करू शकता जो अनिश्चिततेतही स्वप्ने मार्गावर ठेवतो.',
-        outcomes: ['• ध्येये परिभाषित करा आणि प्राधान्य द्या', '• प्रमुख धोके आणि संरक्षण समजा', '• साधी कृती योजना तयार करा', '• तिमाही पुनरावलोकन काय करायचे ते जाणून घ्या'],
-        tools: ['• ड्रीम बिल्डर चेकलिस्ट', '• जोखीम मूल्यांकन पॉईंटर्स', '• स्टार्टर प्रोटेक्शन मिक्स', '• पुनरावलोकन वारंवारता टेम्पलेट'],
+          'या धड्यात, तुम्ही श्रम सुधाराच्या प्राधान्यांना, डिजिटल परिवर्तनाच्या ड्राइव्हर्सना आणि संप्रेषणाच्या गरजा समजून घ्याल. तुम्ही अमेरिकन आणि आंतरराष्ट्रीय फ्रेमवर्क्स (ILO, GIZ, OECD) ओळखाल आणि सार्वजनिक धोरण परिवर्तनात संप्रेषणाची भूमिका समजून घ्याल.',
+        outcomes: ['• श्रम सुधार प्राधान्ये समजा', '• डिजिटल परिवर्तन ड्राइव्हर्स ओळखा', '• संप्रेषण गरजांचे विश्लेषण करा', '• स्टेकहोल्डर मॅपिंग आणि प्रभाव विश्लेषण करा'],
+        tools: ['• स्टेकहोल्डर प्रभाव मॅप', '• संप्रेषण गरजा विश्लेषण', '• डिजिटल परिवर्तन फ्रेमवर्क', '• GIZ दृष्टिकोण टेम्प्लेट'],
         audioSection: 'विभाग 2: ऑडिओ निवेदन',
         chooseNarration: 'निवेदन भाषा निवडा',
         listenToLesson: 'पाठ ऐका',
@@ -348,18 +369,111 @@ const LessonMod1Dreams = () => {
         studyKeyIdeas: 'महत्त्वाच्या कल्पना अभ्यासण्यासाठी स्वाइप किंवा होवर करा',
       };
     }
+    if (baseLang === 'de') {
+      return {
+        introTitle: 'Lektion 1: Arbeitsreform und digitale Transformation',
+        introSubtitle: 'Verstehen Sie Arbeitsreform-Prioritäten, digitale Transformationsantriebe und Kommunikationsbedürfnisse',
+        learnTitle: 'Was Sie in dieser Lektion lernen werden',
+        listen: 'Anhören',
+        stop: 'Stopp',
+        outcomesTitle: 'Ergebnisse',
+        toolsTitle: 'Werkzeuge, die Sie verwenden werden',
+        paragraph:
+          'In dieser Lektion verstehen Sie Arbeitsreform-Prioritäten, digitale Transformationsantriebe und Kommunikationsbedürfnisse. Sie identifizieren wichtige US-amerikanische und internationale Rahmenwerke (ILO, GIZ, OECD) und verstehen die Rolle der Kommunikation bei der Transformation öffentlicher Politik.',
+        outcomes: [
+          '• Arbeitsreform-Prioritäten verstehen',
+          '• Digitale Transformationsantriebe identifizieren',
+          '• Kommunikationsbedürfnisse analysieren',
+          '• Stakeholder-Mapping und Einflussanalyse durchführen'
+        ],
+        tools: [
+          '• Stakeholder-Einflusskarte',
+          '• Kommunikationsbedarfsanalyse',
+          '• Digitaler Transformationsrahmen',
+          '• GIZ-Ansatz-Vorlage'
+        ],
+        audioSection: 'Abschnitt 2: Audio-Erzählung',
+        chooseNarration: 'Erzählungssprache auswählen',
+        listenToLesson: 'Lektion anhören',
+        hoverToFlip: 'Zum Umdrehen schweben',
+        summary: 'Zusammenfassung',
+        studyKeyIdeas: 'Wischen oder schweben, um die wichtigsten Ideen zu studieren',
+      };
+    }
+    if (baseLang === 'fr') {
+      return {
+        introTitle: 'Leçon 1 : Réforme du travail et transformation numérique',
+        introSubtitle: "Comprendre les priorités de réforme du travail, les moteurs de transformation numérique et les besoins de communication",
+        learnTitle: 'Ce que vous apprendrez dans cette leçon',
+        listen: 'Écouter',
+        stop: 'Arrêter',
+        outcomesTitle: 'Résultats',
+        toolsTitle: 'Outils que vous utiliserez',
+        paragraph:
+          "Dans cette leçon, vous comprendrez les priorités de réforme du travail, les moteurs de transformation numérique et les besoins de communication. Vous identifierez les cadres américains et internationaux clés (ILO, GIZ, OECD) et comprendrez le rôle de la communication dans la transformation des politiques publiques.",
+        outcomes: [
+          '• Comprendre les priorités de réforme du travail',
+          '• Identifier les moteurs de transformation numérique',
+          '• Analyser les besoins de communication',
+          '• Effectuer un mapping des parties prenantes et une analyse d\'influence'
+        ],
+        tools: [
+          '• Carte d\'influence des parties prenantes',
+          '• Analyse des besoins de communication',
+          '• Cadre de transformation numérique',
+          '• Modèle d\'approche GIZ'
+        ],
+        audioSection: 'Section 2 : Narration audio',
+        chooseNarration: 'Choisir la langue de narration',
+        listenToLesson: 'Écouter la leçon',
+        hoverToFlip: 'Survolez pour retourner',
+        summary: 'Résumé',
+        studyKeyIdeas: 'Balayez ou survolez pour étudier les idées clés',
+      };
+    }
+    if (baseLang === 'es') {
+      return {
+        introTitle: 'Lección 1: Reforma laboral y transformación digital',
+        introSubtitle: 'Entender las prioridades de reforma laboral, impulsores de transformación digital y necesidades de comunicación',
+        learnTitle: 'Lo que aprenderás en esta lección',
+        listen: 'Escuchar',
+        stop: 'Detener',
+        outcomesTitle: 'Resultados',
+        toolsTitle: 'Herramientas que usarás',
+        paragraph:
+          "En esta lección, entenderás las prioridades de reforma laboral, los impulsores de transformación digital y las necesidades de comunicación. Identificarás marcos estadounidenses e internacionales clave (ILO, GIZ, OECD) y entenderás el papel de la comunicación en la transformación de políticas públicas.",
+        outcomes: [
+          '• Entender las prioridades de reforma laboral',
+          '• Identificar impulsores de transformación digital',
+          '• Analizar necesidades de comunicación',
+          '• Realizar mapeo de partes interesadas y análisis de influencia'
+        ],
+        tools: [
+          '• Mapa de influencia de partes interesadas',
+          '• Análisis de necesidades de comunicación',
+          '• Marco de transformación digital',
+          '• Plantilla de enfoque GIZ'
+        ],
+        audioSection: 'Sección 2 : Narración audio',
+        chooseNarration: 'Elegir el idioma de la narración',
+        listenToLesson: 'Escuchar la lección',
+        hoverToFlip: 'Pasar por encima para voltear',
+        summary: 'Resumen',
+        studyKeyIdeas: 'Deslizar o pasar por encima para estudiar las ideas clave',
+      };
+    }
     return {
-      introTitle: 'Lesson 1: Understanding Your Dreams',
-      introSubtitle: "Discover what financial security means for your family's future",
+      introTitle: 'Lesson 1: Labour Reform and Digital Transformation',
+      introSubtitle: "Understand labour reform priorities, digital transformation drivers, and communication needs",
       learnTitle: "What You'll Learn in This Lesson",
       listen: 'Listen',
       stop: 'Stop',
       outcomesTitle: 'Outcomes',
       toolsTitle: "Tools You'll Use",
       paragraph:
-        "In this lesson, you'll clarify your most important dreams and learn why protecting them early is essential. We'll outline practical steps to start building a strong financial foundation that keeps those dreams on track even when life is uncertain.",
-      outcomes: ['• Define and prioritize your goals', '• Understand key risks and protections', '• Draft a simple action plan', '• Know what to review quarterly'],
-      tools: ['• Dream Builder checklist', '• Risk assessment pointers', '• Starter protection mix', '• Review cadence template'],
+        "In this lesson, you'll understand labour reform priorities, digital transformation drivers, and communication needs. You'll identify key U.S. and international frameworks (ILO, GIZ, OECD) and understand the role of communication in public policy transformation.",
+      outcomes: ['• Understand labour reform priorities', '• Identify digital transformation drivers', '• Analyze communication needs', '• Conduct stakeholder mapping and influence analysis'],
+      tools: ['• Stakeholder influence map', '• Communication need analysis', '• Digital transformation framework', '• GIZ approach template'],
       audioSection: 'Section 2: Audio Narration',
       chooseNarration: 'Choose Narration Language',
       listenToLesson: 'Listen to Lesson',
@@ -373,22 +487,22 @@ const LessonMod1Dreams = () => {
     if (baseLang === 'hi') {
       return [
         {
-          title: 'आपके सपने क्या हैं?',
-          front: ['मुख्य जीवन लक्ष्यों की पहचान', 'लघु/दीर्घकालिक आकांक्षाएं सूचीबद्ध करें', 'प्रभाव और समयरेखा के आधार पर प्राथमिकता'],
-          back: 'अपने और अपने परिवार के लिए सबसे महत्वपूर्ण लक्ष्यों को स्पष्ट करें।',
-          color: 'from-pink-50 to-rose-50 border-pink-100',
-        },
-        {
-          title: 'सपनों को सुरक्षा क्यों चाहिए',
-          front: ['जोखिम समझें: आय हानि, चिकित्सा खर्च', 'बीमा अनिश्चितता कैसे घटाता है', 'प्रोएक्टिव योजना से दृढ़ता बनाएं'],
-          back: 'अनपेक्षित घटनाओं से सपनों की रक्षा हेतु सुरक्षा आवश्यक है।',
+          title: 'श्रम सुधार क्या है?',
+          front: ['डिजिटल युग में श्रम कानूनों का आधुनिकीकरण', 'कार्यस्थल सुरक्षा और अधिकारों की सुरक्षा', 'अंतर्राष्ट्रीय मानकों के साथ संरेखण'],
+          back: 'श्रम सुधार में कार्यस्थल को अधिक न्यायसंगत और सुरक्षित बनाने के लिए कानूनों और नीतियों को अपडेट करना शामिल है।',
           color: 'from-blue-50 to-indigo-50 border-blue-100',
         },
         {
-          title: 'मजबूत नींव बनाएं',
-          front: ['स्पष्ट वित्तीय माइलस्टोन', 'आपातकालीन बचत व बेसिक प्रोटेक्शन', 'नियमित समीक्षा व सुधार'],
-          back: 'सरल, टिकाऊ आधार आपके सपनों को ट्रैक पर रखता है।',
+          title: 'डिजिटल परिवर्तन की भूमिका',
+          front: ['कार्यस्थल में प्रौद्योगिकी का एकीकरण', 'दूरस्थ कार्य और लचीलेपन का समर्थन', 'डिजिटल कौशल विकास की आवश्यकता'],
+          back: 'डिजिटल परिवर्तन श्रम बाजार को बदल रहा है और नए कौशल और दृष्टिकोण की मांग कर रहा है।',
           color: 'from-green-50 to-emerald-50 border-green-100',
+        },
+        {
+          title: 'संचार की महत्वपूर्ण भूमिका',
+          front: ['हितधारकों के बीच स्पष्ट संचार', 'नीति परिवर्तन की व्याख्या और समझ', 'सहयोग और समर्थन का निर्माण'],
+          back: 'प्रभावी संचार सार्वजनिक नीति परिवर्तन की सफलता के लिए महत्वपूर्ण है।',
+          color: 'from-purple-50 to-violet-50 border-purple-100',
         },
       ];
     }
@@ -416,32 +530,32 @@ const LessonMod1Dreams = () => {
     }
     return [
       {
-        title: 'What Are Your Dreams?',
-        front: ['Identify key life goals', 'List short/long-term aspirations', 'Prioritize by impact and timeline'],
-        back: 'Clarify the most important goals for you and your family.',
-        color: 'from-pink-50 to-rose-50 border-pink-100',
-      },
-      {
-        title: 'Why Dreams Need Protection',
-        front: ['Understand risks: income loss, medical', 'How insurance reduces uncertainty', 'Resilience through proactive planning'],
-        back: 'Protection keeps your plans intact when life is uncertain.',
+        title: 'What is Labour Reform?',
+        front: ['Modernizing labour laws in the digital era', 'Protecting workplace safety and rights', 'Alignment with international standards'],
+        back: 'Labour reform involves updating laws and policies to make workplaces more equitable and secure.',
         color: 'from-blue-50 to-indigo-50 border-blue-100',
       },
       {
-        title: 'Build a Strong Foundation',
-        front: ['Set clear milestones', 'Emergency savings and protection', 'Review and adjust regularly'],
-        back: 'A simple, durable base keeps dreams on track.',
+        title: 'Role of Digital Transformation',
+        front: ['Technology integration in workplaces', 'Supporting remote work and flexibility', 'Need for digital skills development'],
+        back: 'Digital transformation is changing the labour market and demanding new skills and approaches.',
         color: 'from-green-50 to-emerald-50 border-green-100',
+      },
+      {
+        title: 'Critical Role of Communication',
+        front: ['Clear communication among stakeholders', 'Explaining and understanding policy changes', 'Building collaboration and support'],
+        back: 'Effective communication is crucial for the success of public policy transformation.',
+        color: 'from-purple-50 to-violet-50 border-purple-100',
       },
     ];
   }, [baseLang]);
 
   const pdfUi = React.useMemo(() => {
-    if (baseLang === 'hi') return { title: 'पीडीएफ दस्तावेज', open: 'खोलें', download: 'डाउनलोड' };
-    if (baseLang === 'mr') return { title: 'PDF दस्तऐवज', open: 'उघडा', download: 'डाउनलोड' };
-    return { title: 'PDF Document', open: 'Open', download: 'Download' };
+    if (baseLang === 'hi') return { title: 'श्रम सुधार पीडीएफ दस्तावेज', open: 'खोलें', download: 'डाउनलोड' };
+    if (baseLang === 'mr') return { title: 'श्रम सुधार PDF दस्तऐवज', open: 'उघडा', download: 'डाउनलोड' };
+    return { title: 'Labour Reform PDF Document', open: 'Open', download: 'Download' };
   }, [baseLang]);
-  const pdfUrl = '/assets/Lesson1Understanding_Your_Dream.pdf';
+  const pdfUrl = '/assets/Lesson1LabourReform_DigitalTransformation.pdf';
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -475,25 +589,29 @@ const LessonMod1Dreams = () => {
                 <CarouselContent>
                   {studyCards.map((card, idx) => (
                     <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
-                      <div className="group [perspective:1000px] h-[220px]">
+                      <div className="group [perspective:1000px] h-[320px]">
                         <div className="relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                           {/* Front */}
-                          <div className={`absolute inset-0 bg-gradient-to-br ${card.color} border rounded-xl p-6 shadow-sm [backface-visibility:hidden]`}>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-3">{card.title}</h3>
-                            <ul className="text-sm text-gray-700 space-y-2">
-                              {card.front.map((pt, i) => (
-                                <li key={i} className="flex items-start">
-                                  <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                                  <span>{pt}</span>
-                                </li>
-                              ))}
-                            </ul>
+                          <div className={`absolute inset-0 bg-gradient-to-br ${card.color} border rounded-xl p-6 shadow-sm [backface-visibility:hidden] flex flex-col justify-between`}>
+                            <div>
+                              <h3 className="text-lg font-semibold text-gray-900 mb-3">{card.title}</h3>
+                              <ul className="text-sm text-gray-700 space-y-2">
+                                {card.front.map((pt, i) => (
+                                  <li key={i} className="flex items-start">
+                                    <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                                    <span className="leading-relaxed">{pt}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                             <p className="text-xs text-gray-500 mt-4">{baseLang === 'hi' ? 'फ्लिप करने हेतु होवर करें' : baseLang === 'mr' ? 'फ्लिपसाठी होवर करा' : 'Hover to flip'}</p>
                           </div>
                           {/* Back */}
-                          <div className={`absolute inset-0 bg-white border rounded-xl p-6 shadow-sm [transform:rotateY(180deg)] [backface-visibility:hidden]`}>
-                            <h4 className="text-base font-semibold text-gray-900 mb-2">{baseLang === 'hi' ? 'सारांश' : baseLang === 'mr' ? 'सारांश' : 'Summary'}</h4>
-                            <p className="text-sm text-gray-700 leading-relaxed">{card.back}</p>
+                          <div className={`absolute inset-0 bg-white border rounded-xl p-6 shadow-sm [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between`}>
+                            <div>
+                              <h4 className="text-base font-semibold text-gray-900 mb-2">{baseLang === 'hi' ? 'सारांश' : baseLang === 'mr' ? 'सारांश' : 'Summary'}</h4>
+                              <p className="text-sm text-gray-700 leading-relaxed">{card.back}</p>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -687,7 +805,7 @@ const LessonMod1Dreams = () => {
                 <iframe
                   src={pdfUrl}
                   className="w-full h-full border-0"
-                  title="Lesson 1 Understanding PDF"
+                  title="Lesson 1 Labour Reform Digital Transformation PDF"
                   frameBorder="0"
                 >
                   <p className="p-4 text-gray-600">
@@ -710,9 +828,9 @@ const LessonMod1Dreams = () => {
 
             </div>
             <div className="mt-3 text-sm text-gray-500 text-center">
-              {baseLang === 'hi' ? 'PDF फ़ाइल: Lesson1Understanding_Your_Dream.pdf' : 
-               baseLang === 'mr' ? 'PDF फाईल: Lesson1Understanding_Your_Dream.pdf' : 
-               'PDF File: Lesson1Understanding_Your_Dream.pdf'}
+              {baseLang === 'hi' ? 'PDF फ़ाइल: Lesson1LabourReform_DigitalTransformation.pdf' : 
+               baseLang === 'mr' ? 'PDF फाईल: Lesson1LabourReform_DigitalTransformation.pdf' : 
+               'PDF File: Lesson1LabourReform_DigitalTransformation.pdf'}
             </div>
           </div>
         </section>
@@ -734,9 +852,13 @@ const LessonMod1Dreams = () => {
                   onChange={(e) => setAudioLang(e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                 >
-                  <option value="en-US">🇺🇸 English</option>
-                  <option value="hi-IN">🇮🇳 Hindi</option>
-                  <option value="mr-IN">🇮🇳 Marathi</option>
+                  <optgroup label="🌍 Available Audio Languages">
+                    <option value="en-US">🇺🇸 English</option>
+                    <option value="hi-IN">🇮🇳 Hindi</option>
+                    <option value="de-DE">🇩🇪 German</option>
+                    <option value="es-ES">🇪🇸 Spanish</option>
+                    <option value="fr-FR">🇫🇷 French</option>
+                  </optgroup>
                 </select>
               </div>
               <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-100">
@@ -751,20 +873,34 @@ const LessonMod1Dreams = () => {
                   )}
                   {audioLang === 'hi-IN' && (
                     <audio controls className="w-full" preload="metadata">
-                      <source src="/hindi.mp3" type="audio/mpeg" />
+                      <source src="/Hindi.mp3" type="audio/mpeg" />
                       Your browser does not support the audio element.
                     </audio>
                   )}
-                  {audioLang === 'mr-IN' && (
+                  {audioLang === 'de-DE' && (
                     <audio controls className="w-full" preload="metadata">
-                      <source src="/ma.mp3" type="audio/mpeg" />
+                      <source src="/German.mp3" type="audio/mpeg" />
+                      Your browser does not support the audio element.
+                    </audio>
+                  )}
+                  {audioLang === 'es-ES' && (
+                    <audio controls className="w-full" preload="metadata">
+                      <source src="/Spanish.mp3" type="audio/mpeg" />
+                      Your browser does not support the audio element.
+                    </audio>
+                  )}
+                  {audioLang === 'fr-FR' && (
+                    <audio controls className="w-full" preload="metadata">
+                      <source src="/French.mp3" type="audio/mpeg" />
                       Your browser does not support the audio element.
                     </audio>
                   )}
                   
                   <div className="mt-2 text-xs text-gray-500">
-                    {audioLang === 'hi-IN' ? 'हिंदी ऑडियो फ़ाइल: /hindi.mp3' : 
-                     audioLang === 'mr-IN' ? 'मराठी ऑडिओ फाईल: /ma.mp3' : 
+                    {audioLang === 'hi-IN' ? 'हिंदी ऑडियो फ़ाइल: /Hindi.mp3' : 
+                     audioLang === 'de-DE' ? 'Deutsche Audiodatei: /German.mp3' :
+                     audioLang === 'es-ES' ? 'Archivo de audio en español: /Spanish.mp3' :
+                     audioLang === 'fr-FR' ? 'Fichier audio français: /French.mp3' :
                      'English audio file: /English.mp3'}
                   </div>
 
@@ -773,7 +909,9 @@ const LessonMod1Dreams = () => {
                       <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                       {audioLang === 'en-US' && 'High-quality English narration with clear pronunciation'}
                       {audioLang === 'hi-IN' && 'स्पष्ट उच्चारण के साथ उच्च गुणवत्ता वाली हिंदी कथा'}
-                      {audioLang === 'mr-IN' && 'स्पष्ट उच्चारणासह उच्च गुणवत्तेची मराठी कथा'}
+                      {audioLang === 'de-DE' && 'Hochwertige deutsche Erzählung mit klarer Aussprache'}
+                      {audioLang === 'es-ES' && 'Narración en español de alta calidad con pronunciación clara'}
+                      {audioLang === 'fr-FR' && 'Narration française de haute qualité avec prononciation claire'}
                     </p>
                   </div>
                 </div>
@@ -782,40 +920,40 @@ const LessonMod1Dreams = () => {
           </div>
         </section>
 
-        {/* Section 4: Financial Protection Framework */}
+        {/* Section 4: Labour Reform Framework */}
         <section className="max-w-4xl mx-auto mb-12">
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
-              {baseLang === 'hi' ? 'वित्तीय सुरक्षा ढांचा' : baseLang === 'mr' ? 'आर्थिक सुरक्षा रचना' : 'Financial Protection Framework'}
+              {baseLang === 'hi' ? 'श्रम सुधार ढांचा' : baseLang === 'mr' ? 'श्रम सुधार रचना' : 'Labour Reform Framework'}
             </h2>
             <div className="space-y-6">
               {[
                 {
                   level: baseLang === 'hi' ? 'स्तर 1: आधार' : baseLang === 'mr' ? 'स्तर 1: पाया' : 'Level 1: Foundation',
-                  title: baseLang === 'hi' ? 'आपातकालीन बचत' : baseLang === 'mr' ? 'आणीबाणी बचत' : 'Emergency Savings',
-                  description: baseLang === 'hi' ? '3-6 महीने का खर्च बचाएं' : baseLang === 'mr' ? '3-6 महिन्यांचा खर्च बचवा' : 'Save 3-6 months of expenses',
-                  icon: '🛡️',
+                  title: baseLang === 'hi' ? 'कानूनी ढांचा' : baseLang === 'mr' ? 'कायदेशीर रचना' : 'Legal Framework',
+                  description: baseLang === 'hi' ? 'मौजूदा श्रम कानूनों का आधुनिकीकरण' : baseLang === 'mr' ? 'विद्यमान श्रम कायद्यांचे आधुनिकीकरण' : 'Modernizing existing labour laws',
+                  icon: '⚖️',
                   priority: 'High'
                 },
                 {
-                  level: baseLang === 'hi' ? 'स्तर 2: सुरक्षा' : baseLang === 'mr' ? 'स्तर 2: संरक्षण' : 'Level 2: Protection',
-                  title: baseLang === 'hi' ? 'बीमा कवरेज' : baseLang === 'mr' ? 'विमा कव्हरेज' : 'Insurance Coverage',
-                  description: baseLang === 'hi' ? 'जीवन, स्वास्थ्य और दुर्घटना बीमा' : baseLang === 'mr' ? 'जीवन, आरोग्य आणि अपघात विमा' : 'Life, health and accident insurance',
-                  icon: '🔄',
+                  level: baseLang === 'hi' ? 'स्तर 2: डिजिटल परिवर्तन' : baseLang === 'mr' ? 'स्तर 2: डिजिटल परिवर्तन' : 'Level 2: Digital Transformation',
+                  title: baseLang === 'hi' ? 'प्रौद्योगिकी एकीकरण' : baseLang === 'mr' ? 'तंत्रज्ञान एकत्रीकरण' : 'Technology Integration',
+                  description: baseLang === 'hi' ? 'कार्यस्थल में डिजिटल उपकरणों का उपयोग' : baseLang === 'mr' ? 'कार्यस्थळात डिजिटल साधनांचा वापर' : 'Digital tools in workplace',
+                  icon: '💻',
                   priority: 'High'
                 },
                 {
-                  level: baseLang === 'hi' ? 'स्तर 3: विकास' : baseLang === 'mr' ? 'स्तर 3: विकास' : 'Level 3: Growth',
-                  title: baseLang === 'hi' ? 'निवेश और बचत' : baseLang === 'mr' ? 'गुंतवणूक आणि बचत' : 'Investment & Savings',
-                  description: baseLang === 'hi' ? 'दीर्घकालिक धन निर्माण' : baseLang === 'mr' ? 'दीर्घकालीन धन निर्माण' : 'Long-term wealth building',
-                  icon: '📈',
+                  level: baseLang === 'hi' ? 'स्तर 3: संचार' : baseLang === 'mr' ? 'स्तर 3: संप्रेषण' : 'Level 3: Communication',
+                  title: baseLang === 'hi' ? 'हितधारक संचार' : baseLang === 'mr' ? 'स्टेकहोल्डर संप्रेषण' : 'Stakeholder Communication',
+                  description: baseLang === 'hi' ? 'सभी पक्षों के साथ प्रभावी संचार' : baseLang === 'mr' ? 'सर्व पक्षांशी प्रभावी संप्रेषण' : 'Effective communication with all parties',
+                  icon: '📢',
                   priority: 'Medium'
                 },
                 {
-                  level: baseLang === 'hi' ? 'स्तर 4: विरासत' : baseLang === 'mr' ? 'स्तर 4: वारसा' : 'Level 4: Legacy',
-                  title: baseLang === 'hi' ? 'विरासत योजना' : baseLang === 'mr' ? 'वारसा योजना' : 'Legacy Planning',
-                  description: baseLang === 'hi' ? 'भविष्य की पीढ़ियों के लिए योजना' : baseLang === 'mr' ? 'भविष्यातील पिढ्यांसाठी योजना' : 'Planning for future generations',
-                  icon: '🏛️',
+                  level: baseLang === 'hi' ? 'स्तर 4: कार्यान्वयन' : baseLang === 'mr' ? 'स्तर 4: अंमलबजावणी' : 'Level 4: Implementation',
+                  title: baseLang === 'hi' ? 'नीति कार्यान्वयन' : baseLang === 'mr' ? 'धोरण अंमलबजावणी' : 'Policy Implementation',
+                  description: baseLang === 'hi' ? 'सुधारों का व्यावहारिक कार्यान्वयन' : baseLang === 'mr' ? 'सुधारणांची व्यावहारिक अंमलबजावणी' : 'Practical implementation of reforms',
+                  icon: '🚀',
                   priority: 'Low'
                 }
               ].map((item, idx) => (
@@ -857,41 +995,41 @@ const LessonMod1Dreams = () => {
             </div>
             <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
               <p className="text-sm text-blue-800 text-center">
-                {baseLang === 'hi' ? 'इस क्रम में अपनी वित्तीय सुरक्षा का निर्माण करें - आधार से शुरू करके ऊपर की ओर बढ़ें' : 
-                 baseLang === 'mr' ? 'या क्रमाने तुमची आर्थिक सुरक्षा तयार करा - पायाभरणीपासून सुरुवात करून वरच्या दिशेने जा' : 
-                 'Build your financial protection in this order - start from the foundation and work your way up'}
+                {baseLang === 'hi' ? 'इस क्रम में श्रम सुधार का निर्माण करें - आधार से शुरू करके ऊपर की ओर बढ़ें' : 
+                 baseLang === 'mr' ? 'या क्रमाने श्रम सुधार तयार करा - पायाभरणीपासून सुरुवात करून वरच्या दिशेने जा' : 
+                 'Build labour reform in this order - start from the foundation and work your way up'}
               </p>
             </div>
           </div>
         </section>
 
-        {/* Section 5: Risk Assessment Flipping Cards */}
+        {/* Section 5: Stakeholder Mapping */}
         <section className="max-w-4xl mx-auto mb-12">
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
-              {baseLang === 'hi' ? 'जोखिम मूल्यांकन' : baseLang === 'mr' ? 'जोखीम मूल्यांकन' : 'Risk Assessment'}
+              {baseLang === 'hi' ? 'हितधारक मैपिंग' : baseLang === 'mr' ? 'स्टेकहोल्डर मॅपिंग' : 'Stakeholder Mapping'}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
-                  front: baseLang === 'hi' ? 'आय हानि' : baseLang === 'mr' ? 'उत्पन्न घट' : 'Income Loss',
-                  back: baseLang === 'hi' ? 'अचानक नौकरी छूटना या बीमारी के कारण आय बंद होना' : baseLang === 'mr' ? 'अचानक नोकरी गमावणे किंवा आजारामुळे उत्पन्न थांबणे' : 'Sudden job loss or illness stopping income',
-                  color: 'from-red-50 to-pink-50 border-red-200'
-                },
-                {
-                  front: baseLang === 'hi' ? 'चिकित्सा खर्च' : baseLang === 'mr' ? 'वैद्यकीय खर्च' : 'Medical Expenses',
-                  back: baseLang === 'hi' ? 'अप्रत्याशित स्वास्थ्य समस्याओं के लिए बड़े खर्च' : baseLang === 'mr' ? 'अनपेक्षित आरोग्य समस्या साठी मोठे खर्च' : 'Large expenses for unexpected health issues',
-                  color: 'from-orange-50 to-yellow-50 border-orange-200'
-                },
-                {
-                  front: baseLang === 'hi' ? 'परिवार की जिम्मेदारी' : baseLang === 'mr' ? 'कुटुंबाची जबाबदारी' : 'Family Responsibility',
-                  back: baseLang === 'hi' ? 'परिवार के सदस्यों की देखभाल और शिक्षा' : baseLang === 'mr' ? 'कुटुंबातील सदस्यांची काळजी आणि शिक्षण' : 'Caring for and educating family members',
+                  front: baseLang === 'hi' ? 'मंत्रालय और सरकार' : baseLang === 'mr' ? 'मंत्रालये आणि सरकार' : 'Ministries & Government',
+                  back: baseLang === 'hi' ? 'श्रम नीति निर्माता और नियामक अधिकारी' : baseLang === 'mr' ? 'श्रम धोरण निर्माते आणि नियामक अधिकारी' : 'Labour policy makers and regulatory officials',
                   color: 'from-blue-50 to-indigo-50 border-blue-200'
                 },
                 {
-                  front: baseLang === 'hi' ? 'भविष्य की योजना' : baseLang === 'mr' ? 'भविष्यातील योजना' : 'Future Planning',
-                  back: baseLang === 'hi' ? 'सेवानिवृत्ति, बचत और निवेश के लिए योजना' : baseLang === 'mr' ? 'निवृत्ती, बचत आणि गुंतवणूकीसाठी योजना' : 'Planning for retirement, savings and investments',
+                  front: baseLang === 'hi' ? 'नियोक्ता और उद्योग' : baseLang === 'mr' ? 'नियोक्ते आणि उद्योग' : 'Employers & Industry',
+                  back: baseLang === 'hi' ? 'कंपनियां और व्यापार संघ जो श्रम सुधार से प्रभावित होते हैं' : baseLang === 'mr' ? 'कंपन्या आणि व्यापार संघ जे श्रम सुधाराने प्रभावित होतात' : 'Companies and trade associations affected by labour reform',
                   color: 'from-green-50 to-emerald-50 border-green-200'
+                },
+                {
+                  front: baseLang === 'hi' ? 'शिक्षक और प्रशिक्षक' : baseLang === 'mr' ? 'शिक्षक आणि प्रशिक्षक' : 'Educators & Trainers',
+                  back: baseLang === 'hi' ? 'कौशल विकास और शिक्षा प्रदाता' : baseLang === 'mr' ? 'कौशल्य विकास आणि शिक्षण प्रदाते' : 'Skills development and education providers',
+                  color: 'from-purple-50 to-violet-50 border-purple-200'
+                },
+                {
+                  front: baseLang === 'hi' ? 'संघ और कर्मचारी' : baseLang === 'mr' ? 'संघ आणि कर्मचारी' : 'Unions & Workers',
+                  back: baseLang === 'hi' ? 'श्रमिक संघ और कर्मचारी जो सुधारों से प्रभावित होते हैं' : baseLang === 'mr' ? 'कामगार संघ आणि कर्मचारी जे सुधारणांनी प्रभावित होतात' : 'Worker unions and employees affected by reforms',
+                  color: 'from-orange-50 to-yellow-50 border-orange-200'
                 }
               ].map((card, idx) => (
                 <div key={idx} className="group [perspective:1000px] h-48">
@@ -909,11 +1047,11 @@ const LessonMod1Dreams = () => {
           </div>
         </section>
 
-        {/* Section 6: Action Plan Builder */}
+        {/* Section 6: Implementation Plan Builder */}
         <section className="max-w-4xl mx-auto mb-12">
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
-              {baseLang === 'hi' ? 'कार्य योजना निर्माता' : baseLang === 'mr' ? 'कृती योजना तयार करणारा' : 'Action Plan Builder'}
+              {baseLang === 'hi' ? 'कार्यान्वयन योजना निर्माता' : baseLang === 'mr' ? 'अंमलबजावणी योजना तयार करणारा' : 'Implementation Plan Builder'}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-4">
@@ -922,9 +1060,9 @@ const LessonMod1Dreams = () => {
                 </h3>
                 <div className="space-y-3">
                   {[
-                    baseLang === 'hi' ? 'आपातकालीन बचत बनाएं' : baseLang === 'mr' ? 'आणीबाणी बचत तयार करा' : 'Build emergency savings',
-                    baseLang === 'hi' ? 'बीमा कवरेज प्राप्त करें' : baseLang === 'mr' ? 'विमा कव्हरेज मिळवा' : 'Get insurance coverage',
-                    baseLang === 'hi' ? 'ऋण को कम करें' : baseLang === 'mr' ? 'कर्ज कमी करा' : 'Reduce debt'
+                    baseLang === 'hi' ? 'कानूनी ढांचे का आधुनिकीकरण' : baseLang === 'mr' ? 'कायदेशीर रचनेचे आधुनिकीकरण' : 'Modernize legal framework',
+                    baseLang === 'hi' ? 'डिजिटल उपकरणों का परिचय' : baseLang === 'mr' ? 'डिजिटल साधनांचा परिचय' : 'Introduce digital tools',
+                    baseLang === 'hi' ? 'हितधारक संचार स्थापित करें' : baseLang === 'mr' ? 'स्टेकहोल्डर संप्रेषण स्थापित करा' : 'Establish stakeholder communication'
                   ].map((goal, idx) => (
                     <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                       <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
@@ -939,9 +1077,9 @@ const LessonMod1Dreams = () => {
                 </h3>
                 <div className="space-y-3">
                   {[
-                    baseLang === 'hi' ? 'बच्चों की शिक्षा के लिए बचत' : baseLang === 'mr' ? 'मुलांच्या शिक्षणासाठी बचत' : 'Save for children\'s education',
-                    baseLang === 'hi' ? 'घर खरीदने की योजना' : baseLang === 'mr' ? 'घर खरेदीची योजना' : 'Plan for home purchase',
-                    baseLang === 'hi' ? 'सेवानिवृत्ति की तैयारी' : baseLang === 'mr' ? 'निवृत्तीची तयारी' : 'Prepare for retirement'
+                    baseLang === 'hi' ? 'पूर्ण डिजिटल परिवर्तन' : baseLang === 'mr' ? 'पूर्ण डिजिटल परिवर्तन' : 'Complete digital transformation',
+                    baseLang === 'hi' ? 'अंतर्राष्ट्रीय मानकों के साथ संरेखण' : baseLang === 'mr' ? 'आंतरराष्ट्रीय मानकांशी संरेखन' : 'Alignment with international standards',
+                    baseLang === 'hi' ? 'स्थायी नीति कार्यान्वयन' : baseLang === 'mr' ? 'स्थायी धोरण अंमलबजावणी' : 'Sustainable policy implementation'
                   ].map((goal, idx) => (
                     <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                       <div className="w-3 h-3 bg-green-500 rounded-full"></div>
@@ -963,24 +1101,24 @@ const LessonMod1Dreams = () => {
             <div className="space-y-6">
               {[
                 {
-                  question: baseLang === 'hi' ? 'आपातकालीन बचत कितनी होनी चाहिए?' : baseLang === 'mr' ? 'आणीबाणी बचत किती असावी?' : 'How much emergency savings should you have?',
+                  question: baseLang === 'hi' ? 'श्रम सुधार में सबसे महत्वपूर्ण क्या है?' : baseLang === 'mr' ? 'श्रम सुधारात सर्वात महत्त्वाचे काय आहे?' : 'What is most important in labour reform?',
                   options: [
-                    baseLang === 'hi' ? '1 महीने का खर्च' : baseLang === 'mr' ? '1 महिन्याचा खर्च' : '1 month of expenses',
-                    baseLang === 'hi' ? '3-6 महीने का खर्च' : baseLang === 'mr' ? '3-6 महिन्यांचा खर्च' : '3-6 months of expenses',
-                    baseLang === 'hi' ? '1 वर्ष का खर्च' : baseLang === 'mr' ? '1 वर्षाचा खर्च' : '1 year of expenses'
+                    baseLang === 'hi' ? 'केवल कानूनी परिवर्तन' : baseLang === 'mr' ? 'फक्त कायदेशीर बदल' : 'Only legal changes',
+                    baseLang === 'hi' ? 'हितधारकों के साथ संचार और सहयोग' : baseLang === 'mr' ? 'स्टेकहोल्डर्ससह संप्रेषण आणि सहकार्य' : 'Communication and collaboration with stakeholders',
+                    baseLang === 'hi' ? 'केवल तकनीकी उन्नयन' : baseLang === 'mr' ? 'फक्त तांत्रिक सुधारणा' : 'Only technological upgrades'
                   ],
                   correct: 1,
-                  explanation: baseLang === 'hi' ? '3-6 महीने का खर्च बचाना आदर्श है क्योंकि यह अधिकांश आपातकालीन स्थितियों को कवर करता है।' : baseLang === 'mr' ? '3-6 महिन्यांचा खर्च बचवणे आदर्श आहे कारण ते बहुतेक आणीबाणी परिस्थिती कव्हर करते.' : '3-6 months of expenses is ideal as it covers most emergency situations.'
+                  explanation: baseLang === 'hi' ? 'हितधारकों के साथ प्रभावी संचार और सहयोग श्रम सुधार की सफलता के लिए महत्वपूर्ण है।' : baseLang === 'mr' ? 'स्टेकहोल्डर्ससह प्रभावी संप्रेषण आणि सहकार्य श्रम सुधाराच्या यशासाठी महत्त्वाचे आहे.' : 'Effective communication and collaboration with stakeholders is crucial for successful labour reform.'
                 },
                 {
-                  question: baseLang === 'hi' ? 'जीवन बीमा कब लेना चाहिए?' : baseLang === 'mr' ? 'जीवन विमा कधी घ्यावा?' : 'When should you get life insurance?',
+                  question: baseLang === 'hi' ? 'डिजिटल परिवर्तन श्रम बाजार को कैसे प्रभावित करता है?' : baseLang === 'mr' ? 'डिजिटल परिवर्तन श्रम बाजारपेठेवर कसा परिणाम करतो?' : 'How does digital transformation affect the labour market?',
                   options: [
-                    baseLang === 'hi' ? 'जब आप बीमार हों' : baseLang === 'mr' ? 'जेव्हा तुम्ही आजारी असाल' : 'When you are sick',
-                    baseLang === 'hi' ? 'जब आप स्वस्थ हों' : baseLang === 'mr' ? 'जेव्हा तुम्ही निरोगी असाल' : 'When you are healthy',
-                    baseLang === 'hi' ? 'जब आप बूढ़े हों' : baseLang === 'mr' ? 'जेव्हा तुम्ही वृद्ध असाल' : 'When you are old'
+                    baseLang === 'hi' ? 'केवल नौकरियां कम करता है' : baseLang === 'mr' ? 'फक्त नोकऱ्या कमी करतो' : 'Only reduces jobs',
+                    baseLang === 'hi' ? 'नए कौशल और दृष्टिकोण की मांग करता है' : baseLang === 'mr' ? 'नवीन कौशल्ये आणि दृष्टिकोन मागतो' : 'Demands new skills and approaches',
+                    baseLang === 'hi' ? 'केवल प्रौद्योगिकी कंपनियों को लाभ देता है' : baseLang === 'mr' ? 'फक्त तंत्रज्ञान कंपन्यांना फायदा देतो' : 'Only benefits technology companies'
                   ],
                   correct: 1,
-                  explanation: baseLang === 'hi' ? 'जब आप स्वस्थ हों तब बीमा लेना सबसे अच्छा है क्योंकि प्रीमियम कम होता है।' : baseLang === 'mr' ? 'जेव्हा तुम्ही निरोगी असाल तेव्हा विमा घेणे सर्वोत्तम आहे कारण प्रीमियम कमी असते.' : 'Getting insurance when you are healthy is best because premiums are lower.'
+                  explanation: baseLang === 'hi' ? 'डिजिटल परिवर्तन नए कौशल और दृष्टिकोण की मांग करता है, जो श्रम बाजार को बदलता है।' : baseLang === 'mr' ? 'डिजिटल परिवर्तन नवीन कौशल्ये आणि दृष्टिकोन मागतो, जे श्रम बाजारपेठा बदलतो.' : 'Digital transformation demands new skills and approaches, changing the labour market.'
                 }
               ].map((quiz, idx) => (
                 <div key={idx} className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
@@ -1396,23 +1534,27 @@ const LessonMod1Dreams = () => {
                   <CarouselContent>
                     {studyCards.map((card, idx) => (
                       <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
-                        <div className="group [perspective:1000px] h-[220px]">
+                        <div className="group [perspective:1000px] h-[320px]">
                           <div className="relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                            <div className={`absolute inset-0 bg-gradient-to-br ${card.color} border rounded-xl p-6 shadow-sm [backface-visibility:hidden]`}>
-                              <h3 className="text-lg font-semibold text-gray-900 mb-3">{card.title}</h3>
-                              <ul className="text-sm text-gray-700 space-y-2">
-                                {card.front.map((pt, i) => (
-                                  <li key={i} className="flex items-start">
-                                    <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                                    <span>{pt}</span>
-                                  </li>
-                                ))}
-                              </ul>
+                            <div className={`absolute inset-0 bg-gradient-to-br ${card.color} border rounded-xl p-6 shadow-sm [backface-visibility:hidden] flex flex-col justify-between`}>
+                              <div>
+                                <h3 className="text-lg font-semibold text-gray-900 mb-3">{card.title}</h3>
+                                <ul className="text-sm text-gray-700 space-y-2">
+                                  {card.front.map((pt, i) => (
+                                    <li key={i} className="flex items-start">
+                                      <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                                      <span className="leading-relaxed">{pt}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
                               <p className="text-xs text-gray-500 mt-4">{baseLang === 'hi' ? 'फ्लिप करने हेतु होवर करें' : baseLang === 'mr' ? 'फ्लिपसाठी होवर करा' : 'Hover to flip'}</p>
                             </div>
-                            <div className={`absolute inset-0 bg-white border rounded-xl p-6 shadow-sm [transform:rotateY(180deg)] [backface-visibility:hidden]`}>
-                              <h4 className="text-base font-semibold text-gray-900 mb-2">{baseLang === 'hi' ? 'सारांश' : baseLang === 'mr' ? 'सारांश' : 'Summary'}</h4>
-                              <p className="text-sm text-gray-700 leading-relaxed">{card.back}</p>
+                            <div className={`absolute inset-0 bg-white border rounded-xl p-6 shadow-sm [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between`}>
+                              <div>
+                                <h4 className="text-base font-semibold text-gray-900 mb-2">{baseLang === 'hi' ? 'सारांश' : baseLang === 'mr' ? 'सारांश' : 'Summary'}</h4>
+                                <p className="text-sm text-gray-700 leading-relaxed">{card.back}</p>
+                              </div>
                             </div>
                           </div>
                         </div>
