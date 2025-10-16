@@ -5,10 +5,13 @@ import {
 } from 'lucide-react';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, BarChart, Bar, Legend
+  ResponsiveContainer, BarChart, Bar, Legend, PieChart, Pie,
+  Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
+  RadialBarChart, RadialBar
 } from 'recharts';
 
 // Sample data for charts
+// Sample data for various charts
 const interactionData = [
   { name: 'Mon', videos: 65, immersive: 45, gamified: 35, resources: 28 },
   { name: 'Tue', videos: 59, immersive: 49, gamified: 38, resources: 32 },
@@ -17,6 +20,44 @@ const interactionData = [
   { name: 'Fri', videos: 76, immersive: 61, gamified: 45, resources: 40 },
   { name: 'Sat', videos: 51, immersive: 49, gamified: 30, resources: 25 },
   { name: 'Sun', videos: 48, immersive: 43, gamified: 28, resources: 20 },
+];
+
+const engagementMetrics = [
+  { subject: 'Video Completion', A: 85, B: 90, fullMark: 100 },
+  { subject: 'Quiz Performance', A: 75, B: 80, fullMark: 100 },
+  { subject: 'Discussion', A: 65, B: 70, fullMark: 100 },
+  { subject: 'Assignments', A: 80, B: 85, fullMark: 100 },
+  { subject: 'Peer Review', A: 70, B: 75, fullMark: 100 },
+];
+
+const badgeDistribution = [
+  { name: 'Beginner', value: 400, color: '#22c55e' },
+  { name: 'Intermediate', value: 300, color: '#3b82f6' },
+  { name: 'Advanced', value: 200, color: '#8b5cf6' },
+  { name: 'Expert', value: 100, color: '#f59e0b' },
+];
+
+const progressData = [
+  {
+    name: 'Week 1',
+    completion: 32,
+    fill: '#8884d8'
+  },
+  {
+    name: 'Week 2',
+    completion: 45,
+    fill: '#83a6ed'
+  },
+  {
+    name: 'Week 3',
+    completion: 68,
+    fill: '#8dd1e1'
+  },
+  {
+    name: 'Week 4',
+    completion: 85,
+    fill: '#82ca9d'
+  },
 ];
 
 // KPI Card Component
@@ -120,29 +161,69 @@ const EngagementGamification = () => {
         </div>
 
         {/* Pathway Engagement */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h2 className="text-xl font-semibold text-gray-800 mb-6">Engagement by Learning Pathway</h2>
+            <div className="h-80">
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart outerRadius={90} data={engagementMetrics}>
+                  <PolarGrid />
+                  <PolarAngleAxis dataKey="subject" />
+                  <PolarRadiusAxis angle={30} domain={[0, 100]} />
+                  <Radar name="Current Period" dataKey="A" stroke="#22c55e" fill="#22c55e" fillOpacity={0.5} />
+                  <Radar name="Previous Period" dataKey="B" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.5} />
+                  <Legend />
+                </RadarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h2 className="text-xl font-semibold text-gray-800 mb-6">Badge Distribution</h2>
+            <div className="h-80">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={badgeDistribution}
+                    innerRadius={60}
+                    outerRadius={80}
+                    paddingAngle={5}
+                    dataKey="value"
+                  >
+                    {badgeDistribution.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </div>
+
+        {/* Weekly Progress */}
         <div className="bg-white rounded-xl shadow-lg p-6">
-          <h2 className="text-xl font-semibold text-gray-800 mb-6">Engagement by Learning Pathway</h2>
-          <div className="grid grid-cols-4 gap-4">
-            <div className="p-4 rounded-lg bg-blue-50 border border-blue-100">
-              <Video className="h-6 w-6 text-blue-600 mb-2" />
-              <p className="text-sm font-medium">Video-only</p>
-              <p className="text-2xl font-bold text-blue-600">45%</p>
-            </div>
-            <div className="p-4 rounded-lg bg-green-50 border border-green-100">
-              <BookOpen className="h-6 w-6 text-green-600 mb-2" />
-              <p className="text-sm font-medium">Video + Immersive</p>
-              <p className="text-2xl font-bold text-green-600">30%</p>
-            </div>
-            <div className="p-4 rounded-lg bg-orange-50 border border-orange-100">
-              <Gamepad2 className="h-6 w-6 text-orange-600 mb-2" />
-              <p className="text-sm font-medium">Immersive-only</p>
-              <p className="text-2xl font-bold text-orange-600">15%</p>
-            </div>
-            <div className="p-4 rounded-lg bg-purple-50 border border-purple-100">
-              <Trophy className="h-6 w-6 text-purple-600 mb-2" />
-              <p className="text-sm font-medium">Gamified</p>
-              <p className="text-2xl font-bold text-purple-600">10%</p>
-            </div>
+          <h2 className="text-xl font-semibold text-gray-800 mb-6">Weekly Progress Overview</h2>
+          <div className="h-64">
+            <ResponsiveContainer width="100%" height="100%">
+              <RadialBarChart 
+                innerRadius="30%" 
+                outerRadius="100%" 
+                data={progressData} 
+                startAngle={180} 
+                endAngle={0}
+              >
+                <RadialBar
+                  minAngle={15}
+                  background
+                  clockWise={true}
+                  dataKey="completion"
+                />
+                <Legend />
+                <Tooltip />
+              </RadialBarChart>
+            </ResponsiveContainer>
           </div>
         </div>
 
