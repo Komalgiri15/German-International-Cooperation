@@ -5,53 +5,135 @@ import {
 } from 'lucide-react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, Legend, ScatterChart, Scatter, ZAxis
+  ResponsiveContainer, Legend, ScatterChart, Scatter, ZAxis,
+  PieChart, Pie, Cell, LineChart, Line, RadarChart, Radar,
+  PolarGrid, PolarAngleAxis, PolarRadiusAxis
 } from 'recharts';
 
 // Sample data for charts and tables
 const stakeholderData = {
   employer: [
-    { group: 'Group A', completion: 75, score: 82, learners: 120 },
-    { group: 'Group B', completion: 68, score: 75, learners: 95 },
-    { group: 'Group C', completion: 82, score: 88, learners: 150 },
+    { group: 'Group A', completion: 75, score: 82, learners: 120, engagement: 85 },
+    { group: 'Group B', completion: 68, score: 75, learners: 95, engagement: 72 },
+    { group: 'Group C', completion: 82, score: 88, learners: 150, engagement: 90 },
   ],
   educator: [
-    { group: 'Group A', completion: 85, score: 90, learners: 80 },
-    { group: 'Group B', completion: 78, score: 85, learners: 65 },
-    { group: 'Group C', completion: 92, score: 94, learners: 110 },
+    { group: 'Group A', completion: 85, score: 90, learners: 80, engagement: 88 },
+    { group: 'Group B', completion: 78, score: 85, learners: 65, engagement: 82 },
+    { group: 'Group C', completion: 92, score: 94, learners: 110, engagement: 95 },
   ],
   learner: [
-    { group: 'Group A', completion: 65, score: 72, learners: 300 },
-    { group: 'Group B', completion: 58, score: 68, learners: 250 },
-    { group: 'Group C', completion: 71, score: 76, learners: 280 },
+    { group: 'Group A', completion: 65, score: 72, learners: 300, engagement: 70 },
+    { group: 'Group B', completion: 58, score: 68, learners: 250, engagement: 65 },
+    { group: 'Group C', completion: 71, score: 76, learners: 280, engagement: 75 },
   ],
 };
+
+const resourceTrendData = [
+  { month: 'Jan', downloads: 1200, views: 2400, shares: 800 },
+  { month: 'Feb', downloads: 1500, views: 2800, shares: 1000 },
+  { month: 'Mar', downloads: 1800, views: 3200, shares: 1200 },
+  { month: 'Apr', downloads: 2200, views: 3800, shares: 1500 },
+  { month: 'May', downloads: 2500, views: 4200, shares: 1800 },
+];
+
+const resourceTypeData = [
+  { name: 'PDFs', value: 35, color: '#22c55e' },
+  { name: 'Videos', value: 25, color: '#3b82f6' },
+  { name: 'Interactive', value: 20, color: '#8b5cf6' },
+  { name: 'Documents', value: 15, color: '#f59e0b' },
+  { name: 'Other', value: 5, color: '#64748b' },
+];
+
+const engagementMetrics = [
+  { metric: 'Resource Access', value: 85, fullMark: 100 },
+  { metric: 'Completion Rate', value: 75, fullMark: 100 },
+  { metric: 'Interaction', value: 90, fullMark: 100 },
+  { metric: 'Feedback', value: 70, fullMark: 100 },
+  { metric: 'Sharing', value: 65, fullMark: 100 },
+];
 
 const resourcesData = [
   {
     name: 'Digital Safety Toolkit',
     type: 'PDF',
     downloads: 1245,
+    completion: 92,
     lastAccess: '2024-03-15',
     usedByPathway: 'All Pathways',
     weeklyDownloads: [45, 52, 48, 65],
+    size: 150
   },
   {
     name: 'Workplace Rights Guide',
     type: 'Document',
     downloads: 986,
+    completion: 88,
     lastAccess: '2024-03-14',
     usedByPathway: 'Basic, Advanced',
     weeklyDownloads: [35, 42, 38, 41],
+    size: 120
   },
   {
     name: 'Safety Training Video',
     type: 'Video',
     downloads: 756,
+    completion: 78,
     lastAccess: '2024-03-13',
     usedByPathway: 'Intermediate',
     weeklyDownloads: [28, 32, 35, 30],
+    size: 100
   },
+  {
+    name: 'Employee Handbook',
+    type: 'PDF',
+    downloads: 1100,
+    completion: 85,
+    lastAccess: '2024-03-15',
+    usedByPathway: 'Basic',
+    weeklyDownloads: [40, 45, 42, 50],
+    size: 130
+  },
+  {
+    name: 'Leadership Training',
+    type: 'Interactive',
+    downloads: 850,
+    completion: 95,
+    lastAccess: '2024-03-14',
+    usedByPathway: 'Advanced',
+    weeklyDownloads: [30, 35, 38, 40],
+    size: 110
+  },
+  {
+    name: 'Communication Skills',
+    type: 'Video',
+    downloads: 920,
+    completion: 82,
+    lastAccess: '2024-03-13',
+    usedByPathway: 'All Pathways',
+    weeklyDownloads: [35, 38, 40, 45],
+    size: 140
+  },
+  {
+    name: 'Project Management Guide',
+    type: 'Document',
+    downloads: 680,
+    completion: 75,
+    lastAccess: '2024-03-12',
+    usedByPathway: 'Advanced',
+    weeklyDownloads: [25, 28, 30, 32],
+    size: 90
+  },
+  {
+    name: 'Team Building Workshop',
+    type: 'Interactive',
+    downloads: 550,
+    completion: 98,
+    lastAccess: '2024-03-11',
+    usedByPathway: 'Intermediate',
+    weeklyDownloads: [20, 25, 28, 30],
+    size: 80
+  }
 ];
 
 // KPI Card Component
@@ -151,23 +233,86 @@ const StakeholderResources = () => {
             </button>
           </div>
 
-          {/* Chart */}
-          <div className="h-80">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={stakeholderData[activeTab]}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="group" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="completion" name="Completion %" fill="#f97316" />
-                <Bar dataKey="score" name="Avg. Score" fill="#fb923c" />
-              </BarChart>
-            </ResponsiveContainer>
+          {/* Charts Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Performance Chart */}
+            <div className="h-80">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={stakeholderData[activeTab]}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="group" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="completion" name="Completion %" fill="#f97316" />
+                  <Bar dataKey="score" name="Avg. Score" fill="#fb923c" />
+                  <Bar dataKey="engagement" name="Engagement" fill="#fdba74" />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            {/* Engagement Radar */}
+            <div className="h-80">
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart outerRadius={90} data={engagementMetrics}>
+                  <PolarGrid />
+                  <PolarAngleAxis dataKey="metric" />
+                  <PolarRadiusAxis angle={30} domain={[0, 100]} />
+                  <Radar name="Engagement" dataKey="value" stroke="#f97316" fill="#f97316" fillOpacity={0.5} />
+                  <Legend />
+                </RadarChart>
+              </ResponsiveContainer>
+            </div>
           </div>
         </div>
 
-        {/* Resource Utilization */}
+        {/* Resource Analytics */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Resource Type Distribution */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h2 className="text-xl font-semibold text-gray-800 mb-6">Resource Type Distribution</h2>
+            <div className="h-80">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={resourceTypeData}
+                    innerRadius={60}
+                    outerRadius={80}
+                    paddingAngle={5}
+                    dataKey="value"
+                  >
+                    {resourceTypeData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* Resource Trends */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h2 className="text-xl font-semibold text-gray-800 mb-6">Resource Usage Trends</h2>
+            <div className="h-80">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={resourceTrendData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="month" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Line type="monotone" dataKey="downloads" stroke="#f97316" />
+                  <Line type="monotone" dataKey="views" stroke="#22c55e" />
+                  <Line type="monotone" dataKey="shares" stroke="#3b82f6" />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </div>
+
+        {/* Resource Utilization Table */}
         <div className="bg-white rounded-xl shadow-lg p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-6">Resource Downloads and Usage</h2>
           
@@ -230,14 +375,60 @@ const StakeholderResources = () => {
             <h2 className="text-xl font-semibold text-gray-800 mb-6">Resource Use vs Completion</h2>
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
-                <ScatterChart>
+                <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis type="number" dataKey="downloads" name="Downloads" />
-                  <YAxis type="number" dataKey="completion" name="Completion %" />
-                  <ZAxis type="number" range={[50, 400]} />
-                  <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                  <XAxis 
+                    type="number" 
+                    dataKey="downloads" 
+                    name="Downloads" 
+                    domain={[500, 1300]}
+                    label={{ value: 'Downloads', position: 'bottom' }}
+                  />
+                  <YAxis 
+                    type="number" 
+                    dataKey="completion" 
+                    name="Completion %" 
+                    domain={[70, 100]}
+                    label={{ value: 'Completion %', angle: -90, position: 'left' }}
+                  />
+                  <ZAxis type="number" dataKey="size" range={[60, 200]} />
+                  <Tooltip 
+                    cursor={{ strokeDasharray: '3 3' }}
+                    content={({ active, payload }) => {
+                      if (active && payload && payload.length) {
+                        const data = payload[0].payload;
+                        return (
+                          <div className="bg-white p-3 shadow-lg rounded-lg border border-gray-200">
+                            <p className="font-medium text-gray-900">{data.name}</p>
+                            <p className="text-sm text-gray-600">Downloads: {data.downloads}</p>
+                            <p className="text-sm text-gray-600">Completion: {data.completion}%</p>
+                            <p className="text-sm text-gray-600">Type: {data.type}</p>
+                          </div>
+                        );
+                      }
+                      return null;
+                    }}
+                  />
                   <Legend />
-                  <Scatter name="Resources" data={resourcesData} fill="#f97316" />
+                  <Scatter 
+                    name="Resources" 
+                    data={resourcesData} 
+                    fill="#f97316"
+                    shape={(props) => {
+                      const { cx, cy, fill } = props;
+                      return (
+                        <circle 
+                          cx={cx} 
+                          cy={cy} 
+                          r={8} 
+                          stroke="#fff"
+                          strokeWidth={2}
+                          fill={fill}
+                          className="hover:opacity-80 transition-opacity cursor-pointer"
+                        />
+                      );
+                    }}
+                  />
                 </ScatterChart>
               </ResponsiveContainer>
             </div>
