@@ -661,6 +661,105 @@
       }
     }
   },
+  "admin": {
+    "overview": {
+      "title": "Übersicht Zusammenfassung",
+      "subtitle": "Echtzeit-Programmanalysen und Lernenden-Einblicke",
+      "totalLearners": "Gesamtzahl der Lernenden",
+      "completionRate": "Abschlussrate",
+      "averageScore": "Durchschnittsnote",
+      "activeToday": "Heute aktiv",
+      "pathwayTracker": {
+        "title": "Vorhersagender Pfad-Tracker",
+        "subtitle": "Empfohlene vs tatsächliche Lernpfade",
+        "overallProgress": "Gesamtfortschritt",
+        "modules": {
+          "digitalLiteracy": "Digitale Kompetenz",
+          "labourRights": "Arbeitsrechte",
+          "communication": "Kommunikationsfähigkeiten",
+          "financial": "Finanzielle Bildung",
+          "workplace": "Arbeitssicherheit"
+        },
+        "pathways": {
+          "digitalFinancial": "Digitale Kompetenz → Finanzplanung",
+          "labourLegal": "Arbeitsrechte → Rechtliche Compliance",
+          "commLeadership": "Kommunikation → Führung",
+          "financialEntrepreneurship": "Finanzielle Bildung → Unternehmertum",
+          "workplaceRisk": "Arbeitssicherheit → Risikomanagement"
+        },
+        "statuses": {
+          "complete": "Abgeschlossen",
+          "inProgress": "In Bearbeitung",
+          "started": "Begonnen",
+          "justStarted": "Gerade begonnen"
+        },
+        "learners": "Lernende",
+        "match": "Übereinstimmung",
+        "completedPathways": "Abgeschlossene Pfade",
+        "notStarted": "Nicht begonnen"
+      },
+      "learnerStatus": {
+        "title": "Lernenden-Status",
+        "active": "Aktiv",
+        "completed": "Abgeschlossen",
+        "atRisk": "Gefährdet",
+        "inactive": "Inaktiv"
+      },
+      "topPerformers": {
+        "title": "Top-Performer"
+      },
+      "learnerProgress": {
+        "title": "Lernenden-Fortschritts-Tracker",
+        "subtitle": "Individueller Fortschritt und Abschlussstatus",
+        "searchPlaceholder": "Lernende suchen...",
+        "allStatus": "Alle Status",
+        "learner": "Lernender",
+        "progress": "Fortschritt",
+        "currentModule": "Aktuelles Modul",
+        "score": "Punktzahl",
+        "status": "Status",
+        "done": "erledigt",
+        "active": "aktiv",
+        "pending": "ausstehend",
+        "noLearnersFound": "Keine Lernenden gefunden",
+        "showing": "Zeige {{count}} von {{total}} Lernenden",
+        "completedText": "Abgeschlossen",
+        "hoursAgo": "vor {{count}} Stunden",
+        "hourAgo": "vor 1 Stunde",
+        "daysAgo": "vor {{count}} Tagen",
+        "dayAgo": "vor 1 Tag",
+        "modules": {
+          "financialPlanning": "Finanzplanung",
+          "labourRights": "Arbeitsrechte",
+          "communicationSkills": "Kommunikationsfähigkeiten",
+          "financialLiteracy": "Finanzielle Bildung",
+          "riskManagement": "Risikomanagement",
+          "basicComputerSkills": "Grundlegende Computerkenntnisse",
+          "digitalMarketing": "Digitales Marketing",
+          "advancedSafetyProtocols": "Erweiterte Sicherheitsprotokolle",
+          "labourCodeBasics": "Grundlagen des Arbeitsrechts",
+          "teamCollaboration": "Teamzusammenarbeit"
+        },
+        "learners": {
+          "learner1": "Anna Schmidt",
+          "learner2": "Hans Müller",
+          "learner3": "Sophie Weber",
+          "learner4": "Klaus Fischer",
+          "learner5": "Maria Wagner",
+          "learner6": "Peter Becker",
+          "learner7": "Laura Hoffmann",
+          "learner8": "Michael Schulz",
+          "learner9": "Emma Koch",
+          "learner10": "Thomas Bauer",
+          "learner11": "Lena Meyer",
+          "learner12": "Felix Richter",
+          "learner13": "Sarah Schneider",
+          "learner14": "Markus Wolf",
+          "learner15": "Julia Zimmermann"
+        }
+      }
+    }
+  },
   "common": {
     "welcome": "Willkommen",
     "loading": "Wird geladen...",

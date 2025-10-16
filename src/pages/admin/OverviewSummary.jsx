@@ -9,11 +9,14 @@ import {
   Search,
   ChevronDown,
   ChevronUp,
-  Filter
+  Filter,
+  Target
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const OverviewSummary = () => {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'asc' });
   const [filterStatus, setFilterStatus] = useState('all');
@@ -34,45 +37,64 @@ const OverviewSummary = () => {
 
   const pathwayData = [
     { 
-      pathway: 'Digital Literacy → Financial Planning',
-      recommended: 5,
-      actual: 4,
-      matchRate: 80.0
+      pathwayKey: 'digitalFinancial',
+      moduleKey: 'digitalLiteracy',
+      recommended: 100,
+      actual: 100,
+      matchRate: 100.0,
+      statusKey: 'complete',
+      learners: 15
     },
     { 
-      pathway: 'Labour Rights → Legal Compliance',
-      recommended: 4,
-      actual: 3,
-      matchRate: 75.0
+      pathwayKey: 'labourLegal',
+      moduleKey: 'labourRights',
+      recommended: 100,
+      actual: 85,
+      matchRate: 85.0,
+      statusKey: 'inProgress',
+      learners: 13
     },
     { 
-      pathway: 'Communication → Leadership',
-      recommended: 3,
-      actual: 3,
-      matchRate: 100.0
+      pathwayKey: 'commLeadership',
+      moduleKey: 'communication',
+      recommended: 100,
+      actual: 72,
+      matchRate: 72.0,
+      statusKey: 'inProgress',
+      learners: 11
     },
     { 
-      pathway: 'Financial Literacy → Entrepreneurship',
-      recommended: 2,
-      actual: 1,
-      matchRate: 50.0
+      pathwayKey: 'financialEntrepreneurship',
+      moduleKey: 'financial',
+      recommended: 100,
+      actual: 45,
+      matchRate: 45.0,
+      statusKey: 'started',
+      learners: 9
     },
     { 
-      pathway: 'Workplace Safety → Risk Management',
-      recommended: 1,
-      actual: 1,
-      matchRate: 100.0
+      pathwayKey: 'workplaceRisk',
+      moduleKey: 'workplace',
+      recommended: 100,
+      actual: 15,
+      matchRate: 15.0,
+      statusKey: 'justStarted',
+      learners: 5
     }
   ];
+
+  const overallPathwayCompletion = Math.round(
+    pathwayData.reduce((acc, item) => acc + item.actual, 0) / pathwayData.length
+  );
 
   const learnersData = [
     {
       id: 1,
-      name: 'Anna Schmidt',
+      nameKey: 'learner1',
       email: 'anna.schmidt@example.com',
       modulesCompleted: 12,
       totalModules: 15,
-      currentModule: 'Financial Planning',
+      currentModuleKey: 'financialPlanning',
       score: 92.5,
       status: 'active',
       pathway: 'Digital Literacy',
@@ -80,11 +102,11 @@ const OverviewSummary = () => {
     },
     {
       id: 2,
-      name: 'Hans Müller',
+      nameKey: 'learner2',
       email: 'hans.mueller@example.com',
       modulesCompleted: 8,
       totalModules: 15,
-      currentModule: 'Labour Rights',
+      currentModuleKey: 'labourRights',
       score: 88.3,
       status: 'active',
       pathway: 'Legal Compliance',
@@ -92,11 +114,11 @@ const OverviewSummary = () => {
     },
     {
       id: 3,
-      name: 'Sophie Weber',
+      nameKey: 'learner3',
       email: 'sophie.weber@example.com',
       modulesCompleted: 15,
       totalModules: 15,
-      currentModule: 'Completed',
+      currentModuleKey: 'completed',
       score: 95.7,
       status: 'completed',
       pathway: 'Communication',
@@ -104,11 +126,11 @@ const OverviewSummary = () => {
     },
     {
       id: 4,
-      name: 'Klaus Fischer',
+      nameKey: 'learner4',
       email: 'klaus.fischer@example.com',
       modulesCompleted: 5,
       totalModules: 15,
-      currentModule: 'Financial Literacy',
+      currentModuleKey: 'financialLiteracy',
       score: 76.2,
       status: 'at-risk',
       pathway: 'Entrepreneurship',
@@ -116,11 +138,11 @@ const OverviewSummary = () => {
     },
     {
       id: 5,
-      name: 'Maria Wagner',
+      nameKey: 'learner5',
       email: 'maria.wagner@example.com',
       modulesCompleted: 15,
       totalModules: 15,
-      currentModule: 'Completed',
+      currentModuleKey: 'completed',
       score: 94.8,
       status: 'completed',
       pathway: 'Digital Literacy',
@@ -128,11 +150,11 @@ const OverviewSummary = () => {
     },
     {
       id: 6,
-      name: 'Peter Becker',
+      nameKey: 'learner6',
       email: 'peter.becker@example.com',
       modulesCompleted: 10,
       totalModules: 15,
-      currentModule: 'Communication Skills',
+      currentModuleKey: 'communicationSkills',
       score: 85.6,
       status: 'active',
       pathway: 'Leadership',
@@ -140,11 +162,11 @@ const OverviewSummary = () => {
     },
     {
       id: 7,
-      name: 'Laura Hoffmann',
+      nameKey: 'learner7',
       email: 'laura.hoffmann@example.com',
       modulesCompleted: 3,
       totalModules: 15,
-      currentModule: 'Basic Computer Skills',
+      currentModuleKey: 'basicComputerSkills',
       score: 72.4,
       status: 'at-risk',
       pathway: 'Digital Literacy',
@@ -152,11 +174,11 @@ const OverviewSummary = () => {
     },
     {
       id: 8,
-      name: 'Michael Schulz',
+      nameKey: 'learner8',
       email: 'michael.schulz@example.com',
       modulesCompleted: 13,
       totalModules: 15,
-      currentModule: 'Risk Management',
+      currentModuleKey: 'riskManagement',
       score: 89.2,
       status: 'active',
       pathway: 'Workplace Safety',
@@ -164,11 +186,11 @@ const OverviewSummary = () => {
     },
     {
       id: 9,
-      name: 'Emma Koch',
+      nameKey: 'learner9',
       email: 'emma.koch@example.com',
       modulesCompleted: 15,
       totalModules: 15,
-      currentModule: 'Completed',
+      currentModuleKey: 'completed',
       score: 91.3,
       status: 'completed',
       pathway: 'Legal Compliance',
@@ -176,11 +198,11 @@ const OverviewSummary = () => {
     },
     {
       id: 10,
-      name: 'Thomas Bauer',
+      nameKey: 'learner10',
       email: 'thomas.bauer@example.com',
       modulesCompleted: 7,
       totalModules: 15,
-      currentModule: 'Labour Code Basics',
+      currentModuleKey: 'labourCodeBasics',
       score: 80.5,
       status: 'active',
       pathway: 'Labour Rights',
@@ -188,11 +210,11 @@ const OverviewSummary = () => {
     },
     {
       id: 11,
-      name: 'Lena Meyer',
+      nameKey: 'learner11',
       email: 'lena.meyer@example.com',
       modulesCompleted: 15,
       totalModules: 15,
-      currentModule: 'Completed',
+      currentModuleKey: 'completed',
       score: 93.1,
       status: 'completed',
       pathway: 'Communication',
@@ -200,11 +222,11 @@ const OverviewSummary = () => {
     },
     {
       id: 12,
-      name: 'Felix Richter',
+      nameKey: 'learner12',
       email: 'felix.richter@example.com',
       modulesCompleted: 2,
       totalModules: 15,
-      currentModule: 'Introduction to Finance',
+      currentModuleKey: 'financialLiteracy',
       score: 68.7,
       status: 'inactive',
       pathway: 'Financial Literacy',
@@ -212,11 +234,11 @@ const OverviewSummary = () => {
     },
     {
       id: 13,
-      name: 'Sarah Schneider',
+      nameKey: 'learner13',
       email: 'sarah.schneider@example.com',
       modulesCompleted: 9,
       totalModules: 15,
-      currentModule: 'Digital Marketing',
+      currentModuleKey: 'digitalMarketing',
       score: 86.9,
       status: 'active',
       pathway: 'Entrepreneurship',
@@ -224,11 +246,11 @@ const OverviewSummary = () => {
     },
     {
       id: 14,
-      name: 'Markus Wolf',
+      nameKey: 'learner14',
       email: 'markus.wolf@example.com',
       modulesCompleted: 11,
       totalModules: 15,
-      currentModule: 'Advanced Safety Protocols',
+      currentModuleKey: 'advancedSafetyProtocols',
       score: 87.4,
       status: 'active',
       pathway: 'Risk Management',
@@ -236,11 +258,11 @@ const OverviewSummary = () => {
     },
     {
       id: 15,
-      name: 'Julia Zimmermann',
+      nameKey: 'learner15',
       email: 'julia.zimmermann@example.com',
       modulesCompleted: 6,
       totalModules: 15,
-      currentModule: 'Team Collaboration',
+      currentModuleKey: 'teamCollaboration',
       score: 79.8,
       status: 'active',
       pathway: 'Leadership',
@@ -251,19 +273,25 @@ const OverviewSummary = () => {
   // Filtering and sorting logic
   const filteredAndSortedLearners = useMemo(() => {
     let filtered = learnersData.filter(learner => {
-      const matchesSearch = learner.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      const learnerName = t(`admin.overview.learnerProgress.learners.${learner.nameKey}`);
+      const matchesSearch = learnerName.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            learner.email.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesFilter = filterStatus === 'all' || learner.status === filterStatus;
       return matchesSearch && matchesFilter;
     });
 
     filtered.sort((a, b) => {
-      let aVal = a[sortConfig.key];
-      let bVal = b[sortConfig.key];
+      let aVal, bVal;
       
-      if (sortConfig.key === 'progress') {
+      if (sortConfig.key === 'name') {
+        aVal = t(`admin.overview.learnerProgress.learners.${a.nameKey}`);
+        bVal = t(`admin.overview.learnerProgress.learners.${b.nameKey}`);
+      } else if (sortConfig.key === 'progress') {
         aVal = a.modulesCompleted / a.totalModules;
         bVal = b.modulesCompleted / b.totalModules;
+      } else {
+        aVal = a[sortConfig.key];
+        bVal = b[sortConfig.key];
       }
 
       if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
@@ -272,7 +300,7 @@ const OverviewSummary = () => {
     });
 
     return filtered;
-  }, [searchTerm, sortConfig, filterStatus]);
+  }, [searchTerm, sortConfig, filterStatus, t]);
 
   const handleSort = (key) => {
     setSortConfig(prev => ({
@@ -298,6 +326,53 @@ const OverviewSummary = () => {
     return 'bg-rose-500';
   };
 
+  const getStatusText = (status) => {
+    const statusMap = {
+      'active': t('admin.overview.learnerStatus.active'),
+      'completed': t('admin.overview.learnerStatus.completed'),
+      'at-risk': t('admin.overview.learnerStatus.atRisk'),
+      'inactive': t('admin.overview.learnerStatus.inactive')
+    };
+    return statusMap[status] || status;
+  };
+
+  const translateCurrentModule = (moduleKey) => {
+    if (moduleKey === 'completed') {
+      return t('admin.overview.learnerProgress.completedText');
+    }
+    // Try to get translation from modules object
+    const translationKey = `admin.overview.learnerProgress.modules.${moduleKey}`;
+    const translated = t(translationKey);
+    // If translation key is returned as-is, it means no translation found, return original
+    return translated !== translationKey ? translated : moduleKey;
+  };
+
+  const translateLastActive = (timeString) => {
+    // Parse time strings like "2 hours ago", "1 day ago", etc.
+    const hourMatch = timeString.match(/^(\d+) hours? ago$/);
+    const dayMatch = timeString.match(/^(\d+) days? ago$/);
+    
+    if (hourMatch) {
+      const count = parseInt(hourMatch[1]);
+      return count === 1 
+        ? t('admin.overview.learnerProgress.hourAgo')
+        : t('admin.overview.learnerProgress.hoursAgo', { count });
+    }
+    
+    if (dayMatch) {
+      const count = parseInt(dayMatch[1]);
+      return count === 1
+        ? t('admin.overview.learnerProgress.dayAgo')
+        : t('admin.overview.learnerProgress.daysAgo', { count });
+    }
+    
+    return timeString;
+  };
+
+  const translateLearnerName = (nameKey) => {
+    return t(`admin.overview.learnerProgress.learners.${nameKey}`);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50/20 to-purple-50/10 p-6">
       <div className="max-w-[1800px] mx-auto space-y-5">
@@ -312,9 +387,9 @@ const OverviewSummary = () => {
             <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg">
               <BarChart3 className="h-5 w-5 text-white" />
             </div>
-            <h1 className="text-3xl font-semibold text-slate-800">Overview Summary</h1>
+            <h1 className="text-3xl font-semibold text-slate-800">{t('admin.overview.title')}</h1>
           </div>
-          <p className="text-sm text-slate-500">Real-time program analytics and learner insights</p>
+          <p className="text-sm text-slate-500">{t('admin.overview.subtitle')}</p>
         </motion.div>
 
         {/* 1. Overall Program KPIs */}
@@ -338,7 +413,7 @@ const OverviewSummary = () => {
               </div>
               <div className="space-y-0.5">
                 <p className="text-2xl font-semibold text-slate-900">{programKPIs.totalLearners.toLocaleString()}</p>
-                <p className="text-xs text-slate-500">Total Learners</p>
+                <p className="text-xs text-slate-500">{t('admin.overview.totalLearners')}</p>
               </div>
             </div>
 
@@ -355,7 +430,7 @@ const OverviewSummary = () => {
               </div>
               <div className="space-y-0.5">
                 <p className="text-2xl font-semibold text-slate-900">{programKPIs.completionRate}%</p>
-                <p className="text-xs text-slate-500">Completion Rate</p>
+                <p className="text-xs text-slate-500">{t('admin.overview.completionRate')}</p>
               </div>
             </div>
 
@@ -372,7 +447,7 @@ const OverviewSummary = () => {
               </div>
               <div className="space-y-0.5">
                 <p className="text-2xl font-semibold text-slate-900">{programKPIs.averageScore}%</p>
-                <p className="text-xs text-slate-500">Average Score</p>
+                <p className="text-xs text-slate-500">{t('admin.overview.averageScore')}</p>
               </div>
             </div>
 
@@ -389,7 +464,7 @@ const OverviewSummary = () => {
               </div>
               <div className="space-y-0.5">
                 <p className="text-2xl font-semibold text-slate-900">{programKPIs.activeToday.toLocaleString()}</p>
-                <p className="text-xs text-slate-500">Active Today</p>
+                <p className="text-xs text-slate-500">{t('admin.overview.activeToday')}</p>
               </div>
             </div>
 
@@ -404,165 +479,143 @@ const OverviewSummary = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="lg:col-span-2 bg-white rounded-xl border border-slate-200 p-6"
+            className="lg:col-span-2 bg-white rounded-xl border border-slate-200 p-6 shadow-sm"
           >
-            <div className="mb-5">
-              <h2 className="text-lg font-semibold text-slate-800 mb-1">Predictive Pathway Tracker</h2>
-              <p className="text-xs text-slate-500">Recommended vs actual learner pathways</p>
+            {/* Header with Completion Badge */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg shadow-md">
+                  <Target className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h2 className="text-lg font-semibold text-slate-800">{t('admin.overview.pathwayTracker.title')}</h2>
+                  <p className="text-xs text-slate-500">{t('admin.overview.pathwayTracker.subtitle')}</p>
+                </div>
+              </div>
+              <div className="text-base font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 rounded-full shadow-lg">
+                {overallPathwayCompletion}% {t('admin.overview.pathwayTracker.overallProgress')}
+              </div>
             </div>
 
-            <div className="space-y-5">
-              {pathwayData.slice(0, 3).map((pathway, index) => {
-                // Generate trend data for visualization
-                const dataPoints = 7;
-                const maxValue = Math.max(pathway.recommended, pathway.actual);
-                const recommendedTrend = Array.from({ length: dataPoints }, (_, i) => {
-                  const progress = i / (dataPoints - 1);
-                  return pathway.recommended * (0.3 + progress * 0.7) + (Math.random() - 0.5) * 5;
-                });
-                const actualTrend = Array.from({ length: dataPoints }, (_, i) => {
-                  const progress = i / (dataPoints - 1);
-                  return pathway.actual * (0.3 + progress * 0.7) + (Math.random() - 0.5) * 5;
-                });
-
-                const chartHeight = 60;
-                const chartWidth = 500;
-                const pointSpacing = chartWidth / (dataPoints - 1);
-                const yScale = chartHeight / (maxValue * 1.2);
-
-                // Create path for recommended
-                const recPoints = recommendedTrend.map((val, i) => ({
-                  x: i * pointSpacing,
-                  y: chartHeight - val * yScale
-                }));
-                const recPath = recPoints.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x},${p.y}`).join(' ');
-                const recArea = `${recPath} L ${chartWidth},${chartHeight} L 0,${chartHeight} Z`;
-
-                // Create path for actual
-                const actPoints = actualTrend.map((val, i) => ({
-                  x: i * pointSpacing,
-                  y: chartHeight - val * yScale
-                }));
-                const actPath = actPoints.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x},${p.y}`).join(' ');
-                const actArea = `${actPath} L ${chartWidth},${chartHeight} L 0,${chartHeight} Z`;
+            {/* Visual Progress Bars */}
+            {/* Visual Progress Bars */}
+            <div className="space-y-4">
+              {pathwayData.map((pathway, idx) => {
+                const progressPercentage = pathway.actual;
+                const isComplete = progressPercentage === 100;
+                const isInProgress = progressPercentage > 0 && progressPercentage < 100;
+                const isNotStarted = progressPercentage === 0;
 
                 return (
                   <motion.div
-                    key={index}
+                    key={idx}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 + index * 0.05 }}
-                    className="bg-gradient-to-br from-slate-50 to-white rounded-lg p-4 border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-300"
+                    transition={{ delay: 0.3 + idx * 0.05 }}
+                    className="space-y-2"
                   >
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex-1">
-                        <p className="text-sm text-slate-700 font-medium">{pathway.pathway}</p>
+                    {/* Module Header */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3 flex-1">
+                        <span className="text-sm font-bold text-gray-700 min-w-[180px]">{t(`admin.overview.pathwayTracker.modules.${pathway.moduleKey}`)}</span>
+                        <div className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
+                          isComplete 
+                            ? 'bg-green-100 text-green-700 border border-green-300' 
+                            : isInProgress 
+                            ? 'bg-blue-100 text-blue-700 border border-blue-300' 
+                            : 'bg-gray-100 text-gray-600 border border-gray-300'
+                        }`}>
+                          {t(`admin.overview.pathwayTracker.statuses.${pathway.statusKey}`)}
+                        </div>
+                        <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                          <Users className="h-3.5 w-3.5" />
+                          <span>{pathway.learners} {t('admin.overview.pathwayTracker.learners')}</span>
+                        </div>
                       </div>
-                      <div className={`text-xs px-2 py-1 rounded ${pathway.matchRate >= 85 ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'}`}>
-                        {pathway.matchRate}% match
+                      <div className="flex items-center gap-3">
+                        <span className="text-lg font-bold text-blue-600">{progressPercentage}%</span>
+                        <div className={`text-xs px-2.5 py-1 rounded-full font-semibold ${
+                          pathway.matchRate >= 85 
+                            ? 'bg-emerald-50 text-emerald-600 border border-emerald-200' 
+                            : pathway.matchRate >= 70
+                            ? 'bg-blue-50 text-blue-600 border border-blue-200'
+                            : 'bg-amber-50 text-amber-600 border border-amber-200'
+                        }`}>
+                          {pathway.matchRate}% {t('admin.overview.pathwayTracker.match')}
+                        </div>
                       </div>
                     </div>
 
-                    {/* Interactive Area Chart */}
-                    <div className="relative">
-                      <svg 
-                        viewBox={`0 0 ${chartWidth} ${chartHeight}`}
-                        className="w-full h-16"
-                        preserveAspectRatio="none"
+                    {/* Progress Bar */}
+                    <div className="relative w-full h-10 bg-gray-100 rounded-lg overflow-hidden border-2 border-gray-200 shadow-inner">
+                      {/* Recommended Background (Full Width) */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-blue-100"></div>
+                      
+                      {/* Actual Progress */}
+                      <div 
+                        className={`absolute inset-y-0 left-0 rounded-lg transition-all duration-1000 ease-out ${
+                          isComplete 
+                            ? 'bg-gradient-to-r from-green-400 to-green-500 shadow-md' 
+                            : isInProgress 
+                            ? 'bg-gradient-to-r from-blue-400 to-blue-600 shadow-md' 
+                            : 'bg-gray-300'
+                        }`}
+                        style={{ width: `${progressPercentage}%` }}
                       >
-                        {/* Grid line */}
-                        <line 
-                          x1="0" 
-                          y1={chartHeight/2} 
-                          x2={chartWidth} 
-                          y2={chartHeight/2} 
-                          stroke="currentColor" 
-                          className="text-slate-200" 
-                          strokeWidth="1" 
-                          strokeDasharray="4 2" 
-                        />
+                        {progressPercentage > 10 && (
+                          <div className="h-full flex items-center justify-end pr-3">
+                            <span className="text-xs font-bold text-white drop-shadow-md">
+                              {progressPercentage}%
+                            </span>
+                          </div>
+                        )}
+                      </div>
 
-                        {/* Recommended area and line */}
-                        <path 
-                          d={recArea}
-                          fill="url(#recGradient-${index})"
-                          className="opacity-40"
-                        />
-                        <path 
-                          d={recPath}
-                          fill="none"
-                          stroke="#3b82f6"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="drop-shadow-sm"
-                        />
-
-                        {/* Actual area and line */}
-                        <path 
-                          d={actArea}
-                          fill="url(#actGradient-${index})"
-                          className="opacity-40"
-                        />
-                        <path 
-                          d={actPath}
-                          fill="none"
-                          stroke="#10b981"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="drop-shadow-sm"
-                        />
-
-                        {/* Data points */}
-                        {recPoints.map((point, i) => (
-                          <circle
-                            key={`rec-${i}`}
-                            cx={point.x}
-                            cy={point.y}
-                            r="3"
-                            fill="#3b82f6"
-                            className="hover:r-5 transition-all cursor-pointer"
-                          />
+                      {/* Milestone Markers */}
+                      <div className="absolute inset-0 flex items-center pointer-events-none">
+                        {[25, 50, 75].map(milestone => (
+                          <div 
+                            key={milestone}
+                            className="absolute h-full border-l-2 border-dashed border-gray-300"
+                            style={{ left: `${milestone}%` }}
+                          >
+                            <span className="absolute -top-1 -left-2 text-[10px] text-gray-400 font-medium">
+                              {milestone}
+                            </span>
+                          </div>
                         ))}
-                        {actPoints.map((point, i) => (
-                          <circle
-                            key={`act-${i}`}
-                            cx={point.x}
-                            cy={point.y}
-                            r="3"
-                            fill="#10b981"
-                            className="hover:r-5 transition-all cursor-pointer"
-                          />
-                        ))}
-
-                        <defs>
-                          <linearGradient id={`recGradient-${index}`} x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.6" />
-                            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.05" />
-                          </linearGradient>
-                          <linearGradient id={`actGradient-${index}`} x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#10b981" stopOpacity="0.6" />
-                            <stop offset="100%" stopColor="#10b981" stopOpacity="0.05" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
+                      </div>
                     </div>
 
-                    {/* Legend with values */}
-                    <div className="flex items-center justify-between mt-3 text-xs">
-                      <div className="flex items-center gap-1.5">
-                        <div className="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
-                        <span className="text-slate-600">Recommended: <span className="font-semibold">{pathway.recommended}</span></span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
-                        <span className="text-slate-600">Actual: <span className="font-semibold">{pathway.actual}</span></span>
-                      </div>
+                    {/* Pathway Description */}
+                    <div className="flex items-center justify-between text-xs text-slate-500 pl-1">
+                      <span className="italic">{t(`admin.overview.pathwayTracker.pathways.${pathway.pathwayKey}`)}</span>
                     </div>
                   </motion.div>
                 );
               })}
+            </div>
+
+            {/* Statistics Summary */}
+            <div className="grid grid-cols-3 gap-3 mt-6 pt-5 border-t-2 border-gray-200">
+              <div className="text-center p-3 bg-green-50 rounded-lg border border-green-200 shadow-sm">
+                <div className="text-2xl font-bold text-green-600">
+                  {pathwayData.filter(m => m.actual === 100).length}
+                </div>
+                <div className="text-xs text-gray-600 font-medium mt-1">{t('admin.overview.pathwayTracker.completedPathways')}</div>
+              </div>
+              <div className="text-center p-3 bg-blue-50 rounded-lg border border-blue-200 shadow-sm">
+                <div className="text-2xl font-bold text-blue-600">
+                  {pathwayData.filter(m => m.actual > 0 && m.actual < 100).length}
+                </div>
+                <div className="text-xs text-gray-600 font-medium mt-1">{t('admin.overview.pathwayTracker.statuses.inProgress')}</div>
+              </div>
+              <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200 shadow-sm">
+                <div className="text-2xl font-bold text-gray-600">
+                  {pathwayData.filter(m => m.actual === 0).length}
+                </div>
+                <div className="text-xs text-gray-600 font-medium mt-1">{t('admin.overview.pathwayTracker.notStarted')}</div>
+              </div>
             </div>
 
           </motion.div>
@@ -576,11 +629,11 @@ const OverviewSummary = () => {
           >
             {/* Status Distribution */}
             <div className="bg-white rounded-xl border border-slate-200 p-5">
-              <h3 className="text-sm font-semibold text-slate-800 mb-4">Learner Status</h3>
+              <h3 className="text-sm font-semibold text-slate-800 mb-4">{t('admin.overview.learnerStatus.title')}</h3>
               <div className="space-y-3">
                 <div>
                   <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="text-slate-600">Active (8)</span>
+                    <span className="text-slate-600">{t('admin.overview.learnerStatus.active')} (8)</span>
                     <span className="font-medium text-emerald-600">53.3%</span>
                   </div>
                   <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
@@ -589,7 +642,7 @@ const OverviewSummary = () => {
                 </div>
                 <div>
                   <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="text-slate-600">Completed (4)</span>
+                    <span className="text-slate-600">{t('admin.overview.learnerStatus.completed')} (4)</span>
                     <span className="font-medium text-blue-600">26.7%</span>
                   </div>
                   <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
@@ -598,7 +651,7 @@ const OverviewSummary = () => {
                 </div>
                 <div>
                   <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="text-slate-600">At Risk (2)</span>
+                    <span className="text-slate-600">{t('admin.overview.learnerStatus.atRisk')} (2)</span>
                     <span className="font-medium text-amber-600">13.3%</span>
                   </div>
                   <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
@@ -607,7 +660,7 @@ const OverviewSummary = () => {
             </div>
             <div>
                   <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="text-slate-600">Inactive (1)</span>
+                    <span className="text-slate-600">{t('admin.overview.learnerStatus.inactive')} (1)</span>
                     <span className="font-medium text-slate-600">6.7%</span>
                   </div>
                   <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
@@ -619,19 +672,24 @@ const OverviewSummary = () => {
 
             {/* Top Performers */}
             <div className="bg-gradient-to-br from-amber-50 to-orange-50/50 rounded-xl border border-amber-100 p-5">
-              <h3 className="text-sm font-semibold text-slate-800 mb-3">Top Performers</h3>
+              <h3 className="text-sm font-semibold text-slate-800 mb-3">{t('admin.overview.topPerformers.title')}</h3>
               <div className="space-y-2">
-                {learnersData.slice(0, 3).sort((a, b) => b.score - a.score).map((learner, index) => (
-                  <div key={learner.id} className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-xs font-semibold">
-                        {index + 1}
+                {learnersData.slice(0, 3).sort((a, b) => b.score - a.score).map((learner, index) => {
+                  const medals = ['🥇', '🥈', '🥉'];
+                  const fullName = translateLearnerName(learner.nameKey);
+                  const firstName = fullName.split(' ')[0];
+                  return (
+                    <div key={learner.id} className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="text-2xl leading-none">
+                          {medals[index]}
+                        </span>
+                        <span className="text-xs text-slate-700 font-medium">{firstName}</span>
                       </div>
-                      <span className="text-xs text-slate-700">{learner.name.split(' ')[0]}</span>
+                      <span className="text-xs font-semibold text-amber-600">{learner.score}%</span>
                     </div>
-                    <span className="text-xs font-semibold text-amber-600">{learner.score}%</span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </motion.div>
@@ -646,8 +704,8 @@ const OverviewSummary = () => {
           className="bg-white rounded-xl border border-slate-200 p-6"
         >
           <div className="mb-5">
-            <h2 className="text-lg font-semibold text-slate-800 mb-1">Learner Progress Tracker</h2>
-            <p className="text-xs text-slate-500">Individual progress and completion status</p>
+            <h2 className="text-lg font-semibold text-slate-800 mb-1">{t('admin.overview.learnerProgress.title')}</h2>
+            <p className="text-xs text-slate-500">{t('admin.overview.learnerProgress.subtitle')}</p>
           </div>
 
           {/* Filters and Search */}
@@ -657,7 +715,7 @@ const OverviewSummary = () => {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search learners..."
+                placeholder={t('admin.overview.learnerProgress.searchPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-300 transition-all"
@@ -672,11 +730,11 @@ const OverviewSummary = () => {
                 onChange={(e) => setFilterStatus(e.target.value)}
                 className="pl-10 pr-8 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-300 transition-all appearance-none cursor-pointer"
               >
-                <option value="all">All Status</option>
-                <option value="active">Active</option>
-                <option value="completed">Completed</option>
-                <option value="at-risk">At Risk</option>
-                <option value="inactive">Inactive</option>
+                <option value="all">{t('admin.overview.learnerProgress.allStatus')}</option>
+                <option value="active">{t('admin.overview.learnerStatus.active')}</option>
+                <option value="completed">{t('admin.overview.learnerStatus.completed')}</option>
+                <option value="at-risk">{t('admin.overview.learnerStatus.atRisk')}</option>
+                <option value="inactive">{t('admin.overview.learnerStatus.inactive')}</option>
               </select>
             </div>
           </div>
@@ -691,7 +749,7 @@ const OverviewSummary = () => {
                     className="text-left py-2.5 px-3 text-xs font-medium text-slate-600 cursor-pointer hover:text-blue-500 transition-colors"
                   >
                     <div className="flex items-center gap-1">
-                      Learner
+                      {t('admin.overview.learnerProgress.learner')}
                       {sortConfig.key === 'name' && (
                         sortConfig.direction === 'asc' ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />
                       )}
@@ -702,21 +760,21 @@ const OverviewSummary = () => {
                     className="text-left py-2.5 px-3 text-xs font-medium text-slate-600 cursor-pointer hover:text-blue-500 transition-colors"
                   >
                     <div className="flex items-center gap-1">
-                      Progress
+                      {t('admin.overview.learnerProgress.progress')}
                       {sortConfig.key === 'progress' && (
                         sortConfig.direction === 'asc' ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />
                       )}
                     </div>
                   </th>
                   <th className="text-left py-2.5 px-3 text-xs font-medium text-slate-600">
-                    Current Module
+                    {t('admin.overview.learnerProgress.currentModule')}
                   </th>
                   <th 
                     onClick={() => handleSort('score')}
                     className="text-left py-2.5 px-3 text-xs font-medium text-slate-600 cursor-pointer hover:text-blue-500 transition-colors"
                   >
                     <div className="flex items-center gap-1">
-                      Score
+                      {t('admin.overview.learnerProgress.score')}
                       {sortConfig.key === 'score' && (
                         sortConfig.direction === 'asc' ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />
                       )}
@@ -727,7 +785,7 @@ const OverviewSummary = () => {
                     className="text-left py-2.5 px-3 text-xs font-medium text-slate-600 cursor-pointer hover:text-blue-500 transition-colors"
                   >
                     <div className="flex items-center gap-1">
-                      Status
+                      {t('admin.overview.learnerProgress.status')}
                       {sortConfig.key === 'status' && (
                         sortConfig.direction === 'asc' ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />
                       )}
@@ -748,7 +806,7 @@ const OverviewSummary = () => {
                     >
                       <td className="py-2.5 px-3">
                         <div>
-                          <p className="text-sm text-slate-800 font-medium">{learner.name}</p>
+                          <p className="text-sm text-slate-800 font-medium">{translateLearnerName(learner.nameKey)}</p>
                           <p className="text-xs text-slate-400">{learner.email}</p>
                         </div>
                       </td>
@@ -767,8 +825,8 @@ const OverviewSummary = () => {
                         </div>
                       </td>
                       <td className="py-2.5 px-3">
-                        <p className="text-sm text-slate-700">{learner.currentModule}</p>
-                        <p className="text-xs text-slate-400">{learner.lastActive}</p>
+                        <p className="text-sm text-slate-700">{translateCurrentModule(learner.currentModuleKey)}</p>
+                        <p className="text-xs text-slate-400">{translateLastActive(learner.lastActive)}</p>
                       </td>
                       <td className="py-2.5 px-3">
                         <div className="flex items-center gap-1.5">
@@ -778,7 +836,7 @@ const OverviewSummary = () => {
                       </td>
                       <td className="py-2.5 px-3">
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs border ${getStatusColor(learner.status)}`}>
-                          {learner.status.charAt(0).toUpperCase() + learner.status.slice(1)}
+                          {getStatusText(learner.status)}
                         </span>
                       </td>
                     </motion.tr>
@@ -791,14 +849,14 @@ const OverviewSummary = () => {
           {/* Empty State */}
           {filteredAndSortedLearners.length === 0 && (
             <div className="text-center py-8">
-              <p className="text-sm text-slate-500">No learners found</p>
+              <p className="text-sm text-slate-500">{t('admin.overview.learnerProgress.noLearnersFound')}</p>
             </div>
           )}
 
           {/* Results count */}
           <div className="mt-4 pt-3 border-t border-slate-100">
             <p className="text-xs text-slate-500">
-              Showing {filteredAndSortedLearners.length} of {learnersData.length} learners
+              {t('admin.overview.learnerProgress.showing', { count: filteredAndSortedLearners.length, total: learnersData.length })}
             </p>
         </div>
         </motion.div>

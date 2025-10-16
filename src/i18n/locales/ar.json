@@ -661,6 +661,105 @@
       }
     }
   },
+  "admin": {
+    "overview": {
+      "title": "ملخص عام",
+      "subtitle": "تحليلات البرنامج في الوقت الفعلي ورؤى المتعلمين",
+      "totalLearners": "إجمالي المتعلمين",
+      "completionRate": "معدل الإنجاز",
+      "averageScore": "متوسط الدرجات",
+      "activeToday": "النشطون اليوم",
+      "pathwayTracker": {
+        "title": "متتبع المسار التنبؤي",
+        "subtitle": "مسارات المتعلمين الموصى بها مقابل الفعلية",
+        "overallProgress": "التقدم الإجمالي",
+        "modules": {
+          "digitalLiteracy": "المعرفة الرقمية",
+          "labourRights": "حقوق العمل",
+          "communication": "مهارات التواصل",
+          "financial": "الثقافة المالية",
+          "workplace": "السلامة في مكان العمل"
+        },
+        "pathways": {
+          "digitalFinancial": "المعرفة الرقمية ← التخطيط المالي",
+          "labourLegal": "حقوق العمل ← الامتثال القانوني",
+          "commLeadership": "التواصل ← القيادة",
+          "financialEntrepreneurship": "الثقافة المالية ← ريادة الأعمال",
+          "workplaceRisk": "السلامة في مكان العمل ← إدارة المخاطر"
+        },
+        "statuses": {
+          "complete": "مكتمل",
+          "inProgress": "قيد التنفيذ",
+          "started": "بدأ",
+          "justStarted": "بدأ للتو"
+        },
+        "learners": "متعلمون",
+        "match": "مطابقة",
+        "completedPathways": "المسارات المكتملة",
+        "notStarted": "لم يبدأ"
+      },
+      "learnerStatus": {
+        "title": "حالة المتعلم",
+        "active": "نشط",
+        "completed": "مكتمل",
+        "atRisk": "في خطر",
+        "inactive": "غير نشط"
+      },
+      "topPerformers": {
+        "title": "أفضل المتعلمين"
+      },
+      "learnerProgress": {
+        "title": "متتبع تقدم المتعلم",
+        "subtitle": "التقدم الفردي وحالة الإنجاز",
+        "searchPlaceholder": "البحث عن متعلمين...",
+        "allStatus": "جميع الحالات",
+        "learner": "المتعلم",
+        "progress": "التقدم",
+        "currentModule": "الوحدة الحالية",
+        "score": "الدرجة",
+        "status": "الحالة",
+        "done": "تم",
+        "active": "نشط",
+        "pending": "معلق",
+        "noLearnersFound": "لم يتم العثور على متعلمين",
+        "showing": "عرض {{count}} من {{total}} متعلمين",
+        "completedText": "مكتمل",
+        "hoursAgo": "منذ {{count}} ساعات",
+        "hourAgo": "منذ ساعة واحدة",
+        "daysAgo": "منذ {{count}} أيام",
+        "dayAgo": "منذ يوم واحد",
+        "modules": {
+          "financialPlanning": "التخطيط المالي",
+          "labourRights": "حقوق العمل",
+          "communicationSkills": "مهارات التواصل",
+          "financialLiteracy": "الثقافة المالية",
+          "riskManagement": "إدارة المخاطر",
+          "basicComputerSkills": "مهارات الكمبيوتر الأساسية",
+          "digitalMarketing": "التسويق الرقمي",
+          "advancedSafetyProtocols": "بروتوكولات السلامة المتقدمة",
+          "labourCodeBasics": "أساسيات قانون العمل",
+          "teamCollaboration": "التعاون الجماعي"
+        },
+        "learners": {
+          "learner1": "آنا شميدت",
+          "learner2": "هانز مولر",
+          "learner3": "صوفي ويبر",
+          "learner4": "كلاوس فيشر",
+          "learner5": "ماريا فاغنر",
+          "learner6": "بيتر بيكر",
+          "learner7": "لورا هوفمان",
+          "learner8": "مايكل شولتز",
+          "learner9": "إيما كوخ",
+          "learner10": "توماس باور",
+          "learner11": "لينا ماير",
+          "learner12": "فيليكس ريشتر",
+          "learner13": "سارة شنايدر",
+          "learner14": "ماركوس وولف",
+          "learner15": "جوليا زيمرمان"
+        }
+      }
+    }
+  },
   "common": {
     "welcome": "مرحباً",
     "loading": "جاري التحميل...",

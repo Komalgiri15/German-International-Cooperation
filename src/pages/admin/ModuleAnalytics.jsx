@@ -32,10 +32,10 @@ const ModuleAnalytics = () => {
       color: 'sky',
       completion: 92,
       avgScore: 87.5,
-      enrolled: 458,
-      completed: 421,
-      inProgress: 28,
-      notStarted: 9,
+      enrolled: 15,
+      completed: 14,
+      inProgress: 1,
+      notStarted: 0,
       avgTime: '4.2h',
       topScore: 98,
       lowestScore: 65,
@@ -49,10 +49,10 @@ const ModuleAnalytics = () => {
       color: 'purple',
       completion: 78,
       avgScore: 82.3,
-      enrolled: 412,
-      completed: 321,
-      inProgress: 67,
-      notStarted: 24,
+      enrolled: 13,
+      completed: 10,
+      inProgress: 2,
+      notStarted: 1,
       avgTime: '5.8h',
       topScore: 96,
       lowestScore: 58,
@@ -66,10 +66,10 @@ const ModuleAnalytics = () => {
       color: 'sky',
       completion: 85,
       avgScore: 88.9,
-      enrolled: 389,
-      completed: 331,
-      inProgress: 42,
-      notStarted: 16,
+      enrolled: 14,
+      completed: 12,
+      inProgress: 1,
+      notStarted: 1,
       avgTime: '3.9h',
       topScore: 99,
       lowestScore: 71,
@@ -83,10 +83,10 @@ const ModuleAnalytics = () => {
       color: 'purple',
       completion: 71,
       avgScore: 79.4,
-      enrolled: 356,
-      completed: 253,
-      inProgress: 78,
-      notStarted: 25,
+      enrolled: 12,
+      completed: 8,
+      inProgress: 3,
+      notStarted: 1,
       avgTime: '6.1h',
       topScore: 94,
       lowestScore: 54,
@@ -100,10 +100,10 @@ const ModuleAnalytics = () => {
       color: 'sky',
       completion: 88,
       avgScore: 91.2,
-      enrolled: 334,
-      completed: 294,
-      inProgress: 31,
-      notStarted: 9,
+      enrolled: 11,
+      completed: 9,
+      inProgress: 2,
+      notStarted: 0,
       avgTime: '3.5h',
       topScore: 100,
       lowestScore: 78,
@@ -117,10 +117,10 @@ const ModuleAnalytics = () => {
       color: 'purple',
       completion: 65,
       avgScore: 76.8,
-      enrolled: 298,
-      completed: 194,
-      inProgress: 89,
-      notStarted: 15,
+      enrolled: 10,
+      completed: 6,
+      inProgress: 3,
+      notStarted: 1,
       avgTime: '7.2h',
       topScore: 92,
       lowestScore: 49,
@@ -136,10 +136,10 @@ const ModuleAnalytics = () => {
       name: 'Digital Literacy Quiz',
       type: 'Quiz',
       difficulty: 'Easy',
-      totalAttempts: 421,
-      passed: 378,
-      failed: 43,
-      passRate: 89.8,
+      totalAttempts: 14,
+      passed: 13,
+      failed: 1,
+      passRate: 92.9,
       avgScore: 87.5
     },
     {
@@ -147,10 +147,10 @@ const ModuleAnalytics = () => {
       name: 'Financial Planning Assessment',
       type: 'Assessment',
       difficulty: 'Medium',
-      totalAttempts: 321,
-      passed: 267,
-      failed: 54,
-      passRate: 83.2,
+      totalAttempts: 10,
+      passed: 8,
+      failed: 2,
+      passRate: 80.0,
       avgScore: 82.3
     },
     {
@@ -158,10 +158,10 @@ const ModuleAnalytics = () => {
       name: 'Labour Law Exam',
       type: 'Exam',
       difficulty: 'Hard',
-      totalAttempts: 331,
-      passed: 298,
-      failed: 33,
-      passRate: 90.0,
+      totalAttempts: 12,
+      passed: 11,
+      failed: 1,
+      passRate: 91.7,
       avgScore: 88.9
     },
     {
@@ -169,10 +169,10 @@ const ModuleAnalytics = () => {
       name: 'Communication Skills Quiz',
       type: 'Quiz',
       difficulty: 'Easy',
-      totalAttempts: 253,
-      passed: 211,
-      failed: 42,
-      passRate: 83.4,
+      totalAttempts: 8,
+      passed: 7,
+      failed: 1,
+      passRate: 87.5,
       avgScore: 79.4
     },
     {
@@ -180,10 +180,10 @@ const ModuleAnalytics = () => {
       name: 'Safety Protocol Assessment',
       type: 'Assessment',
       difficulty: 'Medium',
-      totalAttempts: 294,
-      passed: 276,
-      failed: 18,
-      passRate: 93.9,
+      totalAttempts: 9,
+      passed: 9,
+      failed: 0,
+      passRate: 100.0,
       avgScore: 91.2
     }
   ];
@@ -264,24 +264,11 @@ const ModuleAnalytics = () => {
             {moduleData.map((module, index) => {
               const colors = getModuleColorClasses(module.color);
               
-              // Generate mini sparkline for progress
-              const sparklinePoints = 8;
-              const trendData = Array.from({ length: sparklinePoints }, (_, i) => {
-                const baseProgress = (i / sparklinePoints) * module.completion;
-                const variation = Math.sin(i * 0.7) * 2;
-                return Math.max(0, Math.min(100, baseProgress + variation));
-              });
-              
-              const sparkHeight = 40;
-              const sparkWidth = 300;
-              const pointSpacing = sparkWidth / (sparklinePoints - 1);
-              const sparkPath = trendData.map((value, i) => {
-                const x = i * pointSpacing;
-                const y = sparkHeight - (value / 100) * sparkHeight;
-                return `${i === 0 ? 'M' : 'L'} ${x},${y}`;
-              }).join(' ');
-              
-              const sparkArea = `${sparkPath} L ${sparkWidth},${sparkHeight} L 0,${sparkHeight} Z`;
+              // Calculate percentages for pie chart
+              const total = module.enrolled;
+              const donePercent = (module.completed / total) * 100;
+              const activePercent = (module.inProgress / total) * 100;
+              const pendingPercent = (module.notStarted / total) * 100;
               
   return (
                 <div
@@ -309,54 +296,37 @@ const ModuleAnalytics = () => {
                       </div>
                     </div>
 
-                    {/* Progress Graph */}
-                    <div className={`bg-gradient-to-br ${module.color === 'sky' ? 'from-blue-50/80 to-sky-50/50' : 'from-purple-50/80 to-violet-50/50'} rounded-xl p-3.5 mb-3 border ${module.color === 'sky' ? 'border-blue-100/50' : 'border-purple-100/50'} shadow-sm`}>
-                      <div className="flex items-center justify-between mb-2.5">
-                        <span className="text-xs font-medium text-slate-600">Completion Progress</span>
-                        <span className="text-xl font-bold bg-gradient-to-r ${module.color === 'sky' ? 'from-blue-600 to-sky-600' : 'from-purple-600 to-violet-600'} bg-clip-text text-transparent">{module.completion}%</span>
-                      </div>
-                      <div className="relative">
-                        <svg 
-                          viewBox={`0 0 ${sparkWidth} ${sparkHeight}`}
-                          className="w-full h-10"
-                          preserveAspectRatio="none"
-                        >
-                          <defs>
-                            <linearGradient id={`cardGradient-${module.id}`} x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor={module.color === 'sky' ? '#3b82f6' : '#a855f7'} stopOpacity="0.4" />
-                              <stop offset="100%" stopColor={module.color === 'sky' ? '#7dd3fc' : '#d8b4fe'} stopOpacity="0.1" />
-                            </linearGradient>
-                          </defs>
-                          
-                          <path 
-                            d={sparkArea}
-                            fill={`url(#cardGradient-${module.id})`}
-                          />
-                          <path 
-                            d={sparkPath}
-                            fill="none"
-                            stroke={module.color === 'sky' ? '#3b82f6' : '#a855f7'}
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="drop-shadow-sm"
-                          />
-                          
-                          {trendData.map((value, i) => (
-                            <circle
-                              key={i}
-                              cx={i * pointSpacing}
-                              cy={sparkHeight - (value / 100) * sparkHeight}
-                              r="2.5"
-                              fill={module.color === 'sky' ? '#3b82f6' : '#a855f7'}
-                              className="drop-shadow"
-                            />
-                          ))}
-                        </svg>
+                    {/* 2D Pie Chart */}
+                    <div className={`bg-gradient-to-br ${module.color === 'sky' ? 'from-blue-50/80 to-sky-50/50' : 'from-purple-50/80 to-violet-50/50'} rounded-xl p-4 mb-3 border ${module.color === 'sky' ? 'border-blue-100/50' : 'border-purple-100/50'} shadow-sm`}>
+                      <div className="flex items-center justify-center">
+                        <div className="relative">
+                          {/* 2D Pie Chart */}
+                          <div 
+                            className="relative w-32 h-32 rounded-full shadow-lg"
+                            style={{
+                              background: `conic-gradient(
+                                from 0deg,
+                                #10b981 0deg ${donePercent * 3.6}deg,
+                                #f59e0b ${donePercent * 3.6}deg ${(donePercent + activePercent) * 3.6}deg,
+                                #94a3b8 ${(donePercent + activePercent) * 3.6}deg 360deg
+                              )`,
+                            }}
+                          >
+                            {/* Center Label */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="bg-white rounded-full w-16 h-16 flex flex-col items-center justify-center shadow-lg border-2 border-slate-200">
+                                <div className="text-xl font-bold text-blue-900">
+                                  {module.completion}%
+                                </div>
+                                <div className="text-[9px] text-slate-500 font-medium">Done</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Status */}
+                    {/* Status Legend */}
                     <div className="flex items-center justify-between text-xs bg-white/60 rounded-lg p-2.5 backdrop-blur-sm">
                       <div className="flex items-center gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 shadow-sm"></div>

@@ -661,6 +661,105 @@
       }
     }
   },
+  "admin": {
+    "overview": {
+      "title": "Overview Summary",
+      "subtitle": "Real-time program analytics and learner insights",
+      "totalLearners": "Total Learners",
+      "completionRate": "Completion Rate",
+      "averageScore": "Average Score",
+      "activeToday": "Active Today",
+      "pathwayTracker": {
+        "title": "Predictive Pathway Tracker",
+        "subtitle": "Recommended vs actual learner pathways",
+        "overallProgress": "Overall Progress",
+        "modules": {
+          "digitalLiteracy": "Digital Literacy",
+          "labourRights": "Labour Rights",
+          "communication": "Communication Skills",
+          "financial": "Financial Literacy",
+          "workplace": "Workplace Safety"
+        },
+        "pathways": {
+          "digitalFinancial": "Digital Literacy → Financial Planning",
+          "labourLegal": "Labour Rights → Legal Compliance",
+          "commLeadership": "Communication → Leadership",
+          "financialEntrepreneurship": "Financial Literacy → Entrepreneurship",
+          "workplaceRisk": "Workplace Safety → Risk Management"
+        },
+        "statuses": {
+          "complete": "Complete",
+          "inProgress": "In Progress",
+          "started": "Started",
+          "justStarted": "Just Started"
+        },
+        "learners": "learners",
+        "match": "match",
+        "completedPathways": "Completed Pathways",
+        "notStarted": "Not Started"
+      },
+      "learnerStatus": {
+        "title": "Learner Status",
+        "active": "Active",
+        "completed": "Completed",
+        "atRisk": "At Risk",
+        "inactive": "Inactive"
+      },
+      "topPerformers": {
+        "title": "Top Performers"
+      },
+      "learnerProgress": {
+        "title": "Learner Progress Tracker",
+        "subtitle": "Individual progress and completion status",
+        "searchPlaceholder": "Search learners...",
+        "allStatus": "All Status",
+        "learner": "Learner",
+        "progress": "Progress",
+        "currentModule": "Current Module",
+        "score": "Score",
+        "status": "Status",
+        "done": "done",
+        "active": "active",
+        "pending": "pending",
+        "noLearnersFound": "No learners found",
+        "showing": "Showing {{count}} of {{total}} learners",
+        "completedText": "Completed",
+        "hoursAgo": "{{count}} hours ago",
+        "hourAgo": "1 hour ago",
+        "daysAgo": "{{count}} days ago",
+        "dayAgo": "1 day ago",
+        "modules": {
+          "financialPlanning": "Financial Planning",
+          "labourRights": "Labour Rights",
+          "communicationSkills": "Communication Skills",
+          "financialLiteracy": "Financial Literacy",
+          "riskManagement": "Risk Management",
+          "basicComputerSkills": "Basic Computer Skills",
+          "digitalMarketing": "Digital Marketing",
+          "advancedSafetyProtocols": "Advanced Safety Protocols",
+          "labourCodeBasics": "Labour Code Basics",
+          "teamCollaboration": "Team Collaboration"
+        },
+        "learners": {
+          "learner1": "Anna Schmidt",
+          "learner2": "Hans Müller",
+          "learner3": "Sophie Weber",
+          "learner4": "Klaus Fischer",
+          "learner5": "Maria Wagner",
+          "learner6": "Peter Becker",
+          "learner7": "Laura Hoffmann",
+          "learner8": "Michael Schulz",
+          "learner9": "Emma Koch",
+          "learner10": "Thomas Bauer",
+          "learner11": "Lena Meyer",
+          "learner12": "Felix Richter",
+          "learner13": "Sarah Schneider",
+          "learner14": "Markus Wolf",
+          "learner15": "Julia Zimmermann"
+        }
+      }
+    }
+  },
   "common": {
     "welcome": "Welcome",
     "loading": "Loading...",
