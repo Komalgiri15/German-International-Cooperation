@@ -510,7 +510,13 @@
     "help": "Hilfe & Support",
     "profile": "Profil",
     "settings": "Einstellungen",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "helpMenu": {
+      "faqs": "Häufige Fragen",
+      "contactSupport": "Support kontaktieren",
+      "userGuides": "Benutzerhandbücher",
+      "supportTicket": "Support-Ticket"
+    }
   },
   "header": {
     "appName": "Athena LMS",
@@ -519,6 +525,138 @@
     "inbox": "Posteingang",
     "notifications": "Benachrichtigungen",
     "language": "Sprache"
+  },
+  "supportTicket": {
+    "title": "Support-Ticket erstellen",
+    "subtitle": "Füllen Sie das untenstehende Formular aus, um ein Support-Ticket an unser Team zu senden.",
+    "cardTitle": "Neues Support-Ticket",
+    "form": {
+      "subject": "Betreff",
+      "subjectPlaceholder": "Beschreiben Sie Ihr Problem kurz",
+      "priority": "Priorität",
+      "priorityPlaceholder": "Priorität auswählen",
+      "category": "Kategorie",
+      "categoryPlaceholder": "Kategorie auswählen",
+      "description": "Beschreibung",
+      "descriptionPlaceholder": "Bitte geben Sie detaillierte Informationen zu Ihrem Problem an",
+      "attachments": "Anhänge",
+      "addFiles": "Dateien hinzufügen",
+      "filesAttached": "Datei(en) angehängt",
+      "submitTicket": "Ticket absenden"
+    },
+    "priorities": {
+      "low": "Niedrig",
+      "medium": "Mittel",
+      "high": "Hoch",
+      "urgent": "Dringend"
+    },
+    "categories": {
+      "technical": "Technisches Problem",
+      "billing": "Abrechnung",
+      "account": "Konto",
+      "feature": "Funktionsanfrage",
+      "other": "Sonstiges"
+    }
+  },
+  "userGuides": {
+    "title": "Benutzerhandbücher & Dokumentation",
+    "subtitle": "Finden Sie hilfreiche Anleitungen, Tutorials und Dokumentation, um das Beste aus unserer Plattform herauszuholen.",
+    "viewGuide": "Anleitung anzeigen",
+    "lastUpdated": "Zuletzt aktualisiert:",
+    "cantFindHelp": "Können Sie nicht finden, wonach Sie suchen?",
+    "cantFindHelpDescription": "Unser Support-Team ist immer bereit, bei Fragen zu helfen.",
+    "contactSupportButton": "Support kontaktieren",
+    "categories": {
+      "allGuides": "Alle Anleitungen",
+      "gettingStarted": "Erste Schritte",
+      "features": "Funktionen",
+      "troubleshooting": "Fehlerbehebung"
+    },
+    "guides": {
+      "gettingStarted": {
+        "title": "Erste Schritte Anleitung",
+        "description": "Erfahren Sie, wie Sie Ihr Konto einrichten und mit unserer umfassenden Anleitung auf der Plattform navigieren.",
+        "type": "PDF",
+        "size": "2,4 MB"
+      },
+      "videoTutorials": {
+        "title": "Video-Tutorials",
+        "description": "Sehen Sie sich Schritt-für-Schritt-Video-Tutorials an, um alle Funktionen unserer Plattform zu meistern.",
+        "type": "Video-Serie",
+        "length": "45 Min."
+      },
+      "apiDocumentation": {
+        "title": "API-Dokumentation",
+        "description": "Technische Dokumentation zur Integration mit unserer API und Erstellung benutzerdefinierter Lösungen.",
+        "type": "Web"
+      },
+      "keyboardShortcuts": {
+        "title": "Tastaturkürzel",
+        "description": "Steigern Sie Ihre Produktivität mit diesen praktischen Tastaturkürzeln für häufige Aktionen.",
+        "type": "Spickzettel"
+      }
+    }
+  },
+  "contactSupport": {
+    "title": "Support kontaktieren",
+    "subtitle": "Wir sind hier um zu helfen! Wenden Sie sich an unser Support-Team für Unterstützung.",
+    "contactInformation": "Kontaktinformationen",
+    "emailUs": "E-Mail an uns",
+    "callUs": "Rufen Sie uns an",
+    "workingHours": "Arbeitszeiten",
+    "workingHoursTime": "Montag - Freitag: 9:00 - 18:00 Uhr",
+    "frequentlyAskedQuestions": "Häufig gestellte Fragen",
+    "sendMessage": "Senden Sie uns eine Nachricht",
+    "form": {
+      "fullName": "Vollständiger Name",
+      "fullNamePlaceholder": "Max Mustermann",
+      "email": "E-Mail",
+      "emailPlaceholder": "max@example.com",
+      "subject": "Betreff",
+      "subjectPlaceholder": "Worum geht es?",
+      "message": "Nachricht",
+      "messagePlaceholder": "Wie können wir Ihnen helfen?",
+      "sendButton": "Nachricht senden"
+    },
+    "quickFaqs": {
+      "resetPassword": {
+        "question": "Wie setze ich mein Passwort zurück?",
+        "answer": "Sie können Ihr Passwort zurücksetzen, indem Sie auf der Anmeldeseite auf \"Passwort vergessen\" klicken."
+      },
+      "updateProfile": {
+        "question": "Wie aktualisiere ich mein Profil?",
+        "answer": "Navigieren Sie zu Ihren Profileinstellungen, um Ihre persönlichen Informationen zu aktualisieren."
+      }
+    }
+  },
+  "faqs": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Finden Sie Antworten auf häufige Fragen zu unserer Plattform",
+    "categories": {
+      "general": "Allgemeine Fragen"
+    },
+    "questions": {
+      "resetPassword": {
+        "question": "Wie setze ich mein Passwort zurück?",
+        "answer": "Um Ihr Passwort zurückzusetzen, klicken Sie auf den Link \"Passwort vergessen\" auf der Anmeldeseite und befolgen Sie die Anweisungen, die an Ihre E-Mail gesendet werden."
+      },
+      "updateProfile": {
+        "question": "Wie aktualisiere ich meine Profilinformationen?",
+        "answer": "Sie können Ihre Profilinformationen aktualisieren, indem Sie auf Ihr Profilbild in der oberen rechten Ecke klicken und \"Profil bearbeiten\" auswählen."
+      },
+      "systemRequirements": {
+        "question": "Was sind die Systemanforderungen?",
+        "answer": "Unsere Plattform funktioniert am besten mit den neuesten Versionen von Chrome, Firefox, Safari und Edge. Stellen Sie sicher, dass JavaScript aktiviert ist."
+      },
+      "contactSupport": {
+        "question": "Wie kontaktiere ich den Support?",
+        "answer": "Sie können unser Support-Team über die Kontakt-Support-Seite oder per E-Mail an support@example.com kontaktieren"
+      },
+      "mobileApp": {
+        "question": "Gibt es eine mobile App?",
+        "answer": "Ja, unsere mobile App ist für iOS- und Android-Geräte verfügbar. Sie können sie im App Store oder Google Play Store herunterladen."
+      }
+    }
   },
   "common": {
     "welcome": "Willkommen",

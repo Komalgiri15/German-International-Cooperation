@@ -510,7 +510,13 @@
     "help": "المساعدة والدعم",
     "profile": "الملف الشخصي",
     "settings": "الإعدادات",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+    "helpMenu": {
+      "faqs": "الأسئلة الشائعة",
+      "contactSupport": "اتصل بالدعم",
+      "userGuides": "أدلة المستخدم",
+      "supportTicket": "تذكرة الدعم"
+    }
   },
   "header": {
     "appName": "نظام إدارة التعلم أثينا",
@@ -519,6 +525,138 @@
     "inbox": "صندوق الوارد",
     "notifications": "الإشعارات",
     "language": "اللغة"
+  },
+  "supportTicket": {
+    "title": "إنشاء تذكرة دعم",
+    "subtitle": "املأ النموذج أدناه لإرسال تذكرة دعم إلى فريقنا.",
+    "cardTitle": "تذكرة دعم جديدة",
+    "form": {
+      "subject": "الموضوع",
+      "subjectPlaceholder": "صف مشكلتك بإيجاز",
+      "priority": "الأولوية",
+      "priorityPlaceholder": "اختر الأولوية",
+      "category": "الفئة",
+      "categoryPlaceholder": "اختر الفئة",
+      "description": "الوصف",
+      "descriptionPlaceholder": "يرجى تقديم معلومات مفصلة حول مشكلتك",
+      "attachments": "المرفقات",
+      "addFiles": "إضافة ملفات",
+      "filesAttached": "ملف (ملفات) مرفقة",
+      "submitTicket": "إرسال التذكرة"
+    },
+    "priorities": {
+      "low": "منخفضة",
+      "medium": "متوسطة",
+      "high": "عالية",
+      "urgent": "عاجلة"
+    },
+    "categories": {
+      "technical": "مشكلة فنية",
+      "billing": "الفواتير",
+      "account": "الحساب",
+      "feature": "طلب ميزة",
+      "other": "أخرى"
+    }
+  },
+  "userGuides": {
+    "title": "أدلة المستخدم والوثائق",
+    "subtitle": "ابحث عن أدلة مفيدة ودروس ووثائق للحصول على أقصى استفادة من منصتنا.",
+    "viewGuide": "عرض الدليل",
+    "lastUpdated": "آخر تحديث:",
+    "cantFindHelp": "لا يمكنك العثور على ما تبحث عنه؟",
+    "cantFindHelpDescription": "فريق الدعم لدينا جاهز دائماً للمساعدة في أي أسئلة قد تكون لديك.",
+    "contactSupportButton": "اتصل بالدعم",
+    "categories": {
+      "allGuides": "جميع الأدلة",
+      "gettingStarted": "البدء",
+      "features": "الميزات",
+      "troubleshooting": "استكشاف الأخطاء وإصلاحها"
+    },
+    "guides": {
+      "gettingStarted": {
+        "title": "دليل البدء",
+        "description": "تعلم كيفية إعداد حسابك والتنقل في المنصة من خلال دليلنا الشامل.",
+        "type": "PDF",
+        "size": "2.4 ميجابايت"
+      },
+      "videoTutorials": {
+        "title": "دروس الفيديو",
+        "description": "شاهد دروس الفيديو خطوة بخطوة لإتقان جميع ميزات منصتنا.",
+        "type": "سلسلة فيديو",
+        "length": "45 دقيقة"
+      },
+      "apiDocumentation": {
+        "title": "وثائق API",
+        "description": "الوثائق الفنية للتكامل مع API الخاص بنا وبناء حلول مخصصة.",
+        "type": "ويب"
+      },
+      "keyboardShortcuts": {
+        "title": "اختصارات لوحة المفاتيح",
+        "description": "عزز إنتاجيتك باستخدام اختصارات لوحة المفاتيح المفيدة للإجراءات الشائعة.",
+        "type": "ورقة مرجعية"
+      }
+    }
+  },
+  "contactSupport": {
+    "title": "اتصل بالدعم",
+    "subtitle": "نحن هنا للمساعدة! تواصل مع فريق الدعم للحصول على المساعدة.",
+    "contactInformation": "معلومات الاتصال",
+    "emailUs": "راسلنا بالبريد الإلكتروني",
+    "callUs": "اتصل بنا",
+    "workingHours": "ساعات العمل",
+    "workingHoursTime": "من الاثنين إلى الجمعة: 9:00 صباحاً - 6:00 مساءً",
+    "frequentlyAskedQuestions": "الأسئلة الشائعة",
+    "sendMessage": "أرسل لنا رسالة",
+    "form": {
+      "fullName": "الاسم الكامل",
+      "fullNamePlaceholder": "أحمد محمد",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "ahmed@example.com",
+      "subject": "الموضوع",
+      "subjectPlaceholder": "ما هو موضوع رسالتك؟",
+      "message": "الرسالة",
+      "messagePlaceholder": "كيف يمكننا مساعدتك؟",
+      "sendButton": "إرسال الرسالة"
+    },
+    "quickFaqs": {
+      "resetPassword": {
+        "question": "كيف يمكنني إعادة تعيين كلمة المرور الخاصة بي؟",
+        "answer": "يمكنك إعادة تعيين كلمة المرور بالنقر على \"نسيت كلمة المرور\" في صفحة تسجيل الدخول."
+      },
+      "updateProfile": {
+        "question": "كيف يمكنني تحديث ملفي الشخصي؟",
+        "answer": "انتقل إلى إعدادات ملفك الشخصي لتحديث معلوماتك الشخصية."
+      }
+    }
+  },
+  "faqs": {
+    "title": "الأسئلة الشائعة",
+    "subtitle": "ابحث عن إجابات للأسئلة الشائعة حول منصتنا",
+    "categories": {
+      "general": "الأسئلة العامة"
+    },
+    "questions": {
+      "resetPassword": {
+        "question": "كيف يمكنني إعادة تعيين كلمة المرور الخاصة بي؟",
+        "answer": "لإعادة تعيين كلمة المرور الخاصة بك، انقر على رابط \"نسيت كلمة المرور\" في صفحة تسجيل الدخول واتبع التعليمات المرسلة إلى بريدك الإلكتروني."
+      },
+      "updateProfile": {
+        "question": "كيف يمكنني تحديث معلومات ملفي الشخصي؟",
+        "answer": "يمكنك تحديث معلومات ملفك الشخصي بالنقر على صورة ملفك الشخصي في الزاوية العلوية اليمنى واختيار \"تحرير الملف الشخصي\"."
+      },
+      "systemRequirements": {
+        "question": "ما هي متطلبات النظام؟",
+        "answer": "تعمل منصتنا بشكل أفضل على أحدث إصدارات Chrome و Firefox و Safari و Edge. تأكد من تمكين JavaScript."
+      },
+      "contactSupport": {
+        "question": "كيف يمكنني الاتصال بالدعم؟",
+        "answer": "يمكنك الاتصال بفريق الدعم لدينا من خلال صفحة الاتصال بالدعم أو عن طريق إرسال بريد إلكتروني إلى support@example.com"
+      },
+      "mobileApp": {
+        "question": "هل يوجد تطبيق للهاتف المحمول؟",
+        "answer": "نعم، تطبيقنا للهاتف المحمول متاح لأجهزة iOS و Android. يمكنك تنزيله من App Store أو Google Play Store."
+      }
+    }
   },
   "common": {
     "welcome": "مرحباً",

@@ -181,28 +181,28 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
               className="hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150 cursor-pointer"
             >
               <FileText className="mr-2 h-4 w-4" />
-              FAQs
+              {t('navigation.helpMenu.faqs')}
             </DropdownMenuItem>
             <DropdownMenuItem 
               onClick={() => handleHelpMenuClick('contact')}
               className="hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150 cursor-pointer"
             >
               <MessageCircle className="mr-2 h-4 w-4" />
-              Contact Support
+              {t('navigation.helpMenu.contactSupport')}
             </DropdownMenuItem>
             <DropdownMenuItem 
               onClick={() => handleHelpMenuClick('guides')}
               className="hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150 cursor-pointer"
             >
               <Book className="mr-2 h-4 w-4" />
-              User Guides
+              {t('navigation.helpMenu.userGuides')}
             </DropdownMenuItem>
             <DropdownMenuItem 
               onClick={() => handleHelpMenuClick('ticket')}
               className="hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150 cursor-pointer"
             >
               <FileText className="mr-2 h-4 w-4" />
-              Support Ticket
+              {t('navigation.helpMenu.supportTicket')}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

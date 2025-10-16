@@ -510,7 +510,13 @@
     "help": "Help & Support",
     "profile": "Profile",
     "settings": "Settings",
-    "logout": "Log out"
+    "logout": "Log out",
+    "helpMenu": {
+      "faqs": "FAQs",
+      "contactSupport": "Contact Support",
+      "userGuides": "User Guides",
+      "supportTicket": "Support Ticket"
+    }
   },
   "header": {
     "appName": "Athena LMS",
@@ -519,6 +525,138 @@
     "inbox": "Inbox",
     "notifications": "Notifications",
     "language": "Language"
+  },
+  "supportTicket": {
+    "title": "Create Support Ticket",
+    "subtitle": "Fill out the form below to submit a support ticket to our team.",
+    "cardTitle": "New Support Ticket",
+    "form": {
+      "subject": "Subject",
+      "subjectPlaceholder": "Briefly describe your issue",
+      "priority": "Priority",
+      "priorityPlaceholder": "Select priority",
+      "category": "Category",
+      "categoryPlaceholder": "Select category",
+      "description": "Description",
+      "descriptionPlaceholder": "Please provide detailed information about your issue",
+      "attachments": "Attachments",
+      "addFiles": "Add Files",
+      "filesAttached": "file(s) attached",
+      "submitTicket": "Submit Ticket"
+    },
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "urgent": "Urgent"
+    },
+    "categories": {
+      "technical": "Technical Issue",
+      "billing": "Billing",
+      "account": "Account",
+      "feature": "Feature Request",
+      "other": "Other"
+    }
+  },
+  "userGuides": {
+    "title": "User Guides & Documentation",
+    "subtitle": "Find helpful guides, tutorials, and documentation to get the most out of our platform.",
+    "viewGuide": "View Guide",
+    "lastUpdated": "Last updated:",
+    "cantFindHelp": "Can't find what you're looking for?",
+    "cantFindHelpDescription": "Our support team is always ready to help with any questions you might have.",
+    "contactSupportButton": "Contact Support",
+    "categories": {
+      "allGuides": "All Guides",
+      "gettingStarted": "Getting Started",
+      "features": "Features",
+      "troubleshooting": "Troubleshooting"
+    },
+    "guides": {
+      "gettingStarted": {
+        "title": "Getting Started Guide",
+        "description": "Learn how to set up your account and navigate the platform with our comprehensive guide.",
+        "type": "PDF",
+        "size": "2.4 MB"
+      },
+      "videoTutorials": {
+        "title": "Video Tutorials",
+        "description": "Watch step-by-step video tutorials to master all the features of our platform.",
+        "type": "Video Series",
+        "length": "45 min"
+      },
+      "apiDocumentation": {
+        "title": "API Documentation",
+        "description": "Technical documentation for integrating with our API and building custom solutions.",
+        "type": "Web"
+      },
+      "keyboardShortcuts": {
+        "title": "Keyboard Shortcuts",
+        "description": "Boost your productivity with these handy keyboard shortcuts for common actions.",
+        "type": "Cheat Sheet"
+      }
+    }
+  },
+  "contactSupport": {
+    "title": "Contact Support",
+    "subtitle": "We're here to help! Reach out to our support team for assistance.",
+    "contactInformation": "Contact Information",
+    "emailUs": "Email Us",
+    "callUs": "Call Us",
+    "workingHours": "Working Hours",
+    "workingHoursTime": "Monday - Friday: 9:00 AM - 6:00 PM",
+    "frequentlyAskedQuestions": "Frequently Asked Questions",
+    "sendMessage": "Send us a Message",
+    "form": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "email": "Email",
+      "emailPlaceholder": "john@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "What's this about?",
+      "message": "Message",
+      "messagePlaceholder": "How can we help you?",
+      "sendButton": "Send Message"
+    },
+    "quickFaqs": {
+      "resetPassword": {
+        "question": "How do I reset my password?",
+        "answer": "You can reset your password by clicking on \"Forgot Password\" on the login page."
+      },
+      "updateProfile": {
+        "question": "How do I update my profile?",
+        "answer": "Navigate to your profile settings to update your personal information."
+      }
+    }
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our platform",
+    "categories": {
+      "general": "General Questions"
+    },
+    "questions": {
+      "resetPassword": {
+        "question": "How do I reset my password?",
+        "answer": "To reset your password, click on the \"Forgot Password\" link on the login page and follow the instructions sent to your email."
+      },
+      "updateProfile": {
+        "question": "How do I update my profile information?",
+        "answer": "You can update your profile information by clicking on your profile picture in the top right corner and selecting \"Edit Profile\"."
+      },
+      "systemRequirements": {
+        "question": "What are the system requirements?",
+        "answer": "Our platform works best on the latest versions of Chrome, Firefox, Safari, and Edge. Make sure you have JavaScript enabled."
+      },
+      "contactSupport": {
+        "question": "How do I contact support?",
+        "answer": "You can contact our support team through the Contact Support page or by emailing support@example.com"
+      },
+      "mobileApp": {
+        "question": "Is there a mobile app available?",
+        "answer": "Yes, our mobile app is available for both iOS and Android devices. You can download it from the App Store or Google Play Store."
+      }
+    }
   },
   "common": {
     "welcome": "Welcome",
