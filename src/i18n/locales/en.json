@@ -524,7 +524,10 @@
     "calendar": "Calendar",
     "inbox": "Inbox",
     "notifications": "Notifications",
-    "language": "Language"
+    "language": "Language",
+    "labourReform": "Labour Reform &",
+    "digitalLearningInitiative": "Digital Learning Initiative",
+    "adminPortal": "Admin Portal"
   },
   "supportTicket": {
     "title": "Create Support Ticket",

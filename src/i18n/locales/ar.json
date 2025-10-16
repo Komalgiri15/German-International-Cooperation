@@ -524,7 +524,10 @@
     "calendar": "التقويم",
     "inbox": "صندوق الوارد",
     "notifications": "الإشعارات",
-    "language": "اللغة"
+    "language": "اللغة",
+    "labourReform": "إصلاح العمل و",
+    "digitalLearningInitiative": "مبادرة التعلم الرقمي",
+    "adminPortal": "بوابة الإدارة"
   },
   "supportTicket": {
     "title": "إنشاء تذكرة دعم",

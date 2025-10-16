@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Shield, ArrowLeft } from 'lucide-react';
 import { LanguageSelector } from '../ui/LanguageSelector';
 
 export function AdminPortalHeader() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [isAdminMode, setIsAdminMode] = useState(true);
@@ -42,10 +44,10 @@ export function AdminPortalHeader() {
                 <div className="border-l border-gray-300 h-6 mx-1"></div>
                 <div className="text-xs">
                   <div className="font-bold text-[#004E9A]" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
-                    Labour Reform &
+                    {t('header.labourReform')}
                   </div>
                   <div className="text-gray-600 font-medium">
-                    Digital Learning Initiative
+                    {t('header.digitalLearningInitiative')}
                   </div>
                 </div>
               </div>
@@ -57,7 +59,7 @@ export function AdminPortalHeader() {
             {/* Admin Toggle */}
             <div className="flex items-center gap-2 bg-white px-4 py-2.5 rounded-lg shadow-sm border border-gray-200 hover:border-blue-300 transition-all">
               <Shield className="h-4 w-4 text-blue-600" />
-              <span className="text-sm font-semibold text-gray-700">Admin Portal</span>
+              <span className="text-sm font-semibold text-gray-700">{t('header.adminPortal')}</span>
               <button
                 onClick={handleToggle}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${

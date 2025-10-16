@@ -524,7 +524,10 @@
     "calendar": "Kalender",
     "inbox": "Posteingang",
     "notifications": "Benachrichtigungen",
-    "language": "Sprache"
+    "language": "Sprache",
+    "labourReform": "Arbeitsreform &",
+    "digitalLearningInitiative": "Digitale Lerninitiative",
+    "adminPortal": "Admin-Portal"
   },
   "supportTicket": {
     "title": "Support-Ticket erstellen",

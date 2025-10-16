@@ -38,10 +38,11 @@ const difficultyData = [
 ];
 
 const pathwayData = [
-  { module: 'Basics', recommended: 100, actual: 100 },
-  { module: 'Intermediate', recommended: 100, actual: 80 },
-  { module: 'Advanced', recommended: 100, actual: 40 },
-  { module: 'Expert', recommended: 100, actual: 0 },
+  { module: 'Basics', recommended: 100, actual: 100, status: 'Complete' },
+  { module: 'Intermediate', recommended: 100, actual: 85, status: 'In Progress' },
+  { module: 'Advanced', recommended: 100, actual: 45, status: 'Started' },
+  { module: 'Expert', recommended: 100, actual: 15, status: 'Just Started' },
+  { module: 'Master', recommended: 100, actual: 0, status: 'Not Started' },
 ];
 
 export function CourseAssessmentInsights() {
@@ -133,33 +134,113 @@ export function CourseAssessmentInsights() {
 
       case 'PathwayTracker':
         return (
-          <div className="space-y-4">
+          <div className="space-y-6">
+            {/* Header with Completion Badge */}
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-gray-900">{t('insights.pathwayTracker')}</h3>
-              <div className="text-base font-bold text-blue-700 bg-blue-100 px-4 py-2 rounded-full border-2 border-blue-300">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg">
+                  <Target className="h-5 w-5 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">{t('insights.pathwayTracker')}</h3>
+              </div>
+              <div className="text-lg font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 rounded-full shadow-lg">
                 {pathwayCompletion}% {t('insights.pathwayMatch')}
               </div>
             </div>
-            <ResponsiveContainer width="100%" height={320}>
-              <BarChart data={pathwayData} layout="horizontal" margin={{ top: 20, right: 30, left: 0, bottom: 10 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                <XAxis type="number" tick={{ fontSize: 14, fill: '#374151', fontWeight: 500 }} domain={[0, 100]} />
-                <YAxis dataKey="module" type="category" tick={{ fontSize: 14, fill: '#374151', fontWeight: 500 }} width={100} />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'white', 
-                    border: '2px solid #e5e7eb',
-                    borderRadius: '12px',
-                    fontSize: '13px',
-                    padding: '10px',
-                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                  }} 
-                />
-                <Legend wrapperStyle={{ fontSize: '13px', paddingTop: '10px' }} />
-                <Bar dataKey="recommended" fill="#e0e7ff" name={t('insights.recommended')} radius={[0, 8, 8, 0]} barSize={30} />
-                <Bar dataKey="actual" fill="#93c5fd" name={t('insights.actual')} radius={[0, 8, 8, 0]} barSize={30} />
-              </BarChart>
-            </ResponsiveContainer>
+
+            {/* Visual Progress Bars */}
+            <div className="space-y-4">
+              {pathwayData.map((item, idx) => {
+                const progressPercentage = item.actual;
+                const isComplete = progressPercentage === 100;
+                const isInProgress = progressPercentage > 0 && progressPercentage < 100;
+                const isNotStarted = progressPercentage === 0;
+
+                return (
+                  <div key={idx} className="space-y-2">
+                    {/* Module Header */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <span className="text-sm font-bold text-gray-700 w-28">{item.module}</span>
+                        <div className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
+                          isComplete 
+                            ? 'bg-green-100 text-green-700 border border-green-300' 
+                            : isInProgress 
+                            ? 'bg-blue-100 text-blue-700 border border-blue-300' 
+                            : 'bg-gray-100 text-gray-600 border border-gray-300'
+                        }`}>
+                          {item.status}
+                        </div>
+                      </div>
+                      <span className="text-lg font-bold text-blue-600">{progressPercentage}%</span>
+                    </div>
+
+                    {/* Progress Bar */}
+                    <div className="relative w-full h-10 bg-gray-100 rounded-lg overflow-hidden border-2 border-gray-200">
+                      {/* Recommended Background (Full Width) */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-blue-100"></div>
+                      
+                      {/* Actual Progress */}
+                      <div 
+                        className={`absolute inset-y-0 left-0 rounded-lg transition-all duration-1000 ${
+                          isComplete 
+                            ? 'bg-gradient-to-r from-green-400 to-green-500' 
+                            : isInProgress 
+                            ? 'bg-gradient-to-r from-blue-400 to-blue-600' 
+                            : 'bg-gray-300'
+                        }`}
+                        style={{ width: `${progressPercentage}%` }}
+                      >
+                        {progressPercentage > 10 && (
+                          <div className="h-full flex items-center justify-end pr-3">
+                            <span className="text-xs font-bold text-white drop-shadow-md">
+                              {progressPercentage}%
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Milestone Markers */}
+                      <div className="absolute inset-0 flex items-center pointer-events-none">
+                        {[25, 50, 75].map(milestone => (
+                          <div 
+                            key={milestone}
+                            className="absolute h-full border-l-2 border-dashed border-gray-300"
+                            style={{ left: `${milestone}%` }}
+                          >
+                            <span className="absolute -top-1 -left-2 text-[10px] text-gray-400 font-medium">
+                              {milestone}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Statistics Summary */}
+            <div className="grid grid-cols-3 gap-4 mt-6 pt-4 border-t-2 border-gray-200">
+              <div className="text-center p-3 bg-green-50 rounded-lg border border-green-200">
+                <div className="text-2xl font-bold text-green-600">
+                  {pathwayData.filter(m => m.actual === 100).length}
+                </div>
+                <div className="text-xs text-gray-600 font-medium mt-1">Completed Modules</div>
+              </div>
+              <div className="text-center p-3 bg-blue-50 rounded-lg border border-blue-200">
+                <div className="text-2xl font-bold text-blue-600">
+                  {pathwayData.filter(m => m.actual > 0 && m.actual < 100).length}
+                </div>
+                <div className="text-xs text-gray-600 font-medium mt-1">In Progress</div>
+              </div>
+              <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <div className="text-2xl font-bold text-gray-600">
+                  {pathwayData.filter(m => m.actual === 0).length}
+                </div>
+                <div className="text-xs text-gray-600 font-medium mt-1">Not Started</div>
+              </div>
+            </div>
           </div>
         );
 
