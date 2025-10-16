@@ -1,0 +1,39 @@
+{
+  "resources": {
+    "pageTitle": "Centro de Recursos y Conocimiento",
+    "subtitle": "Explore conocimientos relacionados con reformas, guías de aprendizaje digital y conocimiento de políticas, todo en un solo lugar.",
+    "searchPlaceholder": "Buscar recursos, informes o preguntas frecuentes…",
+    "filters": {
+      "policy": "Política",
+      "training": "Capacitación",
+      "employerGuides": "Guías para Empleadores",
+      "educatorResources": "Recursos para Educadores",
+      "caseStudies": "Estudios de Caso",
+      "gizReports": "Informes GIZ"
+    },
+    "featured": {
+      "title": "Destacado esta semana",
+      "recommended": "Recomendado por GIZ",
+      "readMore": "Leer más",
+      "watchNow": "Ver ahora"
+    },
+    "card": {
+      "view": "Ver",
+      "open": "Abrir",
+      "download": "Descargar",
+      "bookmark": "Marcar",
+      "fileSize": "Tamaño del archivo",
+      "published": "Publicado"
+    },
+    "languages": {
+      "en": "Inglés",
+      "hi": "Hindi",
+      "de": "Alemán",
+      "es": "Español",
+      "fr": "Francés"
+    },
+    "noResults": "No se encontraron recursos",
+    "loading": "Cargando recursos..."
+  }
+}
+

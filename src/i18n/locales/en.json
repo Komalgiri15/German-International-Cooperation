@@ -1,0 +1,39 @@
+{
+  "resources": {
+    "pageTitle": "Resource & Knowledge Hub",
+    "subtitle": "Explore reform-related insights, digital learning guides, and policy knowledge — all in one place.",
+    "searchPlaceholder": "Search resources, reports, or FAQs…",
+    "filters": {
+      "policy": "Policy",
+      "training": "Training",
+      "employerGuides": "Employer Guides",
+      "educatorResources": "Educator Resources",
+      "caseStudies": "Case Studies",
+      "gizReports": "GIZ Reports"
+    },
+    "featured": {
+      "title": "Featured This Week",
+      "recommended": "Recommended by GIZ",
+      "readMore": "Read More",
+      "watchNow": "Watch Now"
+    },
+    "card": {
+      "view": "View",
+      "open": "Open",
+      "download": "Download",
+      "bookmark": "Bookmark",
+      "fileSize": "File Size",
+      "published": "Published"
+    },
+    "languages": {
+      "en": "English",
+      "hi": "Hindi",
+      "de": "German",
+      "es": "Spanish",
+      "fr": "French"
+    },
+    "noResults": "No resources found",
+    "loading": "Loading resources..."
+  }
+}
+

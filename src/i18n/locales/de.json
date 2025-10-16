@@ -1,0 +1,39 @@
+{
+  "resources": {
+    "pageTitle": "Ressourcen & Wissenszentrum",
+    "subtitle": "Entdecken Sie reformbezogene Erkenntnisse, digitale Lernleitfäden und politisches Wissen — alles an einem Ort.",
+    "searchPlaceholder": "Ressourcen, Berichte oder FAQs suchen…",
+    "filters": {
+      "policy": "Politik",
+      "training": "Schulung",
+      "employerGuides": "Arbeitgeber-Leitfäden",
+      "educatorResources": "Pädagogen-Ressourcen",
+      "caseStudies": "Fallstudien",
+      "gizReports": "GIZ-Berichte"
+    },
+    "featured": {
+      "title": "Empfohlen diese Woche",
+      "recommended": "Empfohlen von GIZ",
+      "readMore": "Mehr lesen",
+      "watchNow": "Jetzt ansehen"
+    },
+    "card": {
+      "view": "Ansehen",
+      "open": "Öffnen",
+      "download": "Herunterladen",
+      "bookmark": "Lesezeichen",
+      "fileSize": "Dateigröße",
+      "published": "Veröffentlicht"
+    },
+    "languages": {
+      "en": "Englisch",
+      "hi": "Hindi",
+      "de": "Deutsch",
+      "es": "Spanisch",
+      "fr": "Französisch"
+    },
+    "noResults": "Keine Ressourcen gefunden",
+    "loading": "Ressourcen werden geladen..."
+  }
+}
+

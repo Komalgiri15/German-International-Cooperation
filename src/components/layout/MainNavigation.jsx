@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-  Home, Book, Users, Folder, FileText, MessageCircle, HelpCircle
+  Home, Book, Users, Folder, FileText, MessageCircle, HelpCircle, BookOpen
 } from 'lucide-react';
 import { NavItem } from './NavItem';
 import { useSidebar } from '@/contexts/SidebarContext';
@@ -109,6 +109,19 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
             to="/catalog"
             active={pathname.startsWith('/catalog')}
             onClick={() => handleNavItemClick('/catalog')}
+            collapsed={isMainCollapsed}
+            className="hover-lift"
+          />
+        </motion.div>
+        
+        {/* Resources & Knowledge Hub */}
+        <motion.div variants={itemVariants}>
+          <NavItem 
+            icon={BookOpen}
+            label="Resources & Knowledge Hub"
+            to="/resources"
+            active={pathname.startsWith('/resources')}
+            onClick={() => handleNavItemClick('/resources')}
             collapsed={isMainCollapsed}
             className="hover-lift"
           />

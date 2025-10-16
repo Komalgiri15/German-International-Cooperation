@@ -1,0 +1,39 @@
+{
+  "resources": {
+    "pageTitle": "Centre de Ressources et de Connaissances",
+    "subtitle": "Explorez les connaissances liées aux réformes, les guides d'apprentissage numérique et les connaissances politiques — tout en un seul endroit.",
+    "searchPlaceholder": "Rechercher des ressources, des rapports ou des FAQ…",
+    "filters": {
+      "policy": "Politique",
+      "training": "Formation",
+      "employerGuides": "Guides pour Employeurs",
+      "educatorResources": "Ressources pour Éducateurs",
+      "caseStudies": "Études de Cas",
+      "gizReports": "Rapports GIZ"
+    },
+    "featured": {
+      "title": "En vedette cette semaine",
+      "recommended": "Recommandé par GIZ",
+      "readMore": "Lire la suite",
+      "watchNow": "Regarder maintenant"
+    },
+    "card": {
+      "view": "Voir",
+      "open": "Ouvrir",
+      "download": "Télécharger",
+      "bookmark": "Marquer",
+      "fileSize": "Taille du fichier",
+      "published": "Publié"
+    },
+    "languages": {
+      "en": "Anglais",
+      "hi": "Hindi",
+      "de": "Allemand",
+      "es": "Espagnol",
+      "fr": "Français"
+    },
+    "noResults": "Aucune ressource trouvée",
+    "loading": "Chargement des ressources..."
+  }
+}
+

@@ -28,6 +28,13 @@ import AssessmentCategories from "./components/courses/AssessmentCategories";
 
 // Import pages
 import Dashboard from "./pages/Dashboard.jsx";
+import AdminPortal from "./pages/AdminPortal.jsx";
+import OverviewSummary from "./pages/admin/OverviewSummary.jsx";
+import ModuleAnalytics from "./pages/admin/ModuleAnalytics.jsx";
+import EngagementGamification from "./pages/admin/EngagementGamification.jsx";
+import StakeholderResources from "./pages/admin/StakeholderResources.jsx";
+import TimelineReporting from "./pages/admin/TimelineReporting.jsx";
+import { AdminPortalLayout } from "./components/layout/AdminPortalLayout.jsx";
 import Courses from "./pages/Courses.jsx";
 import Groups from "./pages/Groups.jsx";
 import Users from "./pages/Users";
@@ -93,6 +100,17 @@ const App = () => (
             <CourseSidebarProvider>
               <GroupProvider>
                 <Routes>
+                  {/* Admin Portal Routes - No Sidebar */}
+                  <Route path="/admin-portal" element={<AdminPortalLayout />}>
+                    <Route index element={<AdminPortal />} />
+                    <Route path="overview" element={<OverviewSummary />} />
+                    <Route path="analytics" element={<ModuleAnalytics />} />
+                    <Route path="engagement" element={<EngagementGamification />} />
+                    <Route path="stakeholders" element={<StakeholderResources />} />
+                    <Route path="reporting" element={<TimelineReporting />} />
+                  </Route>
+
+                  {/* Main LMS Routes - With Sidebar */}
                   <Route path="/" element={<AdminLayout />}>
                   {/* Main pages */}
                   <Route index element={<Dashboard />} />
