@@ -8,6 +8,7 @@ import { LearningPathwaysSection } from './LearningPathwaysSection';
 import { GroupsCommunitySection } from './GroupsCommunitySection';
 import { QuickActionsSection } from './QuickActionsSection';
 import ZoomClassesSection from './ZoomClassesSection';
+import { CourseAssessmentInsights } from './CourseAssessmentInsights';
 
 export function StudentDashboard() {
   const navigate = useNavigate();
@@ -44,6 +45,9 @@ export function StudentDashboard() {
         {/* Additional Sections Below */}
         <div className="space-y-8">
           <ZoomClassesSection />
+          
+          {/* Course & Assessment Insights */}
+          <CourseAssessmentInsights />
           
           {/* Groups & Community Section */}
           <GroupsCommunitySection />

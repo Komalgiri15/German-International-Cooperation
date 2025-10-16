@@ -186,11 +186,11 @@ const Resources = () => {
                 <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-hover:text-blue-600 transition-colors">
                   <Search className="h-4 w-4" />
                 </div>
-                <Input
-                  type="text"
+          <Input
+            type="text"
                   placeholder={t('resources.searchPlaceholder')}
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-12 pr-4 py-5 text-sm rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all shadow-sm hover:shadow-md bg-white"
                 />
               </div>
@@ -268,7 +268,7 @@ const Resources = () => {
                   Search: "{searchQuery}"
                 </Badge>
               )}
-            </div>
+        </div>
 
             <AnimatePresence mode="popLayout">
               {filteredResources.length === 0 ? (
@@ -293,7 +293,7 @@ const Resources = () => {
                 >
                   {filteredResources.map((resource, index) => (
                     <motion.div
-                      key={resource.id}
+                    key={resource.id} 
                       layout
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -383,8 +383,8 @@ const Resources = () => {
                                 />
                               </Button>
                             </div>
-                          </div>
-                        </div>
+                      </div>
+                    </div>
                       </div>
                     </motion.div>
                   ))}
@@ -418,7 +418,7 @@ const Resources = () => {
 
                   <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 mb-4 flex items-center justify-center border border-white/20">
                     <Video className="h-16 w-16 text-white" />
-                  </div>
+      </div>
 
                   <div className="flex items-center gap-1.5 mb-3">
                     <Star className="h-4 w-4 text-white fill-white" />
@@ -438,8 +438,8 @@ const Resources = () => {
                       >
                         {tag}
                       </Badge>
-                    ))}
-                  </div>
+                ))}
+              </div>
 
                   <div className="flex items-center gap-4 mb-4 text-xs">
                     <div className="flex items-center gap-1.5 text-blue-100">
