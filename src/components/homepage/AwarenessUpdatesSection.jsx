@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -12,6 +13,7 @@ import {
 } from 'lucide-react';
 
 const AnnouncementItem = ({ announcement, isActive, onClick }) => {
+  const { t } = useTranslation();
   const typeIcons = {
     'reform': FileText,
     'webinar': Video,
@@ -51,7 +53,7 @@ const AnnouncementItem = ({ announcement, isActive, onClick }) => {
             </h4>
             {announcement.isNew && !isActive && (
               <Badge className="bg-red-500 text-white border-none text-[10px] h-4 px-1.5 flex-shrink-0">
-                New
+                {t('awareness.new')}
               </Badge>
             )}
           </div>
@@ -69,6 +71,7 @@ const AnnouncementItem = ({ announcement, isActive, onClick }) => {
 };
 
 export function AwarenessUpdatesSection() {
+  const { t } = useTranslation();
   const [selectedAnnouncement, setSelectedAnnouncement] = useState(0);
 
   // Only 3 announcements
@@ -76,9 +79,9 @@ export function AwarenessUpdatesSection() {
     {
       id: 1,
       type: 'reform',
-      title: 'New Labour Code Implementation Phase 2',
+      title: t('awareness.announcements.labourCode.title'),
       date: 'Oct 1, 2025',
-      description: 'The Government announces the second phase of labour code reforms, focusing on worker protection and digital compliance tracking. This comprehensive update includes new guidelines for employers, enhanced worker rights, and digital tracking mechanisms to ensure compliance.',
+      description: t('awareness.announcements.labourCode.description'),
       thumbnail: '/assets/UnderstandingNewLabourCodes.PNG',
       isNew: true,
       hasVideo: false
@@ -86,9 +89,9 @@ export function AwarenessUpdatesSection() {
     {
       id: 2,
       type: 'webinar',
-      title: 'Workplace Compliance Webinar Series',
+      title: t('awareness.announcements.compliance.title'),
       date: 'Sep 28, 2025',
-      description: 'Join our interactive webinar series on maintaining workplace compliance standards under new labour regulations. Expert speakers will guide you through best practices, case studies, and Q&A sessions.',
+      description: t('awareness.announcements.compliance.description'),
       thumbnail: '/assets/Workplace Compliance Awareness.PNG',
       isNew: true,
       hasVideo: true
@@ -96,9 +99,9 @@ export function AwarenessUpdatesSection() {
     {
       id: 3,
       type: 'video',
-      title: 'Digital Literacy Training Program',
+      title: t('awareness.announcements.digitalLiteracy.title'),
       date: 'Sep 25, 2025',
-      description: 'Watch our comprehensive video series on digital literacy for workers. Learn essential tech skills, online safety, and digital tools that empower your workforce in the modern workplace.',
+      description: t('awareness.announcements.digitalLiteracy.description'),
       thumbnail: '/assets/Digital literacy.jpg',
       isNew: false,
       hasVideo: true
@@ -113,10 +116,10 @@ export function AwarenessUpdatesSection() {
       <div className="max-w-7xl mx-auto mb-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
           <span className="text-2xl">📢</span>
-          Awareness & Updates
+          {t('awareness.title')}
         </h2>
         <p className="text-sm text-gray-600">
-          Stay informed about labour reforms, webinars, and training programs.
+          {t('awareness.subtitle')}
         </p>
       </div>
 
@@ -145,7 +148,7 @@ export function AwarenessUpdatesSection() {
                     <div className="absolute top-2 right-2">
                       <Badge className="bg-red-500 text-white border-none shadow-lg flex items-center gap-1 px-2 py-0.5 text-xs">
                         <Bell className="w-3 h-3" />
-                        New
+                        {t('awareness.new')}
                       </Badge>
                     </div>
                   )}
@@ -155,8 +158,7 @@ export function AwarenessUpdatesSection() {
                 <div className="p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Badge className="bg-[#004E9A] text-white text-xs px-2 py-0.5">
-                      {currentAnnouncement.type === 'reform' ? 'Labour Reform' : 
-                       currentAnnouncement.type === 'webinar' ? 'Webinar' : 'Video Training'}
+                      {t(`awareness.types.${currentAnnouncement.type}`)}
                     </Badge>
                     <span className="text-xs text-gray-500 flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
@@ -176,12 +178,12 @@ export function AwarenessUpdatesSection() {
                     {currentAnnouncement.hasVideo ? (
                       <>
                         <PlayCircle className="w-4 h-4 mr-2" />
-                        Watch Now
+                        {t('awareness.watchNow')}
                       </>
                     ) : (
                       <>
                         <FileText className="w-4 h-4 mr-2" />
-                        Read More
+                        {t('awareness.readMore')}
                       </>
                     )}
                   </Button>
@@ -196,7 +198,7 @@ export function AwarenessUpdatesSection() {
               <CardContent className="p-4">
                 <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
                   <Bell className="w-4 h-4 text-[#004E9A]" />
-                  Latest Announcements
+                  {t('awareness.latestAnnouncements')}
                 </h3>
                 
                 <div className="space-y-2">
@@ -218,12 +220,12 @@ export function AwarenessUpdatesSection() {
       {/* Footer - Supported by GIZ */}
       <div className="max-w-7xl mx-auto mt-8 flex justify-end">
         <div className="flex items-center gap-2 text-xs text-gray-500">
-          <span>Powered by</span>
+          <span>{t('awareness.poweredBy')}</span>
           <div className="flex items-center gap-1.5 bg-white px-3 py-1 rounded-full shadow-sm border border-gray-200">
             <div className="w-5 h-5 bg-[#004E9A] rounded-sm flex items-center justify-center text-white font-bold text-[8px]">
               GIZ
             </div>
-            <span className="font-semibold text-[#004E9A]">Labour Reform Initiative</span>
+            <span className="font-semibold text-[#004E9A]">{t('awareness.labourReformInitiative')}</span>
           </div>
         </div>
       </div>

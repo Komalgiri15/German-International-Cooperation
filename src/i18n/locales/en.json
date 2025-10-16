@@ -1,4 +1,406 @@
 {
+  "dashboard": {
+    "welcomeBack": "Welcome back, {{name}}!",
+    "continueJourney": "Continue your learning journey.",
+    "coursesEnrolled": "Courses Enrolled",
+    "courses": "Courses",
+    "certificatesEarned": "Certificates Earned",
+    "certs": "Certs",
+    "totalHoursLearned": "Total Hours Learned",
+    "hours": "Hours",
+    "activeGroups": "Active Groups",
+    "groups": "Groups",
+    "loadingDashboard": "Loading GIC Dashboard..."
+  },
+  "awareness": {
+    "title": "Awareness & Updates",
+    "subtitle": "Stay informed about labour reforms, webinars, and training programs.",
+    "latestAnnouncements": "Latest Announcements",
+    "new": "New",
+    "watchNow": "Watch Now",
+    "readMore": "Read More",
+    "poweredBy": "Powered by",
+    "labourReformInitiative": "Labour Reform Initiative",
+    "types": {
+      "reform": "Labour Reform",
+      "webinar": "Webinar",
+      "video": "Video Training"
+    },
+    "announcements": {
+      "labourCode": {
+        "title": "New Labour Code Implementation Phase 2",
+        "description": "The Government announces the second phase of labour code reforms, focusing on worker protection and digital compliance tracking. This comprehensive update includes new guidelines for employers, enhanced worker rights, and digital tracking mechanisms to ensure compliance."
+      },
+      "compliance": {
+        "title": "Workplace Compliance Webinar Series",
+        "description": "Join our interactive webinar series on maintaining workplace compliance standards under new labour regulations. Expert speakers will guide you through best practices, case studies, and Q&A sessions."
+      },
+      "digitalLiteracy": {
+        "title": "Digital Literacy Training Program",
+        "description": "Watch our comprehensive video series on digital literacy for workers. Learn essential tech skills, online safety, and digital tools that empower your workforce in the modern workplace."
+      }
+    }
+  },
+  "calendar": {
+    "title": "Calendar & Events",
+    "today": "Today",
+    "upcomingEvents": "Upcoming Events",
+    "noEvents": "No events scheduled",
+    "addToCalendar": "Add to Calendar",
+    "joinNow": "Join Now",
+    "viewAll": "View All Events"
+  },
+  "learning": {
+    "title": "My Courses",
+    "subtitle": "Continue your learning journey with courses designed to strengthen labour awareness and digital capability.",
+    "continueLearning": "Continue Course",
+    "startCourse": "Start Now",
+    "resume": "Resume",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "notStarted": "Not Started",
+    "viewCourse": "View Course",
+    "viewAll": "View All Courses",
+    "progress": "Progress",
+    "modules": "Modules",
+    "lessons": "Lessons",
+    "coursesActive": "{{count}} of {{total}} Courses Active",
+    "supportedBy": "Supported by",
+    "levels": {
+      "Beginner": "Beginner",
+      "Intermediate": "Intermediate",
+      "Advanced": "Advanced"
+    },
+    "courses": {
+      "digitalLiteracy": {
+        "title": "Digital Literacy for Workers",
+        "description": "Master essential digital skills to thrive in modern workplaces."
+      },
+      "labourCodes": {
+        "title": "Understanding New Labour Codes",
+        "description": "Learn about your rights and responsibilities under reformed labour laws."
+      },
+      "trainerProgram": {
+        "title": "Trainer Enablement Program",
+        "description": "Develop skills to train others effectively on labour reforms and digital tools."
+      },
+      "compliance": {
+        "title": "Workplace Compliance Awareness",
+        "description": "Understand and implement workplace compliance standards and safety protocols."
+      },
+      "certification": {
+        "title": "Professional Certification Track",
+        "description": "Complete structured learning modules to earn recognized professional certifications."
+      },
+      "leadership": {
+        "title": "Leadership & Management Fundamentals",
+        "description": "Build leadership capabilities for effective team and project management."
+      }
+    }
+  },
+  "community": {
+    "title": "Groups & Community",
+    "subtitle": "Connect, collaborate, and learn with peers, trainers, and employers",
+    "myGroups": "My Groups",
+    "joinGroup": "Join Group",
+    "viewGroup": "View Group",
+    "members": "Members",
+    "active": "Active",
+    "viewAll": "View All Groups",
+    "groupsJoined": "Groups Joined",
+    "posts": "Posts",
+    "announcements": "Announcements",
+    "media": "Media",
+    "noGroupsFound": "No groups found",
+    "tryAdjustingFilters": "Try adjusting your filters or search query",
+    "searchPlaceholder": "Search groups or discussions...",
+    "supportedBy": "Supported by",
+    "deutscheGesellschaft": "Deutsche Gesellschaft",
+    "filters": {
+      "all": "All",
+      "myGroups": "My Groups",
+      "employer": "Employer",
+      "trainer": "Trainer",
+      "learner": "Learner",
+      "policy": "Policy"
+    },
+    "groups": {
+      "employerHub": {
+        "name": "Employer Hub",
+        "description": "Official group for employers to discuss compliance, best practices, and workforce management."
+      },
+      "trainerCircle": {
+        "name": "Trainer Circle",
+        "description": "Connect with fellow trainers to share resources, methodologies, and success stories."
+      },
+      "workerForum": {
+        "name": "Worker Forum",
+        "description": "Official community for workers to learn about rights, ask questions, and support each other."
+      },
+      "policyCompliance": {
+        "name": "Policy & Compliance Network",
+        "description": "Official group for policy discussions, compliance updates, and regulatory guidance."
+      }
+    }
+  },
+  "insights": {
+    "title": "Course & Assessment Insights",
+    "subtitle": "Track your learning progress and performance",
+    "moduleProgress": "Module Progress",
+    "completion": "Completion",
+    "engagement": "Engagement",
+    "pathwayTracker": "Pathway Tracker",
+    "recommended": "Recommended",
+    "actual": "Actual Progress",
+    "pathwayMatch": "following recommended path",
+    "assessmentBreakdown": "Assessment Breakdown",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "unattempted": "Unattempted",
+    "difficultyAnalysis": "Difficulty Analysis",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
+    "strengths": "Top Strengths",
+    "weaknesses": "Areas to Improve",
+    "score": "Score",
+    "topic": "Topic",
+    "engagementHeatmap": "Engagement Heatmap",
+    "module": "Module",
+    "week": "Week",
+    "legend": "Legend",
+    "low": "Low",
+    "good": "Good",
+    "excellent": "Excellent",
+    "topics": {
+      "labourLaws": "Labour Laws",
+      "digitalTools": "Digital Tools",
+      "compliance": "Compliance",
+      "advancedPolicies": "Advanced Policies",
+      "legalFramework": "Legal Framework",
+      "caseStudies": "Case Studies"
+    }
+  },
+  "quickActions": {
+    "title": "Quick Actions",
+    "subtitle": "Take the next step in your learning journey",
+    "viewAllActions": "View All Actions",
+    "poweredBy": "Powered by",
+    "labourReformInitiative": "Labour Reform & Digital Learning Initiative",
+    "actions": {
+      "enrollPathway": {
+        "title": "Enroll in Next Pathway",
+        "description": "Continue your learning journey with recommended courses"
+      },
+      "joinDiscussion": {
+        "title": "Join a Group Discussion",
+        "description": "Connect with peers and share insights"
+      },
+      "watchVideo": {
+        "title": "Watch Featured Reform Video",
+        "description": "Stay updated on latest labour reform initiatives"
+      },
+      "giveFeedback": {
+        "title": "Give Feedback / Suggest a Topic",
+        "description": "Help us improve your learning experience"
+      }
+    }
+  },
+  "zoom": {
+    "title": "Zoom Classes Management",
+    "scheduleNewClass": "Schedule New Class",
+    "upcomingClasses": "Upcoming Classes",
+    "completedClasses": "Completed Classes",
+    "noUpcoming": "No upcoming classes scheduled",
+    "noCompleted": "No completed classes yet",
+    "joinViaZoom": "Join via Zoom",
+    "viewRecording": "View Recording",
+    "download": "Download",
+    "downloadRecording": "Download Recording",
+    "edit": "Edit",
+    "editClass": "Edit Class",
+    "delete": "Delete",
+    "scheduleClass": "Schedule Class",
+    "updateClass": "Update Class",
+    "classTitle": "Class Title",
+    "date": "Date",
+    "time": "Time",
+    "duration": "Duration",
+    "description": "Description",
+    "zoomMeetingLink": "Zoom Meeting Link (optional)",
+    "enterClassTitle": "Enter class title",
+    "enterDescription": "Enter class description",
+    "recordingPlayer": "Recording Player",
+    "classHeldOn": "Class held on {{date}} at {{time}}",
+    "attendance": "Attendance: {{count}}/{{total}} students",
+    "durations": {
+      "30min": "30 minutes",
+      "1hour": "1 hour",
+      "1.5hours": "1.5 hours",
+      "2hours": "2 hours",
+      "3hours": "3 hours"
+    },
+    "sampleClasses": {
+      "insuranceSales": {
+        "title": "Advanced Insurance Sales - Module 3",
+        "description": "Deep dive into insurance sales methodologies and customer engagement"
+      },
+      "lifeInsurance": {
+        "title": "Life Insurance Sales Workshop",
+        "description": "Practical workshop on life insurance sales techniques"
+      },
+      "portfolioManagement": {
+        "title": "Insurance Portfolio Management",
+        "description": "Strategic approaches to insurance portfolio management"
+      },
+      "compliance": {
+        "title": "Insurance Compliance Updates",
+        "description": "Latest updates in insurance regulatory compliance requirements"
+      }
+    }
+  },
+  "courses": {
+    "title": "Courses",
+    "subtitle": "Manage your course catalog and create new learning experiences",
+    "myCourses": "My Courses",
+    "allCourses": "All Courses",
+    "enrolled": "Enrolled",
+    "available": "Available",
+    "completed": "Completed",
+    "enroll": "Enroll",
+    "continue": "Continue",
+    "start": "Start",
+    "view": "View",
+    "instructor": "Instructor",
+    "duration": "Duration",
+    "level": "Level",
+    "students": "Students",
+    "createCourse": "Create Course",
+    "searchPlaceholder": "Search courses...",
+    "allLevels": "All levels",
+    "allStatus": "All status",
+    "catalog": "Catalog",
+    "grid": "Grid",
+    "list": "List",
+    "enrolling": "Enrolling",
+    "course": "Course",
+    "status": "Status",
+    "accessType": "Access Type",
+    "actions": "Actions",
+    "sequential": "Sequential",
+    "openAccess": "Open Access",
+    "tabs": {
+      "courses": "Courses",
+      "archived": "Archived",
+      "deleted": "Deleted"
+    },
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "statuses": {
+      "active": "Active",
+      "draft": "Draft",
+      "archived": "Archived",
+      "published": "Published"
+    },
+    "catalogs": {
+      "labourReform": "Labour Reform",
+      "digitalSkills": "Digital Skills",
+      "policyReform": "Policy & Reform"
+    },
+    "toasts": {
+      "catalog": "Catalog",
+      "redirectingToCatalog": "Redirecting to course catalog",
+      "editCourse": "Edit Course",
+      "openingEditPage": "Opening edit page for {{name}}",
+      "courseArchived": "Course Archived",
+      "courseMovedToArchived": "{{name}} has been moved to archived courses.",
+      "courseDeleted": "Course Deleted",
+      "courseMovedToDeleted": "{{name}} has been moved to deleted courses.",
+      "courseRestored": "Course Restored",
+      "courseRestoredToActive": "{{name}} has been restored to active courses."
+    },
+    "sampleCourses": {
+      "strategicCommunication": {
+        "title": "Strategic Communication",
+        "description": "Master effective communication strategies for labour reform advocacy and stakeholder collaboration in organizational and policy contexts."
+      },
+      "digitalLearningPathways": {
+        "title": "Digital Learning Pathways",
+        "description": "Explore digital tools, e-learning platforms, and innovative pathways for skill development and workforce empowerment in the digital age."
+      },
+      "stakeholderEngagement": {
+        "title": "Stakeholder Engagement for Labour Reform Initiatives",
+        "description": "Build expertise in engaging diverse stakeholders—employers, workers, policymakers—to drive meaningful labour law reforms and compliance."
+      }
+    }
+  },
+  "catalog": {
+    "title": "Course Catalog",
+    "subtitle": "Manage course categories and organize your learning content",
+    "addCatalog": "Add Catalog",
+    "searchPlaceholder": "Search catalogs...",
+    "freeCourses": "Free Courses",
+    "freeCoursesDescription": "Premium learning experiences at no cost",
+    "premiumCourses": "Premium Courses",
+    "premiumCoursesDescription": "Advanced learning with expert-level certification",
+    "featured": "FEATURED",
+    "premium": "PREMIUM",
+    "free": "FREE",
+    "courses": "COURSES",
+    "noCatalogsFound": "No catalogs found matching your search.",
+    "createNewCatalog": "Create New Catalog",
+    "editCatalog": "Edit Catalog",
+    "catalogName": "Catalog Name",
+    "enterCatalogName": "Enter catalog name",
+    "description": "Description",
+    "enterCatalogDescription": "Enter catalog description",
+    "createCatalog": "Create Catalog",
+    "updateCatalog": "Update Catalog",
+    "deleteConfirm": "Are you sure you want to delete \"{{name}}\" catalog?",
+    "toasts": {
+      "catalogCreated": "Catalog Created",
+      "catalogCreatedSuccess": "{{name}} catalog has been created successfully.",
+      "catalogUpdated": "Catalog Updated",
+      "catalogUpdatedSuccess": "Catalog has been updated successfully.",
+      "catalogDeleted": "Catalog Deleted",
+      "catalogDeletedSuccess": "{{name}} catalog has been deleted."
+    },
+    "sampleCatalogs": {
+      "strategicCommunication": {
+        "name": "Strategic Communication Planning",
+        "description": "Develop strategic communication plans for labour reform and digital learning initiatives with stakeholder mapping and messaging frameworks",
+        "prize": "🏆 Communication Excellence Certificate"
+      },
+      "awarenessOutreach": {
+        "name": "Awareness & Outreach Campaigns",
+        "description": "Design and implement awareness campaigns targeting stakeholders, employers, educators, and learners for maximum impact",
+        "prize": "🎖️ Campaign Strategist Badge"
+      },
+      "digitalLearningPathways": {
+        "name": "Digital Learning Pathways",
+        "description": "Create digital learning content pathways and communication materials for workforce development and skill enhancement",
+        "prize": "💡 Digital Innovator Award"
+      },
+      "policyReformAdvocacy": {
+        "name": "Policy & Reform Advocacy",
+        "description": "Stakeholder engagement strategies for labour law reforms, compliance, and policy implementation at organizational level",
+        "prize": "👑 Master Policy Advocate Certification"
+      },
+      "technicalSupport": {
+        "name": "Technical Support & Training",
+        "description": "Provide technical support and training consultancy for effective rollout of labour reform and digital learning programs",
+        "prize": "🎓 Expert Training Consultant Diploma"
+      },
+      "crisisCommunication": {
+        "name": "Crisis Communication & Media Strategy",
+        "description": "Advanced crisis management, media relations, and stakeholder trust strategies for complex reform implementation scenarios",
+        "prize": "⭐ Master Crisis Manager Certification"
+      }
+    }
+  },
   "resources": {
     "pageTitle": "Resource & Knowledge Hub",
     "subtitle": "Explore reform-related insights, digital learning guides, and policy knowledge — all in one place.",
@@ -27,13 +429,117 @@
     },
     "languages": {
       "en": "English",
-      "hi": "Hindi",
-      "de": "German",
-      "es": "Spanish",
-      "fr": "French"
+      "ar": "Arabic",
+      "de": "German"
     },
     "noResults": "No resources found",
     "loading": "Loading resources..."
+  },
+  "groups": {
+    "title": "My Groups",
+    "subtitle": "Manage and participate in your enrolled groups",
+    "createGroup": "Create Group",
+    "discoverGroups": "Discover Groups",
+    "openGroup": "Open Group",
+    "searchPlaceholder": "Search groups...",
+    "allCategories": "All categories",
+    "enrolled": "Enrolled",
+    "members": "members",
+    "noGroupsFound": "No groups found",
+    "tryAdjustingFilters": "Try adjusting your search or filters",
+    "categories": {
+      "learnerFocused": {
+        "name": "Learner-Focused",
+        "description": "Groups for learners to collaborate and build skills"
+      },
+      "trainerFocused": {
+        "name": "Trainer-Focused",
+        "description": "Professional spaces for trainers to exchange best practices"
+      },
+      "employerFocused": {
+        "name": "Employer-Focused",
+        "description": "Groups focused on workforce development and innovation"
+      },
+      "initiativeWide": {
+        "name": "Initiative-Wide",
+        "description": "Community-wide initiatives and official updates"
+      }
+    },
+    "sampleGroups": {
+      "skillBuilders": {
+        "name": "Skill Builders",
+        "description": "Learners collaborating to build skills."
+      },
+      "rightsAwareness": {
+        "name": "Rights & Awareness Circle",
+        "description": "Discussions on labour rights and reforms."
+      },
+      "trainerConnect": {
+        "name": "Trainer Connect",
+        "description": "Space for trainers to exchange methods and best practices."
+      },
+      "contentInnovators": {
+        "name": "Content Innovators",
+        "description": "Collaboration for lesson planning and creating courses."
+      },
+      "workplaceChampions": {
+        "name": "Workplace Champions",
+        "description": "Employers focused on workforce development."
+      },
+      "complianceCircle": {
+        "name": "Compliance Circle",
+        "description": "Discussing labour reform policies and compliance strategies."
+      },
+      "campaignCatalysts": {
+        "name": "Campaign Catalysts",
+        "description": "Discussions on GIZ-led campaigns and awareness drives."
+      },
+      "eventSpotlight": {
+        "name": "Event Spotlight",
+        "description": "Announcements, discussions, and feedback on workshops or webinars."
+      }
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "courses": "Courses",
+    "groups": "Groups",
+    "catalog": "Catalog",
+    "resources": "Resources & Knowledge Hub",
+    "messages": "Messages",
+    "help": "Help & Support",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Log out"
+  },
+  "header": {
+    "appName": "Athena LMS",
+    "search": "Search...",
+    "calendar": "Calendar",
+    "inbox": "Inbox",
+    "notifications": "Notifications",
+    "language": "Language"
+  },
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "submit": "Submit",
+    "search": "Search",
+    "viewAll": "View All",
+    "viewMore": "View More",
+    "seeMore": "See More",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "filter": "Filter",
+    "sort": "Sort",
+    "apply": "Apply",
+    "reset": "Reset"
   }
 }
 

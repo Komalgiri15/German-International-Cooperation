@@ -153,9 +153,9 @@ const EngagementGamification = () => {
                 <div>Badges</div>
                 <div>Pathway</div>
               </div>
-              <LeaderboardRow rank="#1" name="John Doe" points="2,456" badges="12" pathway="Advanced" />
-              <LeaderboardRow rank="#2" name="Jane Smith" points="2,123" badges="10" pathway="Intermediate" />
-              <LeaderboardRow rank="#3" name="Alex Johnson" points="1,897" badges="8" pathway="Basic" />
+              <LeaderboardRow rank="#1" name="Hans Müller" points="2,456" badges="12" pathway="Advanced" />
+              <LeaderboardRow rank="#2" name="Anna Schmidt" points="2,123" badges="10" pathway="Intermediate" />
+              <LeaderboardRow rank="#3" name="Sophie Weber" points="1,897" badges="8" pathway="Basic" />
             </div>
           </div>
         </div>
@@ -235,21 +235,21 @@ const EngagementGamification = () => {
               <div className="flex items-center gap-4 p-3 bg-green-50 rounded-lg">
                 <Medal className="h-5 w-5 text-green-600" />
                 <div>
-                  <p className="font-medium">John Doe</p>
+                  <p className="font-medium">Hans Müller</p>
                   <p className="text-sm text-gray-600">12 badges earned this week</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 p-3 bg-green-50/50 rounded-lg">
                 <Medal className="h-5 w-5 text-green-500" />
                 <div>
-                  <p className="font-medium">Jane Smith</p>
+                  <p className="font-medium">Anna Schmidt</p>
                   <p className="text-sm text-gray-600">10 badges earned this week</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 p-3 bg-green-50/30 rounded-lg">
                 <Medal className="h-5 w-5 text-green-400" />
                 <div>
-                  <p className="font-medium">Alex Johnson</p>
+                  <p className="font-medium">Sophie Weber</p>
                   <p className="text-sm text-gray-600">8 badges earned this week</p>
                 </div>
               </div>

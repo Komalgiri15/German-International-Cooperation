@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Shield, ArrowLeft } from 'lucide-react';
+import { LanguageSelector } from '../ui/LanguageSelector';
 
 export function AdminPortalHeader() {
   const navigate = useNavigate();
@@ -49,6 +50,9 @@ export function AdminPortalHeader() {
                 </div>
               </div>
             </div>
+
+            {/* Language Selector */}
+            <LanguageSelector />
 
             {/* Admin Toggle */}
             <div className="flex items-center gap-2 bg-white px-4 py-2.5 rounded-lg shadow-sm border border-gray-200 hover:border-blue-300 transition-all">

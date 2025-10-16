@@ -22,11 +22,11 @@ const GroupManage = () => {
   });
 
   const [students, setStudents] = useState([
-    { id: 1, name: "John Smith", email: "john@example.com" },
-    { id: 2, name: "Mary Johnson", email: "mary@example.com" },
-    { id: 3, name: "Robert Davis", email: "robert@example.com" },
-    { id: 4, name: "Sarah Wilson", email: "sarah@example.com" },
-    { id: 5, name: "Michael Brown", email: "michael@example.com" }
+    { id: 1, name: "Hans Müller", email: "hans.mueller@example.com" },
+    { id: 2, name: "Anna Schmidt", email: "anna.schmidt@example.com" },
+    { id: 3, name: "Sophie Weber", email: "sophie.weber@example.com" },
+    { id: 4, name: "Klaus Fischer", email: "klaus.fischer@example.com" },
+    { id: 5, name: "Maria Wagner", email: "maria.wagner@example.com" }
   ]);
 
   const [newStudent, setNewStudent] = useState("");

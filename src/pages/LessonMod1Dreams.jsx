@@ -628,64 +628,88 @@ const LessonMod1Dreams = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navigation Header */}
-      <div className="bg-white shadow-sm border-b">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between gap-3">
-          <Button 
-            onClick={handleBackToModules} 
-            variant="outline"
-            className="flex items-center gap-2"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            {uiText.backToModules}
-          </Button>
+      {/* Banner Header */}
+      <div className="relative w-full">
+        <div
+          className="relative w-full h-[220px] md:h-[320px] lg:h-[360px] overflow-hidden"
+        >
+          <img
+            src={(history?.state && history.state.moduleImage) || '/assets/c1.webp'}
+            alt="Module banner"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"></div>
 
-          {/* Quick language switcher */}
-          <div className="relative">
-            <Button
-              type="button"
+          {/* Top controls */}
+          <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+            <Button 
+              onClick={handleBackToModules} 
               variant="outline"
-              size="icon"
-              className="h-9 w-9"
-              onClick={() => {
-                const el = document.getElementById('quick-lang-menu');
-                if (!el) return;
-                el.classList.toggle('hidden');
-              }}
+              className="flex items-center gap-2 bg-white/90 backdrop-blur hover:bg-white"
             >
-              <Languages className="h-4 w-4" />
+              <ArrowLeft className="h-4 w-4" />
+              {uiText.backToModules}
             </Button>
-            <div
-              id="quick-lang-menu"
-              className="hidden absolute right-0 mt-2 w-44 rounded-md border bg-white shadow-lg z-20"
-            >
-              <ul className="py-1 text-sm text-gray-700">
-                {[
-                  { code: 'en-US', label: 'English' },
-                  { code: 'hi-IN', label: 'हिन्दी' },
-                  { code: 'mr-IN', label: 'मराठी' },
-                  { code: 'de-DE', label: 'Deutsch' },
-                  { code: 'es-ES', label: 'Español' },
-                  { code: 'fr-FR', label: 'Français' },
-                ].map((opt) => (
-                  <li key={opt.code}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        const synth = window.speechSynthesis;
-                        if (synth) synth.cancel();
-                        setSpeakingBlocks({});
-                        setSelectedLang(opt.code);
-                        const el = document.getElementById('quick-lang-menu');
-                        if (el) el.classList.add('hidden');
-                      }}
-                      className={`w-full text-left px-3 py-2 hover:bg-gray-50 ${selectedLang === opt.code ? 'bg-gray-100 font-medium' : ''}`}
-                    >
-                      {opt.label}
-                    </button>
-                  </li>
-                ))}
-              </ul>
+
+            {/* Quick language switcher */}
+            <div className="relative">
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                className="h-9 w-9 bg-white/90 backdrop-blur hover:bg-white"
+                onClick={() => {
+                  const el = document.getElementById('quick-lang-menu');
+                  if (!el) return;
+                  el.classList.toggle('hidden');
+                }}
+              >
+                <Languages className="h-4 w-4" />
+              </Button>
+              <div
+                id="quick-lang-menu"
+                className="hidden absolute right-0 mt-2 w-44 rounded-md border bg-white shadow-lg z-20"
+              >
+                <ul className="py-1 text-sm text-gray-700">
+                  {[
+                    { code: 'en-US', label: 'English' },
+                    { code: 'hi-IN', label: 'हिन्दी' },
+                    { code: 'mr-IN', label: 'मराठी' },
+                    { code: 'de-DE', label: 'Deutsch' },
+                    { code: 'es-ES', label: 'Español' },
+                    { code: 'fr-FR', label: 'Français' },
+                  ].map((opt) => (
+                    <li key={opt.code}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const synth = window.speechSynthesis;
+                          if (synth) synth.cancel();
+                          setSpeakingBlocks({});
+                          setSelectedLang(opt.code);
+                          const el = document.getElementById('quick-lang-menu');
+                          if (el) el.classList.add('hidden');
+                        }}
+                        className={`w-full text-left px-3 py-2 hover:bg-gray-50 ${selectedLang === opt.code ? 'bg-gray-100 font-medium' : ''}`}
+                      >
+                        {opt.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom meta */}
+          <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+            <div className="max-w-[70%]">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white drop-shadow">
+                {(history?.state && history.state.moduleTitle) || uiText.module1}
+              </h1>
+            </div>
+            <div className="text-white/95 bg-black/30 px-3 py-1.5 rounded-md text-sm font-medium">
+              {(history?.state && history.state.duration) || 'Weeks 1–2'}
             </div>
           </div>
         </div>
@@ -745,9 +769,9 @@ const LessonMod1Dreams = () => {
 
           {/* Section Description with TTS and Controls */}
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-semibold text-gray-800">{t.learnTitle}</h2>
-              <div className="flex items-center gap-3">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">{t.learnTitle}</h2>
+            
+            <div className="flex items-center justify-center gap-3 mb-6">
                 <select
                   value={selectedLang}
                   onChange={(e) => {
@@ -759,7 +783,7 @@ const LessonMod1Dreams = () => {
                     }
                     setSelectedLang(e.target.value);
                   }}
-                  className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-56"
                 >
                   <optgroup label="🌍 English Variants">
                     {languageOptions.filter(opt => opt.code.startsWith('en-')).map(opt => (
@@ -789,7 +813,7 @@ const LessonMod1Dreams = () => {
                 <select
                   value={selectedVoiceURI}
                   onChange={(e) => { const synth = window.speechSynthesis; if (synth) { synth.cancel(); setSpeakingBlocks({}); } setSelectedVoiceURI(e.target.value); }}
-                  className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-64"
                 >
                   {(() => {
                     // Enhanced voice filtering with fallback strategies
@@ -865,7 +889,6 @@ const LessonMod1Dreams = () => {
                 <Button onClick={handleFullScreen} variant="outline" size="icon" className="p-2">
                   <Maximize2 className="h-4 w-4" />
                 </Button>
-              </div>
             </div>
             <div className="bg-gray-50 rounded-lg p-6 mb-6">
               <div className="flex items-center justify-end mb-3">

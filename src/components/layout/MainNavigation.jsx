@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   Home, Book, Users, Folder, FileText, MessageCircle, HelpCircle, BookOpen
 } from 'lucide-react';
@@ -15,6 +16,7 @@ import {
 import { cn } from '@/lib/utils';
 
 export const MainNavigation = ({ pathname, onItemClick }) => {
+  const { t } = useTranslation();
   const { isMainCollapsed } = useSidebar();
   const navigate = useNavigate();
 
@@ -66,7 +68,7 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
         <motion.div variants={itemVariants}>
           <NavItem 
             icon={Home} 
-            label="Home" 
+            label={t('navigation.home')} 
             to="/" 
             active={pathname === '/'} 
             onClick={() => handleNavItemClick('/')}
@@ -79,7 +81,7 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
         <motion.div variants={itemVariants}>
           <NavItem 
             icon={Book} 
-            label="Courses" 
+            label={t('navigation.courses')} 
             to="/courses" 
             active={pathname.startsWith('/courses')} 
             onClick={handleCourseClick}
@@ -92,7 +94,7 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
         <motion.div variants={itemVariants}>
           <NavItem 
             icon={Users} 
-            label="Groups" 
+            label={t('navigation.groups')} 
             to="/groups" 
             active={pathname.startsWith('/groups')}
             onClick={handleGroupsClick}
@@ -105,7 +107,7 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
         <motion.div variants={itemVariants}>
           <NavItem 
             icon={Folder}
-            label="Catalog"
+            label={t('navigation.catalog')}
             to="/catalog"
             active={pathname.startsWith('/catalog')}
             onClick={() => handleNavItemClick('/catalog')}
@@ -118,7 +120,7 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
         <motion.div variants={itemVariants}>
           <NavItem 
             icon={BookOpen}
-            label="Resources & Knowledge Hub"
+            label={t('navigation.resources')}
             to="/resources"
             active={pathname.startsWith('/resources')}
             onClick={() => handleNavItemClick('/resources')}
@@ -131,7 +133,7 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
         <motion.div variants={itemVariants}>
           <NavItem 
             icon={MessageCircle}
-            label="Messages"
+            label={t('navigation.messages')}
             to="/messages"
             active={pathname.startsWith('/messages')}
             onClick={() => handleNavItemClick('/messages')}
@@ -164,7 +166,7 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
               
               {!isMainCollapsed && (
                 <span className="truncate font-medium group-hover:text-blue-700 transition-colors duration-200">
-                  Help & Support
+                  {t('navigation.help')}
                 </span>
               )}
             </button>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from "@/components/ui/button";
 import { Bell, Search, User, Calendar, Inbox, Recycle, ExternalLink } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -12,12 +13,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ThemeToggle } from "../theme/ThemeToggle";
+import { LanguageSelector } from "../ui/LanguageSelector";
 import { useToast } from '@/hooks/use-toast';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import NotificationModal from "../notifications/NotificationModal";
 import { Badge } from "@/components/ui/badge";
 
 export const Header = ({ onMenuClick }) => {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -134,7 +137,7 @@ export const Header = ({ onMenuClick }) => {
             className="text-lg font-semibold cursor-pointer hover:text-slate-600 transition-colors text-slate-800"
             onClick={handleAthenaLMSClick}
           >
-            Athena LMS
+            {t('header.appName')}
           </h1>
         </div>
         
@@ -146,7 +149,7 @@ export const Header = ({ onMenuClick }) => {
             <input
               type="search"
               className="w-full py-1.5 pl-10 pr-4 text-sm text-gray-900 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500"
-              placeholder="Search..."
+              placeholder={t('header.search')}
             />
           </div>
 
@@ -200,6 +203,8 @@ export const Header = ({ onMenuClick }) => {
             )}
           </Button>
           
+          <LanguageSelector />
+          
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
@@ -226,17 +231,17 @@ export const Header = ({ onMenuClick }) => {
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => navigate('/profile')}>
                 <User className="mr-2 h-4 w-4" />
-                <span>Profile</span>
+                <span>{t('navigation.profile')}</span>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => {
                 toast({
-                  title: "Logged out",
+                  title: t('navigation.logout'),
                   description: "You have been logged out successfully",
                   duration: 2000,
                 });
               }}>
-                Log out
+                {t('navigation.logout')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -15,7 +16,8 @@ import {
   Flame
 } from 'lucide-react';
 
-const GroupCard = ({ name, memberCount, category, description, posts, announcements, media, activeDate, isActive }) => {
+const GroupCard = ({ nameKey, memberCount, category, posts, announcements, media, activeDate, isActive }) => {
+  const { t } = useTranslation();
   const categoryStyles = {
     'Employer': {
       border: 'border-l-purple-500',
@@ -69,10 +71,10 @@ const GroupCard = ({ name, memberCount, category, description, posts, announceme
             </div>
             <div className="flex-1">
               <h3 className="font-bold text-gray-900 text-xl leading-tight group-hover:text-[#004E9A] transition-colors mb-1" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
-                {name}
+                {t(`community.groups.${nameKey}.name`)}
               </h3>
               <Badge variant="outline" className="text-xs font-medium text-gray-600 border-gray-300">
-                {category}
+                {t(`community.filters.${category.toLowerCase()}`)}
               </Badge>
             </div>
           </div>
@@ -84,7 +86,7 @@ const GroupCard = ({ name, memberCount, category, description, posts, announceme
 
         {/* Description */}
         <p className="text-sm text-gray-700 mb-6 leading-relaxed min-h-[40px]">
-          {description}
+          {t(`community.groups.${nameKey}.description`)}
         </p>
 
         {/* Stats: Posts, Announcements, Media */}
@@ -94,21 +96,21 @@ const GroupCard = ({ name, memberCount, category, description, posts, announceme
               <MessageSquare className="w-4 h-4 text-[#004E9A]" />
             </div>
             <div className="font-bold text-gray-900 text-lg">{posts}</div>
-            <div className="text-xs text-gray-500">Posts</div>
+            <div className="text-xs text-gray-500">{t('community.posts')}</div>
           </div>
           <div className="text-center border-x border-gray-200">
             <div className="flex items-center justify-center gap-1 mb-1">
               <TrendingUp className="w-4 h-4 text-[#004E9A]" />
             </div>
             <div className="font-bold text-gray-900 text-lg">{announcements}</div>
-            <div className="text-xs text-gray-500">Announcements</div>
+            <div className="text-xs text-gray-500">{t('community.announcements')}</div>
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center gap-1 mb-1">
               <FileText className="w-4 h-4 text-[#004E9A]" />
             </div>
             <div className="font-bold text-gray-900 text-lg">{media}</div>
-            <div className="text-xs text-gray-500">Media</div>
+            <div className="text-xs text-gray-500">{t('community.media')}</div>
           </div>
         </div>
 
@@ -117,13 +119,13 @@ const GroupCard = ({ name, memberCount, category, description, posts, announceme
           <div className="flex items-center gap-2">
             <div className={`w-2.5 h-2.5 rounded-full ${isActive ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`}></div>
             <span className="text-sm text-gray-600 font-medium">
-              Active • {activeDate}
+              {t('community.active')} • {activeDate}
             </span>
           </div>
           <Button 
             className="bg-[#004E9A] hover:bg-[#003d7a] text-white font-semibold transition-all duration-300 hover:shadow-lg px-6 py-2.5 rounded-lg group-hover:scale-105"
           >
-            View Group
+            {t('community.viewGroup')}
           </Button>
         </div>
       </CardContent>
@@ -132,6 +134,7 @@ const GroupCard = ({ name, memberCount, category, description, posts, announceme
 };
 
 export function GroupsCommunitySection() {
+  const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -139,10 +142,9 @@ export function GroupsCommunitySection() {
   const allGroups = [
     {
       id: 1,
-      name: "Employer Hub",
+      nameKey: "employerHub",
       memberCount: 245,
       category: "Employer",
-      description: "Official group for employers to discuss compliance, best practices, and workforce management.",
       posts: 124,
       announcements: 18,
       media: 45,
@@ -152,10 +154,9 @@ export function GroupsCommunitySection() {
     },
     {
       id: 2,
-      name: "Trainer Circle",
+      nameKey: "trainerCircle",
       memberCount: 187,
       category: "Trainer",
-      description: "Connect with fellow trainers to share resources, methodologies, and success stories.",
       posts: 98,
       announcements: 12,
       media: 34,
@@ -165,10 +166,9 @@ export function GroupsCommunitySection() {
     },
     {
       id: 3,
-      name: "Worker Forum",
+      nameKey: "workerForum",
       memberCount: 892,
       category: "Learner",
-      description: "Official community for workers to learn about rights, ask questions, and support each other.",
       posts: 456,
       announcements: 32,
       media: 128,
@@ -178,10 +178,9 @@ export function GroupsCommunitySection() {
     },
     {
       id: 4,
-      name: "Policy & Compliance Network",
+      nameKey: "policyCompliance",
       memberCount: 156,
       category: "Policy",
-      description: "Official group for policy discussions, compliance updates, and regulatory guidance.",
       posts: 67,
       announcements: 24,
       media: 19,
@@ -199,8 +198,11 @@ export function GroupsCommunitySection() {
       || (activeFilter === 'My Groups' && group.isJoined)
       || group.category === activeFilter;
     
-    const matchesSearch = group.name.toLowerCase().includes(searchQuery.toLowerCase()) 
-      || group.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const groupName = t(`community.groups.${group.nameKey}.name`);
+    const groupDescription = t(`community.groups.${group.nameKey}.description`);
+    
+    const matchesSearch = groupName.toLowerCase().includes(searchQuery.toLowerCase()) 
+      || groupDescription.toLowerCase().includes(searchQuery.toLowerCase());
     
     return matchesFilter && matchesSearch;
   });
@@ -215,17 +217,17 @@ export function GroupsCommunitySection() {
           <div className="flex-1">
             <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
               <span className="text-2xl">👥</span>
-              Groups & Community
+              {t('community.title')}
             </h2>
             <p className="text-sm text-gray-600">
-              Connect, collaborate, and learn with peers, trainers, and employers.
+              {t('community.subtitle')}
             </p>
           </div>
 
           {/* Summary Badge */}
           <div className="bg-white border-2 border-[#004E9A]/20 rounded-full px-4 py-2 shadow-sm">
             <span className="text-sm font-semibold text-[#004E9A]">
-              {myGroupsCount} Groups Joined
+              {myGroupsCount} {t('community.groupsJoined')}
             </span>
           </div>
         </div>
@@ -248,7 +250,7 @@ export function GroupsCommunitySection() {
                     flex items-center gap-2
                   `}
                 >
-                  {filter}
+                  {t(`community.filters.${filter.toLowerCase().replace(' ', '')}`)}
                   {filter === 'My Groups' && myGroupsCount > 0 && (
                     <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
                       activeFilter === filter ? 'bg-white/25 text-white' : 'bg-[#004E9A] text-white'
@@ -265,7 +267,7 @@ export function GroupsCommunitySection() {
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
               <Input
                 type="text"
-                placeholder="Search groups or discussions..."
+                placeholder={t('community.searchPlaceholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-11 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#004E9A] focus:ring-2 focus:ring-[#004E9A]/20 transition-all font-medium text-sm"
@@ -286,8 +288,8 @@ export function GroupsCommunitySection() {
         ) : (
           <div className="text-center py-12">
             <Users className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-500 text-lg font-medium">No groups found</p>
-            <p className="text-gray-400 text-sm mt-2">Try adjusting your filters or search query</p>
+            <p className="text-gray-500 text-lg font-medium">{t('community.noGroupsFound')}</p>
+            <p className="text-gray-400 text-sm mt-2">{t('community.tryAdjustingFilters')}</p>
           </div>
         )}
       </div>
@@ -295,12 +297,12 @@ export function GroupsCommunitySection() {
       {/* Footer - Supported by GIZ */}
       <div className="max-w-7xl mx-auto mt-8 flex justify-end">
         <div className="flex items-center gap-2 text-xs text-gray-500">
-          <span>Supported by</span>
+          <span>{t('community.supportedBy')}</span>
           <div className="flex items-center gap-1.5 bg-white px-3 py-1 rounded-full shadow-sm border border-gray-200">
             <div className="w-5 h-5 bg-[#004E9A] rounded-sm flex items-center justify-center text-white font-bold text-[8px]">
               GIZ
             </div>
-            <span className="font-semibold text-[#004E9A]">Deutsche Gesellschaft</span>
+            <span className="font-semibold text-[#004E9A]">{t('community.deutscheGesellschaft')}</span>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -8,11 +9,14 @@ import {
 } from 'lucide-react';
 
 const CourseCard = ({ image, title, description, progress, level, isStarted }) => {
+  const { t } = useTranslation();
   const levelColors = {
     'Beginner': 'bg-green-100 text-green-700 border-green-200',
     'Intermediate': 'bg-blue-100 text-blue-700 border-blue-200',
     'Advanced': 'bg-purple-100 text-purple-700 border-purple-200',
   };
+  
+  const translatedLevel = t(`learning.levels.${level}`);
 
   return (
     <Card className="h-full border-2 bg-white hover:shadow-xl hover:scale-[1.02] transition-all duration-300 hover:border-[#004E9A]/30 group overflow-hidden">
@@ -27,7 +31,7 @@ const CourseCard = ({ image, title, description, progress, level, isStarted }) =
         {level && (
           <div className="absolute top-3 right-3">
             <Badge className={`${levelColors[level]} border font-medium text-xs px-2 py-1 shadow-md`}>
-              {level}
+              {translatedLevel}
             </Badge>
           </div>
         )}
@@ -48,7 +52,7 @@ const CourseCard = ({ image, title, description, progress, level, isStarted }) =
         {isStarted && (
           <div className="mb-4">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-medium text-gray-600">Progress</span>
+              <span className="text-xs font-medium text-gray-600">{t('learning.progress')}</span>
               <span className="text-xs font-bold text-[#004E9A]">{progress}%</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
@@ -64,7 +68,7 @@ const CourseCard = ({ image, title, description, progress, level, isStarted }) =
         <Button 
           className={`w-full ${isStarted ? 'bg-[#004E9A] hover:bg-[#003d7a]' : 'bg-[#F5C518] hover:bg-[#d4a614] text-gray-900'} text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg`}
         >
-          {isStarted ? 'Continue Course' : 'Start Now'}
+          {isStarted ? t('learning.continueLearning') : t('learning.startCourse')}
         </Button>
       </CardContent>
     </Card>
@@ -72,6 +76,7 @@ const CourseCard = ({ image, title, description, progress, level, isStarted }) =
 };
 
 export function LearningPathwaysSection() {
+  const { t } = useTranslation();
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const scrollContainerRef = useRef(null);
@@ -81,8 +86,8 @@ export function LearningPathwaysSection() {
     {
       id: 1,
       image: "/assets/Digital literacy.jpg",
-      title: "Digital Literacy for Workers",
-      description: "Master essential digital skills to thrive in modern workplaces.",
+      title: t('learning.courses.digitalLiteracy.title'),
+      description: t('learning.courses.digitalLiteracy.description'),
       progress: 65,
       level: "Beginner",
       isStarted: true
@@ -90,8 +95,8 @@ export function LearningPathwaysSection() {
     {
       id: 2,
       image: "/assets/UnderstandingNewLabourCodes.PNG",
-      title: "Understanding New Labour Codes",
-      description: "Learn about your rights and responsibilities under reformed labour laws.",
+      title: t('learning.courses.labourCodes.title'),
+      description: t('learning.courses.labourCodes.description'),
       progress: 30,
       level: "Beginner",
       isStarted: true
@@ -99,8 +104,8 @@ export function LearningPathwaysSection() {
     {
       id: 3,
       image: "/assets/Course.jpg",
-      title: "Trainer Enablement Program",
-      description: "Develop skills to train others effectively on labour reforms and digital tools.",
+      title: t('learning.courses.trainerProgram.title'),
+      description: t('learning.courses.trainerProgram.description'),
       progress: 0,
       level: "Advanced",
       isStarted: false
@@ -108,8 +113,8 @@ export function LearningPathwaysSection() {
     {
       id: 4,
       image: "/assets/Workplace Compliance Awareness.PNG",
-      title: "Workplace Compliance Awareness",
-      description: "Understand and implement workplace compliance standards and safety protocols.",
+      title: t('learning.courses.compliance.title'),
+      description: t('learning.courses.compliance.description'),
       progress: 0,
       level: "Intermediate",
       isStarted: false
@@ -117,8 +122,8 @@ export function LearningPathwaysSection() {
     {
       id: 5,
       image: "/assets/Course.jpg",
-      title: "Professional Certification Track",
-      description: "Complete structured learning modules to earn recognized professional certifications.",
+      title: t('learning.courses.certification.title'),
+      description: t('learning.courses.certification.description'),
       progress: 45,
       level: "Intermediate",
       isStarted: true
@@ -126,8 +131,8 @@ export function LearningPathwaysSection() {
     {
       id: 6,
       image: "/assets/Digital literacy.jpg",
-      title: "Leadership & Management Fundamentals",
-      description: "Build leadership capabilities for effective team and project management.",
+      title: t('learning.courses.leadership.title'),
+      description: t('learning.courses.leadership.description'),
       progress: 0,
       level: "Advanced",
       isStarted: false
@@ -176,10 +181,10 @@ export function LearningPathwaysSection() {
           <div className="flex-1">
             <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
               <span className="text-2xl">📚</span>
-              My Courses
+              {t('learning.title')}
             </h2>
             <p className="text-sm text-gray-600 max-w-2xl">
-              Continue your learning journey with courses designed to strengthen labour awareness and digital capability.
+              {t('learning.subtitle')}
             </p>
           </div>
           
@@ -187,7 +192,7 @@ export function LearningPathwaysSection() {
           <div className="flex items-center gap-3">
             <div className="bg-white border-2 border-[#004E9A]/20 rounded-full px-4 py-2 shadow-sm">
               <span className="text-sm font-semibold text-[#004E9A]">
-                {completedCourses + inProgressCourses} of {courses.length} Courses Active
+                {t('learning.coursesActive', { count: completedCourses + inProgressCourses, total: courses.length })}
               </span>
             </div>
             
@@ -234,7 +239,7 @@ export function LearningPathwaysSection() {
       {/* Footer - Supported by GIZ */}
       <div className="max-w-7xl mx-auto mt-6 flex justify-end">
         <div className="flex items-center gap-2 text-xs text-gray-500">
-          <span>Supported by</span>
+          <span>{t('learning.supportedBy')}</span>
           <div className="flex items-center gap-1.5 bg-white px-3 py-1 rounded-full shadow-sm border border-gray-200">
             <div className="w-5 h-5 bg-[#004E9A] rounded-sm flex items-center justify-center text-white font-bold text-[8px]">
               GIZ

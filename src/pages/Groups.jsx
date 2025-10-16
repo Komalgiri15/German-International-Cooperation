@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Users, Search, Filter, Plus, Compass, GraduationCap, BriefcaseIcon, Building2, Sparkles } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -29,6 +30,7 @@ import { Badge } from '@/components/ui/badge';
  */
 
 const GroupsContent = () => {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isAddGroupOpen, setIsAddGroupOpen] = useState(false);
@@ -39,8 +41,11 @@ const GroupsContent = () => {
   const { groups, updateGroup, deleteGroup, addGroup } = useGroup();
 
   const filteredGroups = groups.filter(group => {
-    const matchesSearch = group.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         group.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const groupName = t(`groups.sampleGroups.${group.nameKey}.name`);
+    const groupDescription = t(`groups.sampleGroups.${group.nameKey}.description`);
+    
+    const matchesSearch = groupName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         groupDescription.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = selectedCategory === 'all' || group.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -56,28 +61,28 @@ const GroupsContent = () => {
 
   const categories = [
     { 
+      key: 'learnerFocused',
       name: 'Learner-Focused', 
       icon: GraduationCap, 
-      color: 'bg-blue-500',
-      description: 'Groups for learners to collaborate and build skills'
+      color: 'bg-blue-500'
     },
     { 
+      key: 'trainerFocused',
       name: 'Trainer-Focused', 
       icon: BriefcaseIcon, 
-      color: 'bg-green-500',
-      description: 'Professional spaces for trainers to exchange best practices'
+      color: 'bg-green-500'
     },
     { 
+      key: 'employerFocused',
       name: 'Employer-Focused', 
       icon: Building2, 
-      color: 'bg-purple-500',
-      description: 'Groups focused on workforce development and innovation'
+      color: 'bg-purple-500'
     },
     { 
+      key: 'initiativeWide',
       name: 'Initiative-Wide', 
       icon: Sparkles, 
-      color: 'bg-orange-500',
-      description: 'Community-wide initiatives and official updates'
+      color: 'bg-orange-500'
     },
   ];
   
@@ -124,10 +129,10 @@ const GroupsContent = () => {
   return (
     <div className="space-y-6 animate-fade-in">
       <PageHeader 
-        title="My Groups" 
-        description="Manage and participate in your enrolled groups"
+        title={t('groups.title')}
+        description={t('groups.subtitle')}
         action={{
-          label: "Create Group",
+          label: t('groups.createGroup'),
           onClick: () => setIsAddGroupOpen(true)
         }}
       />
@@ -140,7 +145,7 @@ const GroupsContent = () => {
             className="flex items-center gap-2"
           >
             <Compass className="h-4 w-4" />
-            Discover Groups
+            {t('groups.discoverGroups')}
           </Button>
         </div>
       </div>
@@ -150,7 +155,7 @@ const GroupsContent = () => {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input 
             className="pl-9" 
-            placeholder="Search groups..." 
+            placeholder={t('groups.searchPlaceholder')} 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -159,14 +164,14 @@ const GroupsContent = () => {
         <div className="flex items-center gap-2">
           <Select value={selectedCategory} onValueChange={setSelectedCategory}>
             <SelectTrigger className="w-[200px]">
-              <SelectValue placeholder="All categories" />
+              <SelectValue placeholder={t('groups.allCategories')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All categories</SelectItem>
-              <SelectItem value="Learner-Focused">Learner-Focused</SelectItem>
-              <SelectItem value="Trainer-Focused">Trainer-Focused</SelectItem>
-              <SelectItem value="Employer-Focused">Employer-Focused</SelectItem>
-              <SelectItem value="Initiative-Wide">Initiative-Wide</SelectItem>
+              <SelectItem value="all">{t('groups.allCategories')}</SelectItem>
+              <SelectItem value="Learner-Focused">{t('groups.categories.learnerFocused.name')}</SelectItem>
+              <SelectItem value="Trainer-Focused">{t('groups.categories.trainerFocused.name')}</SelectItem>
+              <SelectItem value="Employer-Focused">{t('groups.categories.employerFocused.name')}</SelectItem>
+              <SelectItem value="Initiative-Wide">{t('groups.categories.initiativeWide.name')}</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -188,8 +193,8 @@ const GroupsContent = () => {
                   <CategoryIcon className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-800">{category.name} Groups</h2>
-                  <p className="text-sm text-gray-600">{category.description}</p>
+                  <h2 className="text-2xl font-bold text-gray-800">{t(`groups.categories.${category.key}.name`)} {t('common.groups', 'Groups')}</h2>
+                  <p className="text-sm text-gray-600">{t(`groups.categories.${category.key}.description`)}</p>
                 </div>
               </div>
 
@@ -200,30 +205,30 @@ const GroupsContent = () => {
                     <div className="h-48 overflow-hidden relative">
                       <img 
                         src={group.image} 
-                        alt={group.name} 
+                        alt={t(`groups.sampleGroups.${group.nameKey}.name`)} 
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                       <div className="absolute top-3 right-3 flex items-center gap-2">
                         <Badge variant="secondary" className="bg-green-100 text-green-700 border-green-200 shadow-sm">
-                          Enrolled
+                          {t('groups.enrolled')}
                         </Badge>
                         <div className="bg-white/95 rounded-md shadow-sm">
                           <GroupOptionsMenu 
                             groupId={group.id} 
-                            groupName={group.name}
+                            groupName={t(`groups.sampleGroups.${group.nameKey}.name`)}
                             onEdit={() => handleEditGroup(group)}
                             onDelete={() => handleDeleteGroup(group.id)}
                           />
                         </div>
                       </div>
                       <div className="absolute bottom-3 left-3 right-3">
-                        <h3 className="text-white font-bold text-xl mb-1">{group.name}</h3>
+                        <h3 className="text-white font-bold text-xl mb-1">{t(`groups.sampleGroups.${group.nameKey}.name`)}</h3>
                       </div>
                     </div>
                     <CardHeader className="space-y-2 pb-3">
                       <CardDescription className="text-sm text-gray-600 line-clamp-2 min-h-[40px]">
-                        {group.description}
+                        {t(`groups.sampleGroups.${group.nameKey}.description`)}
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
@@ -231,10 +236,10 @@ const GroupsContent = () => {
                         <div className="flex items-center justify-between text-sm">
                           <div className="flex items-center gap-2 text-gray-600">
                             <Users className="h-4 w-4" />
-                            <span>{group.members} members</span>
+                            <span>{group.members} {t('groups.members')}</span>
                           </div>
                           <Badge variant="outline" className="text-xs">
-                            {category.name}
+                            {t(`groups.categories.${category.key}.name`)}
                           </Badge>
                         </div>
                         <Button 
@@ -242,7 +247,7 @@ const GroupsContent = () => {
                           className="w-full bg-blue-600 hover:bg-blue-700 transition-colors shadow-sm"
                           onClick={() => handleViewGroup(group.id)}
                         >
-                          Open Group
+                          {t('groups.openGroup')}
                         </Button>
                       </div>
                     </CardContent>
@@ -258,8 +263,8 @@ const GroupsContent = () => {
       {filteredGroups.length === 0 && (
         <div className="text-center py-12">
           <Users className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-          <h3 className="text-lg font-semibold text-gray-600 mb-2">No groups found</h3>
-          <p className="text-gray-500">Try adjusting your search or filters</p>
+          <h3 className="text-lg font-semibold text-gray-600 mb-2">{t('groups.noGroupsFound')}</h3>
+          <p className="text-gray-500">{t('groups.tryAdjustingFilters')}</p>
         </div>
       )}
 

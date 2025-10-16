@@ -9,10 +9,10 @@ import { X, User, Users, FileText } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 
 const mockUsers = [
-  { id: 'JD', name: 'John Doe', email: 'john.doe@example.com' },
-  { id: 'JS', name: 'Jane Smith', email: 'jane.smith@example.com' },
-  { id: 'BW', name: 'Bob Wilson', email: 'bob.wilson@example.com' },
-  { id: 'AB', name: 'Alice Brown', email: 'alice.brown@example.com' },
+  { id: 'HM', name: 'Hans Müller', email: 'hans.mueller@example.com' },
+  { id: 'AS', name: 'Anna Schmidt', email: 'anna.schmidt@example.com' },
+  { id: 'SW', name: 'Sophie Weber', email: 'sophie.weber@example.com' },
+  { id: 'KF', name: 'Klaus Fischer', email: 'klaus.fischer@example.com' },
 ];
 
 export const AddLearnerModal = ({ open, onOpenChange, courseId }) => {
@@ -192,9 +192,9 @@ export const AddLearnerModal = ({ open, onOpenChange, courseId }) => {
                 <label className="text-sm font-medium text-gray-700 mb-2 block">CSV Format</label>
                 <div className="bg-gray-50 p-3 rounded text-sm font-mono">
                   <div>Name,Email,Role</div>
-                  <div>John Smith,john.smith@example.com,learner</div>
-                  <div>Jane Doe,jane.doe@example.com,instructor</div>
-                  <div>Bob Wilson,bob.wilson@example.com,learner</div>
+                  <div>Hans Müller,hans.mueller@example.com,learner</div>
+                  <div>Anna Schmidt,anna.schmidt@example.com,instructor</div>
+                  <div>Sophie Weber,sophie.weber@example.com,learner</div>
                 </div>
                 <p className="text-xs text-gray-600 mt-2">
                   Upload a CSV file with the following format:

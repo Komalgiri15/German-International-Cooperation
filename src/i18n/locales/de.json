@@ -1,4 +1,406 @@
 {
+  "dashboard": {
+    "welcomeBack": "Willkommen zurück, {{name}}!",
+    "continueJourney": "Setzen Sie Ihre Lernreise fort.",
+    "coursesEnrolled": "Eingeschriebene Kurse",
+    "courses": "Kurse",
+    "certificatesEarned": "Erworbene Zertifikate",
+    "certs": "Zerts",
+    "totalHoursLearned": "Gesamte Lernstunden",
+    "hours": "Stunden",
+    "activeGroups": "Aktive Gruppen",
+    "groups": "Gruppen",
+    "loadingDashboard": "Dashboard wird geladen..."
+  },
+  "awareness": {
+    "title": "Informationen & Aktuelles",
+    "subtitle": "Bleiben Sie informiert über Arbeitsreformen, Webinare und Schulungsprogramme.",
+    "latestAnnouncements": "Neueste Ankündigungen",
+    "new": "Neu",
+    "watchNow": "Jetzt ansehen",
+    "readMore": "Mehr lesen",
+    "poweredBy": "Unterstützt von",
+    "labourReformInitiative": "Arbeitsreform-Initiative",
+    "types": {
+      "reform": "Arbeitsreform",
+      "webinar": "Webinar",
+      "video": "Video-Schulung"
+    },
+    "announcements": {
+      "labourCode": {
+        "title": "Neue Arbeitsgesetzgebung Phase 2",
+        "description": "Die Regierung kündigt die zweite Phase der Arbeitsrechtsreformen an, die sich auf den Schutz der Arbeitnehmer und die digitale Compliance-Überwachung konzentriert. Dieses umfassende Update umfasst neue Richtlinien für Arbeitgeber, erweiterte Arbeitnehmerrechte und digitale Tracking-Mechanismen zur Gewährleistung der Compliance."
+      },
+      "compliance": {
+        "title": "Webinar-Reihe zur Arbeitsplatz-Compliance",
+        "description": "Nehmen Sie an unserer interaktiven Webinar-Reihe zur Aufrechterhaltung von Compliance-Standards am Arbeitsplatz gemäß neuer Arbeitsvorschriften teil. Experten führen Sie durch Best Practices, Fallstudien und Frage-und-Antwort-Sitzungen."
+      },
+      "digitalLiteracy": {
+        "title": "Digitale Kompetenz-Schulungsprogramm",
+        "description": "Schauen Sie sich unsere umfassende Videoserie zur digitalen Kompetenz für Arbeitnehmer an. Lernen Sie wesentliche technische Fähigkeiten, Online-Sicherheit und digitale Tools kennen, die Ihre Belegschaft am modernen Arbeitsplatz stärken."
+      }
+    }
+  },
+  "calendar": {
+    "title": "Kalender & Veranstaltungen",
+    "today": "Heute",
+    "upcomingEvents": "Bevorstehende Veranstaltungen",
+    "noEvents": "Keine Veranstaltungen geplant",
+    "addToCalendar": "Zum Kalender hinzufügen",
+    "joinNow": "Jetzt beitreten",
+    "viewAll": "Alle Veranstaltungen anzeigen"
+  },
+  "learning": {
+    "title": "Meine Kurse",
+    "subtitle": "Setzen Sie Ihre Lernreise mit Kursen fort, die darauf ausgelegt sind, das Bewusstsein für Arbeitsrecht und digitale Fähigkeiten zu stärken.",
+    "continueLearning": "Kurs fortsetzen",
+    "startCourse": "Jetzt starten",
+    "resume": "Fortsetzen",
+    "completed": "Abgeschlossen",
+    "inProgress": "In Bearbeitung",
+    "notStarted": "Nicht begonnen",
+    "viewCourse": "Kurs ansehen",
+    "viewAll": "Alle Kurse anzeigen",
+    "progress": "Fortschritt",
+    "modules": "Module",
+    "lessons": "Lektionen",
+    "coursesActive": "{{count}} von {{total}} Kurse aktiv",
+    "supportedBy": "Unterstützt von",
+    "levels": {
+      "Beginner": "Anfänger",
+      "Intermediate": "Fortgeschritten",
+      "Advanced": "Experte"
+    },
+    "courses": {
+      "digitalLiteracy": {
+        "title": "Digitale Kompetenz für Arbeitnehmer",
+        "description": "Meistern Sie wesentliche digitale Fähigkeiten, um in modernen Arbeitsplätzen erfolgreich zu sein."
+      },
+      "labourCodes": {
+        "title": "Verständnis neuer Arbeitsgesetze",
+        "description": "Erfahren Sie mehr über Ihre Rechte und Pflichten gemäß reformierter Arbeitsgesetze."
+      },
+      "trainerProgram": {
+        "title": "Trainer-Befähigungsprogramm",
+        "description": "Entwickeln Sie Fähigkeiten, um andere effektiv über Arbeitsreformen und digitale Tools zu schulen."
+      },
+      "compliance": {
+        "title": "Arbeitsplatz-Compliance-Bewusstsein",
+        "description": "Verstehen und implementieren Sie Compliance-Standards und Sicherheitsprotokolle am Arbeitsplatz."
+      },
+      "certification": {
+        "title": "Professioneller Zertifizierungspfad",
+        "description": "Absolvieren Sie strukturierte Lernmodule, um anerkannte professionelle Zertifizierungen zu erwerben."
+      },
+      "leadership": {
+        "title": "Führung & Management Grundlagen",
+        "description": "Bauen Sie Führungskompetenzen für effektives Team- und Projektmanagement auf."
+      }
+    }
+  },
+  "community": {
+    "title": "Gruppen & Community",
+    "subtitle": "Verbinden, zusammenarbeiten und lernen Sie mit Kollegen, Trainern und Arbeitgebern",
+    "myGroups": "Meine Gruppen",
+    "joinGroup": "Gruppe beitreten",
+    "viewGroup": "Gruppe ansehen",
+    "members": "Mitglieder",
+    "active": "Aktiv",
+    "viewAll": "Alle Gruppen anzeigen",
+    "groupsJoined": "Beigetretene Gruppen",
+    "posts": "Beiträge",
+    "announcements": "Ankündigungen",
+    "media": "Medien",
+    "noGroupsFound": "Keine Gruppen gefunden",
+    "tryAdjustingFilters": "Versuchen Sie, Ihre Filter oder Suchanfrage anzupassen",
+    "searchPlaceholder": "Gruppen oder Diskussionen suchen...",
+    "supportedBy": "Unterstützt von",
+    "deutscheGesellschaft": "Deutsche Gesellschaft",
+    "filters": {
+      "all": "Alle",
+      "myGroups": "Meine Gruppen",
+      "employer": "Arbeitgeber",
+      "trainer": "Trainer",
+      "learner": "Lernender",
+      "policy": "Richtlinie"
+    },
+    "groups": {
+      "employerHub": {
+        "name": "Arbeitgeber-Hub",
+        "description": "Offizielle Gruppe für Arbeitgeber zur Diskussion von Compliance, Best Practices und Personalmanagement."
+      },
+      "trainerCircle": {
+        "name": "Trainer-Kreis",
+        "description": "Verbinden Sie sich mit Kollegen-Trainern, um Ressourcen, Methodologien und Erfolgsgeschichten auszutauschen."
+      },
+      "workerForum": {
+        "name": "Arbeiter-Forum",
+        "description": "Offizielle Community für Arbeiter, um über Rechte zu lernen, Fragen zu stellen und sich gegenseitig zu unterstützen."
+      },
+      "policyCompliance": {
+        "name": "Richtlinien- & Compliance-Netzwerk",
+        "description": "Offizielle Gruppe für Richtliniendiskussionen, Compliance-Updates und regulatorische Anleitung."
+      }
+    }
+  },
+  "insights": {
+    "title": "Kurs- und Bewertungseinblicke",
+    "subtitle": "Verfolgen Sie Ihren Lernfortschritt und Ihre Leistung",
+    "moduleProgress": "Modulfortschritt",
+    "completion": "Abschluss",
+    "engagement": "Engagement",
+    "pathwayTracker": "Lernpfad-Tracker",
+    "recommended": "Empfohlen",
+    "actual": "Tatsächlicher Fortschritt",
+    "pathwayMatch": "folgt dem empfohlenen Pfad",
+    "assessmentBreakdown": "Bewertungsanalyse",
+    "correct": "Richtig",
+    "incorrect": "Falsch",
+    "unattempted": "Nicht versucht",
+    "difficultyAnalysis": "Schwierigkeitsanalyse",
+    "easy": "Einfach",
+    "medium": "Mittel",
+    "hard": "Schwer",
+    "strengths": "Top-Stärken",
+    "weaknesses": "Verbesserungsbereiche",
+    "score": "Punktzahl",
+    "topic": "Thema",
+    "engagementHeatmap": "Engagement-Heatmap",
+    "module": "Modul",
+    "week": "Woche",
+    "legend": "Legende",
+    "low": "Niedrig",
+    "good": "Gut",
+    "excellent": "Ausgezeichnet",
+    "topics": {
+      "labourLaws": "Arbeitsgesetze",
+      "digitalTools": "Digitale Tools",
+      "compliance": "Compliance",
+      "advancedPolicies": "Fortgeschrittene Richtlinien",
+      "legalFramework": "Rechtsrahmen",
+      "caseStudies": "Fallstudien"
+    }
+  },
+  "quickActions": {
+    "title": "Schnellaktionen",
+    "subtitle": "Machen Sie den nächsten Schritt auf Ihrer Lernreise",
+    "viewAllActions": "Alle Aktionen anzeigen",
+    "poweredBy": "Unterstützt von",
+    "labourReformInitiative": "Arbeitsreform & Digitale Lerninitiative",
+    "actions": {
+      "enrollPathway": {
+        "title": "In nächsten Lernpfad einschreiben",
+        "description": "Setzen Sie Ihre Lernreise mit empfohlenen Kursen fort"
+      },
+      "joinDiscussion": {
+        "title": "An Gruppendiskussion teilnehmen",
+        "description": "Vernetzen Sie sich mit Kollegen und teilen Sie Erkenntnisse"
+      },
+      "watchVideo": {
+        "title": "Featured Reform-Video ansehen",
+        "description": "Bleiben Sie über die neuesten Arbeitsreforminitiativen informiert"
+      },
+      "giveFeedback": {
+        "title": "Feedback geben / Thema vorschlagen",
+        "description": "Helfen Sie uns, Ihre Lernerfahrung zu verbessern"
+      }
+    }
+  },
+  "zoom": {
+    "title": "Zoom-Klassen Verwaltung",
+    "scheduleNewClass": "Neue Klasse planen",
+    "upcomingClasses": "Kommende Klassen",
+    "completedClasses": "Abgeschlossene Klassen",
+    "noUpcoming": "Keine kommenden Klassen geplant",
+    "noCompleted": "Noch keine abgeschlossenen Klassen",
+    "joinViaZoom": "Via Zoom beitreten",
+    "viewRecording": "Aufzeichnung ansehen",
+    "download": "Herunterladen",
+    "downloadRecording": "Aufzeichnung herunterladen",
+    "edit": "Bearbeiten",
+    "editClass": "Klasse bearbeiten",
+    "delete": "Löschen",
+    "scheduleClass": "Klasse planen",
+    "updateClass": "Klasse aktualisieren",
+    "classTitle": "Klassentitel",
+    "date": "Datum",
+    "time": "Uhrzeit",
+    "duration": "Dauer",
+    "description": "Beschreibung",
+    "zoomMeetingLink": "Zoom-Meeting-Link (optional)",
+    "enterClassTitle": "Klassentitel eingeben",
+    "enterDescription": "Beschreibung eingeben",
+    "recordingPlayer": "Aufzeichnungsplayer",
+    "classHeldOn": "Klasse am {{date}} um {{time}} abgehalten",
+    "attendance": "Teilnahme: {{count}}/{{total}} Studenten",
+    "durations": {
+      "30min": "30 Minuten",
+      "1hour": "1 Stunde",
+      "1.5hours": "1,5 Stunden",
+      "2hours": "2 Stunden",
+      "3hours": "3 Stunden"
+    },
+    "sampleClasses": {
+      "insuranceSales": {
+        "title": "Fortgeschrittener Versicherungsvertrieb - Modul 3",
+        "description": "Tiefgreifende Einblicke in Methoden des Versicherungsvertriebs und Kundenengagement"
+      },
+      "lifeInsurance": {
+        "title": "Lebensversicherungs-Vertriebsworkshop",
+        "description": "Praktischer Workshop zu Techniken im Lebensversicherungsvertrieb"
+      },
+      "portfolioManagement": {
+        "title": "Versicherungsportfolio-Management",
+        "description": "Strategische Ansätze für das Management von Versicherungsportfolios"
+      },
+      "compliance": {
+        "title": "Versicherungs-Compliance-Updates",
+        "description": "Neueste Updates zu regulatorischen Compliance-Anforderungen im Versicherungswesen"
+      }
+    }
+  },
+  "courses": {
+    "title": "Kurse",
+    "subtitle": "Verwalten Sie Ihren Kurskatalog und erstellen Sie neue Lernerfahrungen",
+    "myCourses": "Meine Kurse",
+    "allCourses": "Alle Kurse",
+    "enrolled": "Eingeschrieben",
+    "available": "Verfügbar",
+    "completed": "Abgeschlossen",
+    "enroll": "Einschreiben",
+    "continue": "Fortsetzen",
+    "start": "Starten",
+    "view": "Ansehen",
+    "instructor": "Dozent",
+    "duration": "Dauer",
+    "level": "Level",
+    "students": "Studenten",
+    "createCourse": "Kurs erstellen",
+    "searchPlaceholder": "Kurse suchen...",
+    "allLevels": "Alle Niveaus",
+    "allStatus": "Alle Status",
+    "catalog": "Katalog",
+    "grid": "Raster",
+    "list": "Liste",
+    "enrolling": "Einschreibung",
+    "course": "Kurs",
+    "status": "Status",
+    "accessType": "Zugriffstyp",
+    "actions": "Aktionen",
+    "sequential": "Sequenziell",
+    "openAccess": "Offener Zugang",
+    "tabs": {
+      "courses": "Kurse",
+      "archived": "Archiviert",
+      "deleted": "Gelöscht"
+    },
+    "levels": {
+      "beginner": "Anfänger",
+      "intermediate": "Mittelstufe",
+      "advanced": "Fortgeschritten"
+    },
+    "statuses": {
+      "active": "Aktiv",
+      "draft": "Entwurf",
+      "archived": "Archiviert",
+      "published": "Veröffentlicht"
+    },
+    "catalogs": {
+      "labourReform": "Arbeitsreform",
+      "digitalSkills": "Digitale Fähigkeiten",
+      "policyReform": "Politik & Reform"
+    },
+    "toasts": {
+      "catalog": "Katalog",
+      "redirectingToCatalog": "Weiterleitung zum Kurskatalog",
+      "editCourse": "Kurs bearbeiten",
+      "openingEditPage": "Öffnen der Bearbeitungsseite für {{name}}",
+      "courseArchived": "Kurs archiviert",
+      "courseMovedToArchived": "{{name}} wurde zu den archivierten Kursen verschoben.",
+      "courseDeleted": "Kurs gelöscht",
+      "courseMovedToDeleted": "{{name}} wurde zu den gelöschten Kursen verschoben.",
+      "courseRestored": "Kurs wiederhergestellt",
+      "courseRestoredToActive": "{{name}} wurde zu den aktiven Kursen wiederhergestellt."
+    },
+    "sampleCourses": {
+      "strategicCommunication": {
+        "title": "Strategische Kommunikation",
+        "description": "Meistern Sie effektive Kommunikationsstrategien für Arbeitsreform-Advocacy und Stakeholder-Zusammenarbeit in organisatorischen und politischen Kontexten."
+      },
+      "digitalLearningPathways": {
+        "title": "Digitale Lernpfade",
+        "description": "Erkunden Sie digitale Tools, E-Learning-Plattformen und innovative Wege für Kompetenzentwicklung und Arbeitskräfte-Ermächtigung im digitalen Zeitalter."
+      },
+      "stakeholderEngagement": {
+        "title": "Stakeholder-Engagement für Arbeitsreform-Initiativen",
+        "description": "Bauen Sie Expertise im Engagement verschiedener Stakeholder auf - Arbeitgeber, Arbeiter, Politiker - um bedeutungsvolle Arbeitsrechtsreformen und Compliance voranzutreiben."
+      }
+    }
+  },
+  "catalog": {
+    "title": "Kurskatalog",
+    "subtitle": "Verwalten Sie Kurskategorien und organisieren Sie Ihre Lerninhalte",
+    "addCatalog": "Katalog hinzufügen",
+    "searchPlaceholder": "Kataloge suchen...",
+    "freeCourses": "Kostenlose Kurse",
+    "freeCoursesDescription": "Premium-Lernerfahrungen ohne Kosten",
+    "premiumCourses": "Premium-Kurse",
+    "premiumCoursesDescription": "Fortgeschrittenes Lernen mit Expertenzertifizierung",
+    "featured": "EMPFOHLEN",
+    "premium": "PREMIUM",
+    "free": "KOSTENLOS",
+    "courses": "KURSE",
+    "noCatalogsFound": "Keine Kataloge gefunden, die Ihrer Suche entsprechen.",
+    "createNewCatalog": "Neuen Katalog erstellen",
+    "editCatalog": "Katalog bearbeiten",
+    "catalogName": "Katalogname",
+    "enterCatalogName": "Katalogname eingeben",
+    "description": "Beschreibung",
+    "enterCatalogDescription": "Katalogbeschreibung eingeben",
+    "createCatalog": "Katalog erstellen",
+    "updateCatalog": "Katalog aktualisieren",
+    "deleteConfirm": "Sind Sie sicher, dass Sie den Katalog \"{{name}}\" löschen möchten?",
+    "toasts": {
+      "catalogCreated": "Katalog erstellt",
+      "catalogCreatedSuccess": "Katalog {{name}} wurde erfolgreich erstellt.",
+      "catalogUpdated": "Katalog aktualisiert",
+      "catalogUpdatedSuccess": "Katalog wurde erfolgreich aktualisiert.",
+      "catalogDeleted": "Katalog gelöscht",
+      "catalogDeletedSuccess": "Katalog {{name}} wurde gelöscht."
+    },
+    "sampleCatalogs": {
+      "strategicCommunication": {
+        "name": "Strategische Kommunikationsplanung",
+        "description": "Entwickeln Sie strategische Kommunikationspläne für Arbeitsreform- und digitale Lerninitiativen mit Stakeholder-Mapping und Messaging-Frameworks",
+        "prize": "🏆 Zertifikat für Kommunikationsexzellenz"
+      },
+      "awarenessOutreach": {
+        "name": "Aufklärungs- & Outreach-Kampagnen",
+        "description": "Entwerfen und implementieren Sie Aufklärungskampagnen für Stakeholder, Arbeitgeber, Pädagogen und Lerner für maximale Wirkung",
+        "prize": "🎖️ Kampagnenstratege-Abzeichen"
+      },
+      "digitalLearningPathways": {
+        "name": "Digitale Lernpfade",
+        "description": "Erstellen Sie digitale Lerninhaltspfade und Kommunikationsmaterialien für Personalentwicklung und Kompetenzverbesserung",
+        "prize": "💡 Digitaler Innovator Award"
+      },
+      "policyReformAdvocacy": {
+        "name": "Politik- & Reform-Advocacy",
+        "description": "Stakeholder-Engagement-Strategien für Arbeitsrechtsreformen, Compliance und Politikumsetzung auf organisatorischer Ebene",
+        "prize": "👑 Master Policy Advocate Zertifizierung"
+      },
+      "technicalSupport": {
+        "name": "Technischer Support & Training",
+        "description": "Bereitstellung von technischem Support und Trainingsberatung für effektive Einführung von Arbeitsreform- und digitalen Lernprogrammen",
+        "prize": "🎓 Experten-Trainingsberater-Diplom"
+      },
+      "crisisCommunication": {
+        "name": "Krisenkommunikation & Medienstrategie",
+        "description": "Fortgeschrittenes Krisenmanagement, Medienbeziehungen und Stakeholder-Vertrauensstrategien für komplexe Reformumsetzungsszenarien",
+        "prize": "⭐ Master Krisenmanager Zertifizierung"
+      }
+    }
+  },
   "resources": {
     "pageTitle": "Ressourcen & Wissenszentrum",
     "subtitle": "Entdecken Sie reformbezogene Erkenntnisse, digitale Lernleitfäden und politisches Wissen — alles an einem Ort.",
@@ -27,13 +429,116 @@
     },
     "languages": {
       "en": "Englisch",
-      "hi": "Hindi",
-      "de": "Deutsch",
-      "es": "Spanisch",
-      "fr": "Französisch"
+      "ar": "Arabisch",
+      "de": "Deutsch"
     },
     "noResults": "Keine Ressourcen gefunden",
     "loading": "Ressourcen werden geladen..."
+  },
+  "groups": {
+    "title": "Meine Gruppen",
+    "subtitle": "Verwalten und teilnehmen Sie an Ihren eingeschriebenen Gruppen",
+    "createGroup": "Gruppe erstellen",
+    "discoverGroups": "Gruppen entdecken",
+    "openGroup": "Gruppe öffnen",
+    "searchPlaceholder": "Gruppen suchen...",
+    "allCategories": "Alle Kategorien",
+    "enrolled": "Eingeschrieben",
+    "members": "Mitglieder",
+    "noGroupsFound": "Keine Gruppen gefunden",
+    "tryAdjustingFilters": "Versuchen Sie, Ihre Suche oder Filter anzupassen",
+    "categories": {
+      "learnerFocused": {
+        "name": "Lerner-fokussiert",
+        "description": "Gruppen für Lerner zum Zusammenarbeiten und Fähigkeiten aufbauen"
+      },
+      "trainerFocused": {
+        "name": "Trainer-fokussiert",
+        "description": "Professionelle Räume für Trainer zum Austausch bewährter Praktiken"
+      },
+      "employerFocused": {
+        "name": "Arbeitgeber-fokussiert",
+        "description": "Gruppen mit Fokus auf Personalentwicklung und Innovation"
+      },
+      "initiativeWide": {
+        "name": "Initiativenweite",
+        "description": "Gemeinschaftsweite Initiativen und offizielle Updates"
+      }
+    },
+    "sampleGroups": {
+      "skillBuilders": {
+        "name": "Fähigkeitenaufbauer",
+        "description": "Lerner arbeiten zusammen, um Fähigkeiten aufzubauen."
+      },
+      "rightsAwareness": {
+        "name": "Rechte & Bewusstseinskreis",
+        "description": "Diskussionen über Arbeitsrechte und Reformen."
+      },
+      "trainerConnect": {
+        "name": "Trainer-Verbindung",
+        "description": "Raum für Trainer zum Austausch von Methoden und bewährten Praktiken."
+      },
+      "contentInnovators": {
+        "name": "Inhalts-Innovatoren",
+        "description": "Zusammenarbeit bei der Unterrichtsplanung und Erstellung von Kursen."
+      },
+      "workplaceChampions": {
+        "name": "Arbeitsplatz-Champions",
+        "description": "Arbeitgeber mit Fokus auf Personalentwicklung."
+      },
+      "complianceCircle": {
+        "name": "Compliance-Kreis",
+        "description": "Diskussion über Arbeitsreform-Richtlinien und Compliance-Strategien."
+      },
+      "campaignCatalysts": {
+        "name": "Kampagnen-Katalysatoren",
+        "description": "Diskussionen über GIZ-geführte Kampagnen und Aufklärungsmaßnahmen."
+      },
+      "eventSpotlight": {
+        "name": "Event-Spotlight",
+        "description": "Ankündigungen, Diskussionen und Feedback zu Workshops oder Webinaren."
+      }
+    }
+  },
+  "navigation": {
+    "home": "Startseite",
+    "courses": "Kurse",
+    "groups": "Gruppen",
+    "catalog": "Katalog",
+    "resources": "Ressourcen & Wissenszentrum",
+    "messages": "Nachrichten",
+    "help": "Hilfe & Support",
+    "profile": "Profil",
+    "settings": "Einstellungen",
+    "logout": "Abmelden"
+  },
+  "header": {
+    "appName": "Athena LMS",
+    "search": "Suchen...",
+    "calendar": "Kalender",
+    "inbox": "Posteingang",
+    "notifications": "Benachrichtigungen",
+    "language": "Sprache"
+  },
+  "common": {
+    "welcome": "Willkommen",
+    "loading": "Wird geladen...",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "submit": "Absenden",
+    "search": "Suchen",
+    "viewAll": "Alle anzeigen",
+    "viewMore": "Mehr anzeigen",
+    "seeMore": "Mehr sehen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "filter": "Filtern",
+    "sort": "Sortieren",
+    "apply": "Anwenden",
+    "reset": "Zurücksetzen"
   }
 }
-

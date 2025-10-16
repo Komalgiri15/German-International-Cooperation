@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { GraduationCap, Award, Clock, Users } from 'lucide-react';
 
@@ -66,13 +67,14 @@ const StatCard = ({ icon: Icon, label, value, suffix = '', color = 'blue' }) => 
 };
 
 export function WelcomeStatsSection() {
+  const { t } = useTranslation();
   // Mock user data - replace with actual user data from context/API
   const userName = "Samir Kumar";
   const stats = [
-    { icon: GraduationCap, label: "Courses Enrolled", value: 12, suffix: "Courses", color: "blue" },
-    { icon: Award, label: "Certificates Earned", value: 8, suffix: "Certs", color: "yellow" },
-    { icon: Clock, label: "Total Hours Learned", value: 156, suffix: "Hours", color: "green" },
-    { icon: Users, label: "Active Groups", value: 5, suffix: "Groups", color: "purple" },
+    { icon: GraduationCap, label: t('dashboard.coursesEnrolled'), value: 12, suffix: t('dashboard.courses'), color: "blue" },
+    { icon: Award, label: t('dashboard.certificatesEarned'), value: 8, suffix: t('dashboard.certs'), color: "yellow" },
+    { icon: Clock, label: t('dashboard.totalHoursLearned'), value: 156, suffix: t('dashboard.hours'), color: "green" },
+    { icon: Users, label: t('dashboard.activeGroups'), value: 5, suffix: t('dashboard.groups'), color: "purple" },
   ];
 
   return (
@@ -84,9 +86,9 @@ export function WelcomeStatsSection() {
             <span className="text-3xl">👋</span>
             <div>
               <h2 className="text-2xl font-bold text-gray-900" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
-                Welcome back, {userName}!
+                {t('dashboard.welcomeBack', { name: userName })}
               </h2>
-              <p className="text-gray-600 mt-1">Continue your learning journey.</p>
+              <p className="text-gray-600 mt-1">{t('dashboard.continueJourney')}</p>
             </div>
           </div>
         </CardContent>

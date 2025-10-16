@@ -20,56 +20,56 @@ const OverviewSummary = () => {
 
   // Mock data - Replace with real API data
   const programKPIs = {
-    totalLearners: 2847,
-    completionRate: 78.5,
-    averageScore: 85.2,
-    activeToday: 412,
+    totalLearners: 15,
+    completionRate: 73.3,
+    averageScore: 84.8,
+    activeToday: 8,
     trends: {
-      learners: 12.3,
-      completion: 5.8,
-      score: 2.4,
-      active: 8.1
+      learners: 7.1,
+      completion: 4.2,
+      score: 2.1,
+      active: 14.3
     }
   };
 
   const pathwayData = [
     { 
       pathway: 'Digital Literacy → Financial Planning',
-      recommended: 245,
-      actual: 198,
-      matchRate: 80.8
+      recommended: 5,
+      actual: 4,
+      matchRate: 80.0
     },
     { 
       pathway: 'Labour Rights → Legal Compliance',
-      recommended: 189,
-      actual: 167,
-      matchRate: 88.4
+      recommended: 4,
+      actual: 3,
+      matchRate: 75.0
     },
     { 
       pathway: 'Communication → Leadership',
-      recommended: 156,
-      actual: 142,
-      matchRate: 91.0
+      recommended: 3,
+      actual: 3,
+      matchRate: 100.0
     },
     { 
       pathway: 'Financial Literacy → Entrepreneurship',
-      recommended: 134,
-      actual: 98,
-      matchRate: 73.1
+      recommended: 2,
+      actual: 1,
+      matchRate: 50.0
     },
     { 
       pathway: 'Workplace Safety → Risk Management',
-      recommended: 98,
-      actual: 89,
-      matchRate: 90.8
+      recommended: 1,
+      actual: 1,
+      matchRate: 100.0
     }
   ];
 
   const learnersData = [
     {
       id: 1,
-      name: 'Aisha Kumar',
-      email: 'aisha.kumar@example.com',
+      name: 'Anna Schmidt',
+      email: 'anna.schmidt@example.com',
       modulesCompleted: 12,
       totalModules: 15,
       currentModule: 'Financial Planning',
@@ -80,8 +80,8 @@ const OverviewSummary = () => {
     },
     {
       id: 2,
-      name: 'Rajesh Patel',
-      email: 'rajesh.patel@example.com',
+      name: 'Hans Müller',
+      email: 'hans.mueller@example.com',
       modulesCompleted: 8,
       totalModules: 15,
       currentModule: 'Labour Rights',
@@ -92,8 +92,8 @@ const OverviewSummary = () => {
     },
     {
       id: 3,
-      name: 'Priya Singh',
-      email: 'priya.singh@example.com',
+      name: 'Sophie Weber',
+      email: 'sophie.weber@example.com',
       modulesCompleted: 15,
       totalModules: 15,
       currentModule: 'Completed',
@@ -104,8 +104,8 @@ const OverviewSummary = () => {
     },
     {
       id: 4,
-      name: 'Mohammed Ali',
-      email: 'mohammed.ali@example.com',
+      name: 'Klaus Fischer',
+      email: 'klaus.fischer@example.com',
       modulesCompleted: 5,
       totalModules: 15,
       currentModule: 'Financial Literacy',
@@ -113,6 +113,138 @@ const OverviewSummary = () => {
       status: 'at-risk',
       pathway: 'Entrepreneurship',
       lastActive: '3 days ago'
+    },
+    {
+      id: 5,
+      name: 'Maria Wagner',
+      email: 'maria.wagner@example.com',
+      modulesCompleted: 15,
+      totalModules: 15,
+      currentModule: 'Completed',
+      score: 94.8,
+      status: 'completed',
+      pathway: 'Digital Literacy',
+      lastActive: '2 days ago'
+    },
+    {
+      id: 6,
+      name: 'Peter Becker',
+      email: 'peter.becker@example.com',
+      modulesCompleted: 10,
+      totalModules: 15,
+      currentModule: 'Communication Skills',
+      score: 85.6,
+      status: 'active',
+      pathway: 'Leadership',
+      lastActive: '1 hour ago'
+    },
+    {
+      id: 7,
+      name: 'Laura Hoffmann',
+      email: 'laura.hoffmann@example.com',
+      modulesCompleted: 3,
+      totalModules: 15,
+      currentModule: 'Basic Computer Skills',
+      score: 72.4,
+      status: 'at-risk',
+      pathway: 'Digital Literacy',
+      lastActive: '4 days ago'
+    },
+    {
+      id: 8,
+      name: 'Michael Schulz',
+      email: 'michael.schulz@example.com',
+      modulesCompleted: 13,
+      totalModules: 15,
+      currentModule: 'Risk Management',
+      score: 89.2,
+      status: 'active',
+      pathway: 'Workplace Safety',
+      lastActive: '3 hours ago'
+    },
+    {
+      id: 9,
+      name: 'Emma Koch',
+      email: 'emma.koch@example.com',
+      modulesCompleted: 15,
+      totalModules: 15,
+      currentModule: 'Completed',
+      score: 91.3,
+      status: 'completed',
+      pathway: 'Legal Compliance',
+      lastActive: '1 day ago'
+    },
+    {
+      id: 10,
+      name: 'Thomas Bauer',
+      email: 'thomas.bauer@example.com',
+      modulesCompleted: 7,
+      totalModules: 15,
+      currentModule: 'Labour Code Basics',
+      score: 80.5,
+      status: 'active',
+      pathway: 'Labour Rights',
+      lastActive: '6 hours ago'
+    },
+    {
+      id: 11,
+      name: 'Lena Meyer',
+      email: 'lena.meyer@example.com',
+      modulesCompleted: 15,
+      totalModules: 15,
+      currentModule: 'Completed',
+      score: 93.1,
+      status: 'completed',
+      pathway: 'Communication',
+      lastActive: '3 days ago'
+    },
+    {
+      id: 12,
+      name: 'Felix Richter',
+      email: 'felix.richter@example.com',
+      modulesCompleted: 2,
+      totalModules: 15,
+      currentModule: 'Introduction to Finance',
+      score: 68.7,
+      status: 'inactive',
+      pathway: 'Financial Literacy',
+      lastActive: '7 days ago'
+    },
+    {
+      id: 13,
+      name: 'Sarah Schneider',
+      email: 'sarah.schneider@example.com',
+      modulesCompleted: 9,
+      totalModules: 15,
+      currentModule: 'Digital Marketing',
+      score: 86.9,
+      status: 'active',
+      pathway: 'Entrepreneurship',
+      lastActive: '4 hours ago'
+    },
+    {
+      id: 14,
+      name: 'Markus Wolf',
+      email: 'markus.wolf@example.com',
+      modulesCompleted: 11,
+      totalModules: 15,
+      currentModule: 'Advanced Safety Protocols',
+      score: 87.4,
+      status: 'active',
+      pathway: 'Risk Management',
+      lastActive: '2 hours ago'
+    },
+    {
+      id: 15,
+      name: 'Julia Zimmermann',
+      email: 'julia.zimmermann@example.com',
+      modulesCompleted: 6,
+      totalModules: 15,
+      currentModule: 'Team Collaboration',
+      score: 79.8,
+      status: 'active',
+      pathway: 'Leadership',
+      lastActive: '8 hours ago'
     }
   ];
 
@@ -448,38 +580,38 @@ const OverviewSummary = () => {
               <div className="space-y-3">
                 <div>
                   <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="text-slate-600">Active</span>
-                    <span className="font-medium text-emerald-600">50%</span>
+                    <span className="text-slate-600">Active (8)</span>
+                    <span className="font-medium text-emerald-600">53.3%</span>
                   </div>
                   <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
-                    <div className="h-full bg-emerald-500 w-1/2"></div>
+                    <div className="h-full bg-emerald-500 transition-all duration-500" style={{ width: '53.3%' }}></div>
                   </div>
                 </div>
                 <div>
                   <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="text-slate-600">Completed</span>
-                    <span className="font-medium text-blue-600">25%</span>
+                    <span className="text-slate-600">Completed (4)</span>
+                    <span className="font-medium text-blue-600">26.7%</span>
                   </div>
                   <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
-                    <div className="h-full bg-blue-500 w-1/4"></div>
+                    <div className="h-full bg-blue-500 transition-all duration-500" style={{ width: '26.7%' }}></div>
                   </div>
                 </div>
                 <div>
                   <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="text-slate-600">At Risk</span>
-                    <span className="font-medium text-amber-600">15%</span>
+                    <span className="text-slate-600">At Risk (2)</span>
+                    <span className="font-medium text-amber-600">13.3%</span>
                   </div>
                   <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
-                    <div className="h-full bg-amber-500 w-[15%]"></div>
+                    <div className="h-full bg-amber-500 transition-all duration-500" style={{ width: '13.3%' }}></div>
                   </div>
             </div>
             <div>
                   <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="text-slate-600">Inactive</span>
-                    <span className="font-medium text-slate-600">10%</span>
+                    <span className="text-slate-600">Inactive (1)</span>
+                    <span className="font-medium text-slate-600">6.7%</span>
                   </div>
                   <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
-                    <div className="h-full bg-slate-400 w-[10%]"></div>
+                    <div className="h-full bg-slate-400 transition-all duration-500" style={{ width: '6.7%' }}></div>
                   </div>
                 </div>
               </div>

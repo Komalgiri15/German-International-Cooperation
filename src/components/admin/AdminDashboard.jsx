@@ -13,11 +13,11 @@ const AdminDashboard = () => {
   ];
 
   const recentActivities = [
-    { id: 1, user: 'John Doe', action: 'created a new course', time: '2 minutes ago' },
-    { id: 2, user: 'Jane Smith', action: 'completed "Introduction to React"', time: '1 hour ago' },
-    { id: 3, user: 'Mike Johnson', action: 'uploaded a new resource', time: '3 hours ago' },
-    { id: 4, user: 'Sarah Williams', action: 'sent a message', time: '5 hours ago' },
-    { id: 5, user: 'David Brown', action: 'commented on a discussion', time: '1 day ago' },
+    { id: 1, user: 'Hans Müller', action: 'created a new course', time: '2 minutes ago' },
+    { id: 2, user: 'Anna Schmidt', action: 'completed "Introduction to React"', time: '1 hour ago' },
+    { id: 3, user: 'Sophie Weber', action: 'uploaded a new resource', time: '3 hours ago' },
+    { id: 4, user: 'Klaus Fischer', action: 'sent a message', time: '5 hours ago' },
+    { id: 5, user: 'Maria Wagner', action: 'commented on a discussion', time: '1 day ago' },
   ];
 
   const chartData = [

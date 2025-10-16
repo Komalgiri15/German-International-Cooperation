@@ -30,16 +30,16 @@ const GroupMembersPage = () => {
   const [memberToRemove, setMemberToRemove] = useState(null);
   
   const [members, setMembers] = useState([
-    { id: 1, name: 'Aberin, David', email: 'david.aberin@example.com', avatar: '/lovable-uploads/2e656932-0755-44b1-807b-2b0a175c1d9b.png', role: ['learner'], lastVisited: '2 days ago', groups: 3 },
-    { id: 2, name: 'Adams, Anthony', email: 'anthony.adams@example.com', avatar: '/lovable-uploads/a9e707a6-09a6-4f71-83fa-dfdc4e52cb13.png', role: ['learner'], lastVisited: '15 days ago', groups: 3 },
-    { id: 3, name: 'Adlaon, Ann', email: 'ann.adlaon@example.com', avatar: '/lovable-uploads/172887ec-721f-41fe-8b85-47de3f4e0499.png', role: ['instructor'], lastVisited: '1 week ago', groups: 2 },
-    { id: 4, name: 'Admin, Graham', email: 'graham.admin@example.com', avatar: '/lovable-uploads/b22d4431-7c74-430d-aa30-15d8739a7fbf.png', role: ['administrator'], lastVisited: 'Never', groups: 6 },
-    { id: 5, name: 'admin, Test', email: 'test.admin@example.com', avatar: '/lovable-uploads/9fce6a44-d177-48aa-848b-8454dfa6ca7e.png', role: ['administrator'], lastVisited: '28 minutes ago', groups: 3 },
-    { id: 6, name: 'Aliomar, Alfonzo', email: 'alfonzo.aliomar@example.com', avatar: '/lovable-uploads/dc27ec74-b2e9-4467-8adc-6a66a52eb520.png', role: ['learner'], lastVisited: '11 hours ago', groups: 3 },
-    { id: 7, name: 'Allen, Jade', email: 'jade.allen@example.com', avatar: '/lovable-uploads/99489061-8ed9-41d2-84f2-9f76fec2a9a0.png', role: ['instructor'], lastVisited: '1 day ago', groups: 3 },
-    { id: 8, name: 'Alonso, Juan', email: 'juan.alonso@example.com', avatar: '/lovable-uploads/2e656932-0755-44b1-807b-2b0a175c1d9b.png', role: ['learner'], lastVisited: '27 days ago', groups: 4 },
-    { id: 9, name: 'alsawy, Sarah', email: 'sarah.alsawy@example.com', avatar: '/lovable-uploads/dc27ec74-b2e9-4467-8adc-6a66a52eb520.png', role: ['learner'], lastVisited: '3 days ago', groups: 3 },
-    { id: 10, name: 'Aman, Carlos', email: 'carlos.aman@example.com', avatar: '/lovable-uploads/172887ec-721f-41fe-8b85-47de3f4e0499.png', role: ['learner'], lastVisited: '1 day ago', groups: 3 }
+    { id: 1, name: 'Schmidt, Hans', email: 'hans.schmidt@example.com', avatar: '/lovable-uploads/2e656932-0755-44b1-807b-2b0a175c1d9b.png', role: ['learner'], lastVisited: '2 days ago', groups: 3 },
+    { id: 2, name: 'Müller, Anna', email: 'anna.mueller@example.com', avatar: '/lovable-uploads/a9e707a6-09a6-4f71-83fa-dfdc4e52cb13.png', role: ['learner'], lastVisited: '15 days ago', groups: 3 },
+    { id: 3, name: 'Weber, Sophie', email: 'sophie.weber@example.com', avatar: '/lovable-uploads/172887ec-721f-41fe-8b85-47de3f4e0499.png', role: ['instructor'], lastVisited: '1 week ago', groups: 2 },
+    { id: 4, name: 'Fischer, Klaus', email: 'klaus.fischer@example.com', avatar: '/lovable-uploads/b22d4431-7c74-430d-aa30-15d8739a7fbf.png', role: ['administrator'], lastVisited: 'Never', groups: 6 },
+    { id: 5, name: 'Wagner, Maria', email: 'maria.wagner@example.com', avatar: '/lovable-uploads/9fce6a44-d177-48aa-848b-8454dfa6ca7e.png', role: ['administrator'], lastVisited: '28 minutes ago', groups: 3 },
+    { id: 6, name: 'Becker, Peter', email: 'peter.becker@example.com', avatar: '/lovable-uploads/dc27ec74-b2e9-4467-8adc-6a66a52eb520.png', role: ['learner'], lastVisited: '11 hours ago', groups: 3 },
+    { id: 7, name: 'Hoffmann, Laura', email: 'laura.hoffmann@example.com', avatar: '/lovable-uploads/99489061-8ed9-41d2-84f2-9f76fec2a9a0.png', role: ['instructor'], lastVisited: '1 day ago', groups: 3 },
+    { id: 8, name: 'Schulz, Michael', email: 'michael.schulz@example.com', avatar: '/lovable-uploads/2e656932-0755-44b1-807b-2b0a175c1d9b.png', role: ['learner'], lastVisited: '27 days ago', groups: 4 },
+    { id: 9, name: 'Koch, Emma', email: 'emma.koch@example.com', avatar: '/lovable-uploads/dc27ec74-b2e9-4467-8adc-6a66a52eb520.png', role: ['learner'], lastVisited: '3 days ago', groups: 3 },
+    { id: 10, name: 'Bauer, Thomas', email: 'thomas.bauer@example.com', avatar: '/lovable-uploads/172887ec-721f-41fe-8b85-47de3f4e0499.png', role: ['learner'], lastVisited: '1 day ago', groups: 3 }
   ]);
   
   const filteredMembers = members.filter(member => 
@@ -218,7 +218,7 @@ const GroupMembersPage = () => {
                               {member.name.substring(0, 2).toUpperCase()}
                             </AvatarFallback>
                           </Avatar>
-                          {member.name === 'Admin, Graham' && (
+                          {member.name === 'Fischer, Klaus' && (
                             <div className="absolute -top-1 -right-1 text-yellow-500 text-lg">
                               👑
                             </div>

@@ -15,22 +15,22 @@ const GroupChatPage = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      author: "Evan Scott",
+      author: "Klaus Fischer",
       content: "Recently I saw properties in a great location that I did not pay attention to before 😊",
       timestamp: "10:26 AM",
       isOwnMessage: false
     },
     {
       id: 2,
-      author: "Evan Scott", 
+      author: "Hans Müller", 
       content: "Ops, why don't you say something more",
       timestamp: "10:26 AM",
       isOwnMessage: false
     },
     {
       id: 3,
-      author: "Sarah Adams",
-      content: "@kate 😊",
+      author: "Anna Schmidt",
+      content: "@sophie 😊",
       timestamp: "10:27 AM", 
       isOwnMessage: false
     },
@@ -50,18 +50,18 @@ const GroupChatPage = () => {
     },
     {
       id: 6,
-      author: "Evan Scott",
-      content: "Kate, don't be like that and say something more :) 😊",
+      author: "Hans Müller",
+      content: "Sophie, don't be like that and say something more :) 😊",
       timestamp: "11:34 AM",
       isOwnMessage: false
     }
   ]);
 
   const [participants] = useState([
-    { id: 1, name: "Evan Scott", isOnline: true },
-    { id: 2, name: "Sarah Adams", avatar: "/lovable-uploads/99489061-8ed9-41d2-84f2-9f76fec2a9a0.png", isOnline: true },
-    { id: 3, name: "Kate Wilson", isOnline: false },
-    { id: 4, name: "Admin Graham", avatar: "/lovable-uploads/b22d4431-7c74-430d-aa30-15d8739a7fbf.png", isOnline: true },
+    { id: 1, name: "Hans Müller", isOnline: true },
+    { id: 2, name: "Anna Schmidt", avatar: "/lovable-uploads/99489061-8ed9-41d2-84f2-9f76fec2a9a0.png", isOnline: true },
+    { id: 3, name: "Sophie Weber", isOnline: false },
+    { id: 4, name: "Klaus Fischer", avatar: "/lovable-uploads/b22d4431-7c74-430d-aa30-15d8739a7fbf.png", isOnline: true },
     { id: 5, name: "You", isOnline: true }
   ]);
 

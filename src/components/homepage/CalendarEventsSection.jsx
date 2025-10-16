@@ -1,9 +1,11 @@
 import React, { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Calendar, Video, School, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const UpcomingEventCard = ({ title, date, time, type, eventId }) => {
+  const { t } = useTranslation();
   const icons = {
     live: { icon: Video, emoji: '🎥', color: 'text-red-600', bgColor: 'bg-red-50' },
     workshop: { icon: School, emoji: '🏫', color: 'text-[#004E9A]', bgColor: 'bg-blue-50' },
@@ -34,7 +36,7 @@ const UpcomingEventCard = ({ title, date, time, type, eventId }) => {
               size="sm" 
               className="w-full bg-[#004E9A] hover:bg-[#003d7a] text-white text-xs h-7"
             >
-              {type === 'live' ? 'Join Now' : 'Add to Schedule'}
+              {type === 'live' ? t('calendar.joinNow') : t('calendar.addToCalendar')}
             </Button>
           </div>
         </div>
@@ -44,6 +46,7 @@ const UpcomingEventCard = ({ title, date, time, type, eventId }) => {
 };
 
 export function CalendarEventsSection() {
+  const { t } = useTranslation();
   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentEventIndex, setCurrentEventIndex] = useState(0);
   const scrollContainerRef = React.useRef(null);
@@ -195,7 +198,7 @@ export function CalendarEventsSection() {
         <CardHeader className="pb-2 pt-4">
           <CardTitle className="text-base font-bold text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
             <Calendar className="w-4 h-4 text-[#004E9A]" />
-            Upcoming Events
+            {t('calendar.upcomingEvents')}
           </CardTitle>
         </CardHeader>
         <CardContent className="pb-4">

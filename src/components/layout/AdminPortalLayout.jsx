@@ -5,7 +5,7 @@ import { AdminFloatingNav } from '../admin/AdminFloatingNav';
 
 export const AdminPortalLayout = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       <AdminPortalHeader />
       <Outlet />
       <AdminFloatingNav />

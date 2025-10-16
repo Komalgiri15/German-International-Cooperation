@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { 
   GraduationCap,
@@ -53,29 +54,27 @@ const QuickActionButton = ({ icon: Icon, label, description, color, onClick }) =
 };
 
 export function QuickActionsSection() {
+  const { t } = useTranslation();
+  
   const quickActions = [
     {
       icon: GraduationCap,
-      label: 'Enroll in Next Pathway',
-      description: 'Continue your learning journey with recommended courses',
+      labelKey: 'enrollPathway',
       color: 'blue',
     },
     {
       icon: Users,
-      label: 'Join a Group Discussion',
-      description: 'Connect with peers and share insights',
+      labelKey: 'joinDiscussion',
       color: 'purple',
     },
     {
       icon: Video,
-      label: 'Watch Featured Reform Video',
-      description: 'Stay updated on latest labour reform initiatives',
+      labelKey: 'watchVideo',
       color: 'green',
     },
     {
       icon: MessageSquare,
-      label: 'Give Feedback / Suggest a Topic',
-      description: 'Help us improve your learning experience',
+      labelKey: 'giveFeedback',
       color: 'yellow',
     },
   ];
@@ -88,17 +87,17 @@ export function QuickActionsSection() {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
               <Zap className="w-7 h-7 text-[#F5C518]" />
-              Quick Actions
+              {t('quickActions.title')}
             </h2>
             <p className="text-sm text-gray-600">
-              Take the next step in your learning journey
+              {t('quickActions.subtitle')}
             </p>
           </div>
           <Button 
             variant="outline"
             className="border-2 border-[#004E9A] text-[#004E9A] hover:bg-[#004E9A] hover:text-white font-semibold transition-all duration-300 px-6"
           >
-            View All Actions
+            {t('quickActions.viewAllActions')}
             <ChevronRight className="w-4 h-4 ml-2" />
           </Button>
         </div>
@@ -110,8 +109,11 @@ export function QuickActionsSection() {
           {quickActions.map((action, index) => (
             <QuickActionButton
               key={index}
-              {...action}
-              onClick={() => console.log(`Action clicked: ${action.label}`)}
+              icon={action.icon}
+              label={t(`quickActions.actions.${action.labelKey}.title`)}
+              description={t(`quickActions.actions.${action.labelKey}.description`)}
+              color={action.color}
+              onClick={() => console.log(`Action clicked: ${action.labelKey}`)}
             />
           ))}
         </div>
@@ -120,12 +122,12 @@ export function QuickActionsSection() {
       {/* Footer - Supported by GIZ */}
       <div className="max-w-7xl mx-auto mt-8 flex justify-center">
         <div className="flex items-center gap-2 text-xs text-gray-500">
-          <span>Powered by</span>
+          <span>{t('quickActions.poweredBy')}</span>
           <div className="flex items-center gap-1.5 bg-white px-3 py-1 rounded-full shadow-sm border border-gray-200">
             <div className="w-5 h-5 bg-[#004E9A] rounded-sm flex items-center justify-center text-white font-bold text-[8px]">
               GIZ
             </div>
-            <span className="font-semibold text-[#004E9A]">Labour Reform & Digital Learning Initiative</span>
+            <span className="font-semibold text-[#004E9A]">{t('quickActions.labourReformInitiative')}</span>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronRight, TrendingUp, Target, Award, AlertCircle, Activity } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -43,81 +44,10 @@ const pathwayData = [
   { module: 'Expert', recommended: 100, actual: 0 },
 ];
 
-const strengthsWeaknesses = {
-  strengths: [
-    { topic: 'Labour Laws', score: 92, difficulty: 'Easy' },
-    { topic: 'Digital Tools', score: 88, difficulty: 'Medium' },
-    { topic: 'Compliance', score: 85, difficulty: 'Easy' },
-  ],
-  weaknesses: [
-    { topic: 'Advanced Policies', score: 45, difficulty: 'Hard' },
-    { topic: 'Legal Framework', score: 52, difficulty: 'Hard' },
-    { topic: 'Case Studies', score: 58, difficulty: 'Medium' },
-  ],
-};
-
-const translations = {
-  en: {
-    title: 'Course & Assessment Insights',
-    subtitle: 'Track your learning progress and performance',
-    moduleProgress: 'Module Progress',
-    completion: 'Completion',
-    engagement: 'Engagement',
-    pathwayTracker: 'Pathway Tracker',
-    recommended: 'Recommended',
-    actual: 'Actual Progress',
-    pathwayMatch: 'following recommended path',
-    assessmentBreakdown: 'Assessment Breakdown',
-    correct: 'Correct',
-    incorrect: 'Incorrect',
-    unattempted: 'Unattempted',
-    difficultyAnalysis: 'Difficulty Analysis',
-    easy: 'Easy',
-    medium: 'Medium',
-    hard: 'Hard',
-    strengths: 'Top Strengths',
-    weaknesses: 'Areas to Improve',
-    score: 'Score',
-    topic: 'Topic',
-    engagementHeatmap: 'Engagement Heatmap',
-    module: 'Module',
-    week: 'Week',
-    legend: 'Legend',
-  },
-  ar: {
-    title: 'رؤى الدورة والتقييم',
-    subtitle: 'تتبع تقدمك في التعلم والأداء',
-    moduleProgress: 'تقدم الوحدات',
-    completion: 'الإكمال',
-    engagement: 'التفاعل',
-    pathwayTracker: 'متتبع المسار التعليمي',
-    recommended: 'الموصى به',
-    actual: 'التقدم الفعلي',
-    pathwayMatch: 'اتباع المسار الموصى به',
-    assessmentBreakdown: 'تحليل التقييمات',
-    correct: 'صحيح',
-    incorrect: 'خاطئ',
-    unattempted: 'لم تتم المحاولة',
-    difficultyAnalysis: 'تحليل مستوى الصعوبة',
-    easy: 'سهل',
-    medium: 'متوسط',
-    hard: 'صعب',
-    strengths: 'نقاط القوة الرئيسية',
-    weaknesses: 'مجالات التحسين',
-    score: 'النتيجة',
-    topic: 'الموضوع',
-    engagementHeatmap: 'خريطة التفاعل الحرارية',
-    module: 'الوحدة',
-    week: 'الأسبوع',
-    legend: 'وسيلة الإيضاح',
-  },
-};
-
 export function CourseAssessmentInsights() {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [language, setLanguage] = useState('en');
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const t = translations[language];
 
   const slides = [
     { id: 'module-progress', component: 'ModuleProgress' },
@@ -166,15 +96,15 @@ export function CourseAssessmentInsights() {
         return (
           <div className="space-y-4">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-gray-900">{t.moduleProgress}</h3>
+              <h3 className="text-xl font-bold text-gray-900">{t('insights.moduleProgress')}</h3>
               <div className="flex items-center gap-3 text-sm text-gray-700">
                 <div className="flex items-center gap-2 bg-blue-50 px-3 py-1.5 rounded-lg">
                   <div className="w-4 h-4 bg-blue-400 rounded"></div>
-                  <span className="font-medium">{t.completion}</span>
+                  <span className="font-medium">{t('insights.completion')}</span>
                 </div>
                 <div className="flex items-center gap-2 bg-purple-50 px-3 py-1.5 rounded-lg">
                   <div className="w-4 h-4 bg-purple-400 rounded"></div>
-                  <span className="font-medium">{t.engagement}</span>
+                  <span className="font-medium">{t('insights.engagement')}</span>
                 </div>
               </div>
             </div>
@@ -205,9 +135,9 @@ export function CourseAssessmentInsights() {
         return (
           <div className="space-y-4">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-gray-900">{t.pathwayTracker}</h3>
+              <h3 className="text-xl font-bold text-gray-900">{t('insights.pathwayTracker')}</h3>
               <div className="text-base font-bold text-blue-700 bg-blue-100 px-4 py-2 rounded-full border-2 border-blue-300">
-                {pathwayCompletion}% {t.pathwayMatch}
+                {pathwayCompletion}% {t('insights.pathwayMatch')}
               </div>
             </div>
             <ResponsiveContainer width="100%" height={320}>
@@ -226,8 +156,8 @@ export function CourseAssessmentInsights() {
                   }} 
                 />
                 <Legend wrapperStyle={{ fontSize: '13px', paddingTop: '10px' }} />
-                <Bar dataKey="recommended" fill="#e0e7ff" name={t.recommended} radius={[0, 8, 8, 0]} barSize={30} />
-                <Bar dataKey="actual" fill="#93c5fd" name={t.actual} radius={[0, 8, 8, 0]} barSize={30} />
+                <Bar dataKey="recommended" fill="#e0e7ff" name={t('insights.recommended')} radius={[0, 8, 8, 0]} barSize={30} />
+                <Bar dataKey="actual" fill="#93c5fd" name={t('insights.actual')} radius={[0, 8, 8, 0]} barSize={30} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -237,7 +167,7 @@ export function CourseAssessmentInsights() {
         return (
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{t.assessmentBreakdown}</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t('insights.assessmentBreakdown')}</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <PieChart>
                   <Pie
@@ -273,7 +203,7 @@ export function CourseAssessmentInsights() {
                   <div key={item.name} className="flex items-center justify-between text-sm bg-gray-50 px-3 py-2 rounded-lg border border-gray-200">
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 rounded" style={{ backgroundColor: item.color }}></div>
-                      <span className="text-gray-800 font-medium">{t[item.name.toLowerCase()]}</span>
+                      <span className="text-gray-800 font-medium">{t(`insights.${item.name.toLowerCase()}`)}</span>
                     </div>
                     <span className="font-bold text-gray-900 text-base">{item.value}%</span>
                   </div>
@@ -281,7 +211,7 @@ export function CourseAssessmentInsights() {
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{t.difficultyAnalysis}</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t('insights.difficultyAnalysis')}</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <RadarChart data={difficultyData}>
                   <PolarGrid stroke="#cbd5e1" strokeWidth={2} />
@@ -332,7 +262,7 @@ export function CourseAssessmentInsights() {
           <div className="space-y-4">
             <div className="flex items-center gap-2 mb-4">
               <Activity className="h-6 w-6 text-blue-600" />
-              <h3 className="text-xl font-bold text-gray-900">{t.engagementHeatmap}</h3>
+              <h3 className="text-xl font-bold text-gray-900">{t('insights.engagementHeatmap')}</h3>
             </div>
             
             {/* Heatmap Grid */}
@@ -341,12 +271,12 @@ export function CourseAssessmentInsights() {
                 <thead>
                   <tr>
                     <th className="text-left p-3 bg-gray-100 rounded-tl-lg font-bold text-gray-800">
-                      {t.module}
+                      {t('insights.module')}
                     </th>
-                    <th className="text-center p-3 bg-gray-100 font-bold text-gray-800">{t.week} 1</th>
-                    <th className="text-center p-3 bg-gray-100 font-bold text-gray-800">{t.week} 2</th>
-                    <th className="text-center p-3 bg-gray-100 font-bold text-gray-800">{t.week} 3</th>
-                    <th className="text-center p-3 bg-gray-100 rounded-tr-lg font-bold text-gray-800">{t.week} 4</th>
+                    <th className="text-center p-3 bg-gray-100 font-bold text-gray-800">{t('insights.week')} 1</th>
+                    <th className="text-center p-3 bg-gray-100 font-bold text-gray-800">{t('insights.week')} 2</th>
+                    <th className="text-center p-3 bg-gray-100 font-bold text-gray-800">{t('insights.week')} 3</th>
+                    <th className="text-center p-3 bg-gray-100 rounded-tr-lg font-bold text-gray-800">{t('insights.week')} 4</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -395,7 +325,7 @@ export function CourseAssessmentInsights() {
 
             {/* Legend */}
             <div className="flex items-center justify-center gap-4 mt-6 bg-gray-50 p-4 rounded-lg">
-              <span className="text-sm font-semibold text-gray-700">{t.legend}:</span>
+              <span className="text-sm font-semibold text-gray-700">{t('insights.legend')}:</span>
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded bg-[#fecaca] border-2 border-gray-300"></div>
                 <span className="text-sm text-gray-700">Low (&lt;40%)</span>
@@ -417,18 +347,31 @@ export function CourseAssessmentInsights() {
         );
 
       case 'StrengthsWeaknesses':
+        const strengthsWeaknesses = {
+          strengths: [
+            { topicKey: 'labourLaws', score: 92, difficulty: t('insights.easy') },
+            { topicKey: 'digitalTools', score: 88, difficulty: t('insights.medium') },
+            { topicKey: 'compliance', score: 85, difficulty: t('insights.easy') },
+          ],
+          weaknesses: [
+            { topicKey: 'advancedPolicies', score: 45, difficulty: t('insights.hard') },
+            { topicKey: 'legalFramework', score: 52, difficulty: t('insights.hard') },
+            { topicKey: 'caseStudies', score: 58, difficulty: t('insights.medium') },
+          ],
+        };
+        
         return (
           <div className="grid grid-cols-2 gap-6">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Award className="h-6 w-6 text-green-500" />
-                <h3 className="text-xl font-bold text-gray-900">{t.strengths}</h3>
+                <h3 className="text-xl font-bold text-gray-900">{t('insights.strengths')}</h3>
               </div>
               <div className="space-y-3">
                 {strengthsWeaknesses.strengths.map((item, idx) => (
                   <div key={idx} className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4 hover:shadow-md transition-shadow">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-base font-bold text-gray-900">{item.topic}</span>
+                      <span className="text-base font-bold text-gray-900">{t(`insights.topics.${item.topicKey}`)}</span>
                       <span className="text-2xl font-bold text-green-500">{item.score}%</span>
                     </div>
                     <div className="w-full bg-green-100 rounded-full h-3 mb-2">
@@ -445,13 +388,13 @@ export function CourseAssessmentInsights() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <AlertCircle className="h-6 w-6 text-orange-500" />
-                <h3 className="text-xl font-bold text-gray-900">{t.weaknesses}</h3>
+                <h3 className="text-xl font-bold text-gray-900">{t('insights.weaknesses')}</h3>
               </div>
               <div className="space-y-3">
                 {strengthsWeaknesses.weaknesses.map((item, idx) => (
                   <div key={idx} className="bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl p-4 hover:shadow-md transition-shadow">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-base font-bold text-gray-900">{item.topic}</span>
+                      <span className="text-base font-bold text-gray-900">{t(`insights.topics.${item.topicKey}`)}</span>
                       <span className="text-2xl font-bold text-orange-500">{item.score}%</span>
                     </div>
                     <div className="w-full bg-orange-100 rounded-full h-3 mb-2">
@@ -482,35 +425,9 @@ export function CourseAssessmentInsights() {
             <TrendingUp className="h-5 w-5 text-white" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-gray-900">{t.title}</h2>
-            <p className="text-sm text-gray-600">{t.subtitle}</p>
+            <h2 className="text-xl font-bold text-gray-900">{t('insights.title')}</h2>
+            <p className="text-sm text-gray-600">{t('insights.subtitle')}</p>
           </div>
-        </div>
-        
-        {/* Language Toggle */}
-        <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
-          <button
-            onClick={() => setLanguage('en')}
-            className={cn(
-              "px-3 py-1.5 rounded-md text-sm font-semibold transition-all",
-              language === 'en' 
-                ? "bg-white text-blue-600 shadow-sm" 
-                : "text-gray-600 hover:text-gray-900"
-            )}
-          >
-            🇬🇧 EN
-          </button>
-          <button
-            onClick={() => setLanguage('ar')}
-            className={cn(
-              "px-3 py-1.5 rounded-md text-sm font-semibold transition-all",
-              language === 'ar' 
-                ? "bg-white text-blue-600 shadow-sm" 
-                : "text-gray-600 hover:text-gray-900"
-            )}
-          >
-            🇸🇦 AR
-          </button>
         </div>
       </div>
 

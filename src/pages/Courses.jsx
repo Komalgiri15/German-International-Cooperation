@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { BookOpen, Users, Clock, Filter, Search, Plus, Grid, List, Compass, UserPlus, FileText } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -19,6 +20,7 @@ import {
 import { toast } from '@/hooks/use-toast';
 
 const Courses = () => {
+  const { t } = useTranslation();
   const [view, setView] = useState('grid');
   const [searchQuery, setSearchQuery] = useState('');
   const [isEnrollDialogOpen, setIsEnrollDialogOpen] = useState(false);
@@ -30,8 +32,7 @@ const Courses = () => {
   const mockCourses = [
     {
       id: 1,
-      title: "Strategic Communication",
-      description: "Master effective communication strategies for labour reform advocacy and stakeholder collaboration in organizational and policy contexts.",
+      titleKey: "strategicCommunication",
       students: 342,
       duration: "12 weeks",
       fullDuration: "8 Weeks (adaptable for 6-week intensive program)",
@@ -46,8 +47,7 @@ const Courses = () => {
     },
     {
       id: 2,
-      title: "Digital Learning Pathways",
-      description: "Explore digital tools, e-learning platforms, and innovative pathways for skill development and workforce empowerment in the digital age.",
+      titleKey: "digitalLearningPathways",
       students: 456,
       duration: "10 weeks",
       fullDuration: "10 Weeks (adaptable for 8-week intensive program)",
@@ -62,8 +62,7 @@ const Courses = () => {
     },
     {
       id: 3,
-      title: "Stakeholder Engagement for Labour Reform Initiatives",
-      description: "Build expertise in engaging diverse stakeholders—employers, workers, policymakers—to drive meaningful labour law reforms and compliance.",
+      titleKey: "stakeholderEngagement",
       students: 289,
       duration: "12 weeks",
       fullDuration: "12 Weeks (adaptable for 8-10-week intensive program)",
@@ -81,8 +80,11 @@ const Courses = () => {
   const [courses, setCourses] = useState(mockCourses);
 
   const filteredCourses = courses.filter(course => {
-    const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         course.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const courseTitle = t(`courses.sampleCourses.${course.titleKey}.title`);
+    const courseDescription = t(`courses.sampleCourses.${course.titleKey}.description`);
+    
+    const matchesSearch = courseTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         courseDescription.toLowerCase().includes(searchQuery.toLowerCase());
     
     if (activeTab === 'courses') return matchesSearch && !course.archived && !course.deleted;
     if (activeTab === 'archived') return matchesSearch && course.archived && !course.deleted;
@@ -98,8 +100,8 @@ const Courses = () => {
   const handleCatalogClick = () => {
     navigate('/catalog');
     toast({
-      title: "Catalog",
-      description: "Redirecting to course catalog",
+      title: t('courses.toasts.catalog'),
+      description: t('courses.toasts.redirectingToCatalog'),
     });
   };
 
@@ -110,8 +112,8 @@ const Courses = () => {
   const handleCourseEdit = (courseId, courseName) => {
     navigate(`/courses/edit/${courseId}`);
     toast({
-      title: "Edit Course",
-      description: `Opening edit page for ${courseName}`,
+      title: t('courses.toasts.editCourse'),
+      description: t('courses.toasts.openingEditPage', { name: courseName }),
     });
   };
 
@@ -122,8 +124,8 @@ const Courses = () => {
       )
     );
     toast({
-      title: "Course Archived",
-      description: `${courseName} has been moved to archived courses.`,
+      title: t('courses.toasts.courseArchived'),
+      description: t('courses.toasts.courseMovedToArchived', { name: courseName }),
     });
   };
 
@@ -134,8 +136,8 @@ const Courses = () => {
       )
     );
     toast({
-      title: "Course Deleted",
-      description: `${courseName} has been moved to deleted courses.`,
+      title: t('courses.toasts.courseDeleted'),
+      description: t('courses.toasts.courseMovedToDeleted', { name: courseName }),
     });
   };
 
@@ -146,8 +148,8 @@ const Courses = () => {
       )
     );
     toast({
-      title: "Course Restored",
-      description: `${courseName} has been restored to active courses.`,
+      title: t('courses.toasts.courseRestored'),
+      description: t('courses.toasts.courseRestoredToActive', { name: courseName }),
     });
   };
 
@@ -160,6 +162,10 @@ const Courses = () => {
     }
   };
 
+  const getTranslatedLevel = (level) => {
+    return t(`courses.levels.${level.toLowerCase()}`);
+  };
+
   const getStatusColor = (status) => {
     switch (status) {
       case 'Active': return 'bg-green-100 text-green-800';
@@ -170,13 +176,17 @@ const Courses = () => {
     }
   };
 
+  const getTranslatedStatus = (status) => {
+    return t(`courses.statuses.${status.toLowerCase()}`);
+  };
+
   return (
     <div className="space-y-6 animate-fade-in">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Courses</h1>
+          <h1 className="text-3xl font-bold tracking-tight">{t('courses.title')}</h1>
           <p className="text-muted-foreground mt-2">
-            Manage your course catalog and create new learning experiences
+            {t('courses.subtitle')}
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -186,11 +196,11 @@ const Courses = () => {
             className="flex items-center gap-2"
           >
             <UserPlus className="h-4 w-4" />
-            Enroll
+            {t('courses.enroll')}
           </Button>
           <Button onClick={handleCreateCourse}>
             <Plus className="h-4 w-4 mr-2" />
-            Create Course
+            {t('courses.createCourse')}
           </Button>
         </div>
       </div>
@@ -200,13 +210,13 @@ const Courses = () => {
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="bg-cyan-50 p-1">
             <PillTabsTrigger value="courses" className="data-[state=active]:bg-cyan-400 data-[state=active]:text-white">
-              Courses {courses.filter(c => !c.archived && !c.deleted).length}
+              {t('courses.tabs.courses')} {courses.filter(c => !c.archived && !c.deleted).length}
             </PillTabsTrigger>
             <PillTabsTrigger value="archived" className="data-[state=active]:bg-cyan-400 data-[state=active]:text-white">
-              Archived {courses.filter(c => c.archived && !c.deleted).length}
+              {t('courses.tabs.archived')} {courses.filter(c => c.archived && !c.deleted).length}
             </PillTabsTrigger>
             <PillTabsTrigger value="deleted" className="data-[state=active]:bg-cyan-400 data-[state=active]:text-white">
-              Deleted {courses.filter(c => c.deleted).length}
+              {t('courses.tabs.deleted')} {courses.filter(c => c.deleted).length}
             </PillTabsTrigger>
           </TabsList>
         </Tabs>
@@ -218,7 +228,7 @@ const Courses = () => {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input 
               className="pl-9" 
-              placeholder="Search courses..." 
+              placeholder={t('courses.searchPlaceholder')} 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -226,25 +236,25 @@ const Courses = () => {
           
           <Select>
             <SelectTrigger className="w-[140px]">
-              <SelectValue placeholder="All levels" />
+              <SelectValue placeholder={t('courses.allLevels')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All levels</SelectItem>
-              <SelectItem value="beginner">Beginner</SelectItem>
-              <SelectItem value="intermediate">Intermediate</SelectItem>
-              <SelectItem value="advanced">Advanced</SelectItem>
+              <SelectItem value="all">{t('courses.allLevels')}</SelectItem>
+              <SelectItem value="beginner">{t('courses.levels.beginner')}</SelectItem>
+              <SelectItem value="intermediate">{t('courses.levels.intermediate')}</SelectItem>
+              <SelectItem value="advanced">{t('courses.levels.advanced')}</SelectItem>
             </SelectContent>
           </Select>
           
           <Select>
             <SelectTrigger className="w-[140px]">
-              <SelectValue placeholder="All status" />
+              <SelectValue placeholder={t('courses.allStatus')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All status</SelectItem>
-              <SelectItem value="active">Active</SelectItem>
-              <SelectItem value="draft">Draft</SelectItem>
-              <SelectItem value="archived">Archived</SelectItem>
+              <SelectItem value="all">{t('courses.allStatus')}</SelectItem>
+              <SelectItem value="active">{t('courses.statuses.active')}</SelectItem>
+              <SelectItem value="draft">{t('courses.statuses.draft')}</SelectItem>
+              <SelectItem value="archived">{t('courses.statuses.archived')}</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -257,7 +267,7 @@ const Courses = () => {
             className="flex items-center gap-2"
           >
             <Compass className="h-4 w-4" />
-            Catalog
+            {t('courses.catalog')}
           </Button>
 
           {/* Removed Sequential/Open Toggle */}
@@ -267,11 +277,11 @@ const Courses = () => {
             <TabsList>
               <TabsTrigger value="grid" className="flex items-center gap-2">
                 <Grid className="h-4 w-4" />
-                Grid
+                {t('courses.grid')}
               </TabsTrigger>
               <TabsTrigger value="list" className="flex items-center gap-2">
                 <List className="h-4 w-4" />
-                List
+                {t('courses.list')}
               </TabsTrigger>
             </TabsList>
           </Tabs>
@@ -287,18 +297,18 @@ const Courses = () => {
                 <img 
                  onClick={() => handleCourseClick(course.id)}
                   src={course.image} 
-                  alt={course.title} 
+                  alt={t(`courses.sampleCourses.${course.titleKey}.title`)} 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
                 <div className="absolute top-2 right-2 flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
                   <Badge className={getStatusColor(course.status)}>
-                    {course.status}
+                    {getTranslatedStatus(course.status)}
                   </Badge>
                   <div className="bg-white/90 rounded-md">
                     <CourseOptionsMenu 
                       courseId={course.id} 
-                      courseName={course.title}
+                      courseName={t(`courses.sampleCourses.${course.titleKey}.title`)}
                       onEdit={handleCourseEdit}
                       onArchive={handleCourseArchive}
                       onDelete={handleCourseDelete}
@@ -311,16 +321,16 @@ const Courses = () => {
               </div>
               <CardHeader className="pb-2"  onClick={() => handleCourseClick(course.id)}>
                 <CardTitle className="text-lg font-semibold line-clamp-1">
-                  {course.title}
+                  {t(`courses.sampleCourses.${course.titleKey}.title`)}
                 </CardTitle>
                 <p className="text-sm text-muted-foreground line-clamp-2">
-                  {course.description}
+                  {t(`courses.sampleCourses.${course.titleKey}.description`)}
                 </p>
               </CardHeader>
               <CardContent onClick={() => handleCourseClick(course.id)}>
                 <div className="flex items-center justify-between mb-4">
                   <Badge variant="outline" className={getLevelColor(course.level)}>
-                    {course.level}
+                    {getTranslatedLevel(course.level)}
                   </Badge>
                   <Badge variant="outline" className="text-xs">
                     {course.catalog}
@@ -346,10 +356,10 @@ const Courses = () => {
                 <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-sm">
                   <div className="flex items-center gap-1.5 text-gray-600">
                     <Users className="h-4 w-4" />
-                    <span>{course.students} enrolled</span>
+                    <span>{course.students} {t('courses.enrolled')}</span>
                   </div>
                   <Badge variant="secondary" className="text-xs bg-green-100 text-green-700 border-green-200">
-                    Enrolling
+                    {t('courses.enrolling')}
                   </Badge>
                 </div>
               </CardContent>
@@ -363,14 +373,14 @@ const Courses = () => {
               <table className="w-full">
                 <thead>
                   <tr className="border-b bg-muted/50">
-                    <th className="text-left p-4 font-medium">Course</th>
-                    <th className="text-left p-4 font-medium">Catalog</th>
-                    <th className="text-left p-4 font-medium">Students</th>
-                    <th className="text-left p-4 font-medium">Duration</th>
-                    <th className="text-left p-4 font-medium">Level</th>
-                    <th className="text-left p-4 font-medium">Status</th>
-                    <th className="text-left p-4 font-medium">Access Type</th>
-                    <th className="text-left p-4 font-medium">Actions</th>
+                    <th className="text-left p-4 font-medium">{t('courses.course')}</th>
+                    <th className="text-left p-4 font-medium">{t('courses.catalog')}</th>
+                    <th className="text-left p-4 font-medium">{t('courses.students')}</th>
+                    <th className="text-left p-4 font-medium">{t('courses.duration')}</th>
+                    <th className="text-left p-4 font-medium">{t('courses.level')}</th>
+                    <th className="text-left p-4 font-medium">{t('courses.status')}</th>
+                    <th className="text-left p-4 font-medium">{t('courses.accessType')}</th>
+                    <th className="text-left p-4 font-medium">{t('courses.actions')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -380,7 +390,7 @@ const Courses = () => {
                         <div className="flex items-center gap-3">
                           <img 
                             src={course.image} 
-                            alt={course.title}
+                            alt={t(`courses.sampleCourses.${course.titleKey}.title`)}
                             className="w-12 h-12 rounded object-cover"
                           />
                           <div 
@@ -388,10 +398,10 @@ const Courses = () => {
                             onClick={() => handleCourseClick(course.id)}
                           >
                             <h3 className="font-medium text-blue-600 hover:text-blue-800">
-                              {course.title}
+                              {t(`courses.sampleCourses.${course.titleKey}.title`)}
                             </h3>
                             <p className="text-sm text-muted-foreground line-clamp-1">
-                              {course.description}
+                              {t(`courses.sampleCourses.${course.titleKey}.description`)}
                             </p>
                           </div>
                         </div>
@@ -415,12 +425,12 @@ const Courses = () => {
                       </td>
                       <td className="p-4">
                         <Badge variant="outline" className={getLevelColor(course.level)}>
-                          {course.level}
+                          {getTranslatedLevel(course.level)}
                         </Badge>
                       </td>
                       <td className="p-4">
                         <Badge className={getStatusColor(course.status)}>
-                          {course.status}
+                          {getTranslatedStatus(course.status)}
                         </Badge>
                       </td>
                       <td className="p-4">
@@ -437,7 +447,7 @@ const Courses = () => {
                       <td className="p-4">
                         <CourseOptionsMenu 
                           courseId={course.id} 
-                          courseName={course.title}
+                          courseName={t(`courses.sampleCourses.${course.titleKey}.title`)}
                           onEdit={handleCourseEdit}
                           onArchive={handleCourseArchive}
                           onDelete={handleCourseDelete}

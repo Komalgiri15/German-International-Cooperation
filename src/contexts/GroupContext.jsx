@@ -33,16 +33,14 @@ export function GroupProvider({ children }) {
     // Learner-Focused Groups
     { 
       id: 1, 
-      name: 'Skill Builders', 
-      description: 'Learners collaborating to build skills.',
+      nameKey: 'skillBuilders',
       members: 1250, 
       category: 'Learner-Focused', 
       image: '/assets/grp1.PNG'
     },
     { 
       id: 2, 
-      name: 'Rights & Awareness Circle', 
-      description: 'Discussions on labour rights and reforms.',
+      nameKey: 'rightsAwareness',
       members: 845, 
       category: 'Learner-Focused', 
       image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=400&fit=crop&auto=format'
@@ -51,16 +49,14 @@ export function GroupProvider({ children }) {
     // Trainer-Focused Groups
     { 
       id: 3, 
-      name: 'Trainer Connect', 
-      description: 'Space for trainers to exchange methods and best practices.',
+      nameKey: 'trainerConnect',
       members: 320, 
       category: 'Trainer-Focused', 
       image: '/assets/grp2.PNG'
     },
     { 
       id: 4, 
-      name: 'Content Innovators', 
-      description: 'Collaboration for lesson planning and creating courses.',
+      nameKey: 'contentInnovators',
       members: 275, 
       category: 'Trainer-Focused', 
       image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=400&fit=crop&auto=format'
@@ -69,16 +65,14 @@ export function GroupProvider({ children }) {
     // Employer-Focused Groups
     { 
       id: 5, 
-      name: 'Workplace Champions', 
-      description: 'Employers focused on workforce development.',
+      nameKey: 'workplaceChampions',
       members: 485, 
       category: 'Employer-Focused', 
       image: '/assets/grp3.PNG'
     },
     { 
       id: 6, 
-      name: 'Compliance Circle', 
-      description: 'Discussing labour reform policies and compliance strategies.',
+      nameKey: 'complianceCircle',
       members: 392, 
       category: 'Employer-Focused', 
       image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop&auto=format'
@@ -87,16 +81,14 @@ export function GroupProvider({ children }) {
     // Mixed / Initiative-Wide Groups
     { 
       id: 7, 
-      name: 'Campaign Catalysts', 
-      description: 'Discussions on GIZ-led campaigns and awareness drives.',
+      nameKey: 'campaignCatalysts',
       members: 1580, 
       category: 'Initiative-Wide', 
       image: '/assets/grp4.PNG'
     },
     { 
       id: 8, 
-      name: 'Event Spotlight', 
-      description: 'Announcements, discussions, and feedback on workshops or webinars.',
+      nameKey: 'eventSpotlight',
       members: 1245, 
       category: 'Initiative-Wide', 
       image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=400&fit=crop&auto=format'
