@@ -28,17 +28,7 @@ export function AdminPortalHeader() {
       <div className="max-w-7xl mx-auto px-8 py-4">
         <div className="flex items-center justify-between">
           {/* Left - Back Button (only show on sub-pages) */}
-          <div>
-            {!isMainAdminPortal && (
-              <button
-                onClick={handleBack}
-                className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all font-medium"
-              >
-                <ArrowLeft className="h-4 w-4" />
-                Back to Admin Portal
-              </button>
-            )}
-          </div>
+          
 
           {/* Right - Branding and Toggle */}
           <div className="flex items-center gap-4 ml-auto">

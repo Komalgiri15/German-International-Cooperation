@@ -102,7 +102,7 @@ const App = () => (
                 <Routes>
                   {/* Admin Portal Routes - No Sidebar */}
                   <Route path="/admin-portal" element={<AdminPortalLayout />}>
-                    <Route index element={<AdminPortal />} />
+                    <Route index element={<OverviewSummary />} />
                     <Route path="overview" element={<OverviewSummary />} />
                     <Route path="analytics" element={<ModuleAnalytics />} />
                     <Route path="engagement" element={<EngagementGamification />} />
