@@ -70,7 +70,7 @@ export const AdminLayout = ({ title = 'Dashboard' }) => {
       }
     }
 
-    document.title = `${newTitle} | GIC`;
+    document.title = `${newTitle} | GIZ`;
   }, [location.pathname, title, courseId, setCourseTitle]);
 
   return (
