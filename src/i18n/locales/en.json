@@ -758,6 +758,293 @@
           "learner15": "Julia Zimmermann"
         }
       }
+    },
+    "moduleAnalytics": {
+      "title": "Module & Assessment Analytics",
+      "subtitle": "Click on any module to view detailed analytics",
+      "modulePerformance": {
+        "title": "Module Performance",
+        "subtitle": "Click any module card to view detailed analytics",
+        "learners": "learners",
+        "done": "done",
+        "active": "active",
+        "pending": "pending"
+      },
+      "modules": {
+        "digitalLiteracy": "Digital Literacy Basics",
+        "financialPlanning": "Financial Planning",
+        "labourRights": "Labour Rights & Compliance",
+        "communicationSkills": "Communication Skills",
+        "workplaceSafety": "Workplace Safety",
+        "entrepreneurship": "Entrepreneurship Fundamentals"
+      },
+      "modal": {
+        "enrolled": "enrolled",
+        "tests": "tests",
+        "done": "Done",
+        "active": "Active",
+        "pending": "Pending",
+        "passRate": "Pass Rate",
+        "completion": "Completion",
+        "avgScore": "Avg Score",
+        "averageTime": "Average Time",
+        "statusSplit": "Status Split",
+        "total": "Total",
+        "scoreRange": "Score Range",
+        "top": "Top",
+        "avg": "Avg",
+        "low": "Low"
+      },
+      "assessmentPerformance": {
+        "title": "Assessment Performance",
+        "subtitle": "Quiz pass rates and difficulty analysis",
+        "allDifficulty": "All Difficulty",
+        "passRate": "Pass Rate",
+        "avgScore": "Avg Score",
+        "totalAttempts": "total attempts",
+        "passed": "passed",
+        "failed": "failed"
+      },
+      "assessments": {
+        "digitalLiteracyQuiz": "Digital Literacy Quiz",
+        "financialPlanningAssessment": "Financial Planning Assessment",
+        "labourLawExam": "Labour Law Exam",
+        "communicationSkillsQuiz": "Communication Skills Quiz",
+        "safetyProtocolAssessment": "Safety Protocol Assessment"
+      },
+      "assessmentTypes": {
+        "quiz": "Quiz",
+        "assessment": "Assessment",
+        "exam": "Exam"
+      },
+      "difficulty": {
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard"
+      }
+    },
+    "engagement": {
+      "title": "Engagement & Gamification",
+      "subtitle": "Monitor engagement and achievements",
+      "kpis": {
+        "activeLearnersToday": "Active Learners Today",
+        "avgTimeSpent": "Avg. Time Spent",
+        "totalBadges": "Total Badges",
+        "avgPoints": "Avg. Points"
+      },
+      "contentInteraction": {
+        "title": "Content Interaction Overview",
+        "thisWeek": "This Week",
+        "thisMonth": "This Month",
+        "thisQuarter": "This Quarter",
+        "days": {
+          "mon": "Mon",
+          "tue": "Tue",
+          "wed": "Wed",
+          "thu": "Thu",
+          "fri": "Fri",
+          "sat": "Sat",
+          "sun": "Sun"
+        },
+        "types": {
+          "videos": "Videos",
+          "immersive": "Immersive",
+          "gamified": "Gamified",
+          "resources": "Resources"
+        }
+      },
+      "leaderboard": {
+        "title": "Leaderboard & Rewards",
+        "rank": "Rank",
+        "name": "Name",
+        "points": "Points",
+        "badges": "Badges",
+        "pathway": "Pathway",
+        "pathways": {
+          "advanced": "Advanced",
+          "intermediate": "Intermediate",
+          "basic": "Basic"
+        }
+      },
+      "engagementMetrics": {
+        "title": "Engagement by Learning Pathway",
+        "currentPeriod": "Current Period",
+        "previousPeriod": "Previous Period",
+        "metrics": {
+          "videoCompletion": "Video Completion",
+          "quizPerformance": "Quiz Performance",
+          "discussion": "Discussion",
+          "assignments": "Assignments",
+          "peerReview": "Peer Review"
+        }
+      },
+      "badgeDistribution": {
+        "title": "Badge Distribution",
+        "levels": {
+          "beginner": "Beginner",
+          "intermediate": "Intermediate",
+          "advanced": "Advanced",
+          "expert": "Expert"
+        }
+      },
+      "weeklyProgress": {
+        "title": "Weekly Progress Overview",
+        "week1": "Week 1",
+        "week2": "Week 2",
+        "week3": "Week 3",
+        "week4": "Week 4",
+        "completion": "Completion"
+      },
+      "topEngaged": {
+        "title": "Top 3 Engaged Learners",
+        "badgesEarned": "{{count}} badges earned this week"
+      },
+      "lowEngagement": {
+        "title": "Low Engagement Alerts",
+        "inactive7Days": "{{count}} users inactive for 7+ days",
+        "incompleteModules": "{{count}} users with incomplete modules",
+        "lowQuizCompletion": "Low quiz completion rate",
+        "recommendations": {
+          "sendReminder": "Recommended: Send reminder notification",
+          "scheduleFollowup": "Recommended: Schedule follow-up",
+          "reviewDifficulty": "Consider reviewing difficulty level"
+        }
+      },
+      "learners": {
+        "learner1": "Hans Müller",
+        "learner2": "Anna Schmidt",
+        "learner3": "Sophie Weber"
+      }
+    },
+    "stakeholder": {
+      "title": "Stakeholder Resources",
+      "subtitle": "Monitor resource utilization and stakeholder engagement",
+      "kpis": {
+        "totalStakeholders": "Total Stakeholders",
+        "activeUsers": "Active Users",
+        "avgCompletion": "Avg. Completion",
+        "totalDownloads": "Total Downloads"
+      },
+      "performanceByType": {
+        "title": "Performance by Stakeholder Type",
+        "tabs": {
+          "employer": "Employer",
+          "educator": "Educator",
+          "learner": "Learner"
+        },
+        "groups": {
+          "groupA": "Group A",
+          "groupB": "Group B",
+          "groupC": "Group C"
+        },
+        "chartLabels": {
+          "completion": "Completion %",
+          "avgScore": "Avg. Score",
+          "engagement": "Engagement"
+        }
+      },
+      "engagementMetrics": {
+        "resourceAccess": "Resource Access",
+        "completionRate": "Completion Rate",
+        "interaction": "Interaction",
+        "feedback": "Feedback",
+        "sharing": "Sharing",
+        "engagement": "Engagement"
+      },
+      "resourceType": {
+        "title": "Resource Type Distribution",
+        "types": {
+          "pdfs": "PDFs",
+          "videos": "Videos",
+          "interactive": "Interactive",
+          "documents": "Documents",
+          "other": "Other"
+        }
+      },
+      "resourceTrends": {
+        "title": "Resource Usage Trends",
+        "months": {
+          "jan": "Jan",
+          "feb": "Feb",
+          "mar": "Mar",
+          "apr": "Apr",
+          "may": "May"
+        },
+        "labels": {
+          "downloads": "Downloads",
+          "views": "Views",
+          "shares": "Shares"
+        }
+      },
+      "resourceTable": {
+        "title": "Resource Downloads and Usage",
+        "headers": {
+          "resourceName": "Resource Name",
+          "type": "Type",
+          "downloads": "Downloads",
+          "lastAccess": "Last Access",
+          "usedByPathway": "Used By Pathway"
+        },
+        "resources": {
+          "digitalSafetyToolkit": "Digital Safety Toolkit",
+          "workplaceRightsGuide": "Workplace Rights Guide",
+          "safetyTrainingVideo": "Safety Training Video",
+          "employeeHandbook": "Employee Handbook",
+          "leadershipTraining": "Leadership Training",
+          "communicationSkills": "Communication Skills",
+          "projectManagementGuide": "Project Management Guide",
+          "teamBuildingWorkshop": "Team Building Workshop"
+        },
+        "types": {
+          "pdf": "PDF",
+          "document": "Document",
+          "video": "Video",
+          "interactive": "Interactive"
+        },
+        "pathways": {
+          "allPathways": "All Pathways",
+          "basic": "Basic",
+          "intermediate": "Intermediate",
+          "advanced": "Advanced",
+          "basicAdvanced": "Basic, Advanced"
+        }
+      },
+      "insights": {
+        "topResource": {
+          "title": "Top Resource",
+          "downloadsThisMonth": "{{count}} downloads this month"
+        },
+        "employerEngagement": {
+          "title": "Employer Engagement",
+          "increase": "{{percent}}% Increase",
+          "inResourceAccess": "in resource access"
+        },
+        "immersiveLearning": {
+          "title": "Immersive Learning",
+          "moreDownloads": "{{multiplier}}× More",
+          "byImmersiveLearners": "PDF downloads by immersive learners"
+        }
+      },
+      "resourceCorrelation": {
+        "title": "Resource Use vs Completion",
+        "xAxisLabel": "Downloads",
+        "yAxisLabel": "Completion %",
+        "legendLabel": "Resources",
+        "tooltipLabels": {
+          "downloads": "Downloads",
+          "completion": "Completion",
+          "type": "Type"
+        }
+      },
+      "resourceAlerts": {
+        "title": "Resource Alerts",
+        "lowUsageEducators": "Low resource usage among educators",
+        "belowAverage": "{{percent}}% below average engagement",
+        "outdatedResources": "Outdated safety resources",
+        "lastUpdated": "Last updated 6+ months ago",
+        "formatPreference": "Resource format preference",
+        "videoHigherEngagement": "Video content has {{multiplier}}× higher engagement"
+      }
     }
   },
   "common": {

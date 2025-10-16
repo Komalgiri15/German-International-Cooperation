@@ -758,6 +758,293 @@
           "learner15": "جوليا زيمرمان"
         }
       }
+    },
+    "moduleAnalytics": {
+      "title": "تحليلات الوحدات والتقييمات",
+      "subtitle": "انقر على أي وحدة لعرض التحليلات التفصيلية",
+      "modulePerformance": {
+        "title": "أداء الوحدة",
+        "subtitle": "انقر على أي بطاقة وحدة لعرض التحليلات التفصيلية",
+        "learners": "متعلمون",
+        "done": "تم",
+        "active": "نشط",
+        "pending": "معلق"
+      },
+      "modules": {
+        "digitalLiteracy": "أساسيات المعرفة الرقمية",
+        "financialPlanning": "التخطيط المالي",
+        "labourRights": "حقوق العمل والامتثال",
+        "communicationSkills": "مهارات التواصل",
+        "workplaceSafety": "السلامة في مكان العمل",
+        "entrepreneurship": "أساسيات ريادة الأعمال"
+      },
+      "modal": {
+        "enrolled": "مسجل",
+        "tests": "اختبارات",
+        "done": "تم",
+        "active": "نشط",
+        "pending": "معلق",
+        "passRate": "معدل النجاح",
+        "completion": "الإنجاز",
+        "avgScore": "متوسط الدرجة",
+        "averageTime": "متوسط الوقت",
+        "statusSplit": "تقسيم الحالة",
+        "total": "الإجمالي",
+        "scoreRange": "نطاق الدرجات",
+        "top": "أعلى",
+        "avg": "متوسط",
+        "low": "منخفض"
+      },
+      "assessmentPerformance": {
+        "title": "أداء التقييم",
+        "subtitle": "معدلات نجاح الاختبارات وتحليل الصعوبة",
+        "allDifficulty": "جميع المستويات",
+        "passRate": "معدل النجاح",
+        "avgScore": "متوسط الدرجة",
+        "totalAttempts": "إجمالي المحاولات",
+        "passed": "نجح",
+        "failed": "فشل"
+      },
+      "assessments": {
+        "digitalLiteracyQuiz": "اختبار المعرفة الرقمية",
+        "financialPlanningAssessment": "تقييم التخطيط المالي",
+        "labourLawExam": "امتحان قانون العمل",
+        "communicationSkillsQuiz": "اختبار مهارات التواصل",
+        "safetyProtocolAssessment": "تقييم بروتوكول السلامة"
+      },
+      "assessmentTypes": {
+        "quiz": "اختبار",
+        "assessment": "تقييم",
+        "exam": "امتحان"
+      },
+      "difficulty": {
+        "easy": "سهل",
+        "medium": "متوسط",
+        "hard": "صعب"
+      }
+    },
+    "engagement": {
+      "title": "التفاعل والألعاب التحفيزية",
+      "subtitle": "مراقبة التفاعل والإنجازات",
+      "kpis": {
+        "activeLearnersToday": "المتعلمون النشطون اليوم",
+        "avgTimeSpent": "متوسط الوقت المستغرق",
+        "totalBadges": "إجمالي الشارات",
+        "avgPoints": "متوسط النقاط"
+      },
+      "contentInteraction": {
+        "title": "نظرة عامة على تفاعل المحتوى",
+        "thisWeek": "هذا الأسبوع",
+        "thisMonth": "هذا الشهر",
+        "thisQuarter": "هذا الربع",
+        "days": {
+          "mon": "الإثنين",
+          "tue": "الثلاثاء",
+          "wed": "الأربعاء",
+          "thu": "الخميس",
+          "fri": "الجمعة",
+          "sat": "السبت",
+          "sun": "الأحد"
+        },
+        "types": {
+          "videos": "فيديوهات",
+          "immersive": "غامرة",
+          "gamified": "ألعاب",
+          "resources": "موارد"
+        }
+      },
+      "leaderboard": {
+        "title": "لوحة المتصدرين والمكافآت",
+        "rank": "الترتيب",
+        "name": "الاسم",
+        "points": "النقاط",
+        "badges": "الشارات",
+        "pathway": "المسار",
+        "pathways": {
+          "advanced": "متقدم",
+          "intermediate": "متوسط",
+          "basic": "أساسي"
+        }
+      },
+      "engagementMetrics": {
+        "title": "التفاعل حسب مسار التعلم",
+        "currentPeriod": "الفترة الحالية",
+        "previousPeriod": "الفترة السابقة",
+        "metrics": {
+          "videoCompletion": "إكمال الفيديو",
+          "quizPerformance": "أداء الاختبار",
+          "discussion": "المناقشة",
+          "assignments": "المهام",
+          "peerReview": "مراجعة الأقران"
+        }
+      },
+      "badgeDistribution": {
+        "title": "توزيع الشارات",
+        "levels": {
+          "beginner": "مبتدئ",
+          "intermediate": "متوسط",
+          "advanced": "متقدم",
+          "expert": "خبير"
+        }
+      },
+      "weeklyProgress": {
+        "title": "نظرة عامة على التقدم الأسبوعي",
+        "week1": "الأسبوع 1",
+        "week2": "الأسبوع 2",
+        "week3": "الأسبوع 3",
+        "week4": "الأسبوع 4",
+        "completion": "الإنجاز"
+      },
+      "topEngaged": {
+        "title": "أفضل 3 متعلمين متفاعلين",
+        "badgesEarned": "{{count}} شارات مكتسبة هذا الأسبوع"
+      },
+      "lowEngagement": {
+        "title": "تنبيهات التفاعل المنخفض",
+        "inactive7Days": "{{count}} مستخدمين غير نشطين لأكثر من 7 أيام",
+        "incompleteModules": "{{count}} مستخدمين لديهم وحدات غير مكتملة",
+        "lowQuizCompletion": "معدل إكمال الاختبار منخفض",
+        "recommendations": {
+          "sendReminder": "موصى به: إرسال إشعار تذكير",
+          "scheduleFollowup": "موصى به: جدولة المتابعة",
+          "reviewDifficulty": "فكر في مراجعة مستوى الصعوبة"
+        }
+      },
+      "learners": {
+        "learner1": "هانز مولر",
+        "learner2": "آنا شميدت",
+        "learner3": "صوفي ويبر"
+      }
+    },
+    "stakeholder": {
+      "title": "موارد أصحاب المصلحة",
+      "subtitle": "مراقبة استخدام الموارد وتفاعل أصحاب المصلحة",
+      "kpis": {
+        "totalStakeholders": "إجمالي أصحاب المصلحة",
+        "activeUsers": "المستخدمون النشطون",
+        "avgCompletion": "متوسط الإنجاز",
+        "totalDownloads": "إجمالي التنزيلات"
+      },
+      "performanceByType": {
+        "title": "الأداء حسب نوع صاحب المصلحة",
+        "tabs": {
+          "employer": "صاحب العمل",
+          "educator": "المعلم",
+          "learner": "المتعلم"
+        },
+        "groups": {
+          "groupA": "المجموعة أ",
+          "groupB": "المجموعة ب",
+          "groupC": "المجموعة ج"
+        },
+        "chartLabels": {
+          "completion": "الإنجاز %",
+          "avgScore": "متوسط الدرجة",
+          "engagement": "التفاعل"
+        }
+      },
+      "engagementMetrics": {
+        "resourceAccess": "الوصول إلى الموارد",
+        "completionRate": "معدل الإنجاز",
+        "interaction": "التفاعل",
+        "feedback": "التعليقات",
+        "sharing": "المشاركة",
+        "engagement": "التفاعل"
+      },
+      "resourceType": {
+        "title": "توزيع أنواع الموارد",
+        "types": {
+          "pdfs": "ملفات PDF",
+          "videos": "فيديوهات",
+          "interactive": "تفاعلية",
+          "documents": "مستندات",
+          "other": "أخرى"
+        }
+      },
+      "resourceTrends": {
+        "title": "اتجاهات استخدام الموارد",
+        "months": {
+          "jan": "يناير",
+          "feb": "فبراير",
+          "mar": "مارس",
+          "apr": "أبريل",
+          "may": "مايو"
+        },
+        "labels": {
+          "downloads": "التنزيلات",
+          "views": "المشاهدات",
+          "shares": "المشاركات"
+        }
+      },
+      "resourceTable": {
+        "title": "تنزيلات واستخدام الموارد",
+        "headers": {
+          "resourceName": "اسم المورد",
+          "type": "النوع",
+          "downloads": "التنزيلات",
+          "lastAccess": "آخر وصول",
+          "usedByPathway": "يستخدم من قبل المسار"
+        },
+        "resources": {
+          "digitalSafetyToolkit": "مجموعة أدوات السلامة الرقمية",
+          "workplaceRightsGuide": "دليل حقوق مكان العمل",
+          "safetyTrainingVideo": "فيديو التدريب على السلامة",
+          "employeeHandbook": "دليل الموظف",
+          "leadershipTraining": "تدريب القيادة",
+          "communicationSkills": "مهارات التواصل",
+          "projectManagementGuide": "دليل إدارة المشاريع",
+          "teamBuildingWorkshop": "ورشة بناء الفريق"
+        },
+        "types": {
+          "pdf": "PDF",
+          "document": "مستند",
+          "video": "فيديو",
+          "interactive": "تفاعلي"
+        },
+        "pathways": {
+          "allPathways": "جميع المسارات",
+          "basic": "أساسي",
+          "intermediate": "متوسط",
+          "advanced": "متقدم",
+          "basicAdvanced": "أساسي، متقدم"
+        }
+      },
+      "insights": {
+        "topResource": {
+          "title": "المورد الأعلى",
+          "downloadsThisMonth": "{{count}} تنزيل هذا الشهر"
+        },
+        "employerEngagement": {
+          "title": "تفاعل صاحب العمل",
+          "increase": "زيادة {{percent}}%",
+          "inResourceAccess": "في الوصول إلى الموارد"
+        },
+        "immersiveLearning": {
+          "title": "التعلم الغامر",
+          "moreDownloads": "{{multiplier}}× أكثر",
+          "byImmersiveLearners": "تنزيلات PDF من قبل المتعلمين الغامرين"
+        }
+      },
+      "resourceCorrelation": {
+        "title": "استخدام الموارد مقابل الإنجاز",
+        "xAxisLabel": "التنزيلات",
+        "yAxisLabel": "الإنجاز %",
+        "legendLabel": "الموارد",
+        "tooltipLabels": {
+          "downloads": "التنزيلات",
+          "completion": "الإنجاز",
+          "type": "النوع"
+        }
+      },
+      "resourceAlerts": {
+        "title": "تنبيهات الموارد",
+        "lowUsageEducators": "استخدام منخفض للموارد بين المعلمين",
+        "belowAverage": "{{percent}}% أقل من متوسط التفاعل",
+        "outdatedResources": "موارد سلامة قديمة",
+        "lastUpdated": "آخر تحديث منذ 6+ أشهر",
+        "formatPreference": "تفضيل تنسيق المورد",
+        "videoHigherEngagement": "محتوى الفيديو لديه {{multiplier}}× تفاعل أعلى"
+      }
     }
   },
   "common": {

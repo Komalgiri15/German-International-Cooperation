@@ -18,8 +18,10 @@ import {
   X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const ModuleAnalytics = () => {
+  const { t } = useTranslation();
   const [selectedModule, setSelectedModule] = useState(null);
   const [difficultyFilter, setDifficultyFilter] = useState('all');
 
@@ -27,7 +29,7 @@ const ModuleAnalytics = () => {
   const moduleData = [
     {
       id: 1,
-      name: 'Digital Literacy Basics',
+      nameKey: 'digitalLiteracy',
       icon: '💻',
       color: 'sky',
       completion: 92,
@@ -44,7 +46,7 @@ const ModuleAnalytics = () => {
     },
     {
       id: 2,
-      name: 'Financial Planning',
+      nameKey: 'financialPlanning',
       icon: '💰',
       color: 'purple',
       completion: 78,
@@ -61,7 +63,7 @@ const ModuleAnalytics = () => {
     },
     {
       id: 3,
-      name: 'Labour Rights & Compliance',
+      nameKey: 'labourRights',
       icon: '⚖️',
       color: 'sky',
       completion: 85,
@@ -78,7 +80,7 @@ const ModuleAnalytics = () => {
     },
     {
       id: 4,
-      name: 'Communication Skills',
+      nameKey: 'communicationSkills',
       icon: '💬',
       color: 'purple',
       completion: 71,
@@ -95,7 +97,7 @@ const ModuleAnalytics = () => {
     },
     {
       id: 5,
-      name: 'Workplace Safety',
+      nameKey: 'workplaceSafety',
       icon: '🛡️',
       color: 'sky',
       completion: 88,
@@ -112,7 +114,7 @@ const ModuleAnalytics = () => {
     },
     {
       id: 6,
-      name: 'Entrepreneurship Fundamentals',
+      nameKey: 'entrepreneurship',
       icon: '🚀',
       color: 'purple',
       completion: 65,
@@ -133,9 +135,9 @@ const ModuleAnalytics = () => {
   const assessmentData = [
     {
       id: 1,
-      name: 'Digital Literacy Quiz',
-      type: 'Quiz',
-      difficulty: 'Easy',
+      nameKey: 'digitalLiteracyQuiz',
+      typeKey: 'quiz',
+      difficultyKey: 'easy',
       totalAttempts: 14,
       passed: 13,
       failed: 1,
@@ -144,9 +146,9 @@ const ModuleAnalytics = () => {
     },
     {
       id: 2,
-      name: 'Financial Planning Assessment',
-      type: 'Assessment',
-      difficulty: 'Medium',
+      nameKey: 'financialPlanningAssessment',
+      typeKey: 'assessment',
+      difficultyKey: 'medium',
       totalAttempts: 10,
       passed: 8,
       failed: 2,
@@ -155,9 +157,9 @@ const ModuleAnalytics = () => {
     },
     {
       id: 3,
-      name: 'Labour Law Exam',
-      type: 'Exam',
-      difficulty: 'Hard',
+      nameKey: 'labourLawExam',
+      typeKey: 'exam',
+      difficultyKey: 'hard',
       totalAttempts: 12,
       passed: 11,
       failed: 1,
@@ -166,9 +168,9 @@ const ModuleAnalytics = () => {
     },
     {
       id: 4,
-      name: 'Communication Skills Quiz',
-      type: 'Quiz',
-      difficulty: 'Easy',
+      nameKey: 'communicationSkillsQuiz',
+      typeKey: 'quiz',
+      difficultyKey: 'easy',
       totalAttempts: 8,
       passed: 7,
       failed: 1,
@@ -177,9 +179,9 @@ const ModuleAnalytics = () => {
     },
     {
       id: 5,
-      name: 'Safety Protocol Assessment',
-      type: 'Assessment',
-      difficulty: 'Medium',
+      nameKey: 'safetyProtocolAssessment',
+      typeKey: 'assessment',
+      difficultyKey: 'medium',
       totalAttempts: 9,
       passed: 9,
       failed: 0,
@@ -210,13 +212,13 @@ const ModuleAnalytics = () => {
     return colors[color] || colors.sky;
   };
 
-  const getDifficultyColor = (difficulty) => {
+  const getDifficultyColor = (difficultyKey) => {
     const colors = {
-      Easy: 'bg-emerald-50 text-emerald-600 border-emerald-200',
-      Medium: 'bg-amber-50 text-amber-600 border-amber-200',
-      Hard: 'bg-rose-50 text-rose-600 border-rose-200'
+      easy: 'bg-emerald-50 text-emerald-600 border-emerald-200',
+      medium: 'bg-amber-50 text-amber-600 border-amber-200',
+      hard: 'bg-rose-50 text-rose-600 border-rose-200'
     };
-    return colors[difficulty] || colors.Easy;
+    return colors[difficultyKey] || colors.easy;
   };
 
   const getPassRateColor = (rate) => {
@@ -240,9 +242,9 @@ const ModuleAnalytics = () => {
             <div className="p-2 bg-gradient-to-br from-sky-500 to-purple-500 rounded-lg">
               <BarChart2 className="h-5 w-5 text-white" />
             </div>
-            <h1 className="text-3xl font-semibold text-slate-800">Module & Assessment Analytics</h1>
+            <h1 className="text-3xl font-semibold text-slate-800">{t('admin.moduleAnalytics.title')}</h1>
           </div>
-          <p className="text-sm text-slate-500">Click on any module to view detailed analytics</p>
+          <p className="text-sm text-slate-500">{t('admin.moduleAnalytics.subtitle')}</p>
         </motion.div>
 
         {/* Module Performance - Interactive Cards */}
@@ -255,9 +257,9 @@ const ModuleAnalytics = () => {
           >
             <h2 className="text-xl font-semibold text-slate-800 mb-2 flex items-center gap-2">
               <BookOpen className="h-5 w-5 text-sky-500" />
-              Module Performance
+              {t('admin.moduleAnalytics.modulePerformance.title')}
             </h2>
-            <p className="text-sm text-slate-500">Click any module card to view detailed analytics</p>
+            <p className="text-sm text-slate-500">{t('admin.moduleAnalytics.modulePerformance.subtitle')}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -287,8 +289,8 @@ const ModuleAnalytics = () => {
                           {module.icon}
             </div>
             <div>
-                          <h3 className="font-semibold text-slate-800">{module.name}</h3>
-                          <p className="text-xs text-slate-500 mt-0.5">{module.enrolled} learners</p>
+                          <h3 className="font-semibold text-slate-800">{t(`admin.moduleAnalytics.modules.${module.nameKey}`)}</h3>
+                          <p className="text-xs text-slate-500 mt-0.5">{module.enrolled} {t('admin.moduleAnalytics.modulePerformance.learners')}</p>
                         </div>
                       </div>
                       <div className={`p-2 rounded-lg ${module.color === 'sky' ? 'bg-blue-100/50' : 'bg-purple-100/50'} transition-transform hover:translate-x-1`}>
@@ -318,7 +320,7 @@ const ModuleAnalytics = () => {
                                 <div className="text-xl font-bold text-blue-900">
                                   {module.completion}%
                                 </div>
-                                <div className="text-[9px] text-slate-500 font-medium">Done</div>
+                                <div className="text-[9px] text-slate-500 font-medium">{t('admin.moduleAnalytics.modal.done')}</div>
                               </div>
                             </div>
                           </div>
@@ -330,15 +332,15 @@ const ModuleAnalytics = () => {
                     <div className="flex items-center justify-between text-xs bg-white/60 rounded-lg p-2.5 backdrop-blur-sm">
                       <div className="flex items-center gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 shadow-sm"></div>
-                        <span className="text-slate-700 font-medium">{module.completed} done</span>
+                        <span className="text-slate-700 font-medium">{module.completed} {t('admin.moduleAnalytics.modulePerformance.done')}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 shadow-sm"></div>
-                        <span className="text-slate-700 font-medium">{module.inProgress} active</span>
+                        <span className="text-slate-700 font-medium">{module.inProgress} {t('admin.moduleAnalytics.modulePerformance.active')}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-slate-300 to-slate-400 shadow-sm"></div>
-                        <span className="text-slate-700 font-medium">{module.notStarted} pending</span>
+                        <span className="text-slate-700 font-medium">{module.notStarted} {t('admin.moduleAnalytics.modulePerformance.pending')}</span>
                       </div>
                     </div>
                   </div>
@@ -393,10 +395,10 @@ const ModuleAnalytics = () => {
                       {selectedModule.icon}
                     </div>
                     <div className="min-w-0">
-                      <h2 className="text-lg font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent truncate">{selectedModule.name}</h2>
+                      <h2 className="text-lg font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent truncate">{t(`admin.moduleAnalytics.modules.${selectedModule.nameKey}`)}</h2>
                       <p className="text-sm text-slate-500 truncate flex items-center gap-2">
                         <Users className="h-3.5 w-3.5" />
-                        {selectedModule.enrolled} enrolled • {selectedModule.assessments} tests
+                        {selectedModule.enrolled} {t('admin.moduleAnalytics.modal.enrolled')} • {selectedModule.assessments} {t('admin.moduleAnalytics.modal.tests')}
                       </p>
                     </div>
                   </div>
@@ -411,10 +413,10 @@ const ModuleAnalytics = () => {
                 {/* Compact Stats Row */}
                 <div className="grid grid-cols-4 gap-3 mb-6">
                   {[
-                    { label: 'Done', value: selectedModule.completed, icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-gradient-to-br from-emerald-50 to-emerald-100/50', ring: 'ring-emerald-200/40', shadow: 'hover:shadow-emerald-200/50' },
-                    { label: 'Active', value: selectedModule.inProgress, icon: Activity, color: 'text-amber-600', bg: 'bg-gradient-to-br from-amber-50 to-amber-100/50', ring: 'ring-amber-200/40', shadow: 'hover:shadow-amber-200/50' },
-                    { label: 'Pending', value: selectedModule.notStarted, icon: AlertCircle, color: 'text-slate-600', bg: 'bg-gradient-to-br from-slate-50 to-slate-100/50', ring: 'ring-slate-200/40', shadow: 'hover:shadow-slate-200/50' },
-                    { label: 'Pass Rate', value: `${selectedModule.passRate}%`, icon: Award, color: 'text-purple-600', bg: 'bg-gradient-to-br from-purple-50 to-purple-100/50', ring: 'ring-purple-200/40', shadow: 'hover:shadow-purple-200/50' }
+                    { labelKey: 'done', value: selectedModule.completed, icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-gradient-to-br from-emerald-50 to-emerald-100/50', ring: 'ring-emerald-200/40', shadow: 'hover:shadow-emerald-200/50' },
+                    { labelKey: 'active', value: selectedModule.inProgress, icon: Activity, color: 'text-amber-600', bg: 'bg-gradient-to-br from-amber-50 to-amber-100/50', ring: 'ring-amber-200/40', shadow: 'hover:shadow-amber-200/50' },
+                    { labelKey: 'pending', value: selectedModule.notStarted, icon: AlertCircle, color: 'text-slate-600', bg: 'bg-gradient-to-br from-slate-50 to-slate-100/50', ring: 'ring-slate-200/40', shadow: 'hover:shadow-slate-200/50' },
+                    { labelKey: 'passRate', value: `${selectedModule.passRate}%`, icon: Award, color: 'text-purple-600', bg: 'bg-gradient-to-br from-purple-50 to-purple-100/50', ring: 'ring-purple-200/40', shadow: 'hover:shadow-purple-200/50' }
                   ].map((stat, i) => (
                     <motion.div 
                       key={i} 
@@ -427,7 +429,7 @@ const ModuleAnalytics = () => {
                         <stat.icon className={`h-4 w-4 ${stat.color}`} />
                       </div>
                       <p className="text-base font-bold text-slate-800 leading-tight">{stat.value}</p>
-                      <p className="text-[10px] text-slate-600 leading-tight mt-1 font-medium uppercase tracking-wide">{stat.label}</p>
+                      <p className="text-[10px] text-slate-600 leading-tight mt-1 font-medium uppercase tracking-wide">{t(`admin.moduleAnalytics.modal.${stat.labelKey}`)}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -437,8 +439,8 @@ const ModuleAnalytics = () => {
                   {/* Left: Performance Gauges */}
                   <div className="space-y-3">
                     {[
-                      { label: 'Completion', value: selectedModule.completion, color: '#10b981', gradient: 'from-emerald-400 to-emerald-600', bg: 'from-emerald-50 to-emerald-100/50' },
-                      { label: 'Avg Score', value: selectedModule.avgScore, color: '#3b82f6', gradient: 'from-blue-400 to-blue-600', bg: 'from-blue-50 to-blue-100/50' }
+                      { labelKey: 'completion', value: selectedModule.completion, color: '#10b981', gradient: 'from-emerald-400 to-emerald-600', bg: 'from-emerald-50 to-emerald-100/50' },
+                      { labelKey: 'avgScore', value: selectedModule.avgScore, color: '#3b82f6', gradient: 'from-blue-400 to-blue-600', bg: 'from-blue-50 to-blue-100/50' }
                     ].map((metric, i) => (
                       <motion.div 
                         key={i} 
@@ -466,7 +468,7 @@ const ModuleAnalytics = () => {
                           </div>
                         </div>
                         <div className="flex-1">
-                          <span className="text-sm font-semibold text-slate-700">{metric.label}</span>
+                          <span className="text-sm font-semibold text-slate-700">{t(`admin.moduleAnalytics.modal.${metric.labelKey}`)}</span>
                           <div className="h-2 bg-white/60 rounded-full mt-2 overflow-hidden shadow-inner">
                             <div 
                               className={`h-full bg-gradient-to-r ${metric.gradient} rounded-full transition-all duration-1000`}
@@ -488,7 +490,7 @@ const ModuleAnalytics = () => {
                         <Clock className="h-5 w-5 text-sky-600" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs text-slate-600 leading-tight font-medium">Average Time</p>
+                        <p className="text-xs text-slate-600 leading-tight font-medium">{t('admin.moduleAnalytics.modal.averageTime')}</p>
                         <p className="text-lg font-bold bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent leading-tight mt-1">{selectedModule.avgTime}</p>
                       </div>
                     </motion.div>
@@ -505,7 +507,7 @@ const ModuleAnalytics = () => {
                     >
                       <h3 className="text-xs font-bold text-slate-700 mb-3 uppercase tracking-wide flex items-center gap-2">
                         <PieChart className="h-3.5 w-3.5 text-slate-500" />
-                        Status Split
+                        {t('admin.moduleAnalytics.modal.statusSplit')}
                       </h3>
                       <div className="flex items-center gap-3">
                         {(() => {
@@ -539,20 +541,20 @@ const ModuleAnalytics = () => {
                                 <div className="absolute inset-0 flex items-center justify-center">
                                   <div className="text-center">
                                     <div className="text-sm font-bold text-slate-800">{total}</div>
-                                    <div className="text-[9px] text-slate-500">Total</div>
+                                    <div className="text-[9px] text-slate-500">{t('admin.moduleAnalytics.modal.total')}</div>
                                   </div>
                                 </div>
                               </div>
                               <div className="flex-1 space-y-1.5 min-w-0">
                                 {[
-                                  { label: 'Done', value: selectedModule.completed, color: 'bg-emerald-500', percent: completedPercent.toFixed(1) },
-                                  { label: 'Active', value: selectedModule.inProgress, color: 'bg-amber-400', percent: activePercent.toFixed(1) },
-                                  { label: 'Pending', value: selectedModule.notStarted, color: 'bg-slate-400', percent: ((selectedModule.notStarted / total) * 100).toFixed(1) }
+                                  { labelKey: 'done', value: selectedModule.completed, color: 'bg-emerald-500', percent: completedPercent.toFixed(1) },
+                                  { labelKey: 'active', value: selectedModule.inProgress, color: 'bg-amber-400', percent: activePercent.toFixed(1) },
+                                  { labelKey: 'pending', value: selectedModule.notStarted, color: 'bg-slate-400', percent: ((selectedModule.notStarted / total) * 100).toFixed(1) }
                                 ].map((item, i) => (
                                   <div key={i} className="flex items-center justify-between text-xs gap-2">
                                     <div className="flex items-center gap-1.5 min-w-0">
                                       <div className={`w-2 h-2 rounded-full ${item.color} flex-shrink-0 shadow-sm`}></div>
-                                      <span className="text-slate-600 truncate text-[11px]">{item.label}</span>
+                                      <span className="text-slate-600 truncate text-[11px]">{t(`admin.moduleAnalytics.modal.${item.labelKey}`)}</span>
                                     </div>
                                     <div className="flex items-center gap-1.5 flex-shrink-0">
                                       <span className="font-bold text-slate-800">{item.value}</span>
@@ -576,13 +578,13 @@ const ModuleAnalytics = () => {
                     >
                       <h3 className="text-xs font-bold text-slate-700 mb-3 uppercase tracking-wide flex items-center gap-2">
                         <BarChart2 className="h-3.5 w-3.5 text-slate-500" />
-                        Score Range
+                        {t('admin.moduleAnalytics.modal.scoreRange')}
                       </h3>
                       <div className="flex items-end justify-around h-28 gap-3">
                         {[
-                          { label: 'Top', value: selectedModule.topScore, color: 'from-amber-400 to-amber-500' },
-                          { label: 'Avg', value: selectedModule.avgScore, color: 'from-blue-400 to-blue-500' },
-                          { label: 'Low', value: selectedModule.lowestScore, color: 'from-slate-400 to-slate-500' }
+                          { labelKey: 'top', value: selectedModule.topScore, color: 'from-amber-400 to-amber-500' },
+                          { labelKey: 'avg', value: selectedModule.avgScore, color: 'from-blue-400 to-blue-500' },
+                          { labelKey: 'low', value: selectedModule.lowestScore, color: 'from-slate-400 to-slate-500' }
                         ].map((item, i) => (
                           <div key={i} className="flex flex-col items-center flex-1 gap-1.5 group">
                             <div className="text-xs mb-0.5">{item.icon}</div>
@@ -593,7 +595,7 @@ const ModuleAnalytics = () => {
                             >
                               <div className="absolute inset-0 bg-white/20"></div>
                             </div>
-                            <span className="text-[11px] text-slate-600 font-medium">{item.label}</span>
+                            <span className="text-[11px] text-slate-600 font-medium">{t(`admin.moduleAnalytics.modal.${item.labelKey}`)}</span>
                           </div>
                         ))}
                       </div>
@@ -617,9 +619,9 @@ const ModuleAnalytics = () => {
             <div>
               <h2 className="text-xl font-semibold text-slate-800 mb-2 flex items-center gap-2">
                 <PieChart className="h-5 w-5 text-purple-500" />
-                Assessment Performance
+                {t('admin.moduleAnalytics.assessmentPerformance.title')}
               </h2>
-              <p className="text-sm text-slate-500">Quiz pass rates and difficulty analysis</p>
+              <p className="text-sm text-slate-500">{t('admin.moduleAnalytics.assessmentPerformance.subtitle')}</p>
             </div>
             {/* Filter */}
             <div className="relative">
@@ -629,10 +631,10 @@ const ModuleAnalytics = () => {
                 onChange={(e) => setDifficultyFilter(e.target.value)}
                 className="pl-8 pr-8 py-2 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-300 transition-all appearance-none cursor-pointer"
               >
-                <option value="all">All Difficulty</option>
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
+                <option value="all">{t('admin.moduleAnalytics.assessmentPerformance.allDifficulty')}</option>
+                <option value="easy">{t('admin.moduleAnalytics.difficulty.easy')}</option>
+                <option value="medium">{t('admin.moduleAnalytics.difficulty.medium')}</option>
+                <option value="hard">{t('admin.moduleAnalytics.difficulty.hard')}</option>
               </select>
             </div>
           </motion.div>
@@ -640,7 +642,7 @@ const ModuleAnalytics = () => {
           {/* Assessment Blocks */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {assessmentData
-              .filter(a => difficultyFilter === 'all' || a.difficulty === difficultyFilter)
+              .filter(a => difficultyFilter === 'all' || a.difficultyKey === difficultyFilter)
               .map((assessment, index) => (
                 <motion.div
                   key={assessment.id}
@@ -652,11 +654,11 @@ const ModuleAnalytics = () => {
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <h3 className="text-sm font-medium text-slate-800 mb-1">{assessment.name}</h3>
+                      <h3 className="text-sm font-medium text-slate-800 mb-1">{t(`admin.moduleAnalytics.assessments.${assessment.nameKey}`)}</h3>
                       <div className="flex items-center gap-2">
-                        <span className="text-xs text-slate-500">{assessment.type}</span>
-                        <span className={`text-xs px-2 py-0.5 rounded border ${getDifficultyColor(assessment.difficulty)}`}>
-                          {assessment.difficulty}
+                        <span className="text-xs text-slate-500">{t(`admin.moduleAnalytics.assessmentTypes.${assessment.typeKey}`)}</span>
+                        <span className={`text-xs px-2 py-0.5 rounded border ${getDifficultyColor(assessment.difficultyKey)}`}>
+                          {t(`admin.moduleAnalytics.difficulty.${assessment.difficultyKey}`)}
                         </span>
                       </div>
                     </div>
@@ -665,13 +667,13 @@ const ModuleAnalytics = () => {
                   {/* Pass Rate Circle */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex-1">
-                      <div className="text-xs text-slate-500 mb-1">Pass Rate</div>
+                      <div className="text-xs text-slate-500 mb-1">{t('admin.moduleAnalytics.assessmentPerformance.passRate')}</div>
                       <div className={`text-2xl font-semibold ${getPassRateColor(assessment.passRate)}`}>
                         {assessment.passRate}%
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-xs text-slate-500 mb-1">Avg Score</div>
+                      <div className="text-xs text-slate-500 mb-1">{t('admin.moduleAnalytics.assessmentPerformance.avgScore')}</div>
                       <div className="text-2xl font-semibold text-slate-700">
                         {assessment.avgScore}%
             </div>
@@ -681,7 +683,7 @@ const ModuleAnalytics = () => {
                   {/* Pass/Fail Bar */}
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-xs text-slate-500">
-                      <span>{assessment.totalAttempts} total attempts</span>
+                      <span>{assessment.totalAttempts} {t('admin.moduleAnalytics.assessmentPerformance.totalAttempts')}</span>
                     </div>
                     <div className="h-3 bg-slate-50 rounded-full overflow-hidden flex">
                       <div 
@@ -694,8 +696,8 @@ const ModuleAnalytics = () => {
                       />
                     </div>
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-emerald-600 font-medium">{assessment.passed} passed</span>
-                      <span className="text-rose-600 font-medium">{assessment.failed} failed</span>
+                      <span className="text-emerald-600 font-medium">{assessment.passed} {t('admin.moduleAnalytics.assessmentPerformance.passed')}</span>
+                      <span className="text-rose-600 font-medium">{assessment.failed} {t('admin.moduleAnalytics.assessmentPerformance.failed')}</span>
                     </div>
                   </div>
                 </motion.div>

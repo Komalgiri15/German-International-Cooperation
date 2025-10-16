@@ -758,6 +758,293 @@
           "learner15": "Julia Zimmermann"
         }
       }
+    },
+    "moduleAnalytics": {
+      "title": "Modul- & Bewertungsanalyse",
+      "subtitle": "Klicken Sie auf ein Modul, um detaillierte Analysen anzuzeigen",
+      "modulePerformance": {
+        "title": "Modulleistung",
+        "subtitle": "Klicken Sie auf eine Modulkarte, um detaillierte Analysen anzuzeigen",
+        "learners": "Lernende",
+        "done": "erledigt",
+        "active": "aktiv",
+        "pending": "ausstehend"
+      },
+      "modules": {
+        "digitalLiteracy": "Grundlagen der digitalen Kompetenz",
+        "financialPlanning": "Finanzplanung",
+        "labourRights": "Arbeitsrechte & Compliance",
+        "communicationSkills": "Kommunikationsfähigkeiten",
+        "workplaceSafety": "Arbeitssicherheit",
+        "entrepreneurship": "Grundlagen des Unternehmertums"
+      },
+      "modal": {
+        "enrolled": "eingeschrieben",
+        "tests": "Tests",
+        "done": "Erledigt",
+        "active": "Aktiv",
+        "pending": "Ausstehend",
+        "passRate": "Bestehensquote",
+        "completion": "Abschluss",
+        "avgScore": "Durchschnittsnote",
+        "averageTime": "Durchschnittliche Zeit",
+        "statusSplit": "Status-Aufteilung",
+        "total": "Gesamt",
+        "scoreRange": "Punktebereich",
+        "top": "Top",
+        "avg": "Durchschn.",
+        "low": "Niedrig"
+      },
+      "assessmentPerformance": {
+        "title": "Bewertungsleistung",
+        "subtitle": "Quiz-Bestehensraten und Schwierigkeitsanalyse",
+        "allDifficulty": "Alle Schwierigkeiten",
+        "passRate": "Bestehensquote",
+        "avgScore": "Durchschnittsnote",
+        "totalAttempts": "Gesamtversuche",
+        "passed": "bestanden",
+        "failed": "nicht bestanden"
+      },
+      "assessments": {
+        "digitalLiteracyQuiz": "Quiz zur digitalen Kompetenz",
+        "financialPlanningAssessment": "Finanzplanungsbewertung",
+        "labourLawExam": "Arbeitsrechtsprüfung",
+        "communicationSkillsQuiz": "Quiz zu Kommunikationsfähigkeiten",
+        "safetyProtocolAssessment": "Sicherheitsprotokollbewertung"
+      },
+      "assessmentTypes": {
+        "quiz": "Quiz",
+        "assessment": "Bewertung",
+        "exam": "Prüfung"
+      },
+      "difficulty": {
+        "easy": "Einfach",
+        "medium": "Mittel",
+        "hard": "Schwer"
+      }
+    },
+    "engagement": {
+      "title": "Engagement & Gamification",
+      "subtitle": "Überwachen Sie Engagement und Erfolge",
+      "kpis": {
+        "activeLearnersToday": "Heute aktive Lernende",
+        "avgTimeSpent": "Durchschn. verbrachte Zeit",
+        "totalBadges": "Gesamte Abzeichen",
+        "avgPoints": "Durchschn. Punkte"
+      },
+      "contentInteraction": {
+        "title": "Inhaltsinteraktions-Übersicht",
+        "thisWeek": "Diese Woche",
+        "thisMonth": "Dieser Monat",
+        "thisQuarter": "Dieses Quartal",
+        "days": {
+          "mon": "Mo",
+          "tue": "Di",
+          "wed": "Mi",
+          "thu": "Do",
+          "fri": "Fr",
+          "sat": "Sa",
+          "sun": "So"
+        },
+        "types": {
+          "videos": "Videos",
+          "immersive": "Immersiv",
+          "gamified": "Spielerisch",
+          "resources": "Ressourcen"
+        }
+      },
+      "leaderboard": {
+        "title": "Bestenliste & Belohnungen",
+        "rank": "Rang",
+        "name": "Name",
+        "points": "Punkte",
+        "badges": "Abzeichen",
+        "pathway": "Pfad",
+        "pathways": {
+          "advanced": "Fortgeschritten",
+          "intermediate": "Mittelstufe",
+          "basic": "Grundstufe"
+        }
+      },
+      "engagementMetrics": {
+        "title": "Engagement nach Lernpfad",
+        "currentPeriod": "Aktueller Zeitraum",
+        "previousPeriod": "Vorheriger Zeitraum",
+        "metrics": {
+          "videoCompletion": "Video-Abschluss",
+          "quizPerformance": "Quiz-Leistung",
+          "discussion": "Diskussion",
+          "assignments": "Aufgaben",
+          "peerReview": "Peer-Review"
+        }
+      },
+      "badgeDistribution": {
+        "title": "Abzeichen-Verteilung",
+        "levels": {
+          "beginner": "Anfänger",
+          "intermediate": "Mittelstufe",
+          "advanced": "Fortgeschritten",
+          "expert": "Experte"
+        }
+      },
+      "weeklyProgress": {
+        "title": "Wöchentliche Fortschrittsübersicht",
+        "week1": "Woche 1",
+        "week2": "Woche 2",
+        "week3": "Woche 3",
+        "week4": "Woche 4",
+        "completion": "Abschluss"
+      },
+      "topEngaged": {
+        "title": "Top 3 engagierte Lernende",
+        "badgesEarned": "{{count}} Abzeichen diese Woche verdient"
+      },
+      "lowEngagement": {
+        "title": "Niedrige Engagement-Warnungen",
+        "inactive7Days": "{{count}} Benutzer seit 7+ Tagen inaktiv",
+        "incompleteModules": "{{count}} Benutzer mit unvollständigen Modulen",
+        "lowQuizCompletion": "Niedrige Quiz-Abschlussrate",
+        "recommendations": {
+          "sendReminder": "Empfohlen: Erinnerungsbenachrichtigung senden",
+          "scheduleFollowup": "Empfohlen: Follow-up planen",
+          "reviewDifficulty": "Erwägen Sie eine Überprüfung des Schwierigkeitsgrads"
+        }
+      },
+      "learners": {
+        "learner1": "Hans Müller",
+        "learner2": "Anna Schmidt",
+        "learner3": "Sophie Weber"
+      }
+    },
+    "stakeholder": {
+      "title": "Stakeholder-Ressourcen",
+      "subtitle": "Überwachen Sie Ressourcennutzung und Stakeholder-Engagement",
+      "kpis": {
+        "totalStakeholders": "Gesamte Stakeholder",
+        "activeUsers": "Aktive Benutzer",
+        "avgCompletion": "Durchschn. Abschluss",
+        "totalDownloads": "Gesamte Downloads"
+      },
+      "performanceByType": {
+        "title": "Leistung nach Stakeholder-Typ",
+        "tabs": {
+          "employer": "Arbeitgeber",
+          "educator": "Pädagoge",
+          "learner": "Lernender"
+        },
+        "groups": {
+          "groupA": "Gruppe A",
+          "groupB": "Gruppe B",
+          "groupC": "Gruppe C"
+        },
+        "chartLabels": {
+          "completion": "Abschluss %",
+          "avgScore": "Durchschn. Punktzahl",
+          "engagement": "Engagement"
+        }
+      },
+      "engagementMetrics": {
+        "resourceAccess": "Ressourcenzugriff",
+        "completionRate": "Abschlussrate",
+        "interaction": "Interaktion",
+        "feedback": "Feedback",
+        "sharing": "Teilen",
+        "engagement": "Engagement"
+      },
+      "resourceType": {
+        "title": "Ressourcentyp-Verteilung",
+        "types": {
+          "pdfs": "PDFs",
+          "videos": "Videos",
+          "interactive": "Interaktiv",
+          "documents": "Dokumente",
+          "other": "Sonstige"
+        }
+      },
+      "resourceTrends": {
+        "title": "Ressourcennutzungstrends",
+        "months": {
+          "jan": "Jan",
+          "feb": "Feb",
+          "mar": "Mär",
+          "apr": "Apr",
+          "may": "Mai"
+        },
+        "labels": {
+          "downloads": "Downloads",
+          "views": "Aufrufe",
+          "shares": "Freigaben"
+        }
+      },
+      "resourceTable": {
+        "title": "Ressourcen-Downloads und -Nutzung",
+        "headers": {
+          "resourceName": "Ressourcenname",
+          "type": "Typ",
+          "downloads": "Downloads",
+          "lastAccess": "Letzter Zugriff",
+          "usedByPathway": "Verwendet von Pfad"
+        },
+        "resources": {
+          "digitalSafetyToolkit": "Digitales Sicherheits-Toolkit",
+          "workplaceRightsGuide": "Leitfaden zu Arbeitsplatzrechten",
+          "safetyTrainingVideo": "Sicherheitsschulungsvideo",
+          "employeeHandbook": "Mitarbeiterhandbuch",
+          "leadershipTraining": "Führungstraining",
+          "communicationSkills": "Kommunikationsfähigkeiten",
+          "projectManagementGuide": "Projektmanagement-Leitfaden",
+          "teamBuildingWorkshop": "Teambuilding-Workshop"
+        },
+        "types": {
+          "pdf": "PDF",
+          "document": "Dokument",
+          "video": "Video",
+          "interactive": "Interaktiv"
+        },
+        "pathways": {
+          "allPathways": "Alle Pfade",
+          "basic": "Grundstufe",
+          "intermediate": "Mittelstufe",
+          "advanced": "Fortgeschritten",
+          "basicAdvanced": "Grundstufe, Fortgeschritten"
+        }
+      },
+      "insights": {
+        "topResource": {
+          "title": "Top-Ressource",
+          "downloadsThisMonth": "{{count}} Downloads diesen Monat"
+        },
+        "employerEngagement": {
+          "title": "Arbeitgeber-Engagement",
+          "increase": "{{percent}}% Zunahme",
+          "inResourceAccess": "beim Ressourcenzugriff"
+        },
+        "immersiveLearning": {
+          "title": "Immersives Lernen",
+          "moreDownloads": "{{multiplier}}× Mehr",
+          "byImmersiveLearners": "PDF-Downloads durch immersive Lernende"
+        }
+      },
+      "resourceCorrelation": {
+        "title": "Ressourcennutzung vs. Abschluss",
+        "xAxisLabel": "Downloads",
+        "yAxisLabel": "Abschluss %",
+        "legendLabel": "Ressourcen",
+        "tooltipLabels": {
+          "downloads": "Downloads",
+          "completion": "Abschluss",
+          "type": "Typ"
+        }
+      },
+      "resourceAlerts": {
+        "title": "Ressourcen-Warnungen",
+        "lowUsageEducators": "Geringe Ressourcennutzung bei Pädagogen",
+        "belowAverage": "{{percent}}% unter durchschnittlichem Engagement",
+        "outdatedResources": "Veraltete Sicherheitsressourcen",
+        "lastUpdated": "Zuletzt aktualisiert vor 6+ Monaten",
+        "formatPreference": "Ressourcenformat-Präferenz",
+        "videoHigherEngagement": "Videoinhalte haben {{multiplier}}× höheres Engagement"
+      }
     }
   },
   "common": {
