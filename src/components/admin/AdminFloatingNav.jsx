@@ -1,12 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { BarChart3, BookOpen, Trophy, Users, Calendar } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 export function AdminFloatingNav() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isVisible, setIsVisible] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  // Check if we're in admin portal
+  const isAdminPortal = location.pathname.startsWith('/admin-portal');
+
+  useEffect(() => {
+    if (!isAdminPortal) {
+      setIsVisible(false);
+      return;
+    }
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show nav when scrolling down past 100px
+      // Hide when at top (less than 50px)
+      if (currentScrollY < 50) {
+        setIsVisible(false);
+      } else if (currentScrollY > 100) {
+        // Show when scrolling down or when past threshold
+        if (currentScrollY > lastScrollY || currentScrollY > 100) {
+          setIsVisible(true);
+        }
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Initial check
+    handleScroll();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY, isAdminPortal]);
+
+  // Don't render if not in admin portal
+  if (!isAdminPortal) {
+    return null;
+  }
 
   const navItems = [
     {
@@ -49,56 +94,75 @@ export function AdminFloatingNav() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <motion.div 
-      className="fixed bottom-6 left-0 right-0 z-50 flex justify-center px-4"
-      initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-    >
-      <div className="bg-white rounded-xl shadow-xl border border-gray-200 p-2 backdrop-blur-lg">
-        <div className="flex items-center justify-center gap-1.5">
-          {navItems.map((item, index) => (
-            <motion.button
-              key={item.id}
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: index * 0.1 }}
-              onClick={() => navigate(item.path)}
-              className={cn(
-                "group relative flex flex-col items-center gap-1 p-2 rounded-lg transition-all duration-300",
-                isActive(item.path)
-                  ? "bg-gradient-to-br " + item.color + " shadow-md"
-                  : "hover:bg-gray-50"
-              )}
-              title={item.label}
-            >
-              <div className={cn(
-                "relative",
-                isActive(item.path) ? "text-white" : "text-gray-600 group-hover:text-gray-900"
-              )}>
-                <item.icon className="h-4 w-4" />
-              </div>
-              <span className={cn(
-                "text-[10px] font-semibold whitespace-nowrap",
-                isActive(item.path) ? "text-white" : "text-gray-600 group-hover:text-gray-900"
-              )}>
-                {item.label}
-              </span>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div 
+          className="fixed bottom-6 left-0 right-0 z-50 flex justify-center px-4"
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 100, opacity: 0 }}
+          transition={{ 
+            duration: 0.3, 
+            ease: "easeInOut",
+            opacity: { duration: 0.2 }
+          }}
+        >
+          <div className="bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-gray-200/50 p-2.5 ring-1 ring-gray-900/5">
+            <div className="flex items-center justify-center gap-1.5">
+              {navItems.map((item, index) => (
+                <motion.button
+                  key={item.id}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ 
+                    delay: index * 0.05,
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 15
+                  }}
+                  onClick={() => navigate(item.path)}
+                  className={cn(
+                    "group relative flex flex-col items-center gap-1 p-2.5 rounded-xl transition-all duration-300",
+                    isActive(item.path)
+                      ? "bg-gradient-to-br " + item.color + " shadow-lg scale-105"
+                      : "hover:bg-gray-100 hover:scale-105"
+                  )}
+                  title={item.label}
+                >
+                  <div className={cn(
+                    "relative transition-transform group-hover:scale-110",
+                    isActive(item.path) ? "text-white" : "text-gray-600 group-hover:text-gray-900"
+                  )}>
+                    <item.icon className="h-5 w-5" />
+                  </div>
+                  <span className={cn(
+                    "text-[10px] font-semibold whitespace-nowrap transition-all",
+                    isActive(item.path) ? "text-white" : "text-gray-600 group-hover:text-gray-900"
+                  )}>
+                    {item.label}
+                  </span>
 
-              {/* Active indicator */}
-              {isActive(item.path) && (
-                <motion.div
-                  layoutId="activeTab"
-                  className="absolute inset-0 bg-gradient-to-br rounded-lg -z-10"
-                  style={{ background: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }}
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                />
-              )}
-            </motion.button>
-          ))}
-        </div>
-      </div>
-    </motion.div>
+                  {/* Active indicator */}
+                  {isActive(item.path) && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute inset-0 bg-gradient-to-br rounded-xl -z-10"
+                      style={{ background: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }}
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+
+                  {/* Hover glow effect */}
+                  {!isActive(item.path) && (
+                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-gray-50 to-gray-100 -z-10" />
+                  )}
+                </motion.button>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
 

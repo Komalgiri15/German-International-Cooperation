@@ -1045,6 +1045,135 @@
         "formatPreference": "تفضيل تنسيق المورد",
         "videoHigherEngagement": "محتوى الفيديو لديه {{multiplier}}× تفاعل أعلى"
       }
+    },
+    "timeline": {
+      "title": "الجدول الزمني والتقارير",
+      "subtitle": "راقب التنبيهات والمعالم وقم بإنشاء تقارير شاملة",
+      "kpis": {
+        "activeAlerts": "التنبيهات النشطة",
+        "atRiskLearners": "المتعلمون المعرضون للخطر",
+        "upcomingMilestones": "المعالم القادمة",
+        "completedMilestones": "المعالم المكتملة"
+      },
+      "alerts": {
+        "title": "التنبيهات والإشعارات",
+        "subtitle": "التنبيهات الحرجة والإشعارات المهمة التي تتطلب الاهتمام",
+        "affectedLearners": "المتعلمون المتأثرون",
+        "noAlerts": "لا توجد تنبيهات للعرض",
+        "filters": {
+          "all": "جميع التنبيهات",
+          "critical": "حرج",
+          "warning": "تحذير",
+          "info": "معلومات"
+        },
+        "items": {
+          "lowEngagement": "تنبيه انخفاض التفاعل",
+          "lowEngagementDesc": "5 متعلمين لم يسجلوا الدخول لأكثر من 7 أيام. يوصى بالتدخل الفوري.",
+          "moduleDropout": "خطر التسرب من الوحدة",
+          "moduleDropoutDesc": "3 متعلمين تركوا وحدة 'التخطيط المالي' دون إكمال. مطلوب متابعة.",
+          "assessmentDue": "التقييمات مستحقة قريباً",
+          "assessmentDueDesc": "8 متعلمين لديهم تقييمات معلقة مستحقة خلال 48 ساعة.",
+          "lowQuizScores": "درجات منخفضة في الاختبار",
+          "lowQuizScoresDesc": "4 متعلمين حصلوا على أقل من 60٪ في الاختبار الأخير. يحتاجون إلى دعم إضافي.",
+          "courseCompletion": "إكمال الدورة",
+          "courseCompletionDesc": "3 متعلمين أكملوا بنجاح دورة 'المعرفة الرقمية'.",
+          "newModuleRelease": "إصدار وحدة جديدة",
+          "newModuleReleaseDesc": "تم نشر وحدة 'السلامة في مكان العمل' وهي الآن متاحة لجميع المتعلمين."
+        }
+      },
+      "alertModal": {
+        "description": "الوصف",
+        "affectedLearners": "المتعلمون المتأثرون",
+        "recommendedActions": "الإجراءات الموصى بها",
+        "action1": "إرسال رسائل بريد إلكتروني تذكيرية مخصصة للمتعلمين المتأثرين",
+        "action2": "جدولة جلسات متابعة فردية",
+        "action3": "مراجعة صعوبة المحتوى وتعديله إذا لزم الأمر",
+        "takeAction": "اتخاذ إجراء",
+        "dismiss": "تجاهل"
+      },
+      "milestones": {
+        "title": "متتبع الجدول الزمني والمعالم",
+        "subtitle": "تتبع إطلاق الحملة وجداول إصدار الوحدات",
+        "startDate": "تاريخ البدء",
+        "endDate": "تاريخ الانتهاء",
+        "owner": "المسؤول",
+        "statuses": {
+          "completed": "مكتمل",
+          "inProgress": "قيد التنفيذ",
+          "upcoming": "قادم",
+          "delayed": "متأخر"
+        },
+        "items": {
+          "digitalLiteracyLaunch": "إطلاق وحدة المعرفة الرقمية",
+          "labourRightsModule": "طرح وحدة حقوق العمال",
+          "communicationSkills": "تدريب مهارات التواصل",
+          "financialPlanning": "دورة التخطيط المالي",
+          "workplaceSafety": "حملة السلامة في مكان العمل",
+          "entrepreneurship": "إطلاق برنامج ريادة الأعمال"
+        }
+      },
+      "export": {
+        "title": "تصدير التقارير المخصصة",
+        "subtitle": "إنشاء وتنزيل تقارير برنامج شاملة",
+        "selectFormat": "اختر التنسيق",
+        "formats": {
+          "pdf": "PDF",
+          "excel": "Excel",
+          "csv": "CSV"
+        },
+        "reportTypes": {
+          "programOverview": "تقرير نظرة عامة على البرنامج",
+          "learnerProgress": "تقرير تقدم المتعلمين",
+          "moduleAnalytics": "تقرير تحليلات الوحدة",
+          "engagementMetrics": "تقرير مقاييس التفاعل",
+          "alertsSummary": "ملخص التنبيهات",
+          "milestonesReport": "تقرير المعالم والجدول الزمني"
+        },
+        "reportDescriptions": {
+          "programOverview": "نظرة عامة شاملة على مؤشرات الأداء الرئيسية ومقاييس الأداء للبرنامج",
+          "learnerProgress": "تتبع تقدم مفصل لجميع المتعلمين عبر الوحدات",
+          "moduleAnalytics": "تحليل معمق لإكمال الوحدة ودرجات التقييم",
+          "engagementMetrics": "إحصائيات التفاعل والألعاب واتجاهات النشاط",
+          "alertsSummary": "ملخص لجميع التنبيهات الحرجة والإشعارات",
+          "milestonesReport": "تتبع الجدول الزمني مع حالة إكمال المعالم"
+        },
+        "exportingMessage": "جاري تصدير {{report}} بتنسيق {{format}}...",
+        "exportAll": "تصدير جميع التقارير"
+      },
+      "charts": {
+        "alertTrends": "اتجاهات التنبيهات عبر الزمن",
+        "alertTrendsDesc": "تتبع تكرار التنبيهات وتغيرات الشدة",
+        "engagementTrends": "اتجاهات تفاعل المتعلمين",
+        "engagementTrendsDesc": "مراقبة نشاط المتعلمين ومستويات المخاطر",
+        "alertDistribution": "توزيع التنبيهات",
+        "milestoneStatus": "حالة المعالم",
+        "riskAnalysis": "تحليل المخاطر",
+        "currentPeriod": "الفترة الحالية",
+        "totalMilestones": "{{count}} إجمالي المعالم",
+        "currentVsTarget": "الحالي مقابل المستهدف",
+        "current": "الحالي",
+        "target": "المستهدف",
+        "active": "نشط",
+        "atRisk": "في خطر",
+        "inactive": "غير نشط",
+        "week1": "الأسبوع 1",
+        "week2": "الأسبوع 2",
+        "week3": "الأسبوع 3",
+        "week4": "الأسبوع 4",
+        "months": {
+          "jan": "يناير",
+          "feb": "فبراير",
+          "mar": "مارس",
+          "apr": "أبريل"
+        },
+        "riskCategories": {
+          "engagement": "التفاعل",
+          "completion": "الإكمال",
+          "assessment": "التقييم",
+          "attendance": "الحضور",
+          "participation": "المشاركة"
+        }
+      }
     }
   },
   "common": {

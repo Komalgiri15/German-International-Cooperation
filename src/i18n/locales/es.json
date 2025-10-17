@@ -34,6 +34,137 @@
     },
     "noResults": "No se encontraron recursos",
     "loading": "Cargando recursos..."
+  },
+  "admin": {
+    "timeline": {
+      "title": "Línea de Tiempo e Informes",
+      "subtitle": "Supervise alertas, hitos y genere informes completos",
+      "kpis": {
+        "activeAlerts": "Alertas Activas",
+        "atRiskLearners": "Estudiantes en Riesgo",
+        "upcomingMilestones": "Hitos Próximos",
+        "completedMilestones": "Hitos Completados"
+      },
+      "alerts": {
+        "title": "Alertas y Notificaciones",
+        "subtitle": "Alertas críticas y notificaciones importantes que requieren atención",
+        "affectedLearners": "estudiantes afectados",
+        "noAlerts": "No hay alertas para mostrar",
+        "filters": {
+          "all": "Todas las Alertas",
+          "critical": "Crítico",
+          "warning": "Advertencia",
+          "info": "Info"
+        },
+        "items": {
+          "lowEngagement": "Alerta de Bajo Compromiso",
+          "lowEngagementDesc": "5 estudiantes no han iniciado sesión durante más de 7 días. Se recomienda intervención inmediata.",
+          "moduleDropout": "Riesgo de Abandono del Módulo",
+          "moduleDropoutDesc": "3 estudiantes abandonaron el módulo 'Planificación Financiera' sin completarlo. Se requiere seguimiento.",
+          "assessmentDue": "Evaluaciones Próximas",
+          "assessmentDueDesc": "8 estudiantes tienen evaluaciones pendientes con vencimiento en 48 horas.",
+          "lowQuizScores": "Puntuaciones Bajas en Cuestionarios",
+          "lowQuizScoresDesc": "4 estudiantes obtuvieron menos del 60% en el cuestionario reciente. Se necesita apoyo adicional.",
+          "courseCompletion": "Finalización del Curso",
+          "courseCompletionDesc": "3 estudiantes completaron exitosamente el curso 'Alfabetización Digital'.",
+          "newModuleRelease": "Nuevo Lanzamiento de Módulo",
+          "newModuleReleaseDesc": "El módulo 'Seguridad en el Lugar de Trabajo' ha sido publicado y ahora está disponible para todos los estudiantes."
+        }
+      },
+      "alertModal": {
+        "description": "Descripción",
+        "affectedLearners": "Estudiantes Afectados",
+        "recommendedActions": "Acciones Recomendadas",
+        "action1": "Enviar correos de recordatorio personalizados a los estudiantes afectados",
+        "action2": "Programar sesiones de seguimiento individuales",
+        "action3": "Revisar la dificultad del contenido y ajustar si es necesario",
+        "takeAction": "Tomar Acción",
+        "dismiss": "Descartar"
+      },
+      "milestones": {
+        "title": "Seguimiento de Línea de Tiempo e Hitos",
+        "subtitle": "Realice un seguimiento del lanzamiento de campañas y los horarios de lanzamiento de módulos",
+        "startDate": "Fecha de Inicio",
+        "endDate": "Fecha de Fin",
+        "owner": "Responsable",
+        "statuses": {
+          "completed": "Completado",
+          "inProgress": "En Progreso",
+          "upcoming": "Próximo",
+          "delayed": "Retrasado"
+        },
+        "items": {
+          "digitalLiteracyLaunch": "Lanzamiento del Módulo de Alfabetización Digital",
+          "labourRightsModule": "Despliegue del Módulo de Derechos Laborales",
+          "communicationSkills": "Capacitación en Habilidades de Comunicación",
+          "financialPlanning": "Curso de Planificación Financiera",
+          "workplaceSafety": "Campaña de Seguridad en el Lugar de Trabajo",
+          "entrepreneurship": "Lanzamiento del Programa de Emprendimiento"
+        }
+      },
+      "export": {
+        "title": "Exportación de Informes Personalizados",
+        "subtitle": "Genere y descargue informes de programa completos",
+        "selectFormat": "Seleccionar Formato",
+        "formats": {
+          "pdf": "PDF",
+          "excel": "Excel",
+          "csv": "CSV"
+        },
+        "reportTypes": {
+          "programOverview": "Informe de Resumen del Programa",
+          "learnerProgress": "Informe de Progreso del Estudiante",
+          "moduleAnalytics": "Informe de Análisis de Módulos",
+          "engagementMetrics": "Informe de Métricas de Compromiso",
+          "alertsSummary": "Resumen de Alertas",
+          "milestonesReport": "Informe de Hitos y Línea de Tiempo"
+        },
+        "reportDescriptions": {
+          "programOverview": "Descripción general completa de los KPI del programa y las métricas de rendimiento",
+          "learnerProgress": "Seguimiento detallado del progreso de todos los estudiantes a través de los módulos",
+          "moduleAnalytics": "Análisis en profundidad de finalización de módulos y puntuaciones de evaluación",
+          "engagementMetrics": "Estadísticas de compromiso, gamificación y tendencias de actividad",
+          "alertsSummary": "Resumen de todas las alertas críticas y notificaciones",
+          "milestonesReport": "Seguimiento de línea de tiempo con estado de finalización de hitos"
+        },
+        "exportingMessage": "Exportando {{report}} como {{format}}...",
+        "exportAll": "Exportar Todos los Informes"
+      },
+      "charts": {
+        "alertTrends": "Tendencias de Alertas a lo Largo del Tiempo",
+        "alertTrendsDesc": "Seguimiento de frecuencia y cambios de gravedad de alertas",
+        "engagementTrends": "Tendencias de Compromiso del Estudiante",
+        "engagementTrendsDesc": "Monitorear la actividad y los niveles de riesgo de los estudiantes",
+        "alertDistribution": "Distribución de Alertas",
+        "milestoneStatus": "Estado de Hitos",
+        "riskAnalysis": "Análisis de Riesgos",
+        "currentPeriod": "Período Actual",
+        "totalMilestones": "{{count}} Hitos Totales",
+        "currentVsTarget": "Actual vs Objetivo",
+        "current": "Actual",
+        "target": "Objetivo",
+        "active": "Activo",
+        "atRisk": "En Riesgo",
+        "inactive": "Inactivo",
+        "week1": "Semana 1",
+        "week2": "Semana 2",
+        "week3": "Semana 3",
+        "week4": "Semana 4",
+        "months": {
+          "jan": "Ene",
+          "feb": "Feb",
+          "mar": "Mar",
+          "apr": "Abr"
+        },
+        "riskCategories": {
+          "engagement": "Compromiso",
+          "completion": "Finalización",
+          "assessment": "Evaluación",
+          "attendance": "Asistencia",
+          "participation": "Participación"
+        }
+      }
+    }
   }
 }
 

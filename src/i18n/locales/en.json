@@ -1045,6 +1045,135 @@
         "formatPreference": "Resource format preference",
         "videoHigherEngagement": "Video content has {{multiplier}}× higher engagement"
       }
+    },
+    "timeline": {
+      "title": "Timeline & Reporting",
+      "subtitle": "Monitor alerts, milestones, and generate comprehensive reports",
+      "kpis": {
+        "activeAlerts": "Active Alerts",
+        "atRiskLearners": "At-Risk Learners",
+        "upcomingMilestones": "Upcoming Milestones",
+        "completedMilestones": "Completed Milestones"
+      },
+      "alerts": {
+        "title": "Alerts & Notifications",
+        "subtitle": "Critical alerts and important notifications requiring attention",
+        "affectedLearners": "affected learners",
+        "noAlerts": "No alerts to display",
+        "filters": {
+          "all": "All Alerts",
+          "critical": "Critical",
+          "warning": "Warning",
+          "info": "Info"
+        },
+        "items": {
+          "lowEngagement": "Low Engagement Alert",
+          "lowEngagementDesc": "5 learners have not logged in for more than 7 days. Immediate intervention recommended.",
+          "moduleDropout": "Module Dropout Risk",
+          "moduleDropoutDesc": "3 learners have dropped 'Financial Planning' module without completion. Follow-up required.",
+          "assessmentDue": "Assessments Due Soon",
+          "assessmentDueDesc": "8 learners have pending assessments due within 48 hours.",
+          "lowQuizScores": "Low Quiz Scores",
+          "lowQuizScoresDesc": "4 learners scored below 60% on recent quiz. Additional support needed.",
+          "courseCompletion": "Course Completion",
+          "courseCompletionDesc": "3 learners successfully completed 'Digital Literacy' course.",
+          "newModuleRelease": "New Module Release",
+          "newModuleReleaseDesc": "'Workplace Safety' module has been published and is now available to all learners."
+        }
+      },
+      "alertModal": {
+        "description": "Description",
+        "affectedLearners": "Affected Learners",
+        "recommendedActions": "Recommended Actions",
+        "action1": "Send personalized reminder emails to affected learners",
+        "action2": "Schedule one-on-one follow-up sessions",
+        "action3": "Review content difficulty and adjust if necessary",
+        "takeAction": "Take Action",
+        "dismiss": "Dismiss"
+      },
+      "milestones": {
+        "title": "Timeline & Milestone Tracker",
+        "subtitle": "Track campaign rollout and module release schedules",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "owner": "Owner",
+        "statuses": {
+          "completed": "Completed",
+          "inProgress": "In Progress",
+          "upcoming": "Upcoming",
+          "delayed": "Delayed"
+        },
+        "items": {
+          "digitalLiteracyLaunch": "Digital Literacy Module Launch",
+          "labourRightsModule": "Labour Rights Module Rollout",
+          "communicationSkills": "Communication Skills Training",
+          "financialPlanning": "Financial Planning Course",
+          "workplaceSafety": "Workplace Safety Campaign",
+          "entrepreneurship": "Entrepreneurship Program Launch"
+        }
+      },
+      "export": {
+        "title": "Custom Reports Export",
+        "subtitle": "Generate and download comprehensive program reports",
+        "selectFormat": "Select Format",
+        "formats": {
+          "pdf": "PDF",
+          "excel": "Excel",
+          "csv": "CSV"
+        },
+        "reportTypes": {
+          "programOverview": "Program Overview Report",
+          "learnerProgress": "Learner Progress Report",
+          "moduleAnalytics": "Module Analytics Report",
+          "engagementMetrics": "Engagement Metrics Report",
+          "alertsSummary": "Alerts Summary Report",
+          "milestonesReport": "Milestones & Timeline Report"
+        },
+        "reportDescriptions": {
+          "programOverview": "Comprehensive overview of program KPIs and performance metrics",
+          "learnerProgress": "Detailed progress tracking for all learners across modules",
+          "moduleAnalytics": "In-depth analysis of module completion and assessment scores",
+          "engagementMetrics": "Engagement statistics, gamification, and activity trends",
+          "alertsSummary": "Summary of all critical alerts and notifications",
+          "milestonesReport": "Timeline tracking with milestone completion status"
+        },
+        "exportingMessage": "Exporting {{report}} as {{format}}...",
+        "exportAll": "Export All Reports"
+      },
+      "charts": {
+        "alertTrends": "Alert Trends Over Time",
+        "alertTrendsDesc": "Track alert frequency and severity changes",
+        "engagementTrends": "Learner Engagement Trends",
+        "engagementTrendsDesc": "Monitor learner activity and risk levels",
+        "alertDistribution": "Alert Distribution",
+        "milestoneStatus": "Milestone Status",
+        "riskAnalysis": "Risk Analysis",
+        "currentPeriod": "Current Period",
+        "totalMilestones": "{{count}} Total Milestones",
+        "currentVsTarget": "Current vs Target",
+        "current": "Current",
+        "target": "Target",
+        "active": "Active",
+        "atRisk": "At Risk",
+        "inactive": "Inactive",
+        "week1": "Week 1",
+        "week2": "Week 2",
+        "week3": "Week 3",
+        "week4": "Week 4",
+        "months": {
+          "jan": "Jan",
+          "feb": "Feb",
+          "mar": "Mar",
+          "apr": "Apr"
+        },
+        "riskCategories": {
+          "engagement": "Engagement",
+          "completion": "Completion",
+          "assessment": "Assessment",
+          "attendance": "Attendance",
+          "participation": "Participation"
+        }
+      }
     }
   },
   "common": {

@@ -1045,6 +1045,135 @@
         "formatPreference": "Ressourcenformat-Präferenz",
         "videoHigherEngagement": "Videoinhalte haben {{multiplier}}× höheres Engagement"
       }
+    },
+    "timeline": {
+      "title": "Zeitplan & Berichterstattung",
+      "subtitle": "Überwachen Sie Warnungen, Meilensteine und erstellen Sie umfassende Berichte",
+      "kpis": {
+        "activeAlerts": "Aktive Warnungen",
+        "atRiskLearners": "Gefährdete Lernende",
+        "upcomingMilestones": "Bevorstehende Meilensteine",
+        "completedMilestones": "Abgeschlossene Meilensteine"
+      },
+      "alerts": {
+        "title": "Warnungen & Benachrichtigungen",
+        "subtitle": "Kritische Warnungen und wichtige Benachrichtigungen, die Aufmerksamkeit erfordern",
+        "affectedLearners": "betroffene Lernende",
+        "noAlerts": "Keine Warnungen anzuzeigen",
+        "filters": {
+          "all": "Alle Warnungen",
+          "critical": "Kritisch",
+          "warning": "Warnung",
+          "info": "Info"
+        },
+        "items": {
+          "lowEngagement": "Warnung zu geringem Engagement",
+          "lowEngagementDesc": "5 Lernende haben sich seit mehr als 7 Tagen nicht angemeldet. Sofortige Intervention empfohlen.",
+          "moduleDropout": "Risiko des Modulabbruchs",
+          "moduleDropoutDesc": "3 Lernende haben das Modul 'Finanzplanung' ohne Abschluss abgebrochen. Nachverfolgung erforderlich.",
+          "assessmentDue": "Bewertungen bald fällig",
+          "assessmentDueDesc": "8 Lernende haben ausstehende Bewertungen, die innerhalb von 48 Stunden fällig sind.",
+          "lowQuizScores": "Niedrige Quiz-Ergebnisse",
+          "lowQuizScoresDesc": "4 Lernende haben im jüngsten Quiz weniger als 60% erreicht. Zusätzliche Unterstützung erforderlich.",
+          "courseCompletion": "Kursabschluss",
+          "courseCompletionDesc": "3 Lernende haben den Kurs 'Digitale Kompetenz' erfolgreich abgeschlossen.",
+          "newModuleRelease": "Neue Modulveröffentlichung",
+          "newModuleReleaseDesc": "Das Modul 'Arbeitssicherheit' wurde veröffentlicht und ist jetzt für alle Lernenden verfügbar."
+        }
+      },
+      "alertModal": {
+        "description": "Beschreibung",
+        "affectedLearners": "Betroffene Lernende",
+        "recommendedActions": "Empfohlene Maßnahmen",
+        "action1": "Personalisierte Erinnerungs-E-Mails an betroffene Lernende senden",
+        "action2": "Einzelne Nachbesprechungen planen",
+        "action3": "Inhaltsschwierigkeit überprüfen und bei Bedarf anpassen",
+        "takeAction": "Maßnahme ergreifen",
+        "dismiss": "Verwerfen"
+      },
+      "milestones": {
+        "title": "Zeitplan & Meilenstein-Tracker",
+        "subtitle": "Verfolgen Sie Kampagnen-Rollouts und Modulveröffentlichungspläne",
+        "startDate": "Startdatum",
+        "endDate": "Enddatum",
+        "owner": "Verantwortlicher",
+        "statuses": {
+          "completed": "Abgeschlossen",
+          "inProgress": "In Bearbeitung",
+          "upcoming": "Bevorstehend",
+          "delayed": "Verzögert"
+        },
+        "items": {
+          "digitalLiteracyLaunch": "Start des Moduls Digitale Kompetenz",
+          "labourRightsModule": "Rollout des Moduls Arbeitsrechte",
+          "communicationSkills": "Kommunikationsfähigkeiten-Training",
+          "financialPlanning": "Finanzplanungskurs",
+          "workplaceSafety": "Arbeitssicherheitskampagne",
+          "entrepreneurship": "Start des Unternehmertum-Programms"
+        }
+      },
+      "export": {
+        "title": "Benutzerdefinierter Berichtsexport",
+        "subtitle": "Erstellen und herunterladen Sie umfassende Programmberichte",
+        "selectFormat": "Format auswählen",
+        "formats": {
+          "pdf": "PDF",
+          "excel": "Excel",
+          "csv": "CSV"
+        },
+        "reportTypes": {
+          "programOverview": "Programmübersichtsbericht",
+          "learnerProgress": "Lernfortschrittsbericht",
+          "moduleAnalytics": "Modulanalysebericht",
+          "engagementMetrics": "Engagement-Metrikenbericht",
+          "alertsSummary": "Warnungszusammenfassung",
+          "milestonesReport": "Meilensteine & Zeitplan-Bericht"
+        },
+        "reportDescriptions": {
+          "programOverview": "Umfassender Überblick über Programm-KPIs und Leistungsmetriken",
+          "learnerProgress": "Detaillierte Fortschrittsverfolgung für alle Lernenden über Module hinweg",
+          "moduleAnalytics": "Eingehende Analyse von Modulabschluss und Bewertungsergebnissen",
+          "engagementMetrics": "Engagement-Statistiken, Gamification und Aktivitätstrends",
+          "alertsSummary": "Zusammenfassung aller kritischen Warnungen und Benachrichtigungen",
+          "milestonesReport": "Zeitplanverfolgung mit Meilenstein-Abschlussstatus"
+        },
+        "exportingMessage": "Exportiere {{report}} als {{format}}...",
+        "exportAll": "Alle Berichte exportieren"
+      },
+      "charts": {
+        "alertTrends": "Warnungstrends im Zeitverlauf",
+        "alertTrendsDesc": "Verfolgen Sie Häufigkeit und Schweregrad von Warnungen",
+        "engagementTrends": "Trends des Lernenden-Engagements",
+        "engagementTrendsDesc": "Überwachen Sie Aktivität und Risikoniveaus der Lernenden",
+        "alertDistribution": "Warnungsverteilung",
+        "milestoneStatus": "Meilenstein-Status",
+        "riskAnalysis": "Risikoanalyse",
+        "currentPeriod": "Aktueller Zeitraum",
+        "totalMilestones": "{{count}} Meilensteine Gesamt",
+        "currentVsTarget": "Aktuell vs Ziel",
+        "current": "Aktuell",
+        "target": "Ziel",
+        "active": "Aktiv",
+        "atRisk": "Gefährdet",
+        "inactive": "Inaktiv",
+        "week1": "Woche 1",
+        "week2": "Woche 2",
+        "week3": "Woche 3",
+        "week4": "Woche 4",
+        "months": {
+          "jan": "Jan",
+          "feb": "Feb",
+          "mar": "Mär",
+          "apr": "Apr"
+        },
+        "riskCategories": {
+          "engagement": "Engagement",
+          "completion": "Abschluss",
+          "assessment": "Bewertung",
+          "attendance": "Anwesenheit",
+          "participation": "Teilnahme"
+        }
+      }
     }
   },
   "common": {
