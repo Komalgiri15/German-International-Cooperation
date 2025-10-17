@@ -96,6 +96,23 @@
         "title": "أساسيات القيادة والإدارة",
         "description": "بناء قدرات القيادة لإدارة الفريق والمشاريع بفعالية."
       }
+    },
+    "achievements": {
+      "title": "الشارات والشهادات",
+      "viewAll": "عرض الكل",
+      "earned": "تم الحصول عليها",
+      "certificate": "شهادة",
+      "locked": "مقفل",
+      "progress": "تقدم الإنجازات",
+      "unlocked": "مفتوح",
+      "badges": {
+        "digitalMaster": "خبير رقمي",
+        "quickLearner": "متعلم سريع",
+        "nextLevel": "المستوى التالي"
+      },
+      "certificates": {
+        "labourRights": "حقوق العمال"
+      }
     }
   },
   "community": {

@@ -303,7 +303,14 @@ const ModuleAnalytics = () => {
                       <div className="flex items-center justify-center">
                         <div className="relative">
                           {/* 2D Pie Chart */}
-                          <div 
+                          <motion.div 
+                            initial={{ scale: 0, rotate: -180 }}
+                            animate={{ scale: 1, rotate: 0 }}
+                            transition={{ 
+                              duration: 0.8, 
+                              delay: 0.2 + index * 0.05,
+                              ease: [0.4, 0, 0.2, 1]
+                            }}
                             className="relative w-32 h-32 rounded-full shadow-lg"
                             style={{
                               background: `conic-gradient(
@@ -316,14 +323,19 @@ const ModuleAnalytics = () => {
                           >
                             {/* Center Label */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="bg-white rounded-full w-16 h-16 flex flex-col items-center justify-center shadow-lg border-2 border-slate-200">
+                              <motion.div 
+                                initial={{ scale: 0, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ delay: 0.5 + index * 0.05, duration: 0.4 }}
+                                className="bg-white rounded-full w-16 h-16 flex flex-col items-center justify-center shadow-lg border-2 border-slate-200"
+                              >
                                 <div className="text-xl font-bold text-blue-900">
                                   {module.completion}%
                                 </div>
                                 <div className="text-[9px] text-slate-500 font-medium">{t('admin.moduleAnalytics.modal.done')}</div>
-                              </div>
+                              </motion.div>
                             </div>
-                          </div>
+                          </motion.div>
                         </div>
                       </div>
                     </div>
@@ -452,27 +464,36 @@ const ModuleAnalytics = () => {
                         <div className="relative w-16 h-16 flex-shrink-0">
                           <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 64 64">
                             <circle cx="32" cy="32" r="26" fill="none" stroke="#f1f5f9" strokeWidth="5" />
-                            <circle
+                            <motion.circle
                               cx="32" cy="32" r="26" fill="none" stroke={metric.color} strokeWidth="5"
                               strokeDasharray={`${2 * Math.PI * 26}`}
-                              strokeDashoffset={`${2 * Math.PI * 26 * (1 - metric.value / 100)}`}
+                              initial={{ strokeDashoffset: `${2 * Math.PI * 26}` }}
+                              animate={{ strokeDashoffset: `${2 * Math.PI * 26 * (1 - metric.value / 100)}` }}
+                              transition={{ duration: 1.2, delay: 0.5 + i * 0.15, ease: "easeOut" }}
                               strokeLinecap="round"
-                              className="transition-all duration-1000 drop-shadow-md"
+                              className="drop-shadow-md"
                               style={{
                                 filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
                               }}
                             />
                           </svg>
-                          <div className="absolute inset-0 flex items-center justify-center">
+                          <motion.div 
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.8 + i * 0.15, duration: 0.4 }}
+                            className="absolute inset-0 flex items-center justify-center"
+                          >
                             <span className={`text-sm font-bold bg-gradient-to-br ${metric.gradient} bg-clip-text text-transparent`}>{metric.value}%</span>
-                          </div>
+                          </motion.div>
                         </div>
                         <div className="flex-1">
                           <span className="text-sm font-semibold text-slate-700">{t(`admin.moduleAnalytics.modal.${metric.labelKey}`)}</span>
                           <div className="h-2 bg-white/60 rounded-full mt-2 overflow-hidden shadow-inner">
-                            <div 
-                              className={`h-full bg-gradient-to-r ${metric.gradient} rounded-full transition-all duration-1000`}
-                              style={{ width: `${metric.value}%` }}
+                            <motion.div 
+                              initial={{ width: 0 }}
+                              animate={{ width: `${metric.value}%` }}
+                              transition={{ duration: 1, delay: 0.6 + i * 0.15, ease: "easeOut" }}
+                              className={`h-full bg-gradient-to-r ${metric.gradient} rounded-full`}
                             />
                           </div>
                         </div>
@@ -523,27 +544,36 @@ const ModuleAnalytics = () => {
                               <div className="relative flex-shrink-0">
                                 <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 64 64">
                                   <circle cx="32" cy="32" r={radius} fill="none" stroke="#f1f5f9" strokeWidth="7" />
-                                  <circle
+                                  <motion.circle
                                     cx="32" cy="32" r={radius} fill="none" stroke="#10b981" strokeWidth="7"
                                     strokeDasharray={circumference}
-                                    strokeDashoffset={circumference - (completedPercent / 100) * circumference}
+                                    initial={{ strokeDashoffset: circumference }}
+                                    animate={{ strokeDashoffset: circumference - (completedPercent / 100) * circumference }}
+                                    transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
                                     strokeLinecap="round"
-                                    className="drop-shadow-md transition-all duration-1000"
+                                    className="drop-shadow-md"
                                   />
-                                  <circle
+                                  <motion.circle
                                     cx="32" cy="32" r={radius} fill="none" stroke="#f59e0b" strokeWidth="7"
                                     strokeDasharray={circumference}
-                                    strokeDashoffset={circumference - activeOffset - (activePercent / 100) * circumference}
+                                    initial={{ strokeDashoffset: circumference }}
+                                    animate={{ strokeDashoffset: circumference - activeOffset - (activePercent / 100) * circumference }}
+                                    transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
                                     strokeLinecap="round"
-                                    className="drop-shadow-md transition-all duration-1000"
+                                    className="drop-shadow-md"
                                   />
                                 </svg>
-                                <div className="absolute inset-0 flex items-center justify-center">
+                                <motion.div 
+                                  initial={{ opacity: 0, scale: 0 }}
+                                  animate={{ opacity: 1, scale: 1 }}
+                                  transition={{ delay: 0.8, duration: 0.4 }}
+                                  className="absolute inset-0 flex items-center justify-center"
+                                >
                                   <div className="text-center">
                                     <div className="text-sm font-bold text-slate-800">{total}</div>
                                     <div className="text-[9px] text-slate-500">{t('admin.moduleAnalytics.modal.total')}</div>
                                   </div>
-                                </div>
+                                </motion.div>
                               </div>
                               <div className="flex-1 space-y-1.5 min-w-0">
                                 {[
@@ -586,17 +616,32 @@ const ModuleAnalytics = () => {
                           { labelKey: 'avg', value: selectedModule.avgScore, color: 'from-blue-400 to-blue-500' },
                           { labelKey: 'low', value: selectedModule.lowestScore, color: 'from-slate-400 to-slate-500' }
                         ].map((item, i) => (
-                          <div key={i} className="flex flex-col items-center flex-1 gap-1.5 group">
+                          <motion.div 
+                            key={i} 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.6 + i * 0.1, duration: 0.5 }}
+                            className="flex flex-col items-center flex-1 gap-1.5 group"
+                          >
                             <div className="text-xs mb-0.5">{item.icon}</div>
-                            <div className="text-sm font-bold text-slate-800">{item.value}%</div>
-                            <div 
-                              className={`w-full max-w-[40px] bg-gradient-to-t ${item.color} rounded-t-lg shadow-md transition-all duration-700 group-hover:shadow-lg relative overflow-hidden`}
-                              style={{ height: `${(item.value / 100) * 64}px` }}
+                            <motion.div 
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ delay: 0.8 + i * 0.1, duration: 0.3 }}
+                              className="text-sm font-bold text-slate-800"
+                            >
+                              {item.value}%
+                            </motion.div>
+                            <motion.div 
+                              initial={{ height: 0 }}
+                              animate={{ height: `${(item.value / 100) * 64}px` }}
+                              transition={{ duration: 1, delay: 0.7 + i * 0.1, ease: "easeOut" }}
+                              className={`w-full max-w-[40px] bg-gradient-to-t ${item.color} rounded-t-lg shadow-md group-hover:shadow-lg relative overflow-hidden`}
                             >
                               <div className="absolute inset-0 bg-white/20"></div>
-                            </div>
+                            </motion.div>
                             <span className="text-[11px] text-slate-600 font-medium">{t(`admin.moduleAnalytics.modal.${item.labelKey}`)}</span>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                     </motion.div>
@@ -686,19 +731,28 @@ const ModuleAnalytics = () => {
                       <span>{assessment.totalAttempts} {t('admin.moduleAnalytics.assessmentPerformance.totalAttempts')}</span>
                     </div>
                     <div className="h-3 bg-slate-50 rounded-full overflow-hidden flex">
-                      <div 
-                        className="bg-gradient-to-r from-emerald-400 to-emerald-500 transition-all duration-500"
-                        style={{ width: `${(assessment.passed / assessment.totalAttempts) * 100}%` }}
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        animate={{ width: `${(assessment.passed / assessment.totalAttempts) * 100}%` }}
+                        transition={{ duration: 0.8, delay: 0.5 + index * 0.05, ease: "easeOut" }}
+                        className="bg-gradient-to-r from-emerald-400 to-emerald-500"
                       />
-                      <div 
-                        className="bg-gradient-to-r from-rose-400 to-rose-500 transition-all duration-500"
-                        style={{ width: `${(assessment.failed / assessment.totalAttempts) * 100}%` }}
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        animate={{ width: `${(assessment.failed / assessment.totalAttempts) * 100}%` }}
+                        transition={{ duration: 0.8, delay: 0.7 + index * 0.05, ease: "easeOut" }}
+                        className="bg-gradient-to-r from-rose-400 to-rose-500"
                       />
                     </div>
-                    <div className="flex items-center justify-between text-xs">
+                    <motion.div 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.9 + index * 0.05, duration: 0.4 }}
+                      className="flex items-center justify-between text-xs"
+                    >
                       <span className="text-emerald-600 font-medium">{assessment.passed} {t('admin.moduleAnalytics.assessmentPerformance.passed')}</span>
                       <span className="text-rose-600 font-medium">{assessment.failed} {t('admin.moduleAnalytics.assessmentPerformance.failed')}</span>
-                    </div>
+                    </motion.div>
                   </div>
                 </motion.div>
               ))}

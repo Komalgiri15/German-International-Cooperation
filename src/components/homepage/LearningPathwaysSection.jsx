@@ -5,7 +5,11 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { 
   ChevronLeft, 
-  ChevronRight 
+  ChevronRight,
+  Award,
+  Star,
+  Trophy,
+  Medal
 } from 'lucide-react';
 
 const CourseCard = ({ image, title, description, progress, level, isStarted }) => {
@@ -19,9 +23,9 @@ const CourseCard = ({ image, title, description, progress, level, isStarted }) =
   const translatedLevel = t(`learning.levels.${level}`);
 
   return (
-    <Card className="h-full border-2 bg-white hover:shadow-xl hover:scale-[1.02] transition-all duration-300 hover:border-[#004E9A]/30 group overflow-hidden">
+    <Card className="h-[420px] border-2 bg-white hover:shadow-xl hover:scale-[1.02] transition-all duration-300 hover:border-[#004E9A]/30 group overflow-hidden flex flex-col">
       {/* Course Image */}
-      <div className="relative h-40 overflow-hidden bg-gradient-to-br from-gray-100 to-blue-50">
+      <div className="relative h-40 flex-shrink-0 overflow-hidden bg-gradient-to-br from-gray-100 to-blue-50">
         <img 
           src={image} 
           alt={title}
@@ -37,32 +41,36 @@ const CourseCard = ({ image, title, description, progress, level, isStarted }) =
         )}
       </div>
 
-      <CardContent className="p-5 flex flex-col">
-        {/* Title and Description */}
-        <div className="flex-1 mb-4">
-          <h3 className="font-bold text-gray-900 mb-2 text-base leading-tight group-hover:text-[#004E9A] transition-colors" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
+      <CardContent className="p-5 flex flex-col flex-1">
+        {/* Title and Description - Fixed Height */}
+        <div className="mb-4 h-[88px] flex flex-col">
+          <h3 className="font-bold text-gray-900 mb-2 text-base leading-tight group-hover:text-[#004E9A] transition-colors line-clamp-2 min-h-[44px]" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
             {title}
           </h3>
-          <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
+          <p className="text-sm text-gray-600 leading-relaxed line-clamp-2 min-h-[40px]">
             {description}
           </p>
         </div>
 
-        {/* Progress Bar */}
-        {isStarted && (
-          <div className="mb-4">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-medium text-gray-600">{t('learning.progress')}</span>
-              <span className="text-xs font-bold text-[#004E9A]">{progress}%</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-              <div 
-                className="bg-gradient-to-r from-[#004E9A] to-[#F5C518] h-2 rounded-full transition-all duration-500 shadow-sm"
-                style={{ width: `${progress}%` }}
-              ></div>
-            </div>
-          </div>
-        )}
+        {/* Progress Bar - Fixed Height */}
+        <div className="mb-4 h-[44px] flex flex-col justify-center">
+          {isStarted ? (
+            <>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-medium text-gray-600">{t('learning.progress')}</span>
+                <span className="text-xs font-bold text-[#004E9A]">{progress}%</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                <div 
+                  className="bg-gradient-to-r from-[#004E9A] to-[#F5C518] h-2 rounded-full transition-all duration-500 shadow-sm"
+                  style={{ width: `${progress}%` }}
+                ></div>
+              </div>
+            </>
+          ) : (
+            <div className="h-full"></div>
+          )}
+        </div>
 
         {/* Action Button */}
         <Button 
@@ -233,6 +241,89 @@ export function LearningPathwaysSection() {
               <CourseCard {...course} />
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Badges & Certificates Section - Compact */}
+      <div className="max-w-7xl mx-auto mt-6">
+        <div className="bg-gray-50/50 rounded-lg p-4 border border-gray-200/50">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-1.5">
+              <Trophy className="h-4 w-4 text-gray-500" />
+              <h3 className="text-sm font-semibold text-gray-700" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
+                {t('learning.achievements.title')}
+              </h3>
+            </div>
+            
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {/* Badge 1 - Digital Literacy Master */}
+            <div className="bg-white rounded-md p-3 border border-gray-200 hover:border-green-300 hover:bg-green-50/30 transition-all group cursor-pointer">
+              <div className="flex flex-col items-center text-center gap-1.5">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center group-hover:bg-green-200 transition-colors">
+                  <Award className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-semibold text-gray-800">{t('learning.achievements.badges.digitalMaster')}</p>
+                  <p className="text-[9px] text-gray-500">{t('learning.achievements.earned')}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Badge 2 - Quick Learner */}
+            <div className="bg-white rounded-md p-3 border border-gray-200 hover:border-blue-300 hover:bg-blue-50/30 transition-all group cursor-pointer">
+              <div className="flex flex-col items-center text-center gap-1.5">
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                  <Star className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-semibold text-gray-800">{t('learning.achievements.badges.quickLearner')}</p>
+                  <p className="text-[9px] text-gray-500">{t('learning.achievements.earned')}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Certificate - Labour Rights */}
+            <div className="bg-white rounded-md p-3 border border-gray-200 hover:border-amber-300 hover:bg-amber-50/30 transition-all group cursor-pointer">
+              <div className="flex flex-col items-center text-center gap-1.5">
+                <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center group-hover:bg-amber-200 transition-colors">
+                  <Medal className="h-5 w-5 text-amber-600" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-semibold text-gray-800">{t('learning.achievements.certificates.labourRights')}</p>
+                  <p className="text-[9px] text-amber-600 font-medium">{t('learning.achievements.certificate')}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Badge 3 - Locked/Coming Soon */}
+            <div className="bg-gray-50 rounded-md p-3 border border-dashed border-gray-300 opacity-50 cursor-not-allowed">
+              <div className="flex flex-col items-center text-center gap-1.5">
+                <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+                  <Trophy className="h-5 w-5 text-gray-400" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-semibold text-gray-500">{t('learning.achievements.badges.nextLevel')}</p>
+                  <p className="text-[9px] text-gray-400">{t('learning.achievements.locked')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Progress Indicator - Compact */}
+          <div className="mt-3 pt-3 border-t border-gray-200">
+            <div className="flex items-center justify-between text-[10px] text-gray-500 mb-1.5">
+              <span>{t('learning.achievements.progress')}</span>
+              <span className="font-semibold text-gray-700">3 / 12 {t('learning.achievements.unlocked')}</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+              <div 
+                className="bg-gradient-to-r from-gray-400 to-gray-500 h-1.5 rounded-full transition-all duration-500"
+                style={{ width: '25%' }}
+              ></div>
+            </div>
+          </div>
         </div>
       </div>
 

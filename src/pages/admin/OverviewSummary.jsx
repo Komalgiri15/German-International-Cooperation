@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   BarChart3, 
   Users, 
@@ -12,8 +12,30 @@ import {
   Filter,
   Target
 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+
+// Counter component with animation
+const Counter = ({ from = 0, to, duration = 1, delay = 0, decimals = 0 }) => {
+  const [displayValue, setDisplayValue] = useState(from);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const controls = animate(from, to, {
+        duration,
+        ease: "easeOut",
+        onUpdate: (latest) => {
+          setDisplayValue(decimals > 0 ? latest.toFixed(decimals) : Math.round(latest));
+        }
+      });
+      return controls.stop;
+    }, delay * 1000);
+
+    return () => clearTimeout(timer);
+  }, [from, to, duration, delay, decimals]);
+
+  return <>{displayValue}</>;
+};
 
 const OverviewSummary = () => {
   const { t } = useTranslation();
@@ -406,13 +428,20 @@ const OverviewSummary = () => {
                 <div className="p-2 bg-blue-50 rounded-lg">
                   <Users className="h-5 w-5 text-blue-500" />
                 </div>
-                <div className={`flex items-center gap-0.5 text-xs ${programKPIs.trends.learners >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
+                <motion.div 
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3, duration: 0.4 }}
+                  className={`flex items-center gap-0.5 text-xs ${programKPIs.trends.learners >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}
+                >
                   {programKPIs.trends.learners >= 0 ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
                   {Math.abs(programKPIs.trends.learners)}%
-                </div>
+                </motion.div>
               </div>
               <div className="space-y-0.5">
-                <p className="text-2xl font-semibold text-slate-900">{programKPIs.totalLearners.toLocaleString()}</p>
+                <p className="text-2xl font-semibold text-slate-900">
+                  <Counter to={programKPIs.totalLearners} duration={1.5} delay={0.2} />
+                </p>
                 <p className="text-xs text-slate-500">{t('admin.overview.totalLearners')}</p>
               </div>
             </div>
@@ -423,13 +452,20 @@ const OverviewSummary = () => {
                 <div className="p-2 bg-emerald-50 rounded-lg">
                   <Award className="h-5 w-5 text-emerald-500" />
                 </div>
-                <div className={`flex items-center gap-0.5 text-xs ${programKPIs.trends.completion >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
+                <motion.div 
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4, duration: 0.4 }}
+                  className={`flex items-center gap-0.5 text-xs ${programKPIs.trends.completion >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}
+                >
                   {programKPIs.trends.completion >= 0 ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
                   {Math.abs(programKPIs.trends.completion)}%
-                </div>
+                </motion.div>
               </div>
               <div className="space-y-0.5">
-                <p className="text-2xl font-semibold text-slate-900">{programKPIs.completionRate}%</p>
+                <p className="text-2xl font-semibold text-slate-900">
+                  <Counter to={programKPIs.completionRate} duration={1.5} delay={0.3} decimals={1} />%
+                </p>
                 <p className="text-xs text-slate-500">{t('admin.overview.completionRate')}</p>
               </div>
             </div>
@@ -440,13 +476,20 @@ const OverviewSummary = () => {
                 <div className="p-2 bg-amber-50 rounded-lg">
                   <TrendingUp className="h-5 w-5 text-amber-500" />
                 </div>
-                <div className={`flex items-center gap-0.5 text-xs ${programKPIs.trends.score >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
+                <motion.div 
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 0.4 }}
+                  className={`flex items-center gap-0.5 text-xs ${programKPIs.trends.score >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}
+                >
                   {programKPIs.trends.score >= 0 ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
                   {Math.abs(programKPIs.trends.score)}%
-                </div>
+                </motion.div>
               </div>
               <div className="space-y-0.5">
-                <p className="text-2xl font-semibold text-slate-900">{programKPIs.averageScore}%</p>
+                <p className="text-2xl font-semibold text-slate-900">
+                  <Counter to={programKPIs.averageScore} duration={1.5} delay={0.4} decimals={1} />%
+                </p>
                 <p className="text-xs text-slate-500">{t('admin.overview.averageScore')}</p>
               </div>
             </div>
@@ -457,13 +500,20 @@ const OverviewSummary = () => {
                 <div className="p-2 bg-violet-50 rounded-lg">
                   <BarChart3 className="h-5 w-5 text-violet-500" />
                 </div>
-                <div className={`flex items-center gap-0.5 text-xs ${programKPIs.trends.active >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
+                <motion.div 
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6, duration: 0.4 }}
+                  className={`flex items-center gap-0.5 text-xs ${programKPIs.trends.active >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}
+                >
                   {programKPIs.trends.active >= 0 ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
                   {Math.abs(programKPIs.trends.active)}%
-                </div>
+                </motion.div>
               </div>
               <div className="space-y-0.5">
-                <p className="text-2xl font-semibold text-slate-900">{programKPIs.activeToday.toLocaleString()}</p>
+                <p className="text-2xl font-semibold text-slate-900">
+                  <Counter to={programKPIs.activeToday} duration={1.5} delay={0.5} />
+                </p>
                 <p className="text-xs text-slate-500">{t('admin.overview.activeToday')}</p>
               </div>
             </div>
@@ -552,24 +602,35 @@ const OverviewSummary = () => {
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-blue-100"></div>
                       
                       {/* Actual Progress */}
-                      <div 
-                        className={`absolute inset-y-0 left-0 rounded-lg transition-all duration-1000 ease-out ${
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        animate={{ width: `${progressPercentage}%` }}
+                        transition={{ 
+                          duration: 1.2, 
+                          delay: 0.5 + idx * 0.1,
+                          ease: [0.4, 0, 0.2, 1]
+                        }}
+                        className={`absolute inset-y-0 left-0 rounded-lg ${
                           isComplete 
                             ? 'bg-gradient-to-r from-green-400 to-green-500 shadow-md' 
                             : isInProgress 
                             ? 'bg-gradient-to-r from-blue-400 to-blue-600 shadow-md' 
                             : 'bg-gray-300'
                         }`}
-                        style={{ width: `${progressPercentage}%` }}
                       >
                         {progressPercentage > 10 && (
-                          <div className="h-full flex items-center justify-end pr-3">
+                          <motion.div 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.8 + idx * 0.1, duration: 0.5 }}
+                            className="h-full flex items-center justify-end pr-3"
+                          >
                             <span className="text-xs font-bold text-white drop-shadow-md">
                               {progressPercentage}%
                             </span>
-                          </div>
+                          </motion.div>
                         )}
-                      </div>
+                      </motion.div>
 
                       {/* Milestone Markers */}
                       <div className="absolute inset-0 flex items-center pointer-events-none">
@@ -598,24 +659,39 @@ const OverviewSummary = () => {
 
             {/* Statistics Summary */}
             <div className="grid grid-cols-3 gap-3 mt-6 pt-5 border-t-2 border-gray-200">
-              <div className="text-center p-3 bg-green-50 rounded-lg border border-green-200 shadow-sm">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5, duration: 0.5 }}
+                className="text-center p-3 bg-green-50 rounded-lg border border-green-200 shadow-sm"
+              >
                 <div className="text-2xl font-bold text-green-600">
-                  {pathwayData.filter(m => m.actual === 100).length}
+                  <Counter to={pathwayData.filter(m => m.actual === 100).length} duration={1} delay={1.7} />
                 </div>
                 <div className="text-xs text-gray-600 font-medium mt-1">{t('admin.overview.pathwayTracker.completedPathways')}</div>
-              </div>
-              <div className="text-center p-3 bg-blue-50 rounded-lg border border-blue-200 shadow-sm">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.6, duration: 0.5 }}
+                className="text-center p-3 bg-blue-50 rounded-lg border border-blue-200 shadow-sm"
+              >
                 <div className="text-2xl font-bold text-blue-600">
-                  {pathwayData.filter(m => m.actual > 0 && m.actual < 100).length}
+                  <Counter to={pathwayData.filter(m => m.actual > 0 && m.actual < 100).length} duration={1} delay={1.8} />
                 </div>
                 <div className="text-xs text-gray-600 font-medium mt-1">{t('admin.overview.pathwayTracker.statuses.inProgress')}</div>
-              </div>
-              <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200 shadow-sm">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.7, duration: 0.5 }}
+                className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200 shadow-sm"
+              >
                 <div className="text-2xl font-bold text-gray-600">
-                  {pathwayData.filter(m => m.actual === 0).length}
+                  <Counter to={pathwayData.filter(m => m.actual === 0).length} duration={1} delay={1.9} />
                 </div>
                 <div className="text-xs text-gray-600 font-medium mt-1">{t('admin.overview.pathwayTracker.notStarted')}</div>
-              </div>
+              </motion.div>
             </div>
 
           </motion.div>
@@ -631,42 +707,78 @@ const OverviewSummary = () => {
             <div className="bg-white rounded-xl border border-slate-200 p-5">
               <h3 className="text-sm font-semibold text-slate-800 mb-4">{t('admin.overview.learnerStatus.title')}</h3>
               <div className="space-y-3">
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
                   <div className="flex items-center justify-between text-xs mb-1.5">
                     <span className="text-slate-600">{t('admin.overview.learnerStatus.active')} (8)</span>
                     <span className="font-medium text-emerald-600">53.3%</span>
                   </div>
                   <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
-                    <div className="h-full bg-emerald-500 transition-all duration-500" style={{ width: '53.3%' }}></div>
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: '53.3%' }}
+                      transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                      className="h-full bg-emerald-500"
+                    ></motion.div>
                   </div>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                >
                   <div className="flex items-center justify-between text-xs mb-1.5">
                     <span className="text-slate-600">{t('admin.overview.learnerStatus.completed')} (4)</span>
                     <span className="font-medium text-blue-600">26.7%</span>
                   </div>
                   <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
-                    <div className="h-full bg-blue-500 transition-all duration-500" style={{ width: '26.7%' }}></div>
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: '26.7%' }}
+                      transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+                      className="h-full bg-blue-500"
+                    ></motion.div>
                   </div>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                >
                   <div className="flex items-center justify-between text-xs mb-1.5">
                     <span className="text-slate-600">{t('admin.overview.learnerStatus.atRisk')} (2)</span>
                     <span className="font-medium text-amber-600">13.3%</span>
                   </div>
                   <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
-                    <div className="h-full bg-amber-500 transition-all duration-500" style={{ width: '13.3%' }}></div>
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: '13.3%' }}
+                      transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
+                      className="h-full bg-amber-500"
+                    ></motion.div>
                   </div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
                   <div className="flex items-center justify-between text-xs mb-1.5">
                     <span className="text-slate-600">{t('admin.overview.learnerStatus.inactive')} (1)</span>
                     <span className="font-medium text-slate-600">6.7%</span>
                   </div>
                   <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
-                    <div className="h-full bg-slate-400 transition-all duration-500" style={{ width: '6.7%' }}></div>
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: '6.7%' }}
+                      transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+                      className="h-full bg-slate-400"
+                    ></motion.div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
 
@@ -817,9 +929,11 @@ const OverviewSummary = () => {
                             <span className="text-slate-700 font-medium">{progress.toFixed(0)}%</span>
                           </div>
                           <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                            <div 
-                              className={`h-full ${getProgressColor(progress)} transition-all duration-500`}
-                              style={{ width: `${progress}%` }}
+                            <motion.div 
+                              initial={{ width: 0 }}
+                              animate={{ width: `${progress}%` }}
+                              transition={{ duration: 0.8, delay: 0.5 + index * 0.05, ease: "easeOut" }}
+                              className={`h-full ${getProgressColor(progress)}`}
                             />
                           </div>
                         </div>

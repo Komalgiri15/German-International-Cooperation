@@ -35,6 +35,25 @@
     "noResults": "Aucune ressource trouvée",
     "loading": "Chargement des ressources..."
   },
+  "learning": {
+    "achievements": {
+      "title": "Badges et Certificats",
+      "viewAll": "Voir Tout",
+      "earned": "Obtenu",
+      "certificate": "Certificat",
+      "locked": "Verrouillé",
+      "progress": "Progrès des Réalisations",
+      "unlocked": "Déverrouillé",
+      "badges": {
+        "digitalMaster": "Maître Numérique",
+        "quickLearner": "Apprenant Rapide",
+        "nextLevel": "Niveau Suivant"
+      },
+      "certificates": {
+        "labourRights": "Droits du Travail"
+      }
+    }
+  },
   "admin": {
     "timeline": {
       "title": "Chronologie et Rapports",

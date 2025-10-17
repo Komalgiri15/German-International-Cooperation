@@ -96,6 +96,23 @@
         "title": "Leadership & Management Fundamentals",
         "description": "Build leadership capabilities for effective team and project management."
       }
+    },
+    "achievements": {
+      "title": "Badges & Certificates",
+      "viewAll": "View All",
+      "earned": "Earned",
+      "certificate": "Certificate",
+      "locked": "Locked",
+      "progress": "Achievement Progress",
+      "unlocked": "Unlocked",
+      "badges": {
+        "digitalMaster": "Digital Master",
+        "quickLearner": "Quick Learner",
+        "nextLevel": "Next Level"
+      },
+      "certificates": {
+        "labourRights": "Labour Rights"
+      }
     }
   },
   "community": {

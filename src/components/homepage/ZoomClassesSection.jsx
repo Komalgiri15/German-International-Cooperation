@@ -1,16 +1,126 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Video, Calendar, Users, ExternalLink, Eye, Download, Edit, Trash2, Plus } from 'lucide-react';
+import { Video, Calendar, Users, ExternalLink, Eye, Download, Edit, Trash2, Plus, ChevronLeft, ChevronRight, Clock, MapPin } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
+
+// Event Card Component (similar to Course Card)
+const EventCard = ({ event, onJoin, onEdit, onDelete, onViewRecording, onDownloadRecording, t }) => {
+  const isUpcoming = !event.isCompleted;
+
+  return (
+    <Card className="h-[380px] border-2 bg-white hover:shadow-xl hover:scale-[1.02] transition-all duration-300 hover:border-purple-500/30 group overflow-hidden flex flex-col">
+      {/* Event Image/Banner */}
+      <div className="relative h-32 flex-shrink-0 overflow-hidden bg-gradient-to-br from-purple-500 to-blue-600">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/90 to-blue-700/90 backdrop-blur-sm">
+          <div className="h-full flex flex-col items-center justify-center text-white">
+            <Video className="h-12 w-12 mb-2 group-hover:scale-110 transition-transform" />
+            <p className="text-xs font-semibold opacity-90">
+              {isUpcoming ? t('zoom.liveSession') : t('zoom.recorded')}
+            </p>
+          </div>
+        </div>
+        {/* Status Badge */}
+        <div className="absolute top-3 right-3">
+          <Badge className={`${isUpcoming ? 'bg-green-500 hover:bg-green-600' : 'bg-gray-500 hover:bg-gray-600'} text-white border-0 font-medium text-xs px-2 py-1 shadow-md`}>
+            {isUpcoming ? t('zoom.upcoming') : t('zoom.completed')}
+          </Badge>
+        </div>
+      </div>
+
+      <CardContent className="p-4 flex flex-col flex-1">
+        {/* Title and Details - Fixed Height */}
+        <div className="mb-3 flex-1">
+          <h3 className="font-bold text-gray-900 mb-2 text-sm leading-tight group-hover:text-purple-600 transition-colors line-clamp-2 min-h-[40px]" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
+            {event.titleKey ? t(`zoom.sampleClasses.${event.titleKey}.title`) : event.title}
+          </h3>
+          
+          {/* Event Details */}
+          <div className="space-y-1.5 text-xs text-gray-600">
+            <div className="flex items-center gap-1.5">
+              <Calendar className="h-3.5 w-3.5 text-purple-500" />
+              <span>{event.date}</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Clock className="h-3.5 w-3.5 text-purple-500" />
+              <span>{event.time} • {event.duration}</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Users className="h-3.5 w-3.5 text-purple-500" />
+              <span>
+                {isUpcoming 
+                  ? `0/${event.totalStudents} ${t('zoom.registered')}`
+                  : `${event.attendance}/${event.totalStudents} ${t('zoom.attended')}`
+                }
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="space-y-2">
+          {isUpcoming ? (
+            <Button 
+              className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg"
+              onClick={() => onJoin(event)}
+            >
+              <ExternalLink className="h-4 w-4 mr-1" />
+              {t('zoom.joinNow')}
+            </Button>
+          ) : (
+            <div className="flex gap-2">
+              <Button 
+                className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold"
+                onClick={() => onViewRecording(event)}
+              >
+                <Eye className="h-4 w-4 mr-1" />
+                {t('zoom.watch')}
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => onDownloadRecording(event)}
+                className="hover:bg-purple-50"
+              >
+                <Download className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
+          
+          {/* Edit/Delete Buttons */}
+          <div className="flex gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="flex-1 text-xs hover:bg-purple-50"
+              onClick={() => onEdit(event)}
+            >
+              <Edit className="h-3 w-3 mr-1" />
+              {t('zoom.edit')}
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="flex-1 text-xs hover:bg-red-50 hover:text-red-600"
+              onClick={() => onDelete(event.id)}
+            >
+              <Trash2 className="h-3 w-3 mr-1" />
+              {t('zoom.delete')}
+            </Button>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
 
 const ZoomClassesSection = () => {
   const { t } = useTranslation();
@@ -81,6 +191,44 @@ const ZoomClassesSection = () => {
 
   const upcomingClasses = classes.filter(cls => !cls.isCompleted);
   const completedClasses = classes.filter(cls => cls.isCompleted);
+
+  // Carousel scroll functionality
+  const upcomingScrollRef = useRef(null);
+  const completedScrollRef = useRef(null);
+  const [showUpcomingLeftNav, setShowUpcomingLeftNav] = useState(false);
+  const [showUpcomingRightNav, setShowUpcomingRightNav] = useState(true);
+  const [showCompletedLeftNav, setShowCompletedLeftNav] = useState(false);
+  const [showCompletedRightNav, setShowCompletedRightNav] = useState(true);
+
+  const checkScrollButtons = (ref, setLeftNav, setRightNav) => {
+    if (ref.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = ref.current;
+      setLeftNav(scrollLeft > 10);
+      setRightNav(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    checkScrollButtons(upcomingScrollRef, setShowUpcomingLeftNav, setShowUpcomingRightNav);
+    checkScrollButtons(completedScrollRef, setShowCompletedLeftNav, setShowCompletedRightNav);
+  }, [upcomingClasses, completedClasses]);
+
+  const scroll = (ref, direction) => {
+    if (ref.current) {
+      const scrollAmount = 360; // card width + gap
+      ref.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+      setTimeout(() => {
+        if (ref === upcomingScrollRef) {
+          checkScrollButtons(ref, setShowUpcomingLeftNav, setShowUpcomingRightNav);
+        } else {
+          checkScrollButtons(ref, setShowCompletedLeftNav, setShowCompletedRightNav);
+        }
+      }, 300);
+    }
+  };
 
   const handleScheduleClass = () => {
     if (!newClass.title || !newClass.date || !newClass.time) {

@@ -35,6 +35,25 @@
     "noResults": "कोई संसाधन नहीं मिला",
     "loading": "संसाधन लोड हो रहे हैं..."
   },
+  "learning": {
+    "achievements": {
+      "title": "बैज और प्रमाणपत्र",
+      "viewAll": "सभी देखें",
+      "earned": "अर्जित",
+      "certificate": "प्रमाणपत्र",
+      "locked": "लॉक किया हुआ",
+      "progress": "उपलब्धि प्रगति",
+      "unlocked": "अनलॉक किया हुआ",
+      "badges": {
+        "digitalMaster": "डिजिटल मास्टर",
+        "quickLearner": "तेज़ सीखने वाला",
+        "nextLevel": "अगला स्तर"
+      },
+      "certificates": {
+        "labourRights": "श्रम अधिकार"
+      }
+    }
+  },
   "admin": {
     "timeline": {
       "title": "समयरेखा और रिपोर्टिंग",
