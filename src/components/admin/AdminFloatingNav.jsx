@@ -1,17 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { BarChart3, BookOpen, Trophy, Users, Calendar } from 'lucide-react';
+import { 
+  BarChart3, 
+  BookOpen, 
+  Trophy, 
+  Users, 
+  Calendar,
+  Layers,
+  Video,
+  Shield,
+  MessageSquare 
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 
 export function AdminFloatingNav() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Check if we're in admin portal
   const isAdminPortal = location.pathname.startsWith('/admin-portal');
+
+  // Detect if modals are open
+  useEffect(() => {
+    const checkForModals = () => {
+      // Check for modal overlays (common patterns in admin pages)
+      const modalOverlay = document.querySelector('[class*="fixed"][class*="inset-0"][class*="backdrop-blur"]');
+      const hasModal = modalOverlay !== null;
+      setIsModalOpen(hasModal);
+    };
+
+    // Check immediately
+    checkForModals();
+
+    // Use MutationObserver to detect when modals are added/removed from DOM
+    const observer = new MutationObserver(checkForModals);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     if (!isAdminPortal) {
@@ -57,35 +96,56 @@ export function AdminFloatingNav() {
     {
       id: 'overview',
       icon: BarChart3,
-      label: 'Overview',
+      label: t('admin.nav.overview') || 'Overview',
       path: '/admin-portal/overview',
       color: 'from-blue-500 to-blue-600'
     },
     {
       id: 'analytics',
       icon: BookOpen,
-      label: 'Analytics',
+      label: t('admin.nav.analytics') || 'Analytics',
       path: '/admin-portal/analytics',
       color: 'from-purple-500 to-purple-600'
     },
     {
-      id: 'engagement',
-      icon: Trophy,
-      label: 'Engagement',
-      path: '/admin-portal/engagement',
-      color: 'from-green-500 to-green-600'
+      id: 'courses',
+      icon: Layers,
+      label: t('admin.nav.courses') || 'Courses',
+      path: '/admin-portal/courses',
+      color: 'from-indigo-500 to-indigo-600'
     },
     {
-      id: 'stakeholders',
+      id: 'workshops',
+      icon: Video,
+      label: t('admin.nav.workshops') || 'Workshops',
+      path: '/admin-portal/workshops',
+      color: 'from-violet-500 to-violet-600'
+    },
+    {
+      id: 'users',
       icon: Users,
-      label: 'Stakeholders',
-      path: '/admin-portal/stakeholders',
-      color: 'from-orange-500 to-orange-600'
+      label: t('admin.nav.users') || 'Users',
+      path: '/admin-portal/users',
+      color: 'from-cyan-500 to-cyan-600'
+    },
+    {
+      id: 'compliance',
+      icon: Shield,
+      label: t('admin.nav.compliance') || 'Compliance',
+      path: '/admin-portal/compliance',
+      color: 'from-slate-600 to-slate-700'
+    },
+    {
+      id: 'support',
+      icon: MessageSquare,
+      label: t('admin.nav.support') || 'Support',
+      path: '/admin-portal/support',
+      color: 'from-emerald-500 to-emerald-600'
     },
     {
       id: 'reporting',
       icon: Calendar,
-      label: 'Reporting',
+      label: t('admin.nav.reporting') || 'Reporting',
       path: '/admin-portal/reporting',
       color: 'from-pink-500 to-pink-600'
     }
@@ -95,9 +155,9 @@ export function AdminFloatingNav() {
 
   return (
     <AnimatePresence>
-      {isVisible && (
+      {isVisible && !isModalOpen && (
         <motion.div 
-          className="fixed bottom-6 left-0 right-0 z-50 flex justify-center px-4"
+          className="fixed bottom-6 left-0 right-0 z-40 flex justify-center px-4"
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}

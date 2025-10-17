@@ -34,6 +34,11 @@ import ModuleAnalytics from "./pages/admin/ModuleAnalytics.jsx";
 import EngagementGamification from "./pages/admin/EngagementGamification.jsx";
 import StakeholderResources from "./pages/admin/StakeholderResources.jsx";
 import TimelineReporting from "./pages/admin/TimelineReporting.jsx";
+import CourseManagement from "./pages/admin/CourseManagement.jsx";
+import WorkshopManagement from "./pages/admin/WorkshopManagement.jsx";
+import UserManagement from "./pages/admin/UserManagement.jsx";
+import ComplianceAudit from "./pages/admin/ComplianceAudit.jsx";
+import SupportCenter from "./pages/admin/SupportCenter.jsx";
 import { AdminPortalLayout } from "./components/layout/AdminPortalLayout.jsx";
 import Courses from "./pages/Courses.jsx";
 import Groups from "./pages/Groups.jsx";
@@ -105,6 +110,11 @@ const App = () => (
                     <Route index element={<OverviewSummary />} />
                     <Route path="overview" element={<OverviewSummary />} />
                     <Route path="analytics" element={<ModuleAnalytics />} />
+                    <Route path="courses" element={<CourseManagement />} />
+                    <Route path="workshops" element={<WorkshopManagement />} />
+                    <Route path="users" element={<UserManagement />} />
+                    <Route path="compliance" element={<ComplianceAudit />} />
+                    <Route path="support" element={<SupportCenter />} />
                     <Route path="engagement" element={<EngagementGamification />} />
                     <Route path="stakeholders" element={<StakeholderResources />} />
                     <Route path="reporting" element={<TimelineReporting />} />
