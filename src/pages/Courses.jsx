@@ -32,48 +32,18 @@ const Courses = () => {
   const mockCourses = [
     {
       id: 1,
-      titleKey: "strategicCommunication",
+      titleKey: "germanInternationalCooperation",
       students: 342,
       duration: "12 weeks",
       fullDuration: "8 Weeks (adaptable for 6-week intensive program)",
       format: "Hybrid (workshops, online labs, project consultancy)",
-      output: "Strategic Communication Plan (Capstone)",
+      output: "German International Cooperation (GIZ)",
       level: "Intermediate",
       status: "Active",
       image: "/assets/c1.webp",
       archived: false,
       deleted: false,
       catalog: "Labour Reform"
-    },
-    {
-      id: 2,
-      titleKey: "digitalLearningPathways",
-      students: 456,
-      duration: "10 weeks",
-      fullDuration: "10 Weeks (adaptable for 8-week intensive program)",
-      format: "Hybrid (workshops, e-learning modules, hands-on projects)",
-      output: "Digital Learning Rollout Plan (Capstone)",
-      level: "Beginner",
-      status: "Active",
-      image: "/assets/c2.webp",
-      archived: false,
-      deleted: false,
-      catalog: "Digital Skills"
-    },
-    {
-      id: 3,
-      titleKey: "stakeholderEngagement",
-      students: 289,
-      duration: "12 weeks",
-      fullDuration: "12 Weeks (adaptable for 8-10-week intensive program)",
-      format: "Hybrid (workshops, online labs, project consultancy)",
-      output: "Stakeholder Engagement & Policy Implementation Plan (Capstone)",
-      level: "Advanced",
-      status: "Active",
-      image: "/assets/c3.webp",
-      archived: false,
-      deleted: false,
-      catalog: "Policy & Reform"
     }
   ];
 
@@ -434,15 +404,9 @@ const Courses = () => {
                         </Badge>
                       </td>
                       <td className="p-4">
-                        {courseType === 'sequential' ? (
-                          <Badge variant="outline" className="text-orange-600 border-orange-300">
-                            Sequential
-                          </Badge>
-                        ) : (
-                          <Badge className="bg-green-500 text-white border-green-400">
-                            Open Access
-                          </Badge>
-                        )}
+                        <Badge className="bg-green-500 text-white border-green-400">
+                          Open Access
+                        </Badge>
                       </td>
                       <td className="p-4">
                         <CourseOptionsMenu 

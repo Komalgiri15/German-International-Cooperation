@@ -35,6 +35,7 @@ const CourseModules = () => {
         
         if (publishedCourse.modules && publishedCourse.modules.length > 0) {
           const imageMap = {
+            'German International Cooperation (GIZ)': '/assets/communication.PNG',
             'Module 1: Foundations of Strategic Communication': '/assets/communication.PNG',
             'Module 2: Digital and Media Strategies': '/assets/digital.PNG',
             'Module 3: Implementation, Feedback & Crisis Communication': '/assets/LAw.PNG'
@@ -58,110 +59,24 @@ const CourseModules = () => {
         setIsPublishedCourse(false);
         // Course-specific modules based on courseId
         const getCourseModules = (courseId) => {
-          const courseModules = {
-            '1': [ // Strategic Communication Course
-              {
-                id: 1,
-                title: "Module 1: Understanding Labour Reform, Digital Transformation & Communication Context",
-                description: "Master communication fundamentals, messaging frameworks, and stakeholder analysis for effective advocacy",
-                units: 6,
-                assessments: 2,
-                duration: "3 weeks",
-                completed: false,
-                locked: false,
-              },
-              {
-                id: 2,
-                title: "Module 2: Digital and Media Strategies",
-                description: "Learn digital tools, social media engagement, and content creation for modern communication campaigns",
-                units: 8,
-                assessments: 2,
-                duration: "4 weeks",
-                completed: false,
-                locked: courseType === 'sequential',
-              },
-              {
-                id: 3,
-                title: "Module 3: Implementation, Feedback & Crisis Communication",
-                description: "Apply strategic planning, monitor campaign effectiveness, and manage crisis communication scenarios",
-                units: 7,
-                assessments: 3,
-                duration: "3 weeks",
-                completed: false,
-                locked: courseType === 'sequential',
-              }
-            ],
-            '2': [ // Digital Learning Pathways Course
-              {
-                id: 1,
-                title: "Module 1: Understanding Labour Reform, Digital Transformation & Communication Context",
-                description: "Master communication fundamentals, messaging frameworks, and stakeholder analysis for effective advocacy",
-                units: 7,
-                assessments: 2,
-                duration: "2 weeks",
-                completed: false,
-                locked: false,
-              },
-              {
-                id: 2,
-                title: "Module 2: Digital and Media Strategies",
-                description: "Learn digital tools, social media engagement, and content creation for modern communication campaigns",
-                units: 9,
-                assessments: 3,
-                duration: "4 weeks",
-                completed: false,
-                locked: courseType === 'sequential',
-              },
-              {
-                id: 3,
-                title: "Module 3: Implementation, Feedback & Crisis Communication",
-                description: "Apply strategic planning, monitor campaign effectiveness, and manage crisis communication scenarios",
-                units: 8,
-                assessments: 2,
-                duration: "3.5 weeks",
-                completed: false,
-                locked: courseType === 'sequential',
-              }
-            ],
-            '3': [ // Stakeholder Engagement Course
-              {
-                id: 1,
-                title: "Module 1: Foundations of Strategic Communication",
-                description: "Master communication fundamentals, messaging frameworks, and stakeholder analysis for effective advocacy",
-                units: 8,
-                assessments: 2,
-                duration: "4 weeks",
-                completed: false,
-                locked: false,
-              },
-              {
-                id: 2,
-                title: "Module 2: Digital and Media Strategies",
-                description: "Learn digital tools, social media engagement, and content creation for modern communication campaigns",
-                units: 10,
-                assessments: 3,
-                duration: "5 weeks",
-                completed: false,
-                locked: courseType === 'sequential',
-              },
-              {
-                id: 3,
-                title: "Module 3: Implementation, Feedback & Crisis Communication",
-                description: "Apply strategic planning, monitor campaign effectiveness, and manage crisis communication scenarios",
-                units: 9,
-                assessments: 3,
-                duration: "4 weeks",
-                completed: false,
-                locked: courseType === 'sequential',
-              }
-            ]
-          };
-          
-          return courseModules[courseId] || courseModules['1']; // Default to Strategic Communication
+          // Return only one module for all courses
+          return [
+            {
+              id: 1,
+              title: "German International Cooperation (GIZ)",
+              description: "Comprehensive training program focusing on labour reform initiatives, digital learning pathways, and stakeholder engagement strategies for sustainable development and workforce empowerment.",
+              units: 8,
+              assessments: 3,
+              duration: "8 weeks",
+              completed: false,
+              locked: false,
+            }
+          ];
         };
         
         const defaultModules = getCourseModules(courseId).map((m) => {
           const titleToImage = {
+            'German International Cooperation (GIZ)': '/assets/communication.PNG',
             'Module 1: Foundations of Strategic Communication': '/assets/communication.PNG',
             'Module 2: Digital and Media Strategies': '/assets/digital.PNG',
             'Module 3: Implementation, Feedback & Crisis Communication': '/assets/LAw.PNG'

@@ -340,6 +340,10 @@
       "courseRestoredToActive": "{{name}} has been restored to active courses."
     },
     "sampleCourses": {
+      "germanInternationalCooperation": {
+        "title": "German International Cooperation (GIZ)",
+        "description": "Comprehensive training program focusing on labour reform initiatives, digital learning pathways, and stakeholder engagement strategies for sustainable development and workforce empowerment."
+      },
       "strategicCommunication": {
         "title": "Strategic Communication",
         "description": "Master effective communication strategies for labour reform advocacy and stakeholder collaboration in organizational and policy contexts."

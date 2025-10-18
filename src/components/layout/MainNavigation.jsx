@@ -143,8 +143,8 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
         </motion.div>
       </motion.div>
 
-      {/* Help & Support - Sticky at bottom */}
-      <div className="border-t border-gray-100 p-2">
+      {/* Help & Support */}
+      <div className="p-2">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button

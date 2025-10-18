@@ -323,6 +323,10 @@
       "courseRestoredToActive": "{{name}} wurde zu den aktiven Kursen wiederhergestellt."
     },
     "sampleCourses": {
+      "germanInternationalCooperation": {
+        "title": "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
+        "description": "Umfassendes Schulungsprogramm mit Fokus auf Arbeitsreform-Initiativen, digitale Lernpfade und Stakeholder-Engagement-Strategien für nachhaltige Entwicklung und Arbeitskräfte-Ermächtigung."
+      },
       "strategicCommunication": {
         "title": "Strategische Kommunikation",
         "description": "Meistern Sie effektive Kommunikationsstrategien für Arbeitsreform-Advocacy und Stakeholder-Zusammenarbeit in organisatorischen und politischen Kontexten."

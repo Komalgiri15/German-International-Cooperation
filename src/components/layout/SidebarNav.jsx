@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { MainNavigation } from './MainNavigation';
+import { AdminToggle } from './AdminToggle';
 import { ChevronLeft, BookOpen } from 'lucide-react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
@@ -101,6 +102,9 @@ export const SidebarNav = ({ onCloseMobile }) => {
       <div className="flex-1 overflow-y-auto py-4">
         <MainNavigation pathname={pathname} onItemClick={handleClick} />
       </div>
+
+      {/* Admin Toggle - Bottom of sidebar */}
+      <AdminToggle isCollapsed={isMainCollapsed} />
     </nav>
   );
 };
