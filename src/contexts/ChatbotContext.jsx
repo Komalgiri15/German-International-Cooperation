@@ -27,11 +27,15 @@ export const ChatbotProvider = ({ children }) => {
       setLearningStyle(style);
       setLearningScores(scores ? JSON.parse(scores) : null);
     } else {
-      // Show chatbot automatically if assessment not completed
-      const timer = setTimeout(() => {
-        setShowChatbot(true);
-      }, 2000); // Show after 2 seconds
-      return () => clearTimeout(timer);
+      // Auto-open only once per page load
+      const openedThisSession = sessionStorage.getItem('athena-opened-this-session');
+      if (!openedThisSession) {
+        const timer = setTimeout(() => {
+          setShowChatbot(true);
+          sessionStorage.setItem('athena-opened-this-session', 'true');
+        }, 2000); // Show after 2 seconds
+        return () => clearTimeout(timer);
+      }
     }
   }, []);
 
