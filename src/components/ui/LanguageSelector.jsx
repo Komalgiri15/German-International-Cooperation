@@ -28,6 +28,12 @@ const LANGUAGES = [
     name: 'German',
     flag: '🇩🇪',
     nativeName: 'Deutsch'
+  },
+  {
+    code: 'es',
+    name: 'Spanish',
+    flag: '🇪🇸',
+    nativeName: 'Español'
   }
 ];
 

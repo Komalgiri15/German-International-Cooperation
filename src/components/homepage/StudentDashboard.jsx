@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GIZBranding } from './GIZBranding';
+import { ICEXBranding } from './GIZBranding';
 import { WelcomeStatsSection } from './WelcomeStatsSection';
 import { CalendarEventsSection } from './CalendarEventsSection';
 import { AwarenessUpdatesSection } from './AwarenessUpdatesSection';
@@ -9,14 +9,16 @@ import { GroupsCommunitySection } from './GroupsCommunitySection';
 import { QuickActionsSection } from './QuickActionsSection';
 import ZoomClassesSection from './ZoomClassesSection';
 import { CourseAssessmentInsights } from './CourseAssessmentInsights';
+import { useChatbot } from '../../contexts/ChatbotContext';
 
 export function StudentDashboard() {
   const navigate = useNavigate();
+  const { showChatbot, completeAssessment, closeChatbot } = useChatbot();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-      {/* GIZ Branding Header */}
-      <GIZBranding />
+      {/* ICEX Branding Header */}
+      <ICEXBranding />
       
       {/* Top Section - Two Column Layout */}
       <div className="max-w-7xl mx-auto px-6 pb-6">
@@ -56,6 +58,7 @@ export function StudentDashboard() {
           <QuickActionsSection />
         </div>
       </div>
+
     </div>
   );
 }

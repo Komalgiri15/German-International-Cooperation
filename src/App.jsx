@@ -8,6 +8,7 @@ import { SidebarProvider } from "./contexts/SidebarContext";
 import { UserFilterProvider } from "./contexts/UserFilterContext";
 import { CourseSidebarProvider } from "./contexts/CourseSidebarContext";
 import { GroupProvider } from "./contexts/GroupContext";
+import { ChatbotProvider } from "./contexts/ChatbotContext";
 // Import all assessment components
 import MultipleChoiceQuiz from "./components/assessments/MultipleChoiceQuiz";
 import TrueFalseQuiz from "./components/assessments/TrueFalseQuiz";
@@ -49,6 +50,7 @@ import Messages from "./pages/Messages.jsx";
 import Help from "./pages/Help.jsx";
 import ModuleAssessments from "./pages/ModuleAssessments.jsx";
 import AssessmentView from "./pages/AssessmentView.jsx";
+import SandboxAssessment from "./pages/SandboxAssessment.jsx";
 import QuizPage from "./pages/QuizPage.jsx";
 import ScenarioPage from "./pages/ScenarioPage.jsx";
 import NotificationsDemo from "./pages/NotificationsDemo.jsx";
@@ -91,6 +93,9 @@ import LessonMod1Dreams from './pages/LessonMod1Dreams';
 import LessonMod2 from './pages/LessonMod2';
 import LessonMod3Protection from './pages/LessonMod3Protection';
 import Chatbot from './pages/Chatbot.jsx';
+import ChatbotDemo from './pages/ChatbotDemo.jsx';
+import FloatingChatbot from './components/chatbot/FloatingChatbot';
+import CompactChatWidget from './components/chatbot/CompactChatWidget';
 
 const queryClient = new QueryClient();
 
@@ -104,7 +109,8 @@ const App = () => (
           <UserFilterProvider>
             <CourseSidebarProvider>
               <GroupProvider>
-                <Routes>
+                <ChatbotProvider>
+                  <Routes>
                   {/* Admin Portal Routes - No Sidebar */}
                   <Route path="/admin-portal" element={<AdminPortalLayout />}>
                     <Route index element={<OverviewSummary />} />
@@ -142,6 +148,7 @@ const App = () => (
                   <Route path="courses/modules/:moduleId/assessments/manage" element={<ModuleAssessments />} />
                   <Route path="courses/modules/:moduleId/quiz" element={<QuizPage />} />
                   <Route path="courses/modules/:moduleId/scenario" element={<ScenarioPage />} />
+                  <Route path="courses/modules/:moduleId/sandbox" element={<SandboxAssessment />} />
                   <Route path="courses/modules/:moduleId/assignments/:assignmentId" element={<AssignmentInstructorPage />} />
                   <Route path="courses/modules/:moduleId/debates/:debateId" element={<DebateInstructorPage />} />
                   <Route path="courses/modules/:moduleId/quizzes/:quizId" element={<QuizInstructorPage />} />
@@ -169,6 +176,7 @@ const App = () => (
                   <Route path="help" element={<Help />} />
                   <Route path="profile" element={<Profile />} />
                   <Route path="chatbot" element={<Chatbot />} />
+                  <Route path="chatbot-demo" element={<ChatbotDemo />} />
                   
                   {/* New Instructor Dashboard Routes */}
                   <Route path="tasks" element={<TaskManagement />} />
@@ -195,7 +203,12 @@ const App = () => (
                   <Route path="assessment/project-submission" element={<ProjectSubmission />} />
                   <Route path="assessment/proctored" element={<ProcturedExamination />} />
                 </Route>
-              </Routes>
+                  </Routes>
+                  
+                  {/* Global Floating Chatbot - Always visible */}
+                  <FloatingChatbot />
+                  <CompactChatWidget />
+                </ChatbotProvider>
               </GroupProvider>
             </CourseSidebarProvider>
           </UserFilterProvider>

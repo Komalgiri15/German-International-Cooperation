@@ -76,7 +76,8 @@ const Resources = () => {
   const languages = [
     { code: 'en', label: t('resources.languages.en'), flag: '🇬🇧' },
     { code: 'ar', label: t('resources.languages.ar'), flag: '🇸🇦' },
-    { code: 'de', label: t('resources.languages.de'), flag: '🇩🇪' }
+    { code: 'de', label: t('resources.languages.de'), flag: '🇩🇪' },
+    { code: 'es', label: t('resources.languages.es'), flag: '🇪🇸' }
   ];
 
   const toggleFilter = (filterKey) => {

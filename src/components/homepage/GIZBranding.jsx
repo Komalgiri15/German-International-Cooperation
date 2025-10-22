@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Shield } from 'lucide-react';
 
-export function GIZBranding() {
+export function ICEXBranding() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [isAdminMode, setIsAdminMode] = useState(false);
@@ -21,20 +21,20 @@ export function GIZBranding() {
 
   return (
     <div className="flex items-center justify-end gap-4 mb-4 px-6 pt-6">
-      {/* GIZ Branding */}
+      {/* ICEX Branding */}
       <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200">
-        {/* GIZ Logo placeholder - replace with actual logo */}
+        {/* ICEX Logo placeholder - replace with actual logo */}
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-[#004E9A] rounded flex items-center justify-center text-white font-bold text-xs">
-            GIZ
+            ICEX
           </div>
           <div className="border-l border-gray-300 h-6 mx-1"></div>
           <div className="text-xs">
             <div className="font-bold text-[#004E9A]" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
-              {t('header.labourReform')}
+              ICEX España
             </div>
             <div className="text-gray-600 font-medium">
-              {t('header.digitalLearningInitiative')}
+              Exportación e Inversiones
             </div>
           </div>
         </div>
@@ -63,5 +63,6 @@ export function GIZBranding() {
   );
 }
 
-export default GIZBranding;
+
+  export default ICEXBranding;
 
