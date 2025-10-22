@@ -21,6 +21,7 @@ const ChatResults = ({ learningStyle, scores, onRestart, onClose }) => {
     V: {
       name: "Visual Learner",
       emoji: "🎨",
+      gif: "/assets/vision.gif",
       description: "You process information best through videos, charts, and images.",
       pathway: "Your pathway includes microlearning videos, visual scenarios, and infographics that help you \"see\" cultural patterns clearly.",
       color: "from-blue-500 to-cyan-500",
@@ -29,6 +30,7 @@ const ChatResults = ({ learningStyle, scores, onRestart, onClose }) => {
     A: {
       name: "Auditory Learner",
       emoji: "🎧",
+      gif: "/assets/sound-wave-ear.gif",
       description: "You learn best by listening and reflecting.",
       pathway: "Your course will include immersive reading with narration, podcast-style discussions, and audio-based storytelling.",
       color: "from-green-500 to-emerald-500",
@@ -37,6 +39,7 @@ const ChatResults = ({ learningStyle, scores, onRestart, onClose }) => {
     K: {
       name: "Interactive Learner",
       emoji: "🤝",
+      gif: "/assets/video-conference.gif",
       description: "You grasp concepts through doing and experiencing.",
       pathway: "Your path will include interactive simulations, cultural exercises, and role-play challenges.",
       color: "from-orange-500 to-amber-500",
@@ -45,6 +48,7 @@ const ChatResults = ({ learningStyle, scores, onRestart, onClose }) => {
     G: {
       name: "Game-Driven Learner",
       emoji: "🏆",
+      gif: "/assets/gamer.gif",
       description: "You thrive on challenges and rewards.",
       pathway: "Your path will feature missions, leaderboards, points, and cultural quizzes — turning learning into play!",
       color: "from-purple-500 to-pink-500",
@@ -134,7 +138,11 @@ const ChatResults = ({ learningStyle, scores, onRestart, onClose }) => {
                 <div className={`bg-gradient-to-br ${style.color} rounded-lg p-4 text-white max-w-sm`}>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                      <Icon className="w-6 h-6" />
+                      <img 
+                        src={style.gif} 
+                        alt={style.name}
+                        className="w-8 h-8 object-contain"
+                      />
                     </div>
                     <div>
                       <h4 className="font-semibold text-lg">{style.name}</h4>
@@ -190,7 +198,7 @@ const ChatResults = ({ learningStyle, scores, onRestart, onClose }) => {
                 <Button
                   onClick={onClose}
                   size="sm"
-                  className={`bg-gradient-to-r ${style.color} hover:opacity-90 text-white`}
+                  className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white"
                 >
                   <ArrowRightIcon className="w-4 h-4 mr-2" />
                   Start My Journey

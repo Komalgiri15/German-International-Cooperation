@@ -139,24 +139,28 @@ const CompactChatWidget = () => {
     V: {
       name: "Visual Learner",
       emoji: "🎨",
+      gif: "/assets/vision.gif",
       description: "You process information best through videos, charts, and images.",
       color: "from-blue-500 to-cyan-500"
     },
     A: {
       name: "Auditory Learner",
       emoji: "🎧",
+      gif: "/assets/sound-wave-ear.gif",
       description: "You learn best by listening and reflecting.",
       color: "from-green-500 to-emerald-500"
     },
     K: {
       name: "Interactive Learner",
       emoji: "🤝",
+      gif: "/assets/video-conference.gif",
       description: "You grasp concepts through doing and experiencing.",
       color: "from-orange-500 to-amber-500"
     },
     G: {
       name: "Game-Driven Learner",
       emoji: "🏆",
+      gif: "/assets/gamer.gif",
       description: "You thrive on challenges and rewards.",
       color: "from-purple-500 to-pink-500"
     }
@@ -277,8 +281,12 @@ const CompactChatWidget = () => {
             {hasCompletedAssessment && currentStep >= 10 ? (
               <div className="space-y-4">
                 <div className="text-center">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${learningStyles[learningStyle]?.color || 'from-blue-500 to-purple-500'} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                    <span className="text-3xl">{learningStyles[learningStyle]?.emoji || '🎯'}</span>
+                  <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                    <img 
+                      src={learningStyles[learningStyle]?.gif || '/assets/vision.gif'} 
+                      alt={learningStyles[learningStyle]?.name || 'Learning Style'}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <h4 className="font-semibold text-gray-900 text-lg mb-2">
                     You're a {learningStyles[learningStyle]?.name || 'Learner'}!
@@ -301,7 +309,7 @@ const CompactChatWidget = () => {
                 <Button 
                   onClick={closeChatbot}
                   size="lg" 
-                  className={`w-full text-sm bg-gradient-to-r ${learningStyles[learningStyle]?.color || 'from-blue-500 to-purple-500'} hover:opacity-90 text-white py-3`}
+                  className="w-full text-sm bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3"
                 >
                   <CheckIcon className="w-4 h-4 mr-2" />
                   Start My Journey
