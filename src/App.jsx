@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AdminLayout } from "./components/layout/AdminLayout";
 import { SidebarProvider } from "./contexts/SidebarContext";
 import { UserFilterProvider } from "./contexts/UserFilterContext";
@@ -99,18 +99,18 @@ import CompactChatWidget from './components/chatbot/CompactChatWidget';
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <SidebarProvider>
-          <UserFilterProvider>
-            <CourseSidebarProvider>
-              <GroupProvider>
-                <ChatbotProvider>
-                  <Routes>
+const AppInner = () => {
+  const location = useLocation();
+  const isAdminPortal = location.pathname.startsWith('/admin-portal');
+
+  return (
+    <>
+      <SidebarProvider>
+        <UserFilterProvider>
+          <CourseSidebarProvider>
+            <GroupProvider>
+              <ChatbotProvider>
+                <Routes>
                   {/* Admin Portal Routes - No Sidebar */}
                   <Route path="/admin-portal" element={<AdminPortalLayout />}>
                     <Route index element={<OverviewSummary />} />
@@ -203,16 +203,31 @@ const App = () => (
                   <Route path="assessment/project-submission" element={<ProjectSubmission />} />
                   <Route path="assessment/proctored" element={<ProcturedExamination />} />
                 </Route>
-                  </Routes>
-                  
-                  {/* Global Floating Chatbot - Always visible */}
-                  <FloatingChatbot />
-                  <CompactChatWidget />
-                </ChatbotProvider>
-              </GroupProvider>
-            </CourseSidebarProvider>
-          </UserFilterProvider>
-        </SidebarProvider>
+                </Routes>
+                
+                {/* Global Floating Chatbot - Hidden on admin portal */}
+                {!isAdminPortal && (
+                  <>
+                    <FloatingChatbot />
+                    <CompactChatWidget />
+                  </>
+                )}
+              </ChatbotProvider>
+            </GroupProvider>
+          </CourseSidebarProvider>
+        </UserFilterProvider>
+      </SidebarProvider>
+    </>
+  );
+};
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <AppInner />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

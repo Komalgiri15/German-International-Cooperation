@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from "@/components/ui/button";
-import { Bell, Search, User, Calendar, Inbox, Recycle, ExternalLink } from 'lucide-react';
+import { Bell, Search, User, Calendar, Inbox, Recycle, ExternalLink, Menu } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   DropdownMenu,
@@ -129,8 +129,9 @@ export const Header = ({ onMenuClick }) => {
             size="icon"
             className="md:hidden mr-2"
             onClick={onMenuClick}
+            aria-label="Open menu"
           >
-            <Search className="h-5 w-5" />
+            <Menu className="h-5 w-5" />
           </Button>
           
           <h1 
