@@ -37,20 +37,20 @@ export function StudentDashboard() {
           <AwarenessUpdatesSection />
         </div>
 
-        {/* My Courses Section */}
+        {/* My Courses Section
         <div className="mb-8">
           <LearningPathwaysSection />
-        </div>
+        </div> */}
 
         {/* Additional Sections Below */}
         <div className="space-y-8">
-          <ZoomClassesSection />
+          {/* <ZoomClassesSection /> */}
           
           {/* Course & Assessment Insights */}
-          <CourseAssessmentInsights />
+          {/* <CourseAssessmentInsights /> */}
           
           {/* Groups & Community Section */}
-          <GroupsCommunitySection />
+          {/* <GroupsCommunitySection /> */}
 
           {/* Quick Actions & Next Steps - Final Section */}
           <QuickActionsSection />
