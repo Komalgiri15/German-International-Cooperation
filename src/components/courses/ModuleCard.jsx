@@ -57,7 +57,7 @@ const ModuleCard = ({ module, onDelete, onUpdate, onComplete, courseType = 'open
     
     // Special handling for Office of Chief Justice module - open SCORM link in new tab
     if (module.title === "Office of Chief Justice") {
-      window.open('https://lesson-banners.s3.us-east-1.amazonaws.com/Scorms/update_german-international-cooperation-giz-scorm12-SBhdQa4k/scormcontent/index.html#/lessons/C3_BxMCrM8Y3zw4mmGdBEsMRJ7PT_a_X', '_blank');
+      window.open('https://lesson-banners.s3.us-east-1.amazonaws.com/Scorms/preventing-sexual-harassment-in-the-workplace-scorm12-ZQkg0ul1/scormcontent/index.html', '_blank');
       return;
     }
     
