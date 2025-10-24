@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from "@/components/ui/button";
-import { Bell, Search, User, Calendar, Inbox, Recycle, ExternalLink, Menu } from 'lucide-react';
+import { Bell, Search, User, Recycle, ExternalLink, Menu } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   DropdownMenu,
@@ -27,8 +27,6 @@ export const Header = ({ onMenuClick }) => {
   const [userAvatar, setUserAvatar] = useState('/lovable-uploads/b22d4431-7c74-430d-aa30-15d8739a7fbf.png');
   const [avatarKey, setAvatarKey] = useState(Date.now());
   
-  const [calendarDialogOpen, setCalendarDialogOpen] = useState(false);
-  const [inboxDialogOpen, setInboxDialogOpen] = useState(false);
   const [recycleBinDialogOpen, setRecycleBinDialogOpen] = useState(false);
   const [notificationDialogOpen, setNotificationDialogOpen] = useState(false);
   const [unreadCount, setUnreadCount] = useState(3); // Track unread notifications
@@ -83,13 +81,6 @@ export const Header = ({ onMenuClick }) => {
     });
   };
 
-  const handleCalendarClick = () => {
-    setCalendarDialogOpen(true);
-  };
-
-  const handleInboxClick = () => {
-    setInboxDialogOpen(true);
-  };
 
   const handleRecycleBinClick = () => {
     setRecycleBinDialogOpen(true);
@@ -154,38 +145,6 @@ export const Header = ({ onMenuClick }) => {
             />
           </div>
 
-          <div className="flex items-center gap-2 mr-2">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={handleCalendarClick}
-              className="hover:bg-slate-100 transition-all text-slate-600"
-              aria-label="Calendar"
-            >
-              <Calendar className="h-5 w-5" />
-            </Button>
-            
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={handleInboxClick}
-              className="hover:bg-slate-100 transition-all relative text-slate-600"
-              aria-label="Inbox"
-            >
-              <Inbox className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-            </Button>
-            
-            {/* <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={handleRecycleBinClick}
-              className="hover:bg-slate-100 transition-all text-slate-600"
-              aria-label="Recycle Bin"
-            >
-              <Recycle className="h-5 w-5" />
-            </Button> */}
-          </div>
           
           <ThemeToggle />
           
@@ -249,109 +208,6 @@ export const Header = ({ onMenuClick }) => {
         </div>
       </header>
 
-      <Dialog open={calendarDialogOpen} onOpenChange={setCalendarDialogOpen}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-2">
-              <Calendar className="h-5 w-5" />
-              Calendar & Events
-            </DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4">
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <h3 className="font-medium text-blue-900">Today's Events</h3>
-              <div className="mt-2 space-y-2 text-sm">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <span className="font-medium">Team Meeting</span>
-                    <div className="text-blue-600 text-xs">10:00 AM</div>
-                  </div>
-                  <Button 
-                    size="sm" 
-                    variant="outline"
-                    className="flex items-center gap-1 text-xs px-2 py-1 h-7"
-                    onClick={() => handleJoinMeeting('Team Meeting')}
-                  >
-                    Join
-                    <ExternalLink className="h-3 w-3" />
-                  </Button>
-                </div>
-                <div className="flex justify-between">
-                  <span>Course Review</span>
-                  <span className="text-blue-600">2:00 PM</span>
-                </div>
-              </div>
-            </div>
-            <div className="bg-green-50 p-4 rounded-lg">
-              <h3 className="font-medium text-green-900">Upcoming This Week</h3>
-              <div className="mt-2 space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span>Project Deadline</span>
-                  <span className="text-green-600">Friday</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <div>
-                    <span className="font-medium">Monthly Team Meeting</span>
-                    <div className="text-green-600 text-xs">Next Monday</div>
-                  </div>
-                  <Button 
-                    size="sm" 
-                    variant="outline"
-                    className="flex items-center gap-1 text-xs px-2 py-1 h-7"
-                    onClick={() => handleJoinMeeting('Monthly Team Meeting')}
-                  >
-                    Join
-                    <ExternalLink className="h-3 w-3" />
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
-
-      <Dialog open={inboxDialogOpen} onOpenChange={setInboxDialogOpen}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-2">
-              <Inbox className="h-5 w-5" />
-              Inbox Messages
-            </DialogTitle>
-          </DialogHeader>
-          <div className="space-y-3">
-            <div className="border-l-4 border-blue-500 bg-blue-50 p-3 rounded">
-              <div className="flex justify-between items-start">
-                <div>
-                  <p className="font-medium text-sm">Course Enrollment Confirmation</p>
-                  <p className="text-xs text-gray-600">From: Admin Team</p>
-                </div>
-                <span className="text-xs text-blue-600">2h ago</span>
-              </div>
-              <p className="text-sm mt-1">Your enrollment in Advanced Credit Analysis has been confirmed.</p>
-            </div>
-            <div className="border-l-4 border-green-500 bg-green-50 p-3 rounded">
-              <div className="flex justify-between items-start">
-                <div>
-                  <p className="font-medium text-sm">Assignment Submitted</p>
-                  <p className="text-xs text-gray-600">From: System</p>
-                </div>
-                <span className="text-xs text-green-600">1d ago</span>
-              </div>
-              <p className="text-sm mt-1">Your assignment for Module 3 has been successfully submitted.</p>
-            </div>
-            <div className="border-l-4 border-yellow-500 bg-yellow-50 p-3 rounded">
-              <div className="flex justify-between items-start">
-                <div>
-                  <p className="font-medium text-sm">Upcoming Deadline</p>
-                  <p className="text-xs text-gray-600">From: Course Instructor</p>
-                </div>
-                <span className="text-xs text-yellow-600">2d ago</span>
-              </div>
-              <p className="text-sm mt-1">Reminder: Final project due in 3 days.</p>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
 
       <Dialog open={recycleBinDialogOpen} onOpenChange={setRecycleBinDialogOpen}>
         <DialogContent className="max-w-md">
