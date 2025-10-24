@@ -695,18 +695,18 @@
         "subtitle": "مسارات المتعلمين الموصى بها مقابل الفعلية",
         "overallProgress": "التقدم الإجمالي",
         "modules": {
-          "digitalLiteracy": "المعرفة الرقمية",
-          "labourRights": "حقوق العمل",
-          "communication": "مهارات التواصل",
-          "financial": "الثقافة المالية",
-          "workplace": "السلامة في مكان العمل"
+          "module1": "الوحدة 1",
+          "module2": "الوحدة 2",
+          "module3": "الوحدة 3",
+          "module4": "الوحدة 4",
+          "module5": "الوحدة 5"
         },
         "pathways": {
-          "digitalFinancial": "المعرفة الرقمية ← التخطيط المالي",
-          "labourLegal": "حقوق العمل ← الامتثال القانوني",
-          "commLeadership": "التواصل ← القيادة",
-          "financialEntrepreneurship": "الثقافة المالية ← ريادة الأعمال",
-          "workplaceRisk": "السلامة في مكان العمل ← إدارة المخاطر"
+          "course1": "الدورة 1",
+          "course2": "الدورة 2",
+          "course3": "الدورة 3",
+          "course4": "الدورة 4",
+          "course5": "الدورة 5"
         },
         "statuses": {
           "complete": "مكتمل",
@@ -750,33 +750,21 @@
         "daysAgo": "منذ {{count}} أيام",
         "dayAgo": "منذ يوم واحد",
         "modules": {
-          "financialPlanning": "التخطيط المالي",
-          "labourRights": "حقوق العمل",
-          "communicationSkills": "مهارات التواصل",
-          "financialLiteracy": "الثقافة المالية",
-          "riskManagement": "إدارة المخاطر",
-          "basicComputerSkills": "مهارات الكمبيوتر الأساسية",
-          "digitalMarketing": "التسويق الرقمي",
-          "advancedSafetyProtocols": "بروتوكولات السلامة المتقدمة",
-          "labourCodeBasics": "أساسيات قانون العمل",
-          "teamCollaboration": "التعاون الجماعي"
+          "module1": "الوحدة 1",
+          "module2": "الوحدة 2",
+          "module3": "الوحدة 3",
+          "module4": "الوحدة 4",
+          "module5": "الوحدة 5"
         },
         "learners": {
-          "learner1": "آنا شميدت",
-          "learner2": "هانز مولر",
-          "learner3": "صوفي ويبر",
-          "learner4": "كلاوس فيشر",
-          "learner5": "ماريا فاغنر",
-          "learner6": "بيتر بيكر",
-          "learner7": "لورا هوفمان",
-          "learner8": "مايكل شولتز",
-          "learner9": "إيما كوخ",
-          "learner10": "توماس باور",
-          "learner11": "لينا ماير",
-          "learner12": "فيليكس ريشتر",
-          "learner13": "سارة شنايدر",
-          "learner14": "ماركوس وولف",
-          "learner15": "جوليا زيمرمان"
+          "learner1": "المستخدم 1",
+          "learner2": "المستخدم 2",
+          "learner3": "المستخدم 3",
+          "learner4": "المستخدم 4",
+          "learner5": "المستخدم 5",
+          "learner6": "المستخدم 6",
+          "learner7": "المستخدم 7",
+          "learner8": "المستخدم 8"
         }
       }
     },
@@ -792,12 +780,12 @@
         "pending": "معلق"
       },
       "modules": {
-        "digitalLiteracy": "أساسيات المعرفة الرقمية",
-        "financialPlanning": "التخطيط المالي",
-        "labourRights": "حقوق العمل والامتثال",
-        "communicationSkills": "مهارات التواصل",
-        "workplaceSafety": "السلامة في مكان العمل",
-        "entrepreneurship": "أساسيات ريادة الأعمال"
+        "course1": "الدورة 1",
+        "course2": "الدورة 2",
+        "course3": "الدورة 3",
+        "course4": "الدورة 4",
+        "course5": "الدورة 5",
+        "course6": "الدورة 6"
       },
       "modal": {
         "enrolled": "مسجل",
@@ -827,11 +815,11 @@
         "failed": "فشل"
       },
       "assessments": {
-        "digitalLiteracyQuiz": "اختبار المعرفة الرقمية",
-        "financialPlanningAssessment": "تقييم التخطيط المالي",
-        "labourLawExam": "امتحان قانون العمل",
-        "communicationSkillsQuiz": "اختبار مهارات التواصل",
-        "safetyProtocolAssessment": "تقييم بروتوكول السلامة"
+        "quiz1": "اختبار 1",
+        "assessment1": "تقييم 1",
+        "exam1": "امتحان 1",
+        "quiz2": "اختبار 2",
+        "assessment2": "تقييم 2"
       },
       "assessmentTypes": {
         "quiz": "اختبار",

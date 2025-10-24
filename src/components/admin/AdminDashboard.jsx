@@ -6,27 +6,27 @@ import { Users, BookOpen, FileText, BarChart as BarChartIcon, Settings, Bell, He
 
 const AdminDashboard = () => {
   const stats = [
-    { label: 'Total Users', value: '1,234', icon: Users, change: '+12%', changeType: 'increase' },
-    { label: 'Active Courses', value: '45', icon: BookOpen, change: '+5', changeType: 'increase' },
-    { label: 'Total Enrollments', value: '3,456', icon: FileText, change: '+234', changeType: 'increase' },
+    { label: 'Total Users', value: '150', icon: Users, change: '+12%', changeType: 'increase' },
+    { label: 'Active Courses', value: '8', icon: BookOpen, change: '+2', changeType: 'increase' },
+    { label: 'Total Enrollments', value: '320', icon: FileText, change: '+45', changeType: 'increase' },
     { label: 'Completion Rate', value: '78%', icon: BarChartIcon, change: '+5%', changeType: 'increase' },
   ];
 
   const recentActivities = [
-    { id: 1, user: 'Hans Müller', action: 'created a new course', time: '2 minutes ago' },
-    { id: 2, user: 'Anna Schmidt', action: 'completed "Introduction to React"', time: '1 hour ago' },
-    { id: 3, user: 'Sophie Weber', action: 'uploaded a new resource', time: '3 hours ago' },
-    { id: 4, user: 'Klaus Fischer', action: 'sent a message', time: '5 hours ago' },
-    { id: 5, user: 'Maria Wagner', action: 'commented on a discussion', time: '1 day ago' },
+    { id: 1, user: 'User 1', action: 'completed Course 1', time: '2 minutes ago' },
+    { id: 2, user: 'User 2', action: 'started Course 2', time: '1 hour ago' },
+    { id: 3, user: 'User 3', action: 'uploaded resource', time: '3 hours ago' },
+    { id: 4, user: 'User 4', action: 'sent message', time: '5 hours ago' },
+    { id: 5, user: 'User 5', action: 'commented on discussion', time: '1 day ago' },
   ];
 
   const chartData = [
-    { name: 'Jan', users: 4000, courses: 2400 },
-    { name: 'Feb', users: 3000, courses: 1398 },
-    { name: 'Mar', users: 2000, courses: 9800 },
-    { name: 'Apr', users: 2780, courses: 3908 },
-    { name: 'May', users: 1890, courses: 4800 },
-    { name: 'Jun', users: 2390, courses: 3800 },
+    { name: 'Jan', users: 120, courses: 6 },
+    { name: 'Feb', users: 135, courses: 7 },
+    { name: 'Mar', users: 140, courses: 8 },
+    { name: 'Apr', users: 145, courses: 8 },
+    { name: 'May', users: 148, courses: 8 },
+    { name: 'Jun', users: 150, courses: 8 },
   ];
 
   return (

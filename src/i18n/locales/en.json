@@ -695,18 +695,18 @@
         "subtitle": "Recommended vs actual learner pathways",
         "overallProgress": "Overall Progress",
         "modules": {
-          "digitalLiteracy": "Digital Literacy",
-          "labourRights": "Labour Rights",
-          "communication": "Communication Skills",
-          "financial": "Financial Literacy",
-          "workplace": "Workplace Safety"
+          "module1": "Module 1",
+          "module2": "Module 2",
+          "module3": "Module 3",
+          "module4": "Module 4",
+          "module5": "Module 5"
         },
         "pathways": {
-          "digitalFinancial": "Digital Literacy → Financial Planning",
-          "labourLegal": "Labour Rights → Legal Compliance",
-          "commLeadership": "Communication → Leadership",
-          "financialEntrepreneurship": "Financial Literacy → Entrepreneurship",
-          "workplaceRisk": "Workplace Safety → Risk Management"
+          "course1": "Course 1",
+          "course2": "Course 2",
+          "course3": "Course 3",
+          "course4": "Course 4",
+          "course5": "Course 5"
         },
         "statuses": {
           "complete": "Complete",
@@ -750,33 +750,21 @@
         "daysAgo": "{{count}} days ago",
         "dayAgo": "1 day ago",
         "modules": {
-          "financialPlanning": "Financial Planning",
-          "labourRights": "Labour Rights",
-          "communicationSkills": "Communication Skills",
-          "financialLiteracy": "Financial Literacy",
-          "riskManagement": "Risk Management",
-          "basicComputerSkills": "Basic Computer Skills",
-          "digitalMarketing": "Digital Marketing",
-          "advancedSafetyProtocols": "Advanced Safety Protocols",
-          "labourCodeBasics": "Labour Code Basics",
-          "teamCollaboration": "Team Collaboration"
+          "module1": "Module 1",
+          "module2": "Module 2",
+          "module3": "Module 3",
+          "module4": "Module 4",
+          "module5": "Module 5"
         },
         "learners": {
-          "learner1": "Anna Schmidt",
-          "learner2": "Hans Müller",
-          "learner3": "Sophie Weber",
-          "learner4": "Klaus Fischer",
-          "learner5": "Maria Wagner",
-          "learner6": "Peter Becker",
-          "learner7": "Laura Hoffmann",
-          "learner8": "Michael Schulz",
-          "learner9": "Emma Koch",
-          "learner10": "Thomas Bauer",
-          "learner11": "Lena Meyer",
-          "learner12": "Felix Richter",
-          "learner13": "Sarah Schneider",
-          "learner14": "Markus Wolf",
-          "learner15": "Julia Zimmermann"
+          "learner1": "User 1",
+          "learner2": "User 2",
+          "learner3": "User 3",
+          "learner4": "User 4",
+          "learner5": "User 5",
+          "learner6": "User 6",
+          "learner7": "User 7",
+          "learner8": "User 8"
         }
       }
     },
@@ -792,12 +780,12 @@
         "pending": "pending"
       },
       "modules": {
-        "digitalLiteracy": "Digital Literacy Basics",
-        "financialPlanning": "Financial Planning",
-        "labourRights": "Labour Rights & Compliance",
-        "communicationSkills": "Communication Skills",
-        "workplaceSafety": "Workplace Safety",
-        "entrepreneurship": "Entrepreneurship Fundamentals"
+        "course1": "Course 1",
+        "course2": "Course 2",
+        "course3": "Course 3",
+        "course4": "Course 4",
+        "course5": "Course 5",
+        "course6": "Course 6"
       },
       "modal": {
         "enrolled": "enrolled",
@@ -827,11 +815,11 @@
         "failed": "failed"
       },
       "assessments": {
-        "digitalLiteracyQuiz": "Digital Literacy Quiz",
-        "financialPlanningAssessment": "Financial Planning Assessment",
-        "labourLawExam": "Labour Law Exam",
-        "communicationSkillsQuiz": "Communication Skills Quiz",
-        "safetyProtocolAssessment": "Safety Protocol Assessment"
+        "quiz1": "Quiz 1",
+        "assessment1": "Assessment 1",
+        "exam1": "Exam 1",
+        "quiz2": "Quiz 2",
+        "assessment2": "Assessment 2"
       },
       "assessmentTypes": {
         "quiz": "Quiz",

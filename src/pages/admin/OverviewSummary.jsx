@@ -43,65 +43,65 @@ const OverviewSummary = () => {
   const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'asc' });
   const [filterStatus, setFilterStatus] = useState('all');
 
-  // Mock data - Replace with real API data
+  // Mock data - Simple demo data
   const programKPIs = {
-    totalLearners: 15,
-    completionRate: 73.3,
-    averageScore: 84.8,
-    activeToday: 8,
+    totalLearners: 8,
+    completionRate: 75.0,
+    averageScore: 82.5,
+    activeToday: 5,
     trends: {
-      learners: 7.1,
-      completion: 4.2,
-      score: 2.1,
-      active: 14.3
+      learners: 5.0,
+      completion: 3.0,
+      score: 2.5,
+      active: 8.0
     }
   };
 
   const pathwayData = [
     { 
-      pathwayKey: 'digitalFinancial',
-      moduleKey: 'digitalLiteracy',
+      pathwayKey: 'course1',
+      moduleKey: 'module1',
       recommended: 100,
       actual: 100,
       matchRate: 100.0,
       statusKey: 'complete',
-      learners: 15
+      learners: 8
     },
     { 
-      pathwayKey: 'labourLegal',
-      moduleKey: 'labourRights',
+      pathwayKey: 'course2',
+      moduleKey: 'module2',
       recommended: 100,
-      actual: 85,
-      matchRate: 85.0,
+      actual: 75,
+      matchRate: 75.0,
       statusKey: 'inProgress',
-      learners: 13
+      learners: 6
     },
     { 
-      pathwayKey: 'commLeadership',
-      moduleKey: 'communication',
+      pathwayKey: 'course3',
+      moduleKey: 'module3',
       recommended: 100,
-      actual: 72,
-      matchRate: 72.0,
+      actual: 50,
+      matchRate: 50.0,
       statusKey: 'inProgress',
-      learners: 11
+      learners: 4
     },
     { 
-      pathwayKey: 'financialEntrepreneurship',
-      moduleKey: 'financial',
+      pathwayKey: 'course4',
+      moduleKey: 'module4',
       recommended: 100,
-      actual: 45,
-      matchRate: 45.0,
+      actual: 25,
+      matchRate: 25.0,
       statusKey: 'started',
-      learners: 9
+      learners: 2
     },
     { 
-      pathwayKey: 'workplaceRisk',
-      moduleKey: 'workplace',
+      pathwayKey: 'course5',
+      moduleKey: 'module5',
       recommended: 100,
-      actual: 15,
-      matchRate: 15.0,
+      actual: 0,
+      matchRate: 0.0,
       statusKey: 'justStarted',
-      learners: 5
+      learners: 0
     }
   ];
 
@@ -113,182 +113,98 @@ const OverviewSummary = () => {
     {
       id: 1,
       nameKey: 'learner1',
-      email: 'anna.schmidt@example.com',
-      modulesCompleted: 12,
-      totalModules: 15,
-      currentModuleKey: 'financialPlanning',
-      score: 92.5,
+      email: 'user1@example.com',
+      modulesCompleted: 8,
+      totalModules: 10,
+      currentModuleKey: 'module3',
+      score: 85.0,
       status: 'active',
-      pathway: 'Digital Literacy',
+      pathway: 'Course 1',
       lastActive: '2 hours ago'
     },
     {
       id: 2,
       nameKey: 'learner2',
-      email: 'hans.mueller@example.com',
-      modulesCompleted: 8,
-      totalModules: 15,
-      currentModuleKey: 'labourRights',
-      score: 88.3,
+      email: 'user2@example.com',
+      modulesCompleted: 6,
+      totalModules: 10,
+      currentModuleKey: 'module2',
+      score: 78.5,
       status: 'active',
-      pathway: 'Legal Compliance',
+      pathway: 'Course 2',
       lastActive: '5 hours ago'
     },
     {
       id: 3,
       nameKey: 'learner3',
-      email: 'sophie.weber@example.com',
-      modulesCompleted: 15,
-      totalModules: 15,
+      email: 'user3@example.com',
+      modulesCompleted: 10,
+      totalModules: 10,
       currentModuleKey: 'completed',
-      score: 95.7,
+      score: 92.0,
       status: 'completed',
-      pathway: 'Communication',
+      pathway: 'Course 1',
       lastActive: '1 day ago'
     },
     {
       id: 4,
       nameKey: 'learner4',
-      email: 'klaus.fischer@example.com',
-      modulesCompleted: 5,
-      totalModules: 15,
-      currentModuleKey: 'financialLiteracy',
-      score: 76.2,
+      email: 'user4@example.com',
+      modulesCompleted: 3,
+      totalModules: 10,
+      currentModuleKey: 'module1',
+      score: 65.0,
       status: 'at-risk',
-      pathway: 'Entrepreneurship',
+      pathway: 'Course 3',
       lastActive: '3 days ago'
     },
     {
       id: 5,
       nameKey: 'learner5',
-      email: 'maria.wagner@example.com',
-      modulesCompleted: 15,
-      totalModules: 15,
+      email: 'user5@example.com',
+      modulesCompleted: 10,
+      totalModules: 10,
       currentModuleKey: 'completed',
-      score: 94.8,
+      score: 88.5,
       status: 'completed',
-      pathway: 'Digital Literacy',
+      pathway: 'Course 2',
       lastActive: '2 days ago'
     },
     {
       id: 6,
       nameKey: 'learner6',
-      email: 'peter.becker@example.com',
-      modulesCompleted: 10,
-      totalModules: 15,
-      currentModuleKey: 'communicationSkills',
-      score: 85.6,
+      email: 'user6@example.com',
+      modulesCompleted: 7,
+      totalModules: 10,
+      currentModuleKey: 'module3',
+      score: 82.0,
       status: 'active',
-      pathway: 'Leadership',
+      pathway: 'Course 3',
       lastActive: '1 hour ago'
     },
     {
       id: 7,
       nameKey: 'learner7',
-      email: 'laura.hoffmann@example.com',
-      modulesCompleted: 3,
-      totalModules: 15,
-      currentModuleKey: 'basicComputerSkills',
-      score: 72.4,
+      email: 'user7@example.com',
+      modulesCompleted: 2,
+      totalModules: 10,
+      currentModuleKey: 'module1',
+      score: 58.0,
       status: 'at-risk',
-      pathway: 'Digital Literacy',
+      pathway: 'Course 4',
       lastActive: '4 days ago'
     },
     {
       id: 8,
       nameKey: 'learner8',
-      email: 'michael.schulz@example.com',
-      modulesCompleted: 13,
-      totalModules: 15,
-      currentModuleKey: 'riskManagement',
-      score: 89.2,
-      status: 'active',
-      pathway: 'Workplace Safety',
-      lastActive: '3 hours ago'
-    },
-    {
-      id: 9,
-      nameKey: 'learner9',
-      email: 'emma.koch@example.com',
-      modulesCompleted: 15,
-      totalModules: 15,
-      currentModuleKey: 'completed',
-      score: 91.3,
-      status: 'completed',
-      pathway: 'Legal Compliance',
-      lastActive: '1 day ago'
-    },
-    {
-      id: 10,
-      nameKey: 'learner10',
-      email: 'thomas.bauer@example.com',
-      modulesCompleted: 7,
-      totalModules: 15,
-      currentModuleKey: 'labourCodeBasics',
-      score: 80.5,
-      status: 'active',
-      pathway: 'Labour Rights',
-      lastActive: '6 hours ago'
-    },
-    {
-      id: 11,
-      nameKey: 'learner11',
-      email: 'lena.meyer@example.com',
-      modulesCompleted: 15,
-      totalModules: 15,
-      currentModuleKey: 'completed',
-      score: 93.1,
-      status: 'completed',
-      pathway: 'Communication',
-      lastActive: '3 days ago'
-    },
-    {
-      id: 12,
-      nameKey: 'learner12',
-      email: 'felix.richter@example.com',
-      modulesCompleted: 2,
-      totalModules: 15,
-      currentModuleKey: 'financialLiteracy',
-      score: 68.7,
-      status: 'inactive',
-      pathway: 'Financial Literacy',
-      lastActive: '7 days ago'
-    },
-    {
-      id: 13,
-      nameKey: 'learner13',
-      email: 'sarah.schneider@example.com',
+      email: 'user8@example.com',
       modulesCompleted: 9,
-      totalModules: 15,
-      currentModuleKey: 'digitalMarketing',
-      score: 86.9,
+      totalModules: 10,
+      currentModuleKey: 'module4',
+      score: 90.5,
       status: 'active',
-      pathway: 'Entrepreneurship',
-      lastActive: '4 hours ago'
-    },
-    {
-      id: 14,
-      nameKey: 'learner14',
-      email: 'markus.wolf@example.com',
-      modulesCompleted: 11,
-      totalModules: 15,
-      currentModuleKey: 'advancedSafetyProtocols',
-      score: 87.4,
-      status: 'active',
-      pathway: 'Risk Management',
-      lastActive: '2 hours ago'
-    },
-    {
-      id: 15,
-      nameKey: 'learner15',
-      email: 'julia.zimmermann@example.com',
-      modulesCompleted: 6,
-      totalModules: 15,
-      currentModuleKey: 'teamCollaboration',
-      score: 79.8,
-      status: 'active',
-      pathway: 'Leadership',
-      lastActive: '8 hours ago'
+      pathway: 'Course 2',
+      lastActive: '3 hours ago'
     }
   ];
 
