@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Calendar, Video, School, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Calendar, Video, School, ChevronLeft, ChevronRight, Info } from 'lucide-react';
 
 const UpcomingEventCard = ({ title, date, time, type, eventId }) => {
   const { t } = useTranslation();
@@ -38,6 +39,14 @@ const UpcomingEventCard = ({ title, date, time, type, eventId }) => {
             >
               {type === 'live' ? t('calendar.joinNow') : t('calendar.addToCalendar')}
             </Button>
+            <div className="flex gap-1 mt-1">
+              <Badge variant="secondary" className="text-[8px] px-1.5 py-0.5 h-4">
+                Demo
+              </Badge>
+              <Badge variant="outline" className="text-[8px] px-1.5 py-0.5 h-4">
+                Placeholder
+              </Badge>
+            </div>
           </div>
         </div>
       </CardContent>
@@ -51,39 +60,18 @@ export function CalendarEventsSection() {
   const [currentEventIndex, setCurrentEventIndex] = useState(0);
   const scrollContainerRef = React.useRef(null);
   
-  // Mock upcoming events - replace with actual API data
+  // Mock demo events - replace later with API data
   const upcomingEvents = [
-    {
-      id: 1,
-      title: "Digital Skills Workshop",
-      date: "Oct 15, 2025",
-      time: "10:00 AM",
-      type: "workshop"
-    },
-    {
-      id: 2,
-      title: "Labour Rights Webinar",
-      date: "Oct 16, 2025",
-      time: "2:00 PM",
-      type: "live"
-    },
-    {
-      id: 3,
-      title: "Career Counseling Session",
-      date: "Oct 18, 2025",
-      time: "11:00 AM",
-      type: "workshop"
-    },
+    { id: 1, title: " Workshop", date: "Oct 15, 2025", time: "10:00 AM", type: "workshop" },
+    { id: 2, title: "Webinar", date: "Oct 16, 2025", time: "2:00 PM", type: "live" },
+    { id: 3, title: "Session", date: "Oct 18, 2025", time: "11:00 AM", type: "workshop" },
   ];
 
   const scrollToEvent = (index) => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       const cardWidth = container.offsetWidth;
-      container.scrollTo({
-        left: cardWidth * index,
-        behavior: 'smooth'
-      });
+      container.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
       setCurrentEventIndex(index);
     }
   };
@@ -97,50 +85,27 @@ export function CalendarEventsSection() {
     }
   };
 
-  // Calendar logic
   const today = new Date();
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
-  
-  const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"];
-  
+  const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-  
-  const prevMonth = () => {
-    setCurrentDate(new Date(year, month - 1, 1));
-  };
-  
-  const nextMonth = () => {
-    setCurrentDate(new Date(year, month + 1, 1));
-  };
 
-  const isToday = (day) => {
-    return day === today.getDate() && 
-           month === today.getMonth() && 
-           year === today.getFullYear();
-  };
+  const prevMonth = () => setCurrentDate(new Date(year, month - 1, 1));
+  const nextMonth = () => setCurrentDate(new Date(year, month + 1, 1));
 
-  // Generate calendar days
+  const isToday = (day) => day === today.getDate() && month === today.getMonth() && year === today.getFullYear();
+
   const calendarDays = [];
-  
-  // Empty cells for days before month starts
-  for (let i = 0; i < firstDay; i++) {
-    calendarDays.push(<div key={`empty-${i}`} className="h-8"></div>);
-  }
-  
-  // Days of the month
+  for (let i = 0; i < firstDay; i++) calendarDays.push(<div key={`empty-${i}`} className="h-8"></div>);
   for (let day = 1; day <= daysInMonth; day++) {
     const isTodayDate = isToday(day);
     calendarDays.push(
       <div
         key={day}
         className={`h-8 flex items-center justify-center rounded-lg text-xs font-medium transition-colors cursor-pointer
-          ${isTodayDate 
-            ? 'bg-[#004E9A] text-white shadow-md' 
-            : 'hover:bg-gray-100 text-gray-700'
-          }`}
+          ${isTodayDate ? 'bg-[#004E9A] text-white shadow-md' : 'hover:bg-gray-100 text-gray-700'}`}
       >
         {day}
       </div>
@@ -150,30 +115,30 @@ export function CalendarEventsSection() {
   return (
     <div className="space-y-4">
       {/* Monthly Calendar */}
-      <Card className="bg-white shadow-md border">
+      <Card className="bg-white shadow-md border relative">
         <CardHeader className="pb-2 pt-4">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-base font-bold text-gray-900" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
+            <CardTitle className="text-base font-bold text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
+              <Calendar className="w-4 h-4 text-[#004E9A]" />
               {monthNames[month]} {year}
             </CardTitle>
             <div className="flex gap-1">
-              <Button 
-                variant="outline" 
-                size="icon" 
-                className="h-7 w-7"
-                onClick={prevMonth}
-              >
+              <Button variant="outline" size="icon" className="h-7 w-7" onClick={prevMonth}>
                 <ChevronLeft className="h-3 w-3" />
               </Button>
-              <Button 
-                variant="outline" 
-                size="icon" 
-                className="h-7 w-7"
-                onClick={nextMonth}
-              >
+              <Button variant="outline" size="icon" className="h-7 w-7" onClick={nextMonth}>
                 <ChevronRight className="h-3 w-3" />
               </Button>
             </div>
+          </div>
+          {/* Demo tags */}
+          <div className="flex gap-1 mt-1">
+            <Badge variant="secondary" className="text-[8px] px-1.5 py-0.5 h-4">
+              Demo
+            </Badge>
+            <Badge variant="outline" className="text-[8px] px-1.5 py-0.5 h-4">
+              Calendar View
+            </Badge>
           </div>
         </CardHeader>
         <CardContent className="pb-4">
@@ -185,7 +150,7 @@ export function CalendarEventsSection() {
               </div>
             ))}
           </div>
-          
+
           {/* Calendar grid */}
           <div className="grid grid-cols-7 gap-1">
             {calendarDays}
@@ -193,16 +158,24 @@ export function CalendarEventsSection() {
         </CardContent>
       </Card>
 
-      {/* Upcoming Events - Carousel */}
-      <Card className="bg-white shadow-md border">
+      {/* Upcoming Events Carousel */}
+      <Card className="bg-white shadow-md border relative">
         <CardHeader className="pb-2 pt-4">
           <CardTitle className="text-base font-bold text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
-            <Calendar className="w-4 h-4 text-[#004E9A]" />
+            <Video className="w-4 h-4 text-[#004E9A]" />
             {t('calendar.upcomingEvents')}
           </CardTitle>
+          {/* Demo tags */}
+          <div className="flex gap-1 mt-1">
+            <Badge variant="secondary" className="text-[8px] px-1.5 py-0.5 h-4">
+              Demo
+            </Badge>
+            <Badge variant="outline" className="text-[8px] px-1.5 py-0.5 h-4">
+              Sample Events
+            </Badge>
+          </div>
         </CardHeader>
         <CardContent className="pb-4">
-          {/* Carousel Container */}
           <div 
             ref={scrollContainerRef}
             onScroll={handleScroll}
@@ -216,7 +189,7 @@ export function CalendarEventsSection() {
             ))}
           </div>
 
-          {/* Carousel Dots Navigation */}
+          {/* Carousel navigation dots */}
           {upcomingEvents.length > 1 && (
             <div className="flex justify-center gap-1.5 mt-3">
               {upcomingEvents.map((_, index) => (
@@ -224,9 +197,7 @@ export function CalendarEventsSection() {
                   key={index}
                   onClick={() => scrollToEvent(index)}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
-                    currentEventIndex === index 
-                      ? 'w-6 bg-[#004E9A]' 
-                      : 'w-1.5 bg-gray-300 hover:bg-gray-400'
+                    currentEventIndex === index ? 'w-6 bg-[#004E9A]' : 'w-1.5 bg-gray-300 hover:bg-gray-400'
                   }`}
                   aria-label={`Go to event ${index + 1}`}
                 />
@@ -240,4 +211,3 @@ export function CalendarEventsSection() {
 }
 
 export default CalendarEventsSection;
-

@@ -58,19 +58,9 @@ export function QuickActionsSection() {
   
   const quickActions = [
     {
-      icon: GraduationCap,
-      labelKey: 'enrollPathway',
-      color: 'blue',
-    },
-    {
       icon: Users,
       labelKey: 'joinDiscussion',
       color: 'purple',
-    },
-    {
-      icon: Video,
-      labelKey: 'watchVideo',
-      color: 'green',
     },
     {
       icon: MessageSquare,
@@ -93,19 +83,13 @@ export function QuickActionsSection() {
               {t('quickActions.subtitle')}
             </p>
           </div>
-          <Button 
-            variant="outline"
-            className="border-2 border-[#004E9A] text-[#004E9A] hover:bg-[#004E9A] hover:text-white font-semibold transition-all duration-300 px-6"
-          >
-            {t('quickActions.viewAllActions')}
-            <ChevronRight className="w-4 h-4 ml-2" />
-          </Button>
+         
         </div>
       </div>
 
       {/* Quick Action Buttons Grid */}
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
           {quickActions.map((action, index) => (
             <QuickActionButton
               key={index}
