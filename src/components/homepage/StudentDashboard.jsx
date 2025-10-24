@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GIZBranding } from './GIZBranding';
 import { WelcomeStatsSection } from './WelcomeStatsSection';
 import { CalendarEventsSection } from './CalendarEventsSection';
 import { AwarenessUpdatesSection } from './AwarenessUpdatesSection';
+import { MyCoursesSection } from './MyCoursesSection';
 import { LearningPathwaysSection } from './LearningPathwaysSection';
 import { GroupsCommunitySection } from './GroupsCommunitySection';
 import { QuickActionsSection } from './QuickActionsSection';
@@ -15,11 +15,8 @@ export function StudentDashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-      {/* GIZ Branding Header */}
-      <GIZBranding />
-      
       {/* Top Section - Two Column Layout */}
-      <div className="max-w-7xl mx-auto px-6 pb-6">
+      <div className="max-w-7xl mx-auto px-6 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Left Side - Welcome & Stats */}
           <div className="space-y-6">
@@ -37,7 +34,12 @@ export function StudentDashboard() {
           <AwarenessUpdatesSection />
         </div>
 
-        {/* My Courses Section
+        {/* My Courses Section */}
+        <div className="mb-8">
+          <MyCoursesSection />
+        </div>
+
+        {/* Learning Pathways Section
         <div className="mb-8">
           <LearningPathwaysSection />
         </div> */}

@@ -14,47 +14,99 @@ import {
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Premium sample resource data - Only 2 cards
+// Workplace Safety & Harassment Prevention Resources
 const sampleResources = [
   {
     id: 1,
     type: 'document',
-    title: 'Labour Code Reform Guidelines 2024',
-    description: 'Comprehensive guide to understanding new labour code implementations and employer obligations. This document provides detailed insights into compliance requirements and best practices.',
-    tags: ['Policy', 'Employer Guides'],
-    fileSize: '2.4 MB',
-    publishedDate: 'March 15, 2024',
-    views: '1.2k',
-    downloads: '450',
-    rating: 4.8,
-    image: '/placeholder.svg'
+    title: 'Sexual Harassment Prevention Training Guide',
+    description: 'Complete 9-module training guide covering Introduction, Understanding Harassment & Discrimination, Four Forms of Sexual Harassment, Response Strategies, and Complaint Procedures. Essential for all employees.',
+    tags: ['Training', 'Policy', 'Prevention'],
+    fileSize: '3.2 MB',
+    publishedDate: 'October 23, 2024',
+    views: '4.5k',
+    downloads: '1,250',
+    rating: 5.0,
+    image: '/assets/Workplace Compliance Awareness.PNG'
   },
   {
     id: 2,
     type: 'video',
-    title: 'Digital Skills for Modern Workforce',
-    description: 'Training video series covering essential digital literacy skills for employees and employers. Learn the latest tools and techniques for digital workplace success.',
-    tags: ['Training', 'Educator Resources'],
-    fileSize: '45 MB',
-    publishedDate: 'February 28, 2024',
-    views: '2.8k',
-    downloads: '890',
+    title: 'Bystander Intervention: Practical Techniques',
+    description: 'Video training on how to safely intervene when witnessing harassment. Learn your role as an individual contributor, supervisor, or leader in creating workplace accountability and respect.',
+    tags: ['Training', 'Intervention', 'Safety'],
+    fileSize: '78 MB',
+    publishedDate: 'October 15, 2024',
+    views: '3.8k',
+    downloads: '980',
     rating: 4.9,
-    image: '/placeholder.svg'
+    image: '/assets/communication.PNG'
+  },
+  {
+    id: 3,
+    type: 'document',
+    title: 'Understanding Four Forms of Sexual Harassment',
+    description: 'Detailed guide on quid pro quo, hostile work environment, verbal and non-verbal harassment. Includes real-world examples to recognize subtle and overt behaviors.',
+    tags: ['Policy', 'Recognition', 'Examples'],
+    fileSize: '2.8 MB',
+    publishedDate: 'October 8, 2024',
+    views: '3.2k',
+    downloads: '890',
+    rating: 4.8,
+    image: '/assets/Course2.PNG'
+  },
+  {
+    id: 4,
+    type: 'document',
+    title: 'Supervisor Guide: Responding to Complaints',
+    description: 'Professional procedures for receiving, documenting, and escalating harassment complaints. Learn legal responsibilities and best practices for supporting affected employees.',
+    tags: ['Supervisor', 'Compliance', 'Procedures'],
+    fileSize: '4.1 MB',
+    publishedDate: 'September 30, 2024',
+    views: '2.9k',
+    downloads: '720',
+    rating: 4.9,
+    image: '/assets/LAw.PNG'
+  },
+  {
+    id: 5,
+    type: 'video',
+    title: 'Building a Respectful Workplace Culture',
+    description: 'Strategic approaches to creating and maintaining a culture of respect, inclusion, and zero tolerance for harassment. Essential viewing for all organizational leaders.',
+    tags: ['Culture', 'Leadership', 'Prevention'],
+    fileSize: '95 MB',
+    publishedDate: 'September 22, 2024',
+    views: '2.4k',
+    downloads: '640',
+    rating: 4.7,
+    image: '/assets/Course.jpg'
+  },
+  {
+    id: 6,
+    type: 'document',
+    title: 'Employee Rights & Reporting Procedures',
+    description: 'Know your rights and responsibilities under harassment prevention policies. Learn reporting procedures, support resources, and how to take appropriate action confidently.',
+    tags: ['Rights', 'Procedures', 'Support'],
+    fileSize: '1.9 MB',
+    publishedDate: 'September 15, 2024',
+    views: '5.1k',
+    downloads: '1,450',
+    rating: 5.0,
+    image: '/assets/Workplace Compliance Awareness.PNG'
   }
 ];
 
 const featuredResource = {
   id: 'featured-1',
   type: 'video',
-  title: 'New Labour Codes: What Every Employer Must Know',
-  description: 'An comprehensive webinar by GIZ experts covering the essential aspects of the new labour codes, compliance requirements, and implementation strategies for businesses of all sizes.',
-  tags: ['Policy', 'Training', 'Employer Guides'],
-  fileSize: '120 MB',
-  publishedDate: 'March 18, 2024',
-  views: '5.6k',
+  title: 'Preventing Sexual Harassment in the Workplace - Complete Training',
+  description: 'Comprehensive training covering all 9 lessons: Introduction, Understanding Harassment, Four Forms of Sexual Harassment, Response Strategies, Bystander Intervention, Supervisor Prevention, and Complaint Procedures. Every employee has the right to a safe, respectful, and inclusive work environment.',
+  tags: ['Training', 'Prevention', 'Compliance', 'Mandatory'],
+  fileSize: '156 MB',
+  publishedDate: 'October 23, 2024',
+  views: '8.2k',
   rating: 5.0,
-  duration: '45 minutes'
+  duration: '2 hours 15 minutes'
 };
 
 const Resources = () => {
@@ -65,12 +117,12 @@ const Resources = () => {
   const [currentFeaturedIndex, setCurrentFeaturedIndex] = useState(0);
 
   const filters = [
-    { key: 'policy', label: t('resources.filters.policy') },
-    { key: 'training', label: t('resources.filters.training') },
-    { key: 'employerGuides', label: t('resources.filters.employerGuides') },
-    { key: 'educatorResources', label: t('resources.filters.educatorResources') },
-    { key: 'caseStudies', label: t('resources.filters.caseStudies') },
-    { key: 'gizReports', label: t('resources.filters.gizReports') }
+    { key: 'training', label: 'Training Materials' },
+    { key: 'policy', label: 'Policy & Compliance' },
+    { key: 'prevention', label: 'Prevention Strategies' },
+    { key: 'supervisor', label: 'Supervisor Resources' },
+    { key: 'intervention', label: 'Bystander Intervention' },
+    { key: 'procedures', label: 'Reporting Procedures' }
   ];
 
   const languages = [
@@ -152,28 +204,15 @@ const Resources = () => {
                 </div>
                 <Badge variant="secondary" className="bg-blue-50 text-blue-700 hover:bg-blue-100 px-3 py-1 text-xs font-semibold border border-blue-200">
                   <Sparkles className="h-3 w-3 mr-1" />
-                  Knowledge Base
+                  Workplace Safety Resources
                 </Badge>
               </div>
               <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2 tracking-tight">
-                {t('resources.pageTitle')}
+                Sexual Harassment Prevention Resource Library
               </h1>
               <p className="text-base text-gray-600 max-w-3xl leading-relaxed">
-                {t('resources.subtitle')}
+                Essential training materials, policy guides, and resources to create a safe, respectful, and inclusive workplace. Access comprehensive harassment prevention content for all employees, supervisors, and leaders.
               </p>
-            </div>
-            
-            {/* Right side: Premium Blue Logo badge */}
-            <div className="relative">
-              <div className="flex items-center gap-3 bg-gradient-to-br from-blue-600 to-blue-700 px-6 py-4 rounded-xl shadow-xl border-2 border-blue-500">
-                <div className="bg-white rounded-lg p-2.5 shadow-lg">
-                  <div className="text-blue-600 font-bold text-xl leading-none">GIZ</div>
-                </div>
-                <div className="border-l-2 border-blue-400 pl-3">
-                  <div className="text-white font-bold text-base">Learning Hub</div>
-                  <div className="text-blue-200 text-xs">Powered by LMS</div>
-                </div>
-              </div>
             </div>
           </div>
 

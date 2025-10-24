@@ -10,7 +10,7 @@
     "hours": "Hours",
     "activeGroups": "Active Groups",
     "groups": "Groups",
-    "loadingDashboard": "Loading GIZ Dashboard..."
+    "loadingDashboard": "Loading Office of Chief Justice Dashboard..."
   },
   "awareness": {
     "title": "Awareness & Updates",
@@ -341,7 +341,7 @@
     },
     "sampleCourses": {
       "germanInternationalCooperation": {
-        "title": "German International Cooperation (GIZ)",
+        "title": "Office of Chief Justice",
         "description": "Comprehensive training program focusing on labour reform initiatives, digital learning pathways, and stakeholder engagement strategies for sustainable development and workforce empowerment."
       },
       "strategicCommunication": {
@@ -432,11 +432,11 @@
       "employerGuides": "Employer Guides",
       "educatorResources": "Educator Resources",
       "caseStudies": "Case Studies",
-      "gizReports": "GIZ Reports"
+      "gizReports": "Office of Chief Justice Reports"
     },
     "featured": {
       "title": "Featured This Week",
-      "recommended": "Recommended by GIZ",
+      "recommended": "Recommended by Office of Chief Justice",
       "readMore": "Read More",
       "watchNow": "Watch Now"
     },
@@ -513,7 +513,7 @@
       },
       "campaignCatalysts": {
         "name": "Campaign Catalysts",
-        "description": "Discussions on GIZ-led campaigns and awareness drives."
+        "description": "Discussions on Office of Chief Justice-led campaigns and awareness drives."
       },
       "eventSpotlight": {
         "name": "Event Spotlight",

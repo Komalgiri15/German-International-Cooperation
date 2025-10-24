@@ -70,7 +70,7 @@ export const AdminLayout = ({ title = 'Dashboard' }) => {
       }
     }
 
-    document.title = `${newTitle} | GIZ`;
+    document.title = `${newTitle} | Office of Chief Justice`;
   }, [location.pathname, title, courseId, setCourseTitle]);
 
   return (

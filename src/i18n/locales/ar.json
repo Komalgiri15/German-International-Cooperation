@@ -341,7 +341,7 @@
     },
     "sampleCourses": {
       "germanInternationalCooperation": {
-        "title": "التعاون الدولي الألماني (GIZ)",
+        "title": "مكتب رئيس القضاة",
         "description": "برنامج تدريبي شامل يركز على مبادرات إصلاح العمل ومسارات التعلم الرقمي واستراتيجيات إشراك أصحاب المصلحة للتنمية المستدامة وتمكين القوى العاملة."
       },
       "strategicCommunication": {
@@ -432,11 +432,11 @@
       "employerGuides": "أدلة أصحاب العمل",
       "educatorResources": "موارد المعلمين",
       "caseStudies": "دراسات الحالة",
-      "gizReports": "تقارير GIZ"
+      "gizReports": "تقارير مكتب رئيس القضاة"
     },
     "featured": {
       "title": "مميز هذا الأسبوع",
-      "recommended": "موصى به من GIZ",
+      "recommended": "موصى به من مكتب رئيس القضاة",
       "readMore": "اقرأ المزيد",
       "watchNow": "شاهد الآن"
     },
@@ -513,7 +513,7 @@
       },
       "campaignCatalysts": {
         "name": "محفزو الحملات",
-        "description": "مناقشات حول حملات GIZ وبرامج التوعية."
+        "description": "مناقشات حول حملات مكتب رئيس القضاة وبرامج التوعية."
       },
       "eventSpotlight": {
         "name": "تسليط الضوء على الأحداث",

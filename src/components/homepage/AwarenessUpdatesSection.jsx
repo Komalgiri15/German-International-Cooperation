@@ -74,38 +74,58 @@ export function AwarenessUpdatesSection() {
   const { t } = useTranslation();
   const [selectedAnnouncement, setSelectedAnnouncement] = useState(0);
 
-  // Only 3 announcements
+  // Harassment Prevention and Workplace Safety Announcements
   const announcements = [
     {
       id: 1,
       type: 'reform',
-      title: t('awareness.announcements.labourCode.title'),
-      date: 'Oct 1, 2025',
-      description: t('awareness.announcements.labourCode.description'),
-      thumbnail: '/assets/UnderstandingNewLabourCodes.PNG',
+      title: 'Mandatory Sexual Harassment Prevention Training - All Employees',
+      date: 'Oct 23, 2025',
+      description: 'All employees must complete the comprehensive sexual harassment prevention training by November 15, 2025. This training covers harassment identification, prevention strategies, bystander intervention, and complaint procedures. Your participation helps create a safe, respectful workplace for everyone.',
+      thumbnail: '/assets/Workplace Compliance Awareness.PNG',
       isNew: true,
       hasVideo: false
     },
     {
       id: 2,
       type: 'webinar',
-      title: t('awareness.announcements.compliance.title'),
-      date: 'Sep 28, 2025',
-      description: t('awareness.announcements.compliance.description'),
-      thumbnail: '/assets/Workplace Compliance Awareness.PNG',
+      title: 'Bystander Intervention Workshop - How to Safely Respond',
+      date: 'Oct 15, 2025',
+      description: 'Join our interactive webinar on bystander intervention strategies. Learn practical techniques to safely intervene when you witness harassment or inappropriate behavior. Expert facilitators will guide you through real-world scenarios and effective response methods.',
+      thumbnail: '/assets/communication.PNG',
       isNew: true,
       hasVideo: true
     },
     {
       id: 3,
       type: 'video',
-      title: t('awareness.announcements.digitalLiteracy.title'),
-      date: 'Sep 25, 2025',
-      description: t('awareness.announcements.digitalLiteracy.description'),
-      thumbnail: '/assets/Digital literacy.jpg',
+      title: 'Understanding Four Forms of Sexual Harassment',
+      date: 'Oct 8, 2025',
+      description: 'Watch our comprehensive video series exploring the four main categories of sexual harassment: quid pro quo, hostile work environment, verbal harassment, and non-verbal harassment. Learn to recognize subtle and overt behaviors through real case examples.',
+      thumbnail: '/assets/Course2.PNG',
       isNew: false,
       hasVideo: true
     },
+    {
+      id: 4,
+      type: 'reform',
+      title: 'Updated Anti-Discrimination Policy - Important Changes',
+      date: 'Sep 30, 2025',
+      description: 'Review our updated anti-discrimination and equal opportunity policies. New guidelines strengthen protections against harassment based on gender, race, age, disability, and sexual orientation. All supervisors must acknowledge the updated policy by October 31.',
+      thumbnail: '/assets/LAw.PNG',
+      isNew: false,
+      hasVideo: false
+    },
+    {
+      id: 5,
+      type: 'webinar',
+      title: 'Supervisor Training - Responding to Harassment Complaints',
+      date: 'Sep 22, 2025',
+      description: 'Mandatory training for all supervisors and managers on proper procedures for receiving, documenting, and escalating harassment complaints. Learn your legal responsibilities and best practices for supporting affected employees while maintaining confidentiality.',
+      thumbnail: '/assets/Workplace Compliance Awareness.PNG',
+      isNew: false,
+      hasVideo: true
+    }
   ];
 
   const currentAnnouncement = announcements[selectedAnnouncement];
@@ -115,11 +135,11 @@ export function AwarenessUpdatesSection() {
       {/* Header */}
       <div className="max-w-7xl mx-auto mb-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
-          <span className="text-2xl">📢</span>
-          {t('awareness.title')}
+          <span className="text-2xl">🛡️</span>
+          Workplace Safety & Prevention Awareness
         </h2>
         <p className="text-sm text-gray-600">
-          {t('awareness.subtitle')}
+          Stay informed about harassment prevention training, policy updates, and workplace safety initiatives.
         </p>
       </div>
 
@@ -198,10 +218,10 @@ export function AwarenessUpdatesSection() {
               <CardContent className="p-4">
                 <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
                   <Bell className="w-4 h-4 text-[#004E9A]" />
-                  {t('awareness.latestAnnouncements')}
+                  Latest Updates
                 </h3>
                 
-                <div className="space-y-2">
+                <div className="space-y-2 max-h-[400px] overflow-y-auto pr-1">
                   {announcements.map((announcement, index) => (
                     <AnnouncementItem
                       key={announcement.id}
@@ -213,19 +233,6 @@ export function AwarenessUpdatesSection() {
                 </div>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer - Supported by GIZ */}
-      <div className="max-w-7xl mx-auto mt-8 flex justify-end">
-        <div className="flex items-center gap-2 text-xs text-gray-500">
-          <span>{t('awareness.poweredBy')}</span>
-          <div className="flex items-center gap-1.5 bg-white px-3 py-1 rounded-full shadow-sm border border-gray-200">
-            <div className="w-5 h-5 bg-[#004E9A] rounded-sm flex items-center justify-center text-white font-bold text-[8px]">
-              GIZ
-            </div>
-            <span className="font-semibold text-[#004E9A]">{t('awareness.labourReformInitiative')}</span>
           </div>
         </div>
       </div>

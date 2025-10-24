@@ -27,71 +27,89 @@ const Catalog = () => {
   const [newCatalogName, setNewCatalogName] = useState('');
   const [newCatalogDescription, setNewCatalogDescription] = useState('');
   
-  // GIZ Labour Reform Initiative Catalogs
+  // Workplace Safety & Harassment Prevention Catalogs
   const [catalogs, setCatalogs] = useState([
-    // FREE COURSES
+    // FREE COURSES - Based on SCORM Training Content
     {
       id: 1,
-      nameKey: 'strategicCommunication',
-      imageUrl: '/assets/communication.PNG',
-      courseCount: 3,
+      nameKey: 'preventingSexualHarassment',
+      name: 'Preventing Sexual Harassment in the Workplace',
+      description: 'Complete 9-lesson course: Introduction, Understanding Harassment & Discrimination, What Is Sexual Harassment, Four Forms, Response Strategies, Bystander Intervention, and more. Build a safe, respectful workplace culture.',
+      imageUrl: '/assets/Workplace Compliance Awareness.PNG',
+      courseCount: 9,
       category: 'Free',
-      level: 'Intermediate',
-      featured: true
+      level: 'Beginner',
+      featured: true,
+      prize: 'Sexual Harassment Prevention Certificate'
     },
     {
       id: 2,
-      nameKey: 'awarenessOutreach',
-      imageUrl: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop&auto=format',
-      courseCount: 2,
+      nameKey: 'understandingHarassment',
+      name: 'Understanding Harassment and Discrimination',
+      description: 'Learn the key differences between harassment and discrimination. Understand legal definitions, recognize violations of trust and dignity, and identify behaviors that affect workplace culture.',
+      imageUrl: '/assets/Course2.PNG',
+      courseCount: 3,
       category: 'Free',
       level: 'Beginner',
-      featured: false
+      featured: true,
+      prize: 'Awareness Specialist Badge'
     },
     {
       id: 3,
-      nameKey: 'digitalLearningPathways',
-      imageUrl: '/assets/digital.PNG',
-      courseCount: 3,
+      nameKey: 'fourFormsOfHarassment',
+      name: 'Four Forms of Sexual Harassment',
+      description: 'Deep dive into the four main categories: quid pro quo, hostile work environment, verbal harassment, and non-verbal harassment. Learn to recognize subtle and overt behaviors through real examples.',
+      imageUrl: '/assets/communication.PNG',
+      courseCount: 4,
       category: 'Free',
       level: 'Beginner',
-      featured: true
+      featured: false,
+      prize: 'Recognition Expert Badge'
     },
     
-    // PREMIUM COURSES
+    // PREMIUM COURSES - Advanced Training
     {
       id: 4,
-      nameKey: 'policyReformAdvocacy',
+      nameKey: 'bystanderIntervention',
+      name: 'Bystander Intervention: Taking Action Safely',
+      description: 'Practical techniques to safely intervene when witnessing harassment. Learn your role as an individual contributor, supervisor, or leader in creating accountability and fostering respect.',
       imageUrl: '/assets/LAw.PNG',
-      courseCount: 3,
+      courseCount: 5,
       category: 'Premium',
-      level: 'Advanced',
-      featured: true
+      level: 'Intermediate',
+      featured: true,
+      prize: 'Active Bystander Certification'
     },
     {
       id: 5,
-      nameKey: 'technicalSupport',
-      imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop&auto=format',
-      courseCount: 2,
+      nameKey: 'supervisorPrevention',
+      name: 'Preventing Sexual Harassment as a Supervisor',
+      description: 'Advanced training for leaders on preventing harassment, handling complaints with confidentiality, understanding legal responsibilities, and fostering proactive communication in your team.',
+      imageUrl: '/assets/Workplace Compliance Awareness.PNG',
+      courseCount: 6,
       category: 'Premium',
       level: 'Advanced',
-      featured: false
+      featured: true,
+      prize: 'Leadership Excellence Certificate'
     },
     {
       id: 6,
-      nameKey: 'crisisCommunication',
-      imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop&auto=format',
-      courseCount: 3,
+      nameKey: 'respondingToComplaints',
+      name: 'Responding to Sexual Harassment Complaints',
+      description: 'Professional procedures for receiving, documenting, and escalating harassment complaints. Learn reporting procedures, support resources, and how to take appropriate action confidently and responsibly.',
+      imageUrl: '/assets/Course.jpg',
+      courseCount: 4,
       category: 'Premium',
       level: 'Advanced',
-      featured: true
+      featured: false,
+      prize: 'Compliance Officer Certification'
     }
   ]);
 
   // Filter catalogs based on search query
   const filteredCatalogs = catalogs.filter(catalog => {
-    const catalogName = t(`catalog.sampleCatalogs.${catalog.nameKey}.name`);
-    const catalogDescription = t(`catalog.sampleCatalogs.${catalog.nameKey}.description`);
+    const catalogName = catalog.name || t(`catalog.sampleCatalogs.${catalog.nameKey}.name`);
+    const catalogDescription = catalog.description || t(`catalog.sampleCatalogs.${catalog.nameKey}.description`);
     
     return catalogName.toLowerCase().includes(searchQuery.toLowerCase()) ||
            catalogDescription.toLowerCase().includes(searchQuery.toLowerCase());
@@ -157,7 +175,7 @@ const Catalog = () => {
   };
 
   const handleCatalogClick = (catalog) => {
-    const catalogName = t(`catalog.sampleCatalogs.${catalog.nameKey}.name`);
+    const catalogName = catalog.name || t(`catalog.sampleCatalogs.${catalog.nameKey}.name`);
     navigate(`/catalog/${catalogName.toLowerCase().replace(/\s+/g, '-')}`, {
       state: { catalog }
     });
@@ -167,9 +185,9 @@ const Catalog = () => {
     <div className="container mx-auto p-6 animate-fade-in max-w-7xl">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">{t('catalog.title')}</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Workplace Safety Training Catalog</h1>
           <p className="text-muted-foreground mt-2">
-            {t('catalog.subtitle')}
+            Comprehensive courses on harassment prevention, workplace safety, and professional conduct
           </p>
         </div>
         
@@ -228,7 +246,7 @@ const Catalog = () => {
             >
               <img 
                 src={catalog.imageUrl} 
-                alt={t(`catalog.sampleCatalogs.${catalog.nameKey}.name`)}
+                alt={catalog.name}
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:opacity-95" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
@@ -236,47 +254,21 @@ const Catalog = () => {
                   {/* Level Badge */}
                   <div className="absolute top-4 right-4">
                     <Badge className="bg-white/95 text-gray-900 border-0 shadow-lg backdrop-blur-sm font-bold text-xs tracking-wide px-3 py-1.5">
-                      {t(`courses.levels.${catalog.level.toLowerCase()}`)}
+                      {catalog.level}
                     </Badge>
                   </div>
-
-                  {/* Management buttons */}
-                  <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Button
-                  size="icon"
-                  variant="secondary"
-                      className="h-9 w-9 bg-white/95 hover:bg-white shadow-lg"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleEditCatalog(catalog);
-                  }}
-                >
-                      <Edit className="h-4 w-4" />
-                </Button>
-                <Button
-                  size="icon"
-                  variant="destructive"
-                      className="h-9 w-9 bg-gray-900 hover:bg-gray-800 shadow-lg"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleDeleteCatalog(catalog.id, t(`catalog.sampleCatalogs.${catalog.nameKey}.name`));
-                  }}
-                >
-                      <Trash2 className="h-4 w-4" />
-                </Button>
-              </div>
 
                   {/* Title Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <h3 className="text-white font-bold text-xl mb-1 line-clamp-2 drop-shadow-2xl tracking-tight">
-                      {t(`catalog.sampleCatalogs.${catalog.nameKey}.name`)}
+                      {catalog.name}
                     </h3>
               </div>
             </div>
             
             <CardContent className="p-6" onClick={() => handleCatalogClick(catalog)}>
                   <p className="text-sm text-gray-600 mb-5 line-clamp-3 min-h-[60px] leading-relaxed">
-                    {t(`catalog.sampleCatalogs.${catalog.nameKey}.description`)}
+                    {catalog.description}
                   </p>
 
                   {/* Prize Section */}
@@ -284,7 +276,7 @@ const Catalog = () => {
                     <div className="flex items-center gap-2.5">
                       <Award className="h-4 w-4 text-gray-900 flex-shrink-0" />
                       <span className="text-xs font-semibold text-gray-900 line-clamp-1 tracking-wide">
-                        {t(`catalog.sampleCatalogs.${catalog.nameKey}.prize`)}
+                        {catalog.prize}
                       </span>
                     </div>
                   </div>
@@ -346,7 +338,7 @@ const Catalog = () => {
                 >
                   <img 
                     src={catalog.imageUrl} 
-                    alt={t(`catalog.sampleCatalogs.${catalog.nameKey}.name`)}
+                    alt={catalog.name}
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:opacity-90" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
@@ -354,47 +346,21 @@ const Catalog = () => {
                   {/* Level Badge */}
                   <div className="absolute top-4 right-4">
                     <Badge className="bg-white text-gray-900 border-0 shadow-lg backdrop-blur-sm font-bold text-xs tracking-wide px-3 py-1.5">
-                      {t(`courses.levels.${catalog.level.toLowerCase()}`)}
+                      {catalog.level}
                     </Badge>
-                  </div>
-
-                  {/* Management buttons */}
-                  <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Button
-                      size="icon"
-                      variant="secondary"
-                      className="h-9 w-9 bg-white/95 hover:bg-white shadow-lg"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleEditCatalog(catalog);
-                      }}
-                    >
-                      <Edit className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      size="icon"
-                      variant="destructive"
-                      className="h-9 w-9 bg-gray-700 hover:bg-gray-600 shadow-lg"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleDeleteCatalog(catalog.id, t(`catalog.sampleCatalogs.${catalog.nameKey}.name`));
-                      }}
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
                   </div>
 
                   {/* Title Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <h3 className="text-white font-bold text-xl mb-1 line-clamp-2 drop-shadow-2xl tracking-tight">
-                      {t(`catalog.sampleCatalogs.${catalog.nameKey}.name`)}
+                      {catalog.name}
                     </h3>
                   </div>
                 </div>
                 
                 <CardContent className="p-6 bg-gradient-to-br from-gray-900 to-gray-800" onClick={() => handleCatalogClick(catalog)}>
                   <p className="text-sm text-gray-300 mb-5 line-clamp-3 min-h-[60px] leading-relaxed">
-                    {t(`catalog.sampleCatalogs.${catalog.nameKey}.description`)}
+                    {catalog.description}
                   </p>
 
                   {/* Prize Section */}
@@ -402,7 +368,7 @@ const Catalog = () => {
                     <div className="flex items-center gap-2.5">
                       <Award className="h-4 w-4 text-white flex-shrink-0" />
                       <span className="text-xs font-semibold text-white line-clamp-1 tracking-wide">
-                        {t(`catalog.sampleCatalogs.${catalog.nameKey}.prize`)}
+                        {catalog.prize}
                       </span>
                     </div>
                   </div>

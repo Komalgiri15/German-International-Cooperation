@@ -31,9 +31,9 @@ const Section3Video = () => {
     const base = (langCode || 'en-US').split('-')[0];
     const texts = {
       en: (
-        'GIZ Rakshak Smart - One Page Overview\n' +
+        'OCJ Rakshak Smart - One Page Overview\n' +
         'Overview\n' +
-        'GIZ Rakshak Smart is a life insurance savings plan designed to provide protection, ' +
+        'OCJ Rakshak Smart is a life insurance savings plan designed to provide protection, ' +
         'guaranteed income, and long-term financial security for individuals and families.\n' +
         'Key Benefits\n' +
         '✔ Life Insurance cover during the policy term\n' +

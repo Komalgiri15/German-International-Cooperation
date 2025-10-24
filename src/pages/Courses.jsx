@@ -28,7 +28,7 @@ const Courses = () => {
   const [activeTab, setActiveTab] = useState('courses');
   const navigate = useNavigate();
 
-  // GIZ-Aligned Labour Reform Initiative Courses
+  // Office of Chief Justice-Aligned Labour Reform Initiative Courses
   const mockCourses = [
     {
       id: 1,
@@ -37,7 +37,7 @@ const Courses = () => {
       duration: "12 weeks",
       fullDuration: "8 Weeks (adaptable for 6-week intensive program)",
       format: "Hybrid (workshops, online labs, project consultancy)",
-      output: "German International Cooperation (GIZ)",
+      output: "Office of Chief Justice",
       level: "Intermediate",
       status: "Active",
       image: "/assets/c1.webp",
