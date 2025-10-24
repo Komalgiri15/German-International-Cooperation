@@ -8,6 +8,7 @@ import { WelcomeStatsSection } from './WelcomeStatsSection';
 import { CalendarEventsSection } from './CalendarEventsSection';
 import { AwarenessUpdatesSection } from './AwarenessUpdatesSection';
 import { LearningPathwaysSection } from './LearningPathwaysSection';
+import { DemoFeaturesSection } from './DemoFeaturesSection';
 import { GroupsCommunitySection } from './GroupsCommunitySection';
 import { QuickActionsSection } from './QuickActionsSection';
 import ZoomClassesSection from './ZoomClassesSection';
@@ -47,6 +48,11 @@ export function StudentDashboard() {
         <div className="mb-8">
           <LearningPathwaysSection />
         </div>
+
+        {/* Demo Features Section */}
+        {/* <div className="mb-8">
+          <DemoFeaturesSection />
+        </div> */}
 
         {/* Course & Assessment Insights Button */}
         <div className="mb-8 flex justify-center">

@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Calendar, Video, School, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, Video, School, ChevronLeft, ChevronRight, Info } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const UpcomingEventCard = ({ title, date, time, type, eventId }) => {
   const { t } = useTranslation();
@@ -51,11 +52,11 @@ export function CalendarEventsSection() {
   const [currentEventIndex, setCurrentEventIndex] = useState(0);
   const scrollContainerRef = React.useRef(null);
   
-  // Mock upcoming events - replace with actual API data
+  // Demo upcoming events for pitch presentation
   const upcomingEvents = [
     {
       id: 1,
-      title: "Digital Skills Workshop",
+      title: "Digital Skills Masterclass",
       date: "Oct 15, 2025",
       time: "10:00 AM",
       type: "workshop"
@@ -69,10 +70,17 @@ export function CalendarEventsSection() {
     },
     {
       id: 3,
-      title: "Career Counseling Session",
+      title: "Career Development Session",
       date: "Oct 18, 2025",
       time: "11:00 AM",
       type: "workshop"
+    },
+    {
+      id: 4,
+      title: "Assessment Review Meeting",
+      date: "Oct 20, 2025",
+      time: "3:00 PM",
+      type: "live"
     },
   ];
 
@@ -150,12 +158,27 @@ export function CalendarEventsSection() {
   return (
     <div className="space-y-4">
       {/* Monthly Calendar */}
-      <Card className="bg-white shadow-md border">
+      <Card className="bg-white shadow-md border relative">
+        <div className="absolute -top-2 -right-2 bg-[#004E9A] text-white text-xs px-2 py-1 rounded-full font-medium shadow-lg">
+          DEMO
+        </div>
         <CardHeader className="pb-2 pt-4">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-base font-bold text-gray-900" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
-              {monthNames[month]} {year}
-            </CardTitle>
+            <div className="flex items-center gap-2">
+              <CardTitle className="text-base font-bold text-gray-900" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
+                {monthNames[month]} {year}
+              </CardTitle>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Info className="w-4 h-4 text-gray-400 hover:text-gray-600" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="text-xs max-w-xs">Interactive calendar showing scheduled events, workshops, and learning sessions with real-time updates</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
             <div className="flex gap-1">
               <Button 
                 variant="outline" 
@@ -194,12 +217,27 @@ export function CalendarEventsSection() {
       </Card>
 
       {/* Upcoming Events - Carousel */}
-      <Card className="bg-white shadow-md border">
+      <Card className="bg-white shadow-md border relative">
+        <div className="absolute -top-2 -right-2 bg-[#004E9A] text-white text-xs px-2 py-1 rounded-full font-medium shadow-lg">
+          DEMO
+        </div>
         <CardHeader className="pb-2 pt-4">
-          <CardTitle className="text-base font-bold text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
-            <Calendar className="w-4 h-4 text-[#004E9A]" />
-            {t('calendar.upcomingEvents')}
-          </CardTitle>
+          <div className="flex items-center gap-2">
+            <CardTitle className="text-base font-bold text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
+              <Calendar className="w-4 h-4 text-[#004E9A]" />
+              Upcoming Events
+            </CardTitle>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Info className="w-4 h-4 text-gray-400 hover:text-gray-600" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="text-xs max-w-xs">Live event management system showing upcoming workshops, webinars, and learning sessions with interactive carousel navigation</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
         </CardHeader>
         <CardContent className="pb-4">
           {/* Carousel Container */}

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
-import { GraduationCap, Award, Clock, Users } from 'lucide-react';
+import { GraduationCap, Award, Clock, Users, Info } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 // Animated counter hook
 const useCountUp = (end, duration = 2000) => {
@@ -29,7 +30,7 @@ const useCountUp = (end, duration = 2000) => {
   return count;
 };
 
-const StatCard = ({ icon: Icon, label, value, suffix = '', color = 'blue' }) => {
+const StatCard = ({ icon: Icon, label, value, total, suffix = '', color = 'blue', tooltip = '' }) => {
   const animatedValue = useCountUp(value);
   
   const colorClasses = {
@@ -51,9 +52,24 @@ const StatCard = ({ icon: Icon, label, value, suffix = '', color = 'blue' }) => 
       <CardContent className="p-6">
         <div className="flex items-center justify-between">
           <div className="flex-1">
-            <p className="text-sm font-medium text-gray-600 mb-2">{label}</p>
+            <div className="flex items-center gap-2 mb-2">
+              <p className="text-sm font-medium text-gray-600">{label}</p>
+              {tooltip && (
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <Info className="w-4 h-4 text-gray-400 hover:text-gray-600" />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p className="text-xs max-w-xs">{tooltip}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              )}
+            </div>
             <div className="flex items-baseline gap-1">
               <span className="text-3xl font-bold text-gray-900">{animatedValue}</span>
+              {total && <span className="text-lg font-semibold text-gray-700">/{total}</span>}
               {suffix && <span className="text-lg font-semibold text-gray-700">{suffix}</span>}
             </div>
           </div>
@@ -68,27 +84,58 @@ const StatCard = ({ icon: Icon, label, value, suffix = '', color = 'blue' }) => 
 
 export function WelcomeStatsSection() {
   const { t } = useTranslation();
-  // Mock user data - replace with actual user data from context/API
-  const userName = "Samir Kumar";
+  // Demo user data for pitch presentation
+  const userName = "Demo User";
   const stats = [
-    { icon: GraduationCap, label: t('dashboard.coursesEnrolled'), value: 12, suffix: t('dashboard.courses'), color: "blue" },
-    { icon: Award, label: t('dashboard.certificatesEarned'), value: 8, suffix: t('dashboard.certs'), color: "yellow" },
-    { icon: Clock, label: t('dashboard.totalHoursLearned'), value: 156, suffix: t('dashboard.hours'), color: "green" },
-    { icon: Users, label: t('dashboard.activeGroups'), value: 5, suffix: t('dashboard.groups'), color: "purple" },
+    { 
+      icon: GraduationCap, 
+      label: "Courses", 
+      value: 3, 
+      total: 10,
+      suffix: "courses", 
+      color: "blue",
+      tooltip: "Shows enrolled courses with progress tracking"
+    },
+    { 
+      icon: Award, 
+      label: "Certificates", 
+      value: 2, 
+      total: 8,
+      suffix: "earned", 
+      color: "yellow",
+      tooltip: "Completed courses and earned certificates"
+    },
+    { 
+      icon: Clock, 
+      label: "Learning Hours", 
+      value: 24, 
+      suffix: "hours", 
+      color: "green",
+      tooltip: "Total time spent learning across all courses"
+    },
+    { 
+      icon: Users, 
+      label: "Active Groups", 
+      value: 2, 
+      total: 5,
+      suffix: "groups", 
+      color: "purple",
+      tooltip: "Participating in collaborative learning groups"
+    },
   ];
 
   return (
     <div className="space-y-6">
-      {/* Personalized Welcome Message */}
+      {/* Section Explanation */}
       <Card className="border-l-4 border-l-[#004E9A] shadow-md bg-gradient-to-r from-white to-blue-50">
         <CardContent className="p-6">
           <div className="flex items-center gap-3">
-            <span className="text-3xl">👋</span>
+            <span className="text-3xl">📊</span>
             <div>
               <h2 className="text-2xl font-bold text-gray-900" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
-                {t('dashboard.welcomeBack', { name: userName })}
+                Statistics & Progress Data
               </h2>
-              <p className="text-gray-600 mt-1">{t('dashboard.continueJourney')}</p>
+              <p className="text-gray-600 mt-1">This section shows statistics and progress data for learners</p>
             </div>
           </div>
         </CardContent>
