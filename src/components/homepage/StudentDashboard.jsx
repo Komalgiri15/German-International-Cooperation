@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { ICEXBranding } from './GIZBranding';
+import { BAPCOBranding } from './GIZBranding';
 import { WelcomeStatsSection } from './WelcomeStatsSection';
 import { CalendarEventsSection } from './CalendarEventsSection';
 import { AwarenessUpdatesSection } from './AwarenessUpdatesSection';
@@ -22,8 +22,8 @@ export function StudentDashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-      {/* ICEX Branding Header */}
-      <ICEXBranding />
+      {/* BAPCO Branding Header */}
+      <BAPCOBranding />
       
       {/* Top Section - Two Column Layout */}
       <div className="max-w-7xl mx-auto px-6 pb-6">

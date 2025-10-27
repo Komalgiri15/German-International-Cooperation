@@ -70,7 +70,7 @@ export const AdminLayout = ({ title = 'Dashboard' }) => {
       }
     }
 
-    document.title = `${newTitle} | ICEX`;
+    document.title = `${newTitle} | BAPCO`;
   }, [location.pathname, title, courseId, setCourseTitle]);
 
   return (

@@ -28,7 +28,7 @@ const Courses = () => {
   const [activeTab, setActiveTab] = useState('courses');
   const navigate = useNavigate();
 
-  // Single ICEX course
+  // Single BAPCO course
   const mockCourses = [
     {
       id: 'global-market',
