@@ -59,29 +59,37 @@ const CourseModules = () => {
         setIsPublishedCourse(false);
         // Course-specific modules based on courseId
         const getCourseModules = (courseId) => {
-          // Return only one module for all courses
+          // Only two modules for the single ICEX course
           return [
             {
               id: 1,
-              title: "German International Cooperation (GIZ)",
-              description: "Comprehensive training program focusing on labour reform initiatives, digital learning pathways, and stakeholder engagement strategies for sustainable development and workforce empowerment.",
-              units: 8,
-              assessments: 3,
-              duration: "8 weeks",
+              title: 'Global Market Readiness: Competing Beyond Borders',
+              description: 'Core program to prepare for competing in global markets.',
+              units: 6,
+              assessments: 2,
+              duration: '4 weeks',
               completed: false,
               locked: false,
+            },
+            {
+              id: 2,
+              title: 'Global Market Readiness: Competing Beyond Borders : Trailer',
+              description: 'Program overview and orientation trailer.',
+              units: 1,
+              assessments: 0,
+              duration: '15 minutes',
+              completed: false,
+              locked: courseType === 'sequential',
             }
           ];
         };
         
         const defaultModules = getCourseModules(courseId).map((m) => {
           const titleToImage = {
-            'German International Cooperation (GIZ)': '/assets/communication.PNG',
-            'Module 1: Foundations of Strategic Communication': '/assets/communication.PNG',
-            'Module 2: Digital and Media Strategies': '/assets/digital.PNG',
-            'Module 3: Implementation, Feedback & Crisis Communication': '/assets/LAw.PNG'
+            'Global Market Readiness: Competing Beyond Borders': '/assets/c1.webp',
+            'Global Market Readiness: Competing Beyond Borders : Trailer': '/assets/c2.webp'
           };
-          return { ...m, image: titleToImage[m.title] || 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=400&fit=crop&auto=format' };
+          return { ...m, image: titleToImage[m.title] || '/assets/c3.webp' };
         });
         setModules(defaultModules);
       }

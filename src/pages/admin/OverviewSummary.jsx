@@ -10,10 +10,18 @@ import {
   ChevronDown,
   ChevronUp,
   Filter,
-  Target
+  Target,
+  Download,
+  FileText,
+  FileSpreadsheet,
+  Megaphone,
+  Bell,
+  X,
+  Send
 } from 'lucide-react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'sonner';
 
 // Counter component with animation
 const Counter = ({ from = 0, to, duration = 1, delay = 0, decimals = 0 }) => {
@@ -42,6 +50,9 @@ const OverviewSummary = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'asc' });
   const [filterStatus, setFilterStatus] = useState('all');
+  const [showAnnouncementModal, setShowAnnouncementModal] = useState(false);
+  const [announcementText, setAnnouncementText] = useState('');
+  const [announcementPriority, setAnnouncementPriority] = useState('normal');
 
   // Mock data - Replace with real API data
   const programKPIs = {
@@ -395,6 +406,50 @@ const OverviewSummary = () => {
     return t(`admin.overview.learnerProgress.learners.${nameKey}`);
   };
 
+  // Export functions
+  const exportToCSV = () => {
+    const csvData = [
+      ['Learner Name', 'Email', 'Progress', 'Current Module', 'Score', 'Status', 'Last Active'],
+      ...filteredAndSortedLearners.map(learner => [
+        translateLearnerName(learner.nameKey),
+        learner.email,
+        `${learner.modulesCompleted}/${learner.totalModules}`,
+        translateCurrentModule(learner.currentModuleKey),
+        `${learner.score}%`,
+        getStatusText(learner.status),
+        translateLastActive(learner.lastActive)
+      ])
+    ];
+
+    const csvContent = csvData.map(row => row.join(',')).join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `learner-analytics-${new Date().toISOString().split('T')[0]}.csv`;
+    link.click();
+    window.URL.revokeObjectURL(url);
+    toast.success(t('admin.overview.exportSuccess') || 'Report exported successfully!');
+  };
+
+  const exportToPDF = () => {
+    // Simplified PDF export - in production, use a library like jsPDF
+    toast.info(t('admin.overview.pdfExportInfo') || 'PDF export feature - integrate with jsPDF library');
+  };
+
+  // Announcement function
+  const publishAnnouncement = () => {
+    if (!announcementText.trim()) {
+      toast.error(t('admin.overview.announcementEmpty') || 'Please enter announcement text');
+      return;
+    }
+
+    // In production, this would call an API
+    toast.success(t('admin.overview.announcementPublished') || `Announcement published to all ${programKPIs.totalLearners} users`);
+    setAnnouncementText('');
+    setShowAnnouncementModal(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50/20 to-purple-50/10 p-6">
       <div className="max-w-[1800px] mx-auto space-y-5">
@@ -403,15 +458,58 @@ const OverviewSummary = () => {
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-2"
+          className="mb-2"
         >
-          <div className="inline-flex items-center gap-2 mb-2">
-            <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg">
-              <BarChart3 className="h-5 w-5 text-white" />
+          <div className="flex items-center justify-between">
+            <div className="text-center flex-1">
+              <div className="inline-flex items-center gap-2 mb-2">
+                <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg">
+                  <BarChart3 className="h-5 w-5 text-white" />
+                </div>
+                <h1 className="text-3xl font-semibold text-slate-800">{t('admin.overview.title')}</h1>
+              </div>
+              <p className="text-sm text-slate-500">{t('admin.overview.subtitle')}</p>
             </div>
-            <h1 className="text-3xl font-semibold text-slate-800">{t('admin.overview.title')}</h1>
+
+            {/* Action Buttons */}
+            <div className="flex items-center gap-3">
+              {/* Announcement Button */}
+              <button
+                onClick={() => setShowAnnouncementModal(true)}
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-600 hover:to-red-600 transition-all shadow-md hover:shadow-lg"
+              >
+                <Megaphone className="h-4 w-4" />
+                <span className="text-sm font-medium">{t('admin.overview.announce') || 'Announce'}</span>
+              </button>
+
+              {/* Export Dropdown */}
+              <div className="relative group">
+                <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-md hover:shadow-lg">
+                  <Download className="h-4 w-4" />
+                  <span className="text-sm font-medium">{t('admin.overview.export') || 'Export'}</span>
+                  <ChevronDown className="h-3 w-3" />
+                </button>
+                
+                {/* Dropdown Menu */}
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-slate-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                  <button
+                    onClick={exportToCSV}
+                    className="w-full flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors text-left border-b border-slate-100"
+                  >
+                    <FileSpreadsheet className="h-4 w-4 text-green-600" />
+                    <span className="text-sm text-slate-700 font-medium">{t('admin.overview.exportCSV') || 'Export as CSV'}</span>
+                  </button>
+                  <button
+                    onClick={exportToPDF}
+                    className="w-full flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors text-left"
+                  >
+                    <FileText className="h-4 w-4 text-red-600" />
+                    <span className="text-sm text-slate-700 font-medium">{t('admin.overview.exportPDF') || 'Export as PDF'}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          <p className="text-sm text-slate-500">{t('admin.overview.subtitle')}</p>
         </motion.div>
 
         {/* 1. Overall Program KPIs */}
@@ -976,6 +1074,82 @@ const OverviewSummary = () => {
         </motion.div>
 
       </div>
+
+      {/* Announcement Modal */}
+      {showAnnouncementModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <Bell className="h-5 w-5 text-orange-500" />
+                <h2 className="text-xl font-bold text-slate-800">{t('admin.overview.publishAnnouncement') || 'Publish Announcement'}</h2>
+              </div>
+              <button
+                onClick={() => setShowAnnouncementModal(false)}
+                className="p-1 hover:bg-slate-100 rounded-lg transition-colors"
+              >
+                <X className="h-5 w-5 text-slate-500" />
+              </button>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  {t('admin.overview.announcementMessage') || 'Message'}
+                </label>
+                <textarea
+                  value={announcementText}
+                  onChange={(e) => setAnnouncementText(e.target.value)}
+                  placeholder={t('admin.overview.announcementPlaceholder') || 'Enter your announcement...'}
+                  className="w-full h-32 px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  {t('admin.overview.priority') || 'Priority'}
+                </label>
+                <select
+                  value={announcementPriority}
+                  onChange={(e) => setAnnouncementPriority(e.target.value)}
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                  <option value="low">{t('admin.overview.priorityLow') || 'Low'}</option>
+                  <option value="normal">{t('admin.overview.priorityNormal') || 'Normal'}</option>
+                  <option value="high">{t('admin.overview.priorityHigh') || 'High'}</option>
+                  <option value="urgent">{t('admin.overview.priorityUrgent') || 'Urgent'}</option>
+                </select>
+              </div>
+
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                <p className="text-sm text-blue-800">
+                  <span className="font-semibold">{t('admin.overview.recipients') || 'Recipients'}:</span> {t('admin.overview.allUsers') || 'All'} {programKPIs.totalLearners} {t('admin.overview.users') || 'users'}
+                </p>
+              </div>
+
+              <div className="flex gap-3 pt-2">
+                <button
+                  onClick={publishAnnouncement}
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-md hover:shadow-lg font-medium"
+                >
+                  <Send className="h-4 w-4" />
+                  {t('admin.overview.publish') || 'Publish Now'}
+                </button>
+                <button
+                  onClick={() => setShowAnnouncementModal(false)}
+                  className="px-6 py-3 border-2 border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-all font-medium"
+                >
+                  {t('admin.overview.cancel') || 'Cancel'}
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };

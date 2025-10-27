@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, Play, Clock, Target, Trophy, MessageSquare } from 'lucide-react';
+import { ArrowLeft, Play, Clock, Target, Trophy, MessageSquare, Layers, Zap, Settings } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 const AssessmentView = () => {
@@ -21,6 +21,11 @@ const AssessmentView = () => {
   const handleScenarioStart = () => {
     // Navigate to scenario page
     navigate(`/courses/modules/${moduleId}/scenario`);
+  };
+
+  const handleSandboxStart = () => {
+    // Navigate to sandbox assessment page
+    navigate(`/courses/modules/${moduleId}/sandbox`);
   };
 
   return (
@@ -295,18 +300,136 @@ const AssessmentView = () => {
             </Card>
           </div>
 
+          {/* Sandbox Exercises Section */}
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <Layers className="h-6 w-6 text-gray-700" />
+              Simulations & Labs
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Drag & Drop Exercise */}
+              <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 bg-white">
+                <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="p-2 bg-white/10 rounded-lg backdrop-blur-sm">
+                      <Settings className="h-6 w-6" />
+                    </div>
+                    <Badge className="bg-white text-blue-700 font-bold text-xs">
+                      Interactive Lab
+                    </Badge>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-1">Drag & Drop Builder</h3>
+                  <p className="text-blue-100 text-sm">
+                    Build communication strategies through interactive elements
+                  </p>
+                </div>
+
+                <CardContent className="p-5">
+                  <div className="grid grid-cols-3 gap-3 mb-4">
+                    <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                      <Target className="h-4 w-4 text-gray-700 mx-auto mb-1" />
+                      <p className="text-xs text-gray-500">Elements</p>
+                      <p className="font-bold text-gray-900 text-sm">15+</p>
+                    </div>
+                    <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                      <Clock className="h-4 w-4 text-gray-700 mx-auto mb-1" />
+                      <p className="text-xs text-gray-500">Duration</p>
+                      <p className="font-bold text-gray-900 text-sm">20 min</p>
+                    </div>
+                    <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                      <Zap className="h-4 w-4 text-gray-700 mx-auto mb-1" />
+                      <p className="text-xs text-gray-500">Auto-save</p>
+                      <p className="font-bold text-gray-900 text-sm">✓</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 mb-4">
+                    <ul className="space-y-1 text-xs text-gray-700">
+                      <li>• Channel selection matrix</li>
+                      <li>• Message hierarchy builder</li>
+                      <li>• Stakeholder mapping tool</li>
+                    </ul>
+                  </div>
+
+                  <Button 
+                    onClick={handleSandboxStart}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    <Settings className="h-4 w-4 mr-2" />
+                    Start Drag & Drop Lab
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Decision Tree Exercise */}
+              <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 bg-white">
+                <div className="bg-gradient-to-r from-green-600 to-green-700 p-6 text-white">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="p-2 bg-white/10 rounded-lg backdrop-blur-sm">
+                      <Layers className="h-6 w-6" />
+                    </div>
+                    <Badge className="bg-white text-green-700 font-bold text-xs">
+                      Decision Tree
+                    </Badge>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-1">Strategic Decision Tree</h3>
+                  <p className="text-green-100 text-sm">
+                    Navigate complex communication scenarios
+                  </p>
+                </div>
+
+                <CardContent className="p-5">
+                  <div className="grid grid-cols-3 gap-3 mb-4">
+                    <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                      <Target className="h-4 w-4 text-gray-700 mx-auto mb-1" />
+                      <p className="text-xs text-gray-500">Scenarios</p>
+                      <p className="font-bold text-gray-900 text-sm">8</p>
+                    </div>
+                    <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                      <Clock className="h-4 w-4 text-gray-700 mx-auto mb-1" />
+                      <p className="text-xs text-gray-500">Duration</p>
+                      <p className="font-bold text-gray-900 text-sm">25 min</p>
+                    </div>
+                    <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                      <Zap className="h-4 w-4 text-gray-700 mx-auto mb-1" />
+                      <p className="text-xs text-gray-500">Auto-save</p>
+                      <p className="font-bold text-gray-900 text-sm">✓</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 mb-4">
+                    <ul className="space-y-1 text-xs text-gray-700">
+                      <li>• Crisis communication paths</li>
+                      <li>• Stakeholder engagement flows</li>
+                      <li>• Multi-channel strategies</li>
+                    </ul>
+                  </div>
+
+                  <Button 
+                    onClick={handleSandboxStart}
+                    className="w-full bg-green-600 hover:bg-green-700 text-white py-3 font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    <Layers className="h-4 w-4 mr-2" />
+                    Start Decision Tree
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
           {/* Additional Info */}
           <div className="mt-10 text-center">
             <Card className="bg-gradient-to-r from-gray-50 to-gray-100 border-2 border-gray-200">
               <CardContent className="p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">📚 Assessment Tips</h3>
                 <p className="text-sm text-gray-600 mb-4">
-                  Take your time and review the course materials before starting. Both assessments contribute to your final module score.
+                  Take your time and review the course materials before starting. All assessments contribute to your final module score and generate detailed reports.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4 text-xs">
-                  <Badge variant="outline" className="bg-white">✓ Save progress automatically</Badge>
-                  <Badge variant="outline" className="bg-white">✓ Review answers before submit</Badge>
-                  <Badge variant="outline" className="bg-white">✓ Detailed feedback provided</Badge>
+                  <Badge variant="outline" className="bg-white">✓ Auto-save progress</Badge>
+                  <Badge variant="outline" className="bg-white">✓ Interactive simulations</Badge>
+                  <Badge variant="outline" className="bg-white">✓ Detailed score reports</Badge>
+                  <Badge variant="outline" className="bg-white">✓ Performance insights</Badge>
                 </div>
               </CardContent>
             </Card>

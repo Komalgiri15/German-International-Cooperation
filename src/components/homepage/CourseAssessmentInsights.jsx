@@ -49,6 +49,7 @@ export function CourseAssessmentInsights() {
   const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   const slides = [
     { id: 'module-progress', component: 'ModuleProgress' },
@@ -73,6 +74,15 @@ export function CourseAssessmentInsights() {
     
     return () => clearInterval(interval);
   }, [isAutoPlaying, slides.length]);
+
+  // Detect mobile for responsive chart heights
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)');
+    const handler = (e) => setIsMobile(e.matches);
+    handler(mq);
+    mq.addEventListener?.('change', handler);
+    return () => mq.removeEventListener?.('change', handler);
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -109,7 +119,7 @@ export function CourseAssessmentInsights() {
                 </div>
               </div>
             </div>
-            <ResponsiveContainer width="100%" height={320}>
+            <ResponsiveContainer width="100%" height={isMobile ? 220 : 320}>
               <BarChart data={moduleProgressData} margin={{ top: 20, right: 20, left: 0, bottom: 10 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="name" tick={{ fontSize: 14, fill: '#374151', fontWeight: 500 }} />
@@ -246,10 +256,10 @@ export function CourseAssessmentInsights() {
 
       case 'AssessmentBreakdown':
         return (
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">{t('insights.assessmentBreakdown')}</h3>
-              <ResponsiveContainer width="100%" height={250}>
+              <ResponsiveContainer width="100%" height={isMobile ? 200 : 250}>
                 <PieChart>
                   <Pie
                     data={assessmentData}
@@ -293,7 +303,7 @@ export function CourseAssessmentInsights() {
             </div>
             <div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">{t('insights.difficultyAnalysis')}</h3>
-              <ResponsiveContainer width="100%" height={250}>
+              <ResponsiveContainer width="100%" height={isMobile ? 200 : 250}>
                 <RadarChart data={difficultyData}>
                   <PolarGrid stroke="#cbd5e1" strokeWidth={2} />
                   <PolarAngleAxis dataKey="difficulty" tick={{ fontSize: 14, fill: '#374151', fontWeight: 600 }} />
@@ -442,7 +452,7 @@ export function CourseAssessmentInsights() {
         };
         
         return (
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Award className="h-6 w-6 text-green-500" />
@@ -498,38 +508,38 @@ export function CourseAssessmentInsights() {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
+    <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-4 sm:mb-6 gap-3 sm:gap-0">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-blue-500 rounded-lg">
             <TrendingUp className="h-5 w-5 text-white" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-gray-900">{t('insights.title')}</h2>
-            <p className="text-sm text-gray-600">{t('insights.subtitle')}</p>
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900">{t('insights.title')}</h2>
+            <p className="text-xs sm:text-sm text-gray-600">{t('insights.subtitle')}</p>
           </div>
         </div>
       </div>
 
       {/* Carousel Container */}
-      <div className="relative min-h-[480px]">
+      <div className="relative min-h-[420px] sm:min-h-[480px]">
         {/* Navigation Buttons */}
         <button
           onClick={prevSlide}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg border border-gray-200 hover:bg-gray-50 transition-all"
+          className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg border border-gray-200 hover:bg-gray-50 transition-all"
         >
           <ChevronLeft className="h-5 w-5 text-gray-700" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg border border-gray-200 hover:bg-gray-50 transition-all"
+          className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg border border-gray-200 hover:bg-gray-50 transition-all"
         >
           <ChevronRight className="h-5 w-5 text-gray-700" />
         </button>
 
         {/* Slide Content */}
-        <div className="px-12 py-4">
+        <div className="px-3 sm:px-12 py-4">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -537,7 +547,7 @@ export function CourseAssessmentInsights() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="min-h-[420px]"
+              className="min-h-[360px] sm:min-h-[420px]"
             >
               {renderSlide()}
             </motion.div>
@@ -545,7 +555,7 @@ export function CourseAssessmentInsights() {
         </div>
 
         {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-6">
+        <div className="flex justify-center gap-2 mt-4 sm:mt-6">
           {slides.map((_, idx) => (
             <button
               key={idx}

@@ -3,15 +3,17 @@ import { initReactI18next } from 'react-i18next';
 import en from './locales/en.json';
 import ar from './locales/ar.json';
 import de from './locales/de.json';
+import es from './locales/es.json';
 
-// Initialize i18next with English, Arabic, and German support
+// Initialize i18next with English, Arabic, German, and Spanish support
 i18n
   .use(initReactI18next)
   .init({
     resources: {
       en: { translation: en },
       ar: { translation: ar },
-      de: { translation: de }
+      de: { translation: de },
+      es: { translation: es }
     },
     lng: localStorage.getItem('appLanguage') || 'en', // default language from localStorage or English
     fallbackLng: 'en',

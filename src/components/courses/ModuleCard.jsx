@@ -63,9 +63,15 @@ const ModuleCard = ({ module, onDelete, onUpdate, onComplete, courseType = 'open
     
     // Special handling for Module 1, 2, and 3 - navigate to lessons page
     if (module.id === 1) {
-      navigate('/courses/modules/1/lessons');
+      // Special case for "Global Market Readiness: Competing Beyond Borders"
+      // Open SCORM content in new tab
+      const scormUrl = 'https://lesson-banners.s3.us-east-1.amazonaws.com/Scorms/ICEX_MAIN_preparacion-para-el-mercado-global-compitiendo-mas-alla-de-las-fronteras-scorm12-pjtZsP4Z/scormcontent/index.html';
+      window.open(scormUrl, '_blank', 'noopener,noreferrer');
     } else if (module.id === 2) {
-      navigate('/courses/modules/2/lessons');
+      // Special case for "Global Market Readiness: Competing Beyond Borders : Trailer"
+      // Open SCORM content in new tab
+      const scormUrl = 'https://lesson-banners.s3.us-east-1.amazonaws.com/Scorms/ICEX_Tralier_preparacion-para-el-mercado-global-competir-mas-alla-de-las-fronteras-scorm12-975WSbXV/scormcontent/index.html';
+      window.open(scormUrl, '_blank', 'noopener,noreferrer');
     } else if (module.id === 3) {
       navigate('/courses/modules/3/lessons');
     } else {

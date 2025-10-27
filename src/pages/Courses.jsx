@@ -28,30 +28,31 @@ const Courses = () => {
   const [activeTab, setActiveTab] = useState('courses');
   const navigate = useNavigate();
 
-  // GIZ-Aligned Labour Reform Initiative Courses
+  // Single ICEX course
   const mockCourses = [
     {
-      id: 1,
-      titleKey: "germanInternationalCooperation",
+      id: 'global-market',
+      customTitle: 'Global Market Readiness: Competing Beyond Borders',
+      customDescription: 'Build the mindset and skills needed to compete in international markets.',
       students: 342,
-      duration: "12 weeks",
-      fullDuration: "8 Weeks (adaptable for 6-week intensive program)",
-      format: "Hybrid (workshops, online labs, project consultancy)",
-      output: "German International Cooperation (GIZ)",
-      level: "Intermediate",
-      status: "Active",
-      image: "/assets/c1.webp",
+      duration: '6 weeks',
+      fullDuration: '6 Weeks',
+      format: 'Self-paced with practical tasks',
+      output: 'Market Readiness Action Plan',
+      level: 'Intermediate',
+      status: 'Active',
+      image: '/assets/c1.webp',
       archived: false,
       deleted: false,
-      catalog: "Labour Reform"
+      catalog: 'International Business'
     }
   ];
 
   const [courses, setCourses] = useState(mockCourses);
 
   const filteredCourses = courses.filter(course => {
-    const courseTitle = t(`courses.sampleCourses.${course.titleKey}.title`);
-    const courseDescription = t(`courses.sampleCourses.${course.titleKey}.description`);
+    const courseTitle = course.customTitle || t(`courses.sampleCourses.${course.titleKey}.title`);
+    const courseDescription = course.customDescription || t(`courses.sampleCourses.${course.titleKey}.description`);
     
     const matchesSearch = courseTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          courseDescription.toLowerCase().includes(searchQuery.toLowerCase());
@@ -267,7 +268,7 @@ const Courses = () => {
                 <img 
                  onClick={() => handleCourseClick(course.id)}
                   src={course.image} 
-                  alt={t(`courses.sampleCourses.${course.titleKey}.title`)} 
+                  alt={course.customTitle || t(`courses.sampleCourses.${course.titleKey}.title`)} 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
@@ -278,7 +279,7 @@ const Courses = () => {
                   <div className="bg-white/90 rounded-md">
                     <CourseOptionsMenu 
                       courseId={course.id} 
-                      courseName={t(`courses.sampleCourses.${course.titleKey}.title`)}
+                      courseName={course.customTitle || t(`courses.sampleCourses.${course.titleKey}.title`)}
                       onEdit={handleCourseEdit}
                       onArchive={handleCourseArchive}
                       onDelete={handleCourseDelete}
@@ -291,10 +292,10 @@ const Courses = () => {
               </div>
               <CardHeader className="pb-2"  onClick={() => handleCourseClick(course.id)}>
                 <CardTitle className="text-lg font-semibold line-clamp-1">
-                  {t(`courses.sampleCourses.${course.titleKey}.title`)}
+                  {course.customTitle || t(`courses.sampleCourses.${course.titleKey}.title`)}
                 </CardTitle>
                 <p className="text-sm text-muted-foreground line-clamp-2">
-                  {t(`courses.sampleCourses.${course.titleKey}.description`)}
+                  {course.customDescription || t(`courses.sampleCourses.${course.titleKey}.description`)}
                 </p>
               </CardHeader>
               <CardContent onClick={() => handleCourseClick(course.id)}>
@@ -360,7 +361,7 @@ const Courses = () => {
                         <div className="flex items-center gap-3">
                           <img 
                             src={course.image} 
-                            alt={t(`courses.sampleCourses.${course.titleKey}.title`)}
+                            alt={course.customTitle || t(`courses.sampleCourses.${course.titleKey}.title`)}
                             className="w-12 h-12 rounded object-cover"
                           />
                           <div 
@@ -368,10 +369,10 @@ const Courses = () => {
                             onClick={() => handleCourseClick(course.id)}
                           >
                             <h3 className="font-medium text-blue-600 hover:text-blue-800">
-                              {t(`courses.sampleCourses.${course.titleKey}.title`)}
+                              {course.customTitle || t(`courses.sampleCourses.${course.titleKey}.title`)}
                             </h3>
                             <p className="text-sm text-muted-foreground line-clamp-1">
-                              {t(`courses.sampleCourses.${course.titleKey}.description`)}
+                              {course.customDescription || t(`courses.sampleCourses.${course.titleKey}.description`)}
                             </p>
                           </div>
                         </div>

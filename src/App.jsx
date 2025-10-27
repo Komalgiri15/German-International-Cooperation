@@ -2,12 +2,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AdminLayout } from "./components/layout/AdminLayout";
 import { SidebarProvider } from "./contexts/SidebarContext";
 import { UserFilterProvider } from "./contexts/UserFilterContext";
 import { CourseSidebarProvider } from "./contexts/CourseSidebarContext";
 import { GroupProvider } from "./contexts/GroupContext";
+import { ChatbotProvider } from "./contexts/ChatbotContext";
 // Import all assessment components
 import MultipleChoiceQuiz from "./components/assessments/MultipleChoiceQuiz";
 import TrueFalseQuiz from "./components/assessments/TrueFalseQuiz";
@@ -34,6 +35,11 @@ import ModuleAnalytics from "./pages/admin/ModuleAnalytics.jsx";
 import EngagementGamification from "./pages/admin/EngagementGamification.jsx";
 import StakeholderResources from "./pages/admin/StakeholderResources.jsx";
 import TimelineReporting from "./pages/admin/TimelineReporting.jsx";
+import CourseManagement from "./pages/admin/CourseManagement.jsx";
+import WorkshopManagement from "./pages/admin/WorkshopManagement.jsx";
+import UserManagement from "./pages/admin/UserManagement.jsx";
+import ComplianceAudit from "./pages/admin/ComplianceAudit.jsx";
+import SupportCenter from "./pages/admin/SupportCenter.jsx";
 import { AdminPortalLayout } from "./components/layout/AdminPortalLayout.jsx";
 import Courses from "./pages/Courses.jsx";
 import Groups from "./pages/Groups.jsx";
@@ -44,6 +50,7 @@ import Messages from "./pages/Messages.jsx";
 import Help from "./pages/Help.jsx";
 import ModuleAssessments from "./pages/ModuleAssessments.jsx";
 import AssessmentView from "./pages/AssessmentView.jsx";
+import SandboxAssessment from "./pages/SandboxAssessment.jsx";
 import QuizPage from "./pages/QuizPage.jsx";
 import ScenarioPage from "./pages/ScenarioPage.jsx";
 import NotificationsDemo from "./pages/NotificationsDemo.jsx";
@@ -86,25 +93,34 @@ import LessonMod1Dreams from './pages/LessonMod1Dreams';
 import LessonMod2 from './pages/LessonMod2';
 import LessonMod3Protection from './pages/LessonMod3Protection';
 import Chatbot from './pages/Chatbot.jsx';
+import ChatbotDemo from './pages/ChatbotDemo.jsx';
+import FloatingChatbot from './components/chatbot/FloatingChatbot';
+import CompactChatWidget from './components/chatbot/CompactChatWidget';
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <SidebarProvider>
-          <UserFilterProvider>
-            <CourseSidebarProvider>
-              <GroupProvider>
+const AppInner = () => {
+  const location = useLocation();
+  const isAdminPortal = location.pathname.startsWith('/admin-portal');
+
+  return (
+    <>
+      <SidebarProvider>
+        <UserFilterProvider>
+          <CourseSidebarProvider>
+            <GroupProvider>
+              <ChatbotProvider>
                 <Routes>
                   {/* Admin Portal Routes - No Sidebar */}
                   <Route path="/admin-portal" element={<AdminPortalLayout />}>
                     <Route index element={<OverviewSummary />} />
                     <Route path="overview" element={<OverviewSummary />} />
                     <Route path="analytics" element={<ModuleAnalytics />} />
+                    <Route path="courses" element={<CourseManagement />} />
+                    <Route path="workshops" element={<WorkshopManagement />} />
+                    <Route path="users" element={<UserManagement />} />
+                    <Route path="compliance" element={<ComplianceAudit />} />
+                    <Route path="support" element={<SupportCenter />} />
                     <Route path="engagement" element={<EngagementGamification />} />
                     <Route path="stakeholders" element={<StakeholderResources />} />
                     <Route path="reporting" element={<TimelineReporting />} />
@@ -132,6 +148,7 @@ const App = () => (
                   <Route path="courses/modules/:moduleId/assessments/manage" element={<ModuleAssessments />} />
                   <Route path="courses/modules/:moduleId/quiz" element={<QuizPage />} />
                   <Route path="courses/modules/:moduleId/scenario" element={<ScenarioPage />} />
+                  <Route path="courses/modules/:moduleId/sandbox" element={<SandboxAssessment />} />
                   <Route path="courses/modules/:moduleId/assignments/:assignmentId" element={<AssignmentInstructorPage />} />
                   <Route path="courses/modules/:moduleId/debates/:debateId" element={<DebateInstructorPage />} />
                   <Route path="courses/modules/:moduleId/quizzes/:quizId" element={<QuizInstructorPage />} />
@@ -159,6 +176,7 @@ const App = () => (
                   <Route path="help" element={<Help />} />
                   <Route path="profile" element={<Profile />} />
                   <Route path="chatbot" element={<Chatbot />} />
+                  <Route path="chatbot-demo" element={<ChatbotDemo />} />
                   
                   {/* New Instructor Dashboard Routes */}
                   <Route path="tasks" element={<TaskManagement />} />
@@ -185,11 +203,31 @@ const App = () => (
                   <Route path="assessment/project-submission" element={<ProjectSubmission />} />
                   <Route path="assessment/proctored" element={<ProcturedExamination />} />
                 </Route>
-              </Routes>
-              </GroupProvider>
-            </CourseSidebarProvider>
-          </UserFilterProvider>
-        </SidebarProvider>
+                </Routes>
+                
+                {/* Global Floating Chatbot - Hidden on admin portal */}
+                {!isAdminPortal && (
+                  <>
+                    <FloatingChatbot />
+                    <CompactChatWidget />
+                  </>
+                )}
+              </ChatbotProvider>
+            </GroupProvider>
+          </CourseSidebarProvider>
+        </UserFilterProvider>
+      </SidebarProvider>
+    </>
+  );
+};
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <AppInner />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

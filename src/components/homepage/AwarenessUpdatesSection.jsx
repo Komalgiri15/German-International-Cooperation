@@ -9,8 +9,10 @@ import {
   FileText,
   Video,
   Bell,
-  ChevronRight
+  ChevronRight,
+  Info
 } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const AnnouncementItem = ({ announcement, isActive, onClick }) => {
   const { t } = useTranslation();
@@ -74,14 +76,14 @@ export function AwarenessUpdatesSection() {
   const { t } = useTranslation();
   const [selectedAnnouncement, setSelectedAnnouncement] = useState(0);
 
-  // Only 3 announcements
+  // Demo announcements for pitch presentation
   const announcements = [
     {
       id: 1,
       type: 'reform',
-      title: t('awareness.announcements.labourCode.title'),
+      title: 'Policy Update',
       date: 'Oct 1, 2025',
-      description: t('awareness.announcements.labourCode.description'),
+      description: 'Latest policy updates and implementation guidelines for workplace practices.',
       thumbnail: '/assets/UnderstandingNewLabourCodes.PNG',
       isNew: true,
       hasVideo: false
@@ -89,9 +91,9 @@ export function AwarenessUpdatesSection() {
     {
       id: 2,
       type: 'webinar',
-      title: t('awareness.announcements.compliance.title'),
+      title: 'Training Session',
       date: 'Sep 28, 2025',
-      description: t('awareness.announcements.compliance.description'),
+      description: 'Interactive training session focusing on compliance and best practices.',
       thumbnail: '/assets/Workplace Compliance Awareness.PNG',
       isNew: true,
       hasVideo: true
@@ -99,9 +101,9 @@ export function AwarenessUpdatesSection() {
     {
       id: 3,
       type: 'video',
-      title: t('awareness.announcements.digitalLiteracy.title'),
+      title: 'Educational Content',
       date: 'Sep 25, 2025',
-      description: t('awareness.announcements.digitalLiteracy.description'),
+      description: 'Educational content covering essential skills and workplace competencies.',
       thumbnail: '/assets/Digital literacy.jpg',
       isNew: false,
       hasVideo: true
@@ -116,10 +118,10 @@ export function AwarenessUpdatesSection() {
       <div className="max-w-7xl mx-auto mb-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
           <span className="text-2xl">📢</span>
-          {t('awareness.title')}
+          User Awareness Section
         </h2>
         <p className="text-sm text-gray-600">
-          {t('awareness.subtitle')}
+          This section shows user awareness content - all updates and events are here
         </p>
       </div>
 
