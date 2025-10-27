@@ -76,14 +76,14 @@ export function AwarenessUpdatesSection() {
   const { t } = useTranslation();
   const [selectedAnnouncement, setSelectedAnnouncement] = useState(0);
 
-  // Demo announcements for pitch presentation
+  // HSE Announcements for BAPCO
   const announcements = [
     {
       id: 1,
       type: 'reform',
-      title: 'Policy Update',
-      date: 'Oct 1, 2025',
-      description: 'Latest policy updates and implementation guidelines for workplace practices.',
+      title: t('hse.announcements.safetyProtocol.title'),
+      date: 'Oct 27, 2025',
+      description: t('hse.announcements.safetyProtocol.description'),
       thumbnail: '/assets/UnderstandingNewLabourCodes.PNG',
       isNew: true,
       hasVideo: false
@@ -91,9 +91,9 @@ export function AwarenessUpdatesSection() {
     {
       id: 2,
       type: 'webinar',
-      title: 'Training Session',
-      date: 'Sep 28, 2025',
-      description: 'Interactive training session focusing on compliance and best practices.',
+      title: t('hse.announcements.emergencyDrill.title'),
+      date: 'Oct 20, 2025',
+      description: t('hse.announcements.emergencyDrill.description'),
       thumbnail: '/assets/Workplace Compliance Awareness.PNG',
       isNew: true,
       hasVideo: true
@@ -101,9 +101,9 @@ export function AwarenessUpdatesSection() {
     {
       id: 3,
       type: 'video',
-      title: 'Educational Content',
-      date: 'Sep 25, 2025',
-      description: 'Educational content covering essential skills and workplace competencies.',
+      title: t('hse.announcements.environmentalAwareness.title'),
+      date: 'Oct 15, 2025',
+      description: t('hse.announcements.environmentalAwareness.description'),
       thumbnail: '/assets/Digital literacy.jpg',
       isNew: false,
       hasVideo: true
@@ -118,10 +118,10 @@ export function AwarenessUpdatesSection() {
       <div className="max-w-7xl mx-auto mb-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
           <span className="text-2xl">📢</span>
-          User Awareness Section
+          {t('hse.awareness.sectionTitle')}
         </h2>
         <p className="text-sm text-gray-600">
-          This section shows user awareness content - all updates and events are here
+          {t('hse.awareness.subtitle')}
         </p>
       </div>
 
@@ -219,15 +219,15 @@ export function AwarenessUpdatesSection() {
         </div>
       </div>
 
-      {/* Footer - Supported by GIZ */}
+      {/* Footer - Powered by BAPCO */}
       <div className="max-w-7xl mx-auto mt-8 flex justify-end">
         <div className="flex items-center gap-2 text-xs text-gray-500">
-          <span>{t('awareness.poweredBy')}</span>
+          <span>{t('hse.poweredBy')}</span>
           <div className="flex items-center gap-1.5 bg-white px-3 py-1 rounded-full shadow-sm border border-gray-200">
             <div className="w-5 h-5 bg-[#004E9A] rounded-sm flex items-center justify-center text-white font-bold text-[8px]">
-              GIZ
+              BAPCO
             </div>
-            <span className="font-semibold text-[#004E9A]">{t('awareness.labourReformInitiative')}</span>
+            <span className="font-semibold text-[#004E9A]">{t('hse.organization')}</span>
           </div>
         </div>
       </div>

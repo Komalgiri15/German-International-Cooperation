@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
-  Home, Book, Users, Folder, FileText, MessageCircle, HelpCircle, BookOpen, Volume2
+  Home, Book, Users, Folder, FileText, MessageCircle, HelpCircle, BookOpen
 } from 'lucide-react';
 import { NavItem } from './NavItem';
 import { useSidebar } from '@/contexts/SidebarContext';
@@ -38,11 +38,6 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
 
   const handleHelpMenuClick = (section) => {
     navigate(`/help?section=${section}`);
-    if (onItemClick) onItemClick();
-  };
-
-  const handleSpeechifyDemoClick = () => {
-    window.open('https://speechifyclone.netlify.app/', '_blank', 'noopener,noreferrer');
     if (onItemClick) onItemClick();
   };
   
@@ -142,19 +137,6 @@ export const MainNavigation = ({ pathname, onItemClick }) => {
             to="/messages"
             active={pathname.startsWith('/messages')}
             onClick={() => handleNavItemClick('/messages')}
-            collapsed={isMainCollapsed}
-            className="hover-lift"
-          />
-        </motion.div>
-        
-        {/* Speechify Demo */}
-        <motion.div variants={itemVariants}>
-          <NavItem 
-            icon={Volume2}
-            label="Speechify Demo"
-            to="#"
-            active={false}
-            onClick={handleSpeechifyDemoClick}
             collapsed={isMainCollapsed}
             className="hover-lift"
           />

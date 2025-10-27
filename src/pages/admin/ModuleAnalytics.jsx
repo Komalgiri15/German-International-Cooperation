@@ -25,13 +25,13 @@ const ModuleAnalytics = () => {
   const [selectedModule, setSelectedModule] = useState(null);
   const [difficultyFilter, setDifficultyFilter] = useState('all');
 
-  // Mock data for modules with detailed info
+  // Mock data for HSE modules with detailed info
   const moduleData = [
     {
       id: 1,
-      nameKey: 'digitalLiteracy',
-      icon: '💻',
-      color: 'sky',
+      nameKey: 'hseFundamentals',
+      icon: '🛡️',
+      color: 'green',
       completion: 92,
       avgScore: 87.5,
       enrolled: 15,
@@ -46,9 +46,9 @@ const ModuleAnalytics = () => {
     },
     {
       id: 2,
-      nameKey: 'financialPlanning',
-      icon: '💰',
-      color: 'purple',
+      nameKey: 'emergencyResponse',
+      icon: '🚨',
+      color: 'red',
       completion: 78,
       avgScore: 82.3,
       enrolled: 13,
@@ -63,9 +63,9 @@ const ModuleAnalytics = () => {
     },
     {
       id: 3,
-      nameKey: 'labourRights',
-      icon: '⚖️',
-      color: 'sky',
+      nameKey: 'environmentalCompliance',
+      icon: '🌱',
+      color: 'green',
       completion: 85,
       avgScore: 88.9,
       enrolled: 14,
@@ -80,9 +80,9 @@ const ModuleAnalytics = () => {
     },
     {
       id: 4,
-      nameKey: 'communicationSkills',
-      icon: '💬',
-      color: 'purple',
+      nameKey: 'hazardIdentification',
+      icon: '⚠️',
+      color: 'yellow',
       completion: 71,
       avgScore: 79.4,
       enrolled: 12,
@@ -97,9 +97,9 @@ const ModuleAnalytics = () => {
     },
     {
       id: 5,
-      nameKey: 'workplaceSafety',
-      icon: '🛡️',
-      color: 'sky',
+      nameKey: 'incidentInvestigation',
+      icon: '🔍',
+      color: 'blue',
       completion: 88,
       avgScore: 91.2,
       enrolled: 11,
@@ -114,8 +114,8 @@ const ModuleAnalytics = () => {
     },
     {
       id: 6,
-      nameKey: 'entrepreneurship',
-      icon: '🚀',
+      nameKey: 'safetyLeadership',
+      icon: '👷',
       color: 'purple',
       completion: 65,
       avgScore: 76.8,
@@ -131,11 +131,11 @@ const ModuleAnalytics = () => {
     }
   ];
 
-  // Mock data for assessments
+  // Mock data for HSE assessments
   const assessmentData = [
     {
       id: 1,
-      nameKey: 'digitalLiteracyQuiz',
+      nameKey: 'hseFundamentalsQuiz',
       typeKey: 'quiz',
       difficultyKey: 'easy',
       totalAttempts: 14,
@@ -146,7 +146,7 @@ const ModuleAnalytics = () => {
     },
     {
       id: 2,
-      nameKey: 'financialPlanningAssessment',
+      nameKey: 'emergencyResponseAssessment',
       typeKey: 'assessment',
       difficultyKey: 'medium',
       totalAttempts: 10,
@@ -157,7 +157,7 @@ const ModuleAnalytics = () => {
     },
     {
       id: 3,
-      nameKey: 'labourLawExam',
+      nameKey: 'environmentalComplianceExam',
       typeKey: 'exam',
       difficultyKey: 'hard',
       totalAttempts: 12,
@@ -168,7 +168,7 @@ const ModuleAnalytics = () => {
     },
     {
       id: 4,
-      nameKey: 'communicationSkillsQuiz',
+      nameKey: 'hazardIdentificationQuiz',
       typeKey: 'quiz',
       difficultyKey: 'easy',
       totalAttempts: 8,

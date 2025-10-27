@@ -70,8 +70,8 @@ const OverviewSummary = () => {
 
   const pathwayData = [
     { 
-      pathwayKey: 'digitalFinancial',
-      moduleKey: 'digitalLiteracy',
+      pathwayKey: 'safetyFundamentals',
+      moduleKey: 'hseFundamentals',
       recommended: 100,
       actual: 100,
       matchRate: 100.0,
@@ -79,8 +79,8 @@ const OverviewSummary = () => {
       learners: 15
     },
     { 
-      pathwayKey: 'labourLegal',
-      moduleKey: 'labourRights',
+      pathwayKey: 'emergencyResponse',
+      moduleKey: 'emergencyManagement',
       recommended: 100,
       actual: 85,
       matchRate: 85.0,
@@ -88,8 +88,8 @@ const OverviewSummary = () => {
       learners: 13
     },
     { 
-      pathwayKey: 'commLeadership',
-      moduleKey: 'communication',
+      pathwayKey: 'environmentalCompliance',
+      moduleKey: 'environmentalSafety',
       recommended: 100,
       actual: 72,
       matchRate: 72.0,
@@ -97,8 +97,8 @@ const OverviewSummary = () => {
       learners: 11
     },
     { 
-      pathwayKey: 'financialEntrepreneurship',
-      moduleKey: 'financial',
+      pathwayKey: 'hazardIdentification',
+      moduleKey: 'riskAssessment',
       recommended: 100,
       actual: 45,
       matchRate: 45.0,
@@ -106,8 +106,8 @@ const OverviewSummary = () => {
       learners: 9
     },
     { 
-      pathwayKey: 'workplaceRisk',
-      moduleKey: 'workplace',
+      pathwayKey: 'incidentInvestigation',
+      moduleKey: 'safetyLeadership',
       recommended: 100,
       actual: 15,
       matchRate: 15.0,
@@ -127,10 +127,10 @@ const OverviewSummary = () => {
       email: 'anna.schmidt@example.com',
       modulesCompleted: 12,
       totalModules: 15,
-      currentModuleKey: 'financialPlanning',
+      currentModuleKey: 'emergencyResponse',
       score: 92.5,
       status: 'active',
-      pathway: 'Digital Literacy',
+      pathway: 'HSE Fundamentals',
       lastActive: '2 hours ago'
     },
     {
@@ -139,10 +139,10 @@ const OverviewSummary = () => {
       email: 'hans.mueller@example.com',
       modulesCompleted: 8,
       totalModules: 15,
-      currentModuleKey: 'labourRights',
+      currentModuleKey: 'environmentalCompliance',
       score: 88.3,
       status: 'active',
-      pathway: 'Legal Compliance',
+      pathway: 'Environmental Safety',
       lastActive: '5 hours ago'
     },
     {

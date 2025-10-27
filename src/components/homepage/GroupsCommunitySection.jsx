@@ -294,15 +294,15 @@ export function GroupsCommunitySection() {
         )}
       </div>
 
-      {/* Footer - Supported by ICEX */}
+      {/* Footer - Powered by BAPCO */}
       <div className="max-w-7xl mx-auto mt-8 flex justify-end">
         <div className="flex items-center gap-2 text-xs text-gray-500">
-          <span>{t('community.supportedBy')}</span>
+          <span>{t('hse.poweredBy')}</span>
           <div className="flex items-center gap-1.5 bg-white px-3 py-1 rounded-full shadow-sm border border-gray-200">
             <div className="w-5 h-5 bg-[#004E9A] rounded-sm flex items-center justify-center text-white font-bold text-[8px]">
-              ICEX
+              BAPCO
             </div>
-            <span className="font-semibold text-[#004E9A]">Consejo de Administración de ICEX España Exportación e Inversiones, E.P.E.</span>
+            <span className="font-semibold text-[#004E9A]">{t('hse.organization')}</span>
           </div>
         </div>
       </div>

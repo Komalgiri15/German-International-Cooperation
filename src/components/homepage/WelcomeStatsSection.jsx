@@ -84,58 +84,58 @@ const StatCard = ({ icon: Icon, label, value, total, suffix = '', color = 'blue'
 
 export function WelcomeStatsSection() {
   const { t } = useTranslation();
-  // Demo user data for pitch presentation
+  // Demo user data for BAPCO HSE training
   const userName = "Demo User";
   const stats = [
     { 
       icon: GraduationCap, 
-      label: "Courses", 
-      value: 3, 
-      total: 10,
-      suffix: "courses", 
+      label: t('hse.stats.trainingModules'), 
+      value: 4, 
+      total: 12,
+      suffix: t('hse.stats.modules'), 
       color: "blue",
-      tooltip: "Shows enrolled courses with progress tracking"
+      tooltip: t('hse.stats.trainingModulesTooltip')
     },
     { 
       icon: Award, 
-      label: "Certificates", 
-      value: 2, 
-      total: 8,
-      suffix: "earned", 
+      label: t('hse.stats.certifications'), 
+      value: 3, 
+      total: 10,
+      suffix: t('hse.stats.earned'), 
       color: "yellow",
-      tooltip: "Completed courses and earned certificates"
+      tooltip: t('hse.stats.certificationsTooltip')
     },
     { 
       icon: Clock, 
-      label: "Learning Hours", 
-      value: 24, 
-      suffix: "hours", 
+      label: t('hse.stats.trainingHours'), 
+      value: 32, 
+      suffix: t('hse.stats.hours'), 
       color: "green",
-      tooltip: "Total time spent learning across all courses"
+      tooltip: t('hse.stats.trainingHoursTooltip')
     },
     { 
       icon: Users, 
-      label: "Active Groups", 
-      value: 2, 
-      total: 5,
-      suffix: "groups", 
+      label: t('hse.stats.safetyTeams'), 
+      value: 3, 
+      total: 6,
+      suffix: t('hse.stats.teams'), 
       color: "purple",
-      tooltip: "Participating in collaborative learning groups"
+      tooltip: t('hse.stats.safetyTeamsTooltip')
     },
   ];
 
   return (
     <div className="space-y-6">
       {/* Section Explanation */}
-      <Card className="border-l-4 border-l-[#004E9A] shadow-md bg-gradient-to-r from-white to-blue-50">
+      <Card className="border-l-4 border-l-green-600 shadow-md bg-gradient-to-r from-white to-green-50">
         <CardContent className="p-6">
           <div className="flex items-center gap-3">
-            <span className="text-3xl">📊</span>
+            <span className="text-3xl">🛡️</span>
             <div>
               <h2 className="text-2xl font-bold text-gray-900" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
-                Statistics & Progress Data
+                {t('hse.dashboard.title')}
               </h2>
-              <p className="text-gray-600 mt-1">This section shows statistics and progress data for learners</p>
+              <p className="text-gray-600 mt-1">{t('hse.dashboard.subtitle')}</p>
             </div>
           </div>
         </CardContent>

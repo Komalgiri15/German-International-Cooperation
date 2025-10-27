@@ -10,7 +10,91 @@
     "hours": "Hours",
     "activeGroups": "Active Groups",
     "groups": "Groups",
-    "loadingDashboard": "Loading GIZ Dashboard..."
+    "loadingDashboard": "Loading BAPCO HSE Dashboard..."
+  },
+  "hse": {
+    "initiative": "HSE Digital Learning",
+    "digitalLearning": "Health, Safety & Environment",
+    "oilGasExcellence": "Oil & Gas Excellence",
+    "organization": "BAPCO Upstream - HSE Excellence",
+    "poweredBy": "Powered by",
+    "dashboard": {
+      "title": "HSE Training Progress",
+      "subtitle": "Track your health, safety, and environmental training progress across all BAPCO modules"
+    },
+    "stats": {
+      "trainingModules": "HSE Modules",
+      "modules": "modules",
+      "trainingModulesTooltip": "Enrolled HSE training modules with progress tracking",
+      "certifications": "HSE Certifications",
+      "earned": "earned",
+      "certificationsTooltip": "Completed HSE courses and earned safety certifications",
+      "trainingHours": "Training Hours",
+      "hours": "hours",
+      "trainingHoursTooltip": "Total time spent in HSE training and safety education",
+      "safetyTeams": "Safety Teams",
+      "teams": "teams",
+      "safetyTeamsTooltip": "Active participation in safety teams and HSE working groups"
+    },
+    "courses": {
+      "sectionTitle": "HSE Training Modules",
+      "subtitle": "Comprehensive health, safety, and environmental training for oil & gas operations",
+      "tooltip": "All HSE training modules aligned with BAPCO standards, local regulations, and oil & gas best practices",
+      "safetyFundamentals": {
+        "title": "HSE Fundamentals for Oil & Gas",
+        "description": "Master essential health, safety, and environmental practices for BAPCO upstream operations"
+      },
+      "emergencyResponse": {
+        "title": "Emergency Response & Crisis Management",
+        "description": "Learn critical emergency procedures, evacuation protocols, and crisis management"
+      },
+      "environmentalCompliance": {
+        "title": "Environmental Compliance & Sustainability",
+        "description": "Understand environmental regulations, waste management, and sustainable practices"
+      },
+      "hazardIdentification": {
+        "title": "Hazard Identification & Risk Assessment",
+        "description": "Develop skills to identify hazards, conduct risk assessments, and implement controls"
+      },
+      "incidentInvestigation": {
+        "title": "Incident Investigation & Root Cause Analysis",
+        "description": "Learn systematic approaches to incident investigation and preventive measures"
+      },
+      "safetyLeadership": {
+        "title": "Safety Leadership & Culture Development",
+        "description": "Build leadership capabilities to foster a strong safety culture across teams"
+      }
+    },
+    "achievements": {
+      "badges": {
+        "safetyChampion": "Safety Champion",
+        "hseExcellence": "HSE Excellence",
+        "environmentalLeader": "Environmental Leader"
+      },
+      "certificates": {
+        "hseProfessional": "HSE Professional",
+        "safetyManager": "Safety Manager",
+        "emergencyResponse": "Emergency Response"
+      }
+    },
+    "awareness": {
+      "sectionTitle": "HSE Awareness & Safety Updates",
+      "subtitle": "Stay informed about safety protocols, environmental initiatives, and regulatory updates"
+    },
+    "announcements": {
+      "safetyProtocol": {
+        "title": "Updated Safety Protocols for Upstream Operations",
+        "description": "New safety protocols have been implemented for all BAPCO upstream facilities. Learn about enhanced PPE requirements, permit-to-work procedures, and emergency response updates."
+      },
+      "emergencyDrill": {
+        "title": "Emergency Response Drill & Training Webinar",
+        "description": "Join our comprehensive emergency response training covering evacuation procedures, fire safety, and crisis management specific to oil & gas operations."
+      },
+      "environmentalAwareness": {
+        "title": "Environmental Protection & Sustainability Video Series",
+        "description": "Watch our video series on environmental protection, waste management best practices, and sustainability initiatives in petroleum operations."
+      }
+    }
   },
   "awareness": {
     "title": "Awareness & Updates",
@@ -701,22 +785,22 @@
       "averageScore": "Average Score",
       "activeToday": "Active Today",
       "pathwayTracker": {
-        "title": "Predictive Pathway Tracker",
-        "subtitle": "Recommended vs actual learner pathways",
+        "title": "HSE Training Pathway Tracker",
+        "subtitle": "Recommended vs actual HSE training pathways",
         "overallProgress": "Overall Progress",
         "modules": {
-          "digitalLiteracy": "Digital Literacy",
-          "labourRights": "Labour Rights",
-          "communication": "Communication Skills",
-          "financial": "Financial Literacy",
-          "workplace": "Workplace Safety"
+          "hseFundamentals": "HSE Fundamentals",
+          "emergencyManagement": "Emergency Response",
+          "environmentalSafety": "Environmental Safety",
+          "riskAssessment": "Risk Assessment",
+          "safetyLeadership": "Safety Leadership"
         },
         "pathways": {
-          "digitalFinancial": "Digital Literacy → Financial Planning",
-          "labourLegal": "Labour Rights → Legal Compliance",
-          "commLeadership": "Communication → Leadership",
-          "financialEntrepreneurship": "Financial Literacy → Entrepreneurship",
-          "workplaceRisk": "Workplace Safety → Risk Management"
+          "safetyFundamentals": "HSE Fundamentals → Safety Operations",
+          "emergencyResponse": "Emergency Response → Crisis Management",
+          "environmentalCompliance": "Environmental Safety → Sustainability",
+          "hazardIdentification": "Risk Assessment → Hazard Control",
+          "incidentInvestigation": "Safety Leadership → Culture Development"
         },
         "statuses": {
           "complete": "Complete",
@@ -781,33 +865,33 @@
         "daysAgo": "{{count}} days ago",
         "dayAgo": "1 day ago",
         "modules": {
-          "financialPlanning": "Financial Planning",
-          "labourRights": "Labour Rights",
-          "communicationSkills": "Communication Skills",
-          "financialLiteracy": "Financial Literacy",
-          "riskManagement": "Risk Management",
-          "basicComputerSkills": "Basic Computer Skills",
-          "digitalMarketing": "Digital Marketing",
-          "advancedSafetyProtocols": "Advanced Safety Protocols",
-          "labourCodeBasics": "Labour Code Basics",
-          "teamCollaboration": "Team Collaboration"
+          "emergencyResponse": "Emergency Response",
+          "environmentalCompliance": "Environmental Compliance",
+          "hazardIdentification": "Hazard Identification",
+          "incidentInvestigation": "Incident Investigation",
+          "safetyProtocols": "Safety Protocols",
+          "hseFundamentals": "HSE Fundamentals",
+          "riskAssessment": "Risk Assessment",
+          "safetyLeadership": "Safety Leadership",
+          "environmentalManagement": "Environmental Management",
+          "emergencyPreparedness": "Emergency Preparedness"
         },
         "learners": {
-          "learner1": "Anna Schmidt",
-          "learner2": "Hans Müller",
-          "learner3": "Sophie Weber",
-          "learner4": "Klaus Fischer",
-          "learner5": "Maria Wagner",
-          "learner6": "Peter Becker",
-          "learner7": "Laura Hoffmann",
-          "learner8": "Michael Schulz",
-          "learner9": "Emma Koch",
-          "learner10": "Thomas Bauer",
-          "learner11": "Lena Meyer",
-          "learner12": "Felix Richter",
-          "learner13": "Sarah Schneider",
-          "learner14": "Markus Wolf",
-          "learner15": "Julia Zimmermann"
+          "learner1": "Ahmed Al-Khalifa",
+          "learner2": "Fatima Hassan",
+          "learner3": "Mohammed Al-Mansoori",
+          "learner4": "Sarah Abdullah",
+          "learner5": "Omar Al-Bahrani",
+          "learner6": "Layla Mahmoud",
+          "learner7": "Rashid Al-Farsi",
+          "learner8": "Noor Al-Sayed",
+          "learner9": "Khalid Ibrahim",
+          "learner10": "Amina Youssef",
+          "learner11": "Hassan Al-Harbi",
+          "learner12": "Maryam Ali",
+          "learner13": "Abdullah Rahman",
+          "learner14": "Zainab Ahmed",
+          "learner15": "Yusuf Khalil"
         }
       }
     },
@@ -823,12 +907,12 @@
         "pending": "pending"
       },
       "modules": {
-        "digitalLiteracy": "Digital Literacy Basics",
-        "financialPlanning": "Financial Planning",
-        "labourRights": "Labour Rights & Compliance",
-        "communicationSkills": "Communication Skills",
-        "workplaceSafety": "Workplace Safety",
-        "entrepreneurship": "Entrepreneurship Fundamentals"
+        "hseFundamentals": "HSE Fundamentals for Oil & Gas",
+        "emergencyResponse": "Emergency Response & Crisis Management",
+        "environmentalCompliance": "Environmental Compliance & Sustainability",
+        "hazardIdentification": "Hazard Identification & Risk Assessment",
+        "incidentInvestigation": "Incident Investigation & Root Cause Analysis",
+        "safetyLeadership": "Safety Leadership & Culture Development"
       },
       "modal": {
         "enrolled": "enrolled",
@@ -858,10 +942,10 @@
         "failed": "failed"
       },
       "assessments": {
-        "digitalLiteracyQuiz": "Digital Literacy Quiz",
-        "financialPlanningAssessment": "Financial Planning Assessment",
-        "labourLawExam": "Labour Law Exam",
-        "communicationSkillsQuiz": "Communication Skills Quiz",
+        "hseFundamentalsQuiz": "HSE Fundamentals Quiz",
+        "emergencyResponseAssessment": "Emergency Response Assessment",
+        "environmentalComplianceExam": "Environmental Compliance Exam",
+        "hazardIdentificationQuiz": "Hazard Identification Quiz",
         "safetyProtocolAssessment": "Safety Protocol Assessment"
       },
       "assessmentTypes": {

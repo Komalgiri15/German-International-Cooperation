@@ -121,13 +121,13 @@ export function LearningPathwaysSection() {
   const [canScrollRight, setCanScrollRight] = useState(true);
   const scrollContainerRef = useRef(null);
 
-  // Simple placeholder course data
+  // HSE Training Modules for BAPCO
   const courses = [
     {
       id: 1,
       image: "/assets/Course.jpg",
-      title: "Course 1",
-      description: "Basic course description and learning objectives",
+      title: t('hse.courses.safetyFundamentals.title'),
+      description: t('hse.courses.safetyFundamentals.description'),
       progress: 65,
       level: "Beginner",
       isStarted: true
@@ -135,8 +135,8 @@ export function LearningPathwaysSection() {
     {
       id: 2,
       image: "/assets/Course.jpg",
-      title: "Course 2",
-      description: "Intermediate course content and skills development",
+      title: t('hse.courses.emergencyResponse.title'),
+      description: t('hse.courses.emergencyResponse.description'),
       progress: 30,
       level: "Intermediate",
       isStarted: true
@@ -144,8 +144,8 @@ export function LearningPathwaysSection() {
     {
       id: 3,
       image: "/assets/Course.jpg",
-      title: "Course 3",
-      description: "Advanced training program for skill enhancement",
+      title: t('hse.courses.environmentalCompliance.title'),
+      description: t('hse.courses.environmentalCompliance.description'),
       progress: 0,
       level: "Advanced",
       isStarted: false
@@ -153,8 +153,8 @@ export function LearningPathwaysSection() {
     {
       id: 4,
       image: "/assets/Course.jpg",
-      title: "Course 4",
-      description: "Specialized course for professional development",
+      title: t('hse.courses.hazardIdentification.title'),
+      description: t('hse.courses.hazardIdentification.description'),
       progress: 0,
       level: "Intermediate",
       isStarted: false
@@ -162,8 +162,8 @@ export function LearningPathwaysSection() {
     {
       id: 5,
       image: "/assets/Course.jpg",
-      title: "Course 5",
-      description: "Certification program with industry standards",
+      title: t('hse.courses.incidentInvestigation.title'),
+      description: t('hse.courses.incidentInvestigation.description'),
       progress: 45,
       level: "Intermediate",
       isStarted: true
@@ -171,8 +171,8 @@ export function LearningPathwaysSection() {
     {
       id: 6,
       image: "/assets/Course.jpg",
-      title: "Course 6",
-      description: "Leadership and management skills training",
+      title: t('hse.courses.safetyLeadership.title'),
+      description: t('hse.courses.safetyLeadership.description'),
       progress: 0,
       level: "Advanced",
       isStarted: false
@@ -221,8 +221,8 @@ export function LearningPathwaysSection() {
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
               <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', 'Nunito', sans-serif" }}>
-                <span className="text-2xl">📚</span>
-                This Section Shows Courses
+                <span className="text-2xl">🛡️</span>
+                {t('hse.courses.sectionTitle')}
               </h2>
               <TooltipProvider>
                 <Tooltip>
@@ -230,13 +230,13 @@ export function LearningPathwaysSection() {
                     <Info className="w-5 h-5 text-gray-400 hover:text-gray-600" />
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p className="text-xs max-w-xs">This section shows all available courses with progress tracking, achievement badges, and personalized learning paths</p>
+                    <p className="text-xs max-w-xs">{t('hse.courses.tooltip')}</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
             </div>
             <p className="text-sm text-gray-600 max-w-2xl">
-              This section shows courses - all learning content and educational materials are here
+              {t('hse.courses.subtitle')}
             </p>
           </div>
           
@@ -302,40 +302,40 @@ export function LearningPathwaysSection() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {/* Badge 1 - Digital Literacy Master */}
+            {/* Badge 1 - Safety Champion */}
             <div className="bg-white rounded-md p-3 border border-gray-200 hover:border-green-300 hover:bg-green-50/30 transition-all group cursor-pointer">
               <div className="flex flex-col items-center text-center gap-1.5">
                 <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center group-hover:bg-green-200 transition-colors">
                   <Award className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-semibold text-gray-800">{t('learning.achievements.badges.digitalMaster')}</p>
+                  <p className="text-[11px] font-semibold text-gray-800">{t('hse.achievements.badges.safetyChampion')}</p>
                   <p className="text-[9px] text-gray-500">{t('learning.achievements.earned')}</p>
                 </div>
               </div>
             </div>
 
-            {/* Badge 2 - Quick Learner */}
+            {/* Badge 2 - HSE Excellence */}
             <div className="bg-white rounded-md p-3 border border-gray-200 hover:border-blue-300 hover:bg-blue-50/30 transition-all group cursor-pointer">
               <div className="flex flex-col items-center text-center gap-1.5">
                 <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
                   <Star className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-semibold text-gray-800">{t('learning.achievements.badges.quickLearner')}</p>
+                  <p className="text-[11px] font-semibold text-gray-800">{t('hse.achievements.badges.hseExcellence')}</p>
                   <p className="text-[9px] text-gray-500">{t('learning.achievements.earned')}</p>
                 </div>
               </div>
             </div>
 
-            {/* Certificate - Labour Rights */}
+            {/* Certificate - HSE Professional */}
             <div className="bg-white rounded-md p-3 border border-gray-200 hover:border-amber-300 hover:bg-amber-50/30 transition-all group cursor-pointer">
               <div className="flex flex-col items-center text-center gap-1.5">
                 <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center group-hover:bg-amber-200 transition-colors">
                   <Medal className="h-5 w-5 text-amber-600" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-semibold text-gray-800">{t('learning.achievements.certificates.labourRights')}</p>
+                  <p className="text-[11px] font-semibold text-gray-800">{t('hse.achievements.certificates.hseProfessional')}</p>
                   <p className="text-[9px] text-amber-600 font-medium">{t('learning.achievements.certificate')}</p>
                 </div>
               </div>
@@ -371,15 +371,15 @@ export function LearningPathwaysSection() {
         </div>
       </div>
 
-      {/* Footer - Supported by ICEX */}
+      {/* Footer - Powered by BAPCO */}
       <div className="max-w-7xl mx-auto mt-6 flex justify-end">
         <div className="flex items-center gap-2 text-xs text-gray-500">
-          <span>{t('learning.supportedBy')}</span>
+          <span>{t('hse.poweredBy')}</span>
           <div className="flex items-center gap-1.5 bg-white px-3 py-1 rounded-full shadow-sm border border-gray-200">
             <div className="w-5 h-5 bg-[#004E9A] rounded-sm flex items-center justify-center text-white font-bold text-[8px]">
-              ICEX
+              BAPCO
             </div>
-            <span className="font-semibold text-[#004E9A]">Consejo de Administración de ICEX España Exportación e Inversiones, E.P.E.</span>
+            <span className="font-semibold text-[#004E9A]">{t('hse.organization')}</span>
           </div>
         </div>
       </div>
